@@ -7,9 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@ionic/core':
+        specifier: ^8.7.9
+        version: 8.7.9
     devDependencies:
       '@stencil/core':
-        specifier: ^4.27.1
+        specifier: ^4.38.3
         version: 4.38.3
       '@types/jest':
         specifier: ^29.5.14
@@ -25,7 +29,7 @@ importers:
         version: 29.7.0(@types/node@22.19.1)
       puppeteer:
         specifier: ^24.3.0
-        version: 24.30.0
+        version: 24.30.0(typescript@5.9.3)
 
 packages:
 
@@ -194,6 +198,9 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
+  '@ionic/core@8.7.9':
+    resolution: {integrity: sha512-6cYp3LHjCGX32MiYR09l/O+8klkJ27WpKzllvnLRe5bxX3nOuqJvJJIshzT85qTdZNTFu7zJJrjWkgEOXGarzg==}
+
   '@istanbuljs/load-nyc-config@1.1.0':
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
     engines: {node: '>=8'}
@@ -337,6 +344,11 @@ packages:
 
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
+
+  '@stencil/core@4.38.0':
+    resolution: {integrity: sha512-oC3QFKO0X1yXVvETgc8OLY525MNKhn9vISBrbtKnGoPlokJ6rI8Vk1RK22TevnNrHLI4SExNLbcDnqilKR35JQ==}
+    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
+    hasBin: true
 
   '@stencil/core@4.38.3':
     resolution: {integrity: sha512-rSDzGUfi58X8K79ySjlM6KlY+mq7D+ittzgNAdYHcsXHc70sBpdatFhnbOg25uVDiMf7xRAH9slP38pPdXnZOQ==}
@@ -812,6 +824,9 @@ packages:
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+
+  ionicons@8.0.13:
+    resolution: {integrity: sha512-2QQVyG2P4wszne79jemMjWYLp0DBbDhr4/yFroPCxvPP1wtMxgdIV3l5n+XZ5E9mgoXU79w7yTWpm2XzJsISxQ==}
 
   ip-address@10.1.0:
     resolution: {integrity: sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q==}
@@ -1350,6 +1365,11 @@ packages:
   typed-query-selector@2.12.0:
     resolution: {integrity: sha512-SbklCd1F0EiZOyPiW192rrHZzZ5sBijB6xM+cpmrwDqObvdtunOHHIk9fCGsoK5JVIYXoyEp4iEdE3upFH3PAg==}
 
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
@@ -1613,6 +1633,12 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
+  '@ionic/core@8.7.9':
+    dependencies:
+      '@stencil/core': 4.38.0
+      ionicons: 8.0.13
+      tslib: 2.8.1
+
   '@istanbuljs/load-nyc-config@1.1.0':
     dependencies:
       camelcase: 5.3.1
@@ -1852,6 +1878,17 @@ snapshots:
   '@sinonjs/fake-timers@10.3.0':
     dependencies:
       '@sinonjs/commons': 3.0.1
+
+  '@stencil/core@4.38.0':
+    optionalDependencies:
+      '@rollup/rollup-darwin-arm64': 4.34.9
+      '@rollup/rollup-darwin-x64': 4.34.9
+      '@rollup/rollup-linux-arm64-gnu': 4.34.9
+      '@rollup/rollup-linux-arm64-musl': 4.34.9
+      '@rollup/rollup-linux-x64-gnu': 4.34.9
+      '@rollup/rollup-linux-x64-musl': 4.34.9
+      '@rollup/rollup-win32-arm64-msvc': 4.34.9
+      '@rollup/rollup-win32-x64-msvc': 4.34.9
 
   '@stencil/core@4.38.3':
     optionalDependencies:
@@ -2122,12 +2159,14 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cosmiconfig@9.0.0:
+  cosmiconfig@9.0.0(typescript@5.9.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
       js-yaml: 4.1.1
       parse-json: 5.2.0
+    optionalDependencies:
+      typescript: 5.9.3
 
   create-jest@29.7.0(@types/node@22.19.1):
     dependencies:
@@ -2345,6 +2384,10 @@ snapshots:
       wrappy: 1.0.2
 
   inherits@2.0.4: {}
+
+  ionicons@8.0.13:
+    dependencies:
+      '@stencil/core': 4.38.3
 
   ip-address@10.1.0: {}
 
@@ -2906,11 +2949,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@24.30.0:
+  puppeteer@24.30.0(typescript@5.9.3):
     dependencies:
       '@puppeteer/browsers': 2.10.13
       chromium-bidi: 11.0.0(devtools-protocol@0.0.1521046)
-      cosmiconfig: 9.0.0
+      cosmiconfig: 9.0.0(typescript@5.9.3)
       devtools-protocol: 0.0.1521046
       puppeteer-core: 24.30.0
       typed-query-selector: 2.12.0
@@ -3075,6 +3118,9 @@ snapshots:
   type-fest@0.21.3: {}
 
   typed-query-selector@2.12.0: {}
+
+  typescript@5.9.3:
+    optional: true
 
   undici-types@6.21.0: {}
 
