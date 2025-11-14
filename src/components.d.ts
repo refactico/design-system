@@ -6,19 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AppHome {
+    }
+    interface AppShell {
     }
     interface RButton {
         /**
@@ -71,11 +61,17 @@ export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     target: HTMLRButtonElement;
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAppHomeElement: {
+        prototype: HTMLAppHomeElement;
+        new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppShellElement extends Components.AppShell, HTMLStencilElement {
+    }
+    var HTMLAppShellElement: {
+        prototype: HTMLAppShellElement;
+        new (): HTMLAppShellElement;
     };
     interface HTMLRButtonElementEventMap {
         "rClick": MouseEvent;
@@ -95,24 +91,15 @@ declare global {
         new (): HTMLRButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "app-home": HTMLAppHomeElement;
+        "app-shell": HTMLAppShellElement;
         "r-button": HTMLRButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AppHome {
+    }
+    interface AppShell {
     }
     interface RButton {
         /**
@@ -164,7 +151,8 @@ declare namespace LocalJSX {
         "type"?: 'button' | 'submit' | 'reset';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "app-home": AppHome;
+        "app-shell": AppShell;
         "r-button": RButton;
     }
 }
@@ -172,7 +160,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
         }
     }

@@ -13,18 +13,14 @@
       "import": "./dist/design-system/design-system.esm.js",
       "require": "./dist/design-system/design-system.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
     "./r-button": {
       "import": "./dist/components/r-button.js",
       "types": "./dist/components/r-button.d.ts"
     },
     "./loader": {
+      "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
+      "require": "./loader/index.cjs"
     }
   },
   "repository": {
@@ -40,15 +36,25 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@stencil/core": "^4.38.3",
+    "@storybook/addon-essentials": "^8.1.0",
+    "@storybook/addon-interactions": "^8.1.0",
+    "@storybook/addon-links": "^8.1.0",
+    "@storybook/html": "^8.1.0",
+    "@storybook/html-webpack5": "^8.1.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.5",
+    "@types/react": "^18.3.26",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "puppeteer": "^24.3.0"
+    "puppeteer": "^24.3.0",
+    "storybook": "^8.1.0",
+    "ts-loader": "^9.5.4"
   },
   "license": "MIT",
   "dependencies": {
