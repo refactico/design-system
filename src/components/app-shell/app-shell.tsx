@@ -12,7 +12,7 @@ export class AppShell {
         {/* Header */}
         <header class="app-shell-header">
           <div class="header-content">
-            <h1 class="header-title">Design System</h1>
+            <h1 class="header-title">Refactico Design System</h1>
           </div>
         </header>
 
@@ -22,7 +22,7 @@ export class AppShell {
           {/* Footer */}
           <footer class="app-shell-footer">
             <div class="footer-content">
-              <p>&copy; 2024 Design System. Built with Stencil & Ionic.</p>
+              <p>&copy; 2024 Refactico. Built with Stencil & Ionic.</p>
             </div>
           </footer>
         </main>

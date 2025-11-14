@@ -51,7 +51,7 @@ export class AppHome {
                 }}
                 onClick={this.handleHomeClick}
               >
-                HOME
+                COMPONENTS
               </h2>
               <ul class="menu-list">
                 {this.menuItems.map(item => (
@@ -76,7 +76,7 @@ export class AppHome {
           {this.selectedComponent === 'home' || !this.selectedComponent ? (
             <div class="welcome-message">
               <h1>Hi</h1>
-              <p>Welcome to the Design System. Select a component from the left to view its details.</p>
+              <p>Welcome to Refactico. Select a component from the left to view its details.</p>
             </div>
           ) : (
             <div class="component-details">

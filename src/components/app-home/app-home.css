@@ -41,7 +41,7 @@
 
 .sidebar-toggle {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 10px;
   background: #ffffff;
   border: 1px solid #e0e0e0;
