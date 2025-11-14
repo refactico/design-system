@@ -1,17 +1,33 @@
 {
-  "name": "design-system",
+  "name": "@refactico/design-system",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Refactico Design System - A comprehensive component library built with Stencil and Ionic for mobile and web applications",
+  "keywords": [
+    "design-system",
+    "web-components",
+    "stencil",
+    "ionic",
+    "refactico",
+    "ui-components",
+    "mobile",
+    "react",
+    "angular",
+    "vue",
+    "typescript"
+  ],
+  "author": "Refactico",
+  "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/design-system/design-system.esm.js",
+  "unpkg": "dist/refactico/refactico.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/design-system/design-system.esm.js",
-      "require": "./dist/design-system/design-system.cjs.js"
+      "import": "./dist/refactico/refactico.esm.js",
+      "require": "./dist/refactico/refactico.cjs.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./r-button": {
       "import": "./dist/components/r-button.js",
@@ -29,8 +45,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
+    "url": "https://github.com/refactico/design-system.git"
   },
+  "bugs": {
+    "url": "https://github.com/refactico/design-system/issues"
+  },
+  "homepage": "https://github.com/refactico/design-system#readme",
   "files": [
     "dist/",
     "loader/"
@@ -44,7 +64,16 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "peerDependencies": {
+    "@ionic/core": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ionic/core": {
+      "optional": false
+    }
+  },
   "devDependencies": {
+    "@ionic/core": "^8.7.9",
     "@stencil/core": "^4.38.3",
     "@storybook/addon-essentials": "^8.1.0",
     "@storybook/addon-interactions": "^8.1.0",
@@ -60,8 +89,5 @@
     "storybook": "^8.1.0",
     "ts-loader": "^9.5.4"
   },
-  "license": "MIT",
-  "dependencies": {
-    "@ionic/core": "^8.7.9"
-  }
+  "dependencies": {}
 }

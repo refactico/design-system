@@ -45,12 +45,12 @@ const preview = {
       // Load the Stencil components
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = '/build/design-system.esm.js';
+      script.src = '/build/refactico.esm.js';
       document.head.appendChild(script);
       
       const scriptNoModule = document.createElement('script');
       scriptNoModule.setAttribute('nomodule', '');
-      scriptNoModule.src = '/build/design-system.js';
+      scriptNoModule.src = '/build/refactico.js';
       document.head.appendChild(scriptNoModule);
       
       // Load Ionic JS
