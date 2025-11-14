@@ -20,6 +20,55 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface RButton {
+        /**
+          * The button color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the button is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the button takes full width
+         */
+        "expand"?: 'full' | 'block';
+        /**
+          * Button fill style
+         */
+        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
+        /**
+          * Icon name (Ionic icon name)
+         */
+        "icon"?: string;
+        /**
+          * If true, shows only the icon (icon-only button)
+          * @default false
+         */
+        "iconOnly": boolean;
+        /**
+          * Icon position
+         */
+        "iconPosition"?: 'start' | 'end';
+        /**
+          * Button shape
+         */
+        "shape"?: 'round';
+        /**
+          * The button size
+         */
+        "size"?: 'small' | 'default' | 'large';
+        /**
+          * The button type (button, submit, reset)
+          * @default 'button'
+         */
+        "type": 'button' | 'submit' | 'reset';
+    }
+}
+export interface RButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRButtonElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +77,26 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLRButtonElementEventMap {
+        "rClick": MouseEvent;
+    }
+    interface HTMLRButtonElement extends Components.RButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRButtonElementEventMap>(type: K, listener: (this: HTMLRButtonElement, ev: RButtonCustomEvent<HTMLRButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRButtonElementEventMap>(type: K, listener: (this: HTMLRButtonElement, ev: RButtonCustomEvent<HTMLRButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRButtonElement: {
+        prototype: HTMLRButtonElement;
+        new (): HTMLRButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "r-button": HTMLRButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +114,58 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface RButton {
+        /**
+          * The button color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the button is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the button takes full width
+         */
+        "expand"?: 'full' | 'block';
+        /**
+          * Button fill style
+         */
+        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
+        /**
+          * Icon name (Ionic icon name)
+         */
+        "icon"?: string;
+        /**
+          * If true, shows only the icon (icon-only button)
+          * @default false
+         */
+        "iconOnly"?: boolean;
+        /**
+          * Icon position
+         */
+        "iconPosition"?: 'start' | 'end';
+        /**
+          * Emitted when the button is clicked
+         */
+        "onRClick"?: (event: RButtonCustomEvent<MouseEvent>) => void;
+        /**
+          * Button shape
+         */
+        "shape"?: 'round';
+        /**
+          * The button size
+         */
+        "size"?: 'small' | 'default' | 'large';
+        /**
+          * The button type (button, submit, reset)
+          * @default 'button'
+         */
+        "type"?: 'button' | 'submit' | 'reset';
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "r-button": RButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +173,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
         }
     }
 }
