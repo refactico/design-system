@@ -7,6 +7,7 @@ import { Component, State, h } from '@stencil/core';
 })
 export class AppHome {
   @State() selectedComponent: string | null = null;
+  @State() sidebarCollapsed: boolean = false;
 
   private menuItems = [
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
@@ -22,34 +23,52 @@ export class AppHome {
     this.selectedComponent = 'home';
   };
 
+  private toggleSidebar = () => {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  };
+
   render() {
     return (
       <div class="app-home-container">
         {/* Left Sidebar - Menu List */}
-        <div class="app-home-sidebar">
-          <h2 
-            class={{
-              'sidebar-title': true,
-              'sidebar-title--active': this.selectedComponent === 'home' || !this.selectedComponent,
-            }}
-            onClick={this.handleHomeClick}
+        <div class={{
+          'app-home-sidebar': true,
+          'app-home-sidebar--collapsed': this.sidebarCollapsed,
+        }}>
+          <button 
+            class="sidebar-toggle"
+            onClick={this.toggleSidebar}
+            aria-label={this.sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
-            HOME
-          </h2>
-          <ul class="menu-list">
-            {this.menuItems.map(item => (
-              <li
-                key={item.id}
+            <ion-icon name={this.sidebarCollapsed ? 'chevron-forward-outline' : 'chevron-back-outline'}></ion-icon>
+          </button>
+          {!this.sidebarCollapsed && (
+            <>
+              <h2 
                 class={{
-                  'menu-item': true,
-                  'menu-item--active': this.selectedComponent === item.id,
+                  'sidebar-title': true,
+                  'sidebar-title--active': this.selectedComponent === 'home' || !this.selectedComponent,
                 }}
-                onClick={() => this.handleItemClick(item.id)}
+                onClick={this.handleHomeClick}
               >
-                {item.name}
-              </li>
-            ))}
-          </ul>
+                HOME
+              </h2>
+              <ul class="menu-list">
+                {this.menuItems.map(item => (
+                  <li
+                    key={item.id}
+                    class={{
+                      'menu-item': true,
+                      'menu-item--active': this.selectedComponent === item.id,
+                    }}
+                    onClick={() => this.handleItemClick(item.id)}
+                  >
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
 
         {/* Right Content Area */}

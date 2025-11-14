@@ -19,14 +19,13 @@ export class AppShell {
         {/* Main Content Area */}
         <main class="app-shell-main">
           <app-home></app-home>
+          {/* Footer */}
+          <footer class="app-shell-footer">
+            <div class="footer-content">
+              <p>&copy; 2024 Design System. Built with Stencil & Ionic.</p>
+            </div>
+          </footer>
         </main>
-
-        {/* Footer */}
-        <footer class="app-shell-footer">
-          <div class="footer-content">
-            <p>&copy; 2024 Design System. Built with Stencil & Ionic.</p>
-          </div>
-        </footer>
       </div>
     );
   }
