@@ -1,5 +1,9 @@
 # Refactico Design System - Architecture Recommendations
 
+> **Last Updated**: After Session 2 - Internal Components Excluded & README Created
+> 
+> **Status**: ✅ Critical items 1-5 completed | 🔄 Working through recommendations one by one
+
 ## Current State Analysis
 
 ### ✅ What's Working Well
@@ -11,21 +15,23 @@
 
 ### ⚠️ Critical Issues for 40 Apps + Open Source
 
-## 1. Package Configuration Issues
+## 1. Package Configuration Issues ✅ COMPLETED
 
-### Problem: Generic Package Name
-- Current: `"name": "design-system"` - too generic, will conflict
-- **Fix**: Change to `"@refactico/design-system"` or `refactico-design-system`
+### ✅ Fixed: Generic Package Name
+- **DONE**: Changed from `"design-system"` to `"@refactico/design-system"`
+- Scoped package name prevents conflicts
 
-### Problem: Missing Package Metadata
-- No proper repository URL (still pointing to stencil starter)
-- No keywords for discoverability
-- No homepage/website
-- No author information
+### ✅ Fixed: Missing Package Metadata
+- **DONE**: Added proper repository URL structure
+- **DONE**: Added keywords for discoverability (design-system, web-components, stencil, ionic, refactico, etc.)
+- **DONE**: Added homepage URL
+- **DONE**: Added author information ("Refactico")
+- **DONE**: Added bugs URL for issue tracking
+- **DONE**: Updated description to reflect Refactico Design System
 
-### Problem: Version Management
+### ⚠️ Remaining: Version Management
 - Currently at `0.0.1` - need semantic versioning strategy
-- No changelog for tracking breaking changes
+- No changelog for tracking breaking changes (TODO: Create CHANGELOG.md)
 
 ## 2. Component Export Strategy
 
@@ -116,47 +122,36 @@
 - Support dark mode
 - Allow app-level theme overrides
 
-## 8. Internal vs External Components
+## 8. Internal vs External Components ✅ COMPLETED
 
-### Current Issue:
-- `app-shell` and `app-home` are internal but still in dist
-- Should be excluded from public builds
+### ✅ Fixed: Internal Components Exclusion
+- **DONE**: Created `.npmignore` to exclude `app-shell` and `app-home` from npm package
+- **DONE**: Internal components still available for local `www` build (development)
+- **DONE**: Only public `r-*` components are included in published package
 
-### Fix:
-```typescript
-// stencil.config.ts
-export const config: Config = {
-  namespace: 'refactico',
-  buildEs5: 'prod',
-  extras: {
-    experimentalImportInjection: true,
-  },
-  outputTargets: [
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-      // Exclude internal components
-      copy: [
-        {
-          src: '**/*.css',
-          dest: '../dist',
-          warn: true,
-        },
-      ],
-    },
-    // ... other targets
-  ],
-};
-```
+### Implementation:
+- Created `.npmignore` file that excludes:
+  - `dist/components/app-shell.*`
+  - `dist/components/app-home.*`
+  - `dist/collection/components/app-shell/`
+  - `dist/collection/components/app-home/`
+  - `dist/types/components/app-shell/`
+  - `dist/types/components/app-home/`
 
-## 9. Dependency Management
+### Note:
+- Internal components are still built for local development (`www` target)
+- They are excluded from the npm package via `.npmignore`
+- This allows local dev to work while keeping the package clean
 
-### Issues:
-- Ionic Core as dependency (should be peerDependency)
-- No peer dependency declarations
-- Version conflicts possible across 40 apps
+## 9. Dependency Management ✅ COMPLETED
 
-### Recommendations:
+### ✅ Fixed: Ionic Core Dependency
+- **DONE**: Moved `@ionic/core` from `dependencies` to `peerDependencies`
+- **DONE**: Added `peerDependenciesMeta` to mark it as required
+- **DONE**: Added `@ionic/core` to `devDependencies` for development
+- Prevents version conflicts across 40 apps
+
+### Implementation:
 ```json
 {
   "peerDependencies": {
@@ -166,6 +161,9 @@ export const config: Config = {
     "@ionic/core": {
       "optional": false
     }
+  },
+  "devDependencies": {
+    "@ionic/core": "^8.7.9"
   }
 }
 ```
@@ -217,11 +215,11 @@ export const config: Config = {
 ## Priority Action Items
 
 ### 🔴 Critical (Do First):
-1. Rename package to `@refactico/design-system`
-2. Update repository URL and metadata
-3. Move Ionic to peerDependencies
-4. Exclude internal components from public build
-5. Create comprehensive README
+1. ✅ **COMPLETED**: Rename package to `@refactico/design-system`
+2. ✅ **COMPLETED**: Update repository URL and metadata
+3. ✅ **COMPLETED**: Move Ionic to peerDependencies
+4. ✅ **COMPLETED**: Exclude internal components from public build
+5. ✅ **COMPLETED**: Create comprehensive README
 
 ### 🟡 High Priority:
 6. Set up CI/CD pipeline
@@ -281,11 +279,30 @@ refactico-design-system/
 └── README.md
 ```
 
-## Next Steps
+## Progress Tracker
 
-1. **Immediate**: Fix package.json and repository info
-2. **Week 1**: Set up CI/CD and testing
-3. **Week 2**: Implement theming system
-4. **Week 3**: Documentation and examples
-5. **Week 4**: Framework wrappers and optimization
+### ✅ Completed (Session 1 & 2)
+1. ✅ Package renamed to `@refactico/design-system`
+2. ✅ Package metadata updated (keywords, author, homepage, bugs URL)
+3. ✅ Repository URL structure added
+4. ✅ Ionic moved to peerDependencies
+5. ✅ Namespace updated from `design-system` to `refactico`
+6. ✅ Build output files updated (refactico.esm.js, refactico.js)
+7. ✅ HTML files updated to reference new build files
+8. ✅ Storybook preview updated
+9. ✅ Internal components excluded from npm package (`.npmignore`)
+10. ✅ Comprehensive README created with installation, usage, and examples
+
+### 🔄 In Progress
+- None currently
+
+### 📋 Next Steps (Priority Order)
+1. ✅ **COMPLETED**: Exclude internal components from public build
+2. ✅ **COMPLETED**: Create comprehensive README
+3. ⚠️ **NEXT**: Set up CI/CD pipeline (GitHub Actions)
+4. ⚠️ **NEXT**: Implement theming system with CSS custom properties
+5. ⚠️ **NEXT**: Create CHANGELOG.md for version tracking
+6. ⚠️ **NEXT**: Add component barrel exports for easier imports
+7. ⚠️ **NEXT**: Set up bundle size monitoring
+8. ⚠️ **NEXT**: Framework-specific wrappers (React, Angular, Vue)
 
