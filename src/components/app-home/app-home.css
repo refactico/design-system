@@ -76,32 +76,34 @@
 
 .sidebar-title {
   margin: 0 0 20px 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  padding: 12px 16px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #e0e0e0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #666;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid #e0e0e0;
   cursor: pointer !important;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   user-select: none;
   pointer-events: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: none !important;
+  border-radius: 0 !important;
 }
 
 .sidebar-title:hover {
-  background-color: #e9ecef;
-  color: #007bff;
+  background: none !important;
+  color: #333;
 }
 
 .sidebar-title--active {
-  background-color: #007bff;
-  color: white;
+  background: none !important;
+  color: #0066cc;
 }
 
 .sidebar-title--active:hover {
-  background-color: #0056b3;
-  color: white;
+  background: none !important;
+  color: #0066cc;
 }
 
 .menu-list {
