@@ -55,10 +55,102 @@ export namespace Components {
          */
         "type": 'button' | 'submit' | 'reset';
     }
+    interface RInput {
+        /**
+          * The input autocomplete attribute
+         */
+        "autocomplete"?: string;
+        /**
+          * If true, clears the input on edit
+         */
+        "clearOnEdit"?: boolean;
+        /**
+          * The input color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the input is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the input has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The input fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The input label
+         */
+        "label"?: string;
+        /**
+          * Maximum length of the input
+         */
+        "maxlength"?: number;
+        /**
+          * Minimum length of the input
+         */
+        "minlength"?: number;
+        /**
+          * The input name
+         */
+        "name"?: string;
+        /**
+          * Pattern for validation
+         */
+        "pattern"?: string;
+        /**
+          * The input placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the input is readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * If true, the input is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The input shape
+         */
+        "shape"?: 'round';
+        /**
+          * If true, shows password toggle button (only for password type)
+          * @default true
+         */
+        "showPasswordToggle": boolean;
+        /**
+          * The input type (text, password, email, number, tel, url, search, etc.)
+          * @default 'text'
+         */
+        "type": string;
+        /**
+          * The input value
+         */
+        "value"?: string;
+    }
 }
 export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRButtonElement;
+}
+export interface RInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRInputElement;
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -90,10 +182,30 @@ declare global {
         prototype: HTMLRButtonElement;
         new (): HTMLRButtonElement;
     };
+    interface HTMLRInputElementEventMap {
+        "rInput": CustomEvent;
+        "rFocus": FocusEvent;
+        "rBlur": FocusEvent;
+    }
+    interface HTMLRInputElement extends Components.RInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRInputElementEventMap>(type: K, listener: (this: HTMLRInputElement, ev: RInputCustomEvent<HTMLRInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRInputElementEventMap>(type: K, listener: (this: HTMLRInputElement, ev: RInputCustomEvent<HTMLRInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRInputElement: {
+        prototype: HTMLRInputElement;
+        new (): HTMLRInputElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
         "r-button": HTMLRButtonElement;
+        "r-input": HTMLRInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -150,10 +262,111 @@ declare namespace LocalJSX {
          */
         "type"?: 'button' | 'submit' | 'reset';
     }
+    interface RInput {
+        /**
+          * The input autocomplete attribute
+         */
+        "autocomplete"?: string;
+        /**
+          * If true, clears the input on edit
+         */
+        "clearOnEdit"?: boolean;
+        /**
+          * The input color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the input is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the input has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The input fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The input label
+         */
+        "label"?: string;
+        /**
+          * Maximum length of the input
+         */
+        "maxlength"?: number;
+        /**
+          * Minimum length of the input
+         */
+        "minlength"?: number;
+        /**
+          * The input name
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input is blurred
+         */
+        "onRBlur"?: (event: RInputCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the input is focused
+         */
+        "onRFocus"?: (event: RInputCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the input value changes
+         */
+        "onRInput"?: (event: RInputCustomEvent<CustomEvent>) => void;
+        /**
+          * Pattern for validation
+         */
+        "pattern"?: string;
+        /**
+          * The input placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the input is readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * If true, the input is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The input shape
+         */
+        "shape"?: 'round';
+        /**
+          * If true, shows password toggle button (only for password type)
+          * @default true
+         */
+        "showPasswordToggle"?: boolean;
+        /**
+          * The input type (text, password, email, number, tel, url, search, etc.)
+          * @default 'text'
+         */
+        "type"?: string;
+        /**
+          * The input value
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-shell": AppShell;
         "r-button": RButton;
+        "r-input": RInput;
     }
 }
 export { LocalJSX as JSX };
@@ -163,6 +376,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
+            "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
         }
     }
 }

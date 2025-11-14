@@ -17,6 +17,10 @@
       "import": "./dist/components/r-button.js",
       "types": "./dist/components/r-button.d.ts"
     },
+    "./r-input": {
+      "import": "./dist/components/r-input.js",
+      "types": "./dist/components/r-input.d.ts"
+    },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",

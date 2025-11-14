@@ -10,6 +10,7 @@ export class AppHome {
 
   private menuItems = [
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
+    { id: 'r-input', name: 'Input', description: 'Input field component with password visibility toggle and validation support' },
     // Add more components here as they are created
   ];
 
@@ -66,7 +67,62 @@ export class AppHome {
                   <div key={item.id}>
                     <h1>{item.name}</h1>
                     <p>{item.description}</p>
-                    {/* Component preview/explanation will go here */}
+                    <div class="component-preview">
+                      {this.selectedComponent === 'r-button' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Primary Button</h3>
+                            <r-button color="primary">Primary Button</r-button>
+                          </div>
+                          <div class="example-group">
+                            <h3>Secondary Button</h3>
+                            <r-button color="secondary">Secondary Button</r-button>
+                          </div>
+                          <div class="example-group">
+                            <h3>Danger Button</h3>
+                            <r-button color="danger">Danger Button</r-button>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Button</h3>
+                            <r-button disabled>Disabled Button</r-button>
+                          </div>
+                          <div class="example-group">
+                            <h3>Button with Icon</h3>
+                            <r-button icon="star" icon-position="start">Button with Icon</r-button>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-input' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Input</h3>
+                            <r-input label="Name" placeholder="Enter your name"></r-input>
+                          </div>
+                          <div class="example-group">
+                            <h3>Email Input</h3>
+                            <r-input type="email" label="Email" placeholder="Enter your email"></r-input>
+                          </div>
+                          <div class="example-group">
+                            <h3>Password Input with Toggle</h3>
+                            <r-input type="password" label="Password" placeholder="Enter your password" show-password-toggle></r-input>
+                          </div>
+                          <div class="example-group">
+                            <h3>Input with Error</h3>
+                            <r-input type="email" label="Email" value="invalid-email" error error-text="Please enter a valid email address"></r-input>
+                          </div>
+                          <div class="example-group">
+                            <h3>Input with Helper Text</h3>
+                            <r-input label="Username" placeholder="Enter username" helper-text="Username must be at least 3 characters"></r-input>
+                          </div>
+                          <div class="example-group">
+                            <h3>Outline Style</h3>
+                            <r-input label="Outline Input" placeholder="Enter text" fill="outline"></r-input>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
             </div>

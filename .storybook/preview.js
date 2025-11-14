@@ -14,6 +14,28 @@ const preview = {
   },
   decorators: [
     (story) => {
+      // Add CSS overrides for scrolling
+      const style = document.createElement('style');
+      style.textContent = `
+        html, body {
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
+          height: auto !important;
+        }
+        ion-app {
+          overflow-y: visible !important;
+          height: auto !important;
+        }
+        #storybook-root {
+          overflow-y: auto !important;
+          height: auto !important;
+        }
+        .sb-story {
+          overflow-y: visible !important;
+        }
+      `;
+      document.head.appendChild(style);
+      
       // Load Ionic CSS
       const ionicCSS = document.createElement('link');
       ionicCSS.rel = 'stylesheet';
