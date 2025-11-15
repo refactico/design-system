@@ -8,5 +8,8 @@
  * to consume components of this package as outlined in the `README.md`.
  */
 
+// Initialize Ionic components globally
+import './utils/ionic-init';
+
 export { format } from './utils/utils';
 export type * from './components.d.ts';
