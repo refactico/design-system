@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'refactico',
+  globalStyle: 'src/global/theme.css',
   outputTargets: [
     {
       type: 'dist',

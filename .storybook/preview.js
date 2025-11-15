@@ -1,3 +1,6 @@
+// Import theme CSS
+import '../src/global/theme.css';
+
 /** @type { import('@storybook/html').Preview } */
 const preview = {
   parameters: {
@@ -32,15 +35,36 @@ const preview = {
         }
         .sb-story {
           overflow-y: visible !important;
+          min-height: auto !important;
+        }
+        .docs-story {
+          min-height: auto !important;
+          overflow: visible !important;
         }
       `;
       document.head.appendChild(style);
       
-      // Load Ionic CSS
+      // Initialize theme (default to light)
+      if (!document.documentElement.getAttribute('data-theme')) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+      
+      // Load Ionic CSS (theme CSS is already loaded via import above)
       const ionicCSS = document.createElement('link');
       ionicCSS.rel = 'stylesheet';
       ionicCSS.href = 'https://cdn.jsdelivr.net/npm/@ionic/core@latest/css/ionic.bundle.css';
       document.head.appendChild(ionicCSS);
+      
+      // Load Ionic JS first (required for components to work)
+      const ionicScript = document.createElement('script');
+      ionicScript.type = 'module';
+      ionicScript.src = 'https://cdn.jsdelivr.net/npm/@ionic/core@latest/dist/ionic/ionic.esm.js';
+      document.head.appendChild(ionicScript);
+      
+      const ionicScriptNoModule = document.createElement('script');
+      ionicScriptNoModule.setAttribute('nomodule', '');
+      ionicScriptNoModule.src = 'https://cdn.jsdelivr.net/npm/@ionic/core@latest/dist/ionic/ionic.js';
+      document.head.appendChild(ionicScriptNoModule);
       
       // Load the Stencil components
       const script = document.createElement('script');
@@ -53,17 +77,13 @@ const preview = {
       scriptNoModule.src = '/build/refactico.js';
       document.head.appendChild(scriptNoModule);
       
-      // Load Ionic JS
-      const ionicScript = document.createElement('script');
-      ionicScript.type = 'module';
-      ionicScript.src = 'https://cdn.jsdelivr.net/npm/@ionic/core@latest/dist/ionic/ionic.esm.js';
-      document.head.appendChild(ionicScript);
-      
-      const ionicScriptNoModule = document.createElement('script');
-      ionicScriptNoModule.setAttribute('nomodule', '');
-      ionicScriptNoModule.src = 'https://cdn.jsdelivr.net/npm/@ionic/core@latest/dist/ionic/ionic.js';
-      document.head.appendChild(ionicScriptNoModule);
-      
+      // Wrap story in ion-app for proper Ionic styling
+      const wrapper = document.createElement('ion-app');
+      const storyContent = story();
+      if (storyContent) {
+        wrapper.appendChild(storyContent);
+        return wrapper;
+      }
       return story();
     },
   ],

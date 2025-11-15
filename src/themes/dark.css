@@ -1,0 +1,61 @@
+/* Dark Theme - Color tokens */
+:root[data-theme="dark"] {
+  /* Background Colors */
+  --r-color-bg-surface: #1a1a1a;
+  --r-color-bg-surface-rgb: 26, 26, 26;
+  --r-color-bg-surface-secondary: #2d2d2d;
+  --r-color-bg-surface-secondary-rgb: 45, 45, 45;
+  
+  /* Text Colors */
+  --r-color-text-primary: #ffffff;
+  --r-color-text-primary-rgb: 255, 255, 255;
+  --r-color-text-secondary: #b3b3b3;
+  --r-color-text-secondary-rgb: 179, 179, 179;
+  --r-color-text-disabled: #808080;
+  --r-color-text-disabled-rgb: 128, 128, 128;
+  --r-color-text-on-interactive: #ffffff;
+  --r-color-text-on-interactive-rgb: 255, 255, 255;
+  
+  /* Interactive Colors */
+  --r-color-interactive-primary: #3388dd;
+  --r-color-interactive-primary-rgb: 51, 136, 221;
+  --r-color-interactive-primary-shade: #2a6db3;
+  --r-color-interactive-primary-tint: #4d99e6;
+  --r-color-interactive-secondary: #7a78e6;
+  --r-color-interactive-secondary-rgb: 122, 120, 230;
+  --r-color-interactive-secondary-shade: #6361c0;
+  --r-color-interactive-secondary-tint: #8a88ea;
+  --r-color-interactive-hover: #2a6db3;
+  --r-color-interactive-active: #1f5288;
+  
+  /* Border Colors */
+  --r-color-border-default: #404040;
+  --r-color-border-default-rgb: 64, 64, 64;
+  --r-color-border-focus: #3388dd;
+  --r-color-border-focus-rgb: 51, 136, 221;
+  
+  /* Status Colors */
+  --r-color-success: #4caf50;
+  --r-color-success-rgb: 76, 175, 80;
+  --r-color-success-shade: #409944;
+  --r-color-success-tint: #5eb862;
+  --r-color-warning: #ffb300;
+  --r-color-warning-rgb: 255, 179, 0;
+  --r-color-warning-shade: #e09f00;
+  --r-color-warning-tint: #ffbc1a;
+  --r-color-error: #f44336;
+  --r-color-error-rgb: 244, 67, 54;
+  --r-color-error-shade: #d73a2e;
+  --r-color-error-tint: #f55a4e;
+  --r-color-info: #2196f3;
+  --r-color-info-rgb: 33, 150, 243;
+  
+  /* Dark/Light/Medium for Ionic compatibility */
+  --r-color-dark: #ffffff;
+  --r-color-dark-rgb: 255, 255, 255;
+  --r-color-light: #2d2d2d;
+  --r-color-light-rgb: 45, 45, 45;
+  --r-color-medium: #b3b3b3;
+  --r-color-medium-rgb: 179, 179, 179;
+}
+

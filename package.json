@@ -56,6 +56,8 @@
     "loader/"
   ],
   "scripts": {
+    "generate:ionic-mapping": "ts-node scripts/generate-ionic-mapping.ts",
+    "prebuild": "npm run generate:ionic-mapping",
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
@@ -87,7 +89,7 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "^24.3.0",
     "storybook": "^8.1.0",
-    "ts-loader": "^9.5.4"
-  },
-  "dependencies": {}
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2"
+  }
 }

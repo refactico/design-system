@@ -55,6 +55,18 @@ const config = {
       });
     }
     
+    // Ensure CSS files are handled
+    const cssRule = config.module.rules.find(
+      (rule) => rule.test && rule.test.toString().includes('css')
+    );
+    
+    if (!cssRule) {
+      config.module.rules.push({
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      });
+    }
+    
     return config;
   },
 };

@@ -214,13 +214,19 @@ export const Disabled: Story = {
 export const FullWidth: Story = {
   render: () => {
     const container = document.createElement('div');
-    container.style.cssText = 'max-width: 400px;';
+    container.style.cssText = 'max-width: 400px; box-sizing: border-box; padding: 16px 0;';
     
+    // First button - Full Width (primary/blue) - truly full width
     const full = createButton({ expand: 'full', color: 'primary', children: 'Full Width' });
-    const block = createButton({ expand: 'block', color: 'secondary', children: 'Block', style: 'margin-top: 10px;' });
+    full.style.cssText = 'display: block; width: 100%; margin-bottom: 16px;';
+    
+    // Second button - Block (secondary/purple) - also full width
+    const block = createButton({ expand: 'block', color: 'secondary', children: 'Block' });
+    block.style.cssText = 'display: block; width: 100%;';
     
     container.appendChild(full);
     container.appendChild(block);
+    
     return container;
   },
   parameters: {
