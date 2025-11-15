@@ -88,15 +88,18 @@ export class RButton {
 
     return (
       <ion-button {...buttonProps}>
-        {this.icon && this.iconPosition !== 'end' && (
-          <ion-icon name={this.icon} slot="start"></ion-icon>
-        )}
-        <slot></slot>
-        {this.icon && this.iconPosition === 'end' && (
-          <ion-icon name={this.icon} slot="end"></ion-icon>
-        )}
-        {this.iconOnly && this.icon && !this.iconPosition && (
-          <ion-icon name={this.icon}></ion-icon>
+        {this.iconOnly && this.icon ? (
+          <ion-icon name={this.icon} slot="icon-only"></ion-icon>
+        ) : (
+          <>
+            {this.icon && this.iconPosition !== 'end' && (
+              <ion-icon name={this.icon} slot="start"></ion-icon>
+            )}
+            <slot></slot>
+            {this.icon && this.iconPosition === 'end' && (
+              <ion-icon name={this.icon} slot="end"></ion-icon>
+            )}
+          </>
         )}
       </ion-button>
     );
