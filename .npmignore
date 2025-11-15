@@ -15,12 +15,6 @@ node_modules/
 # These are excluded from npm package but kept for local www build
 dist/components/app-shell.*
 dist/components/app-home.*
-dist/components/app-shell.js
-dist/components/app-shell.js.map
-dist/components/app-home.js
-dist/components/app-home.js.map
-dist/components/app-shell.d.ts
-dist/components/app-home.d.ts
 dist/collection/components/app-shell/
 dist/collection/components/app-home/
 dist/types/components/app-shell/
