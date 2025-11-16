@@ -16,3 +16,88 @@ defineCustomElements();
  * This enables automatic generation of props, methods, events, slots, shadow parts, and CSS variables tables.
  */
 setCustomElementsManifest(customElements);
+
+/**
+ * Theme decorator - applies theme classes to document
+ * Integrates with Storybook's background addon for light/dark themes
+ * Ionic uses html.ios or html.md classes for platform themes
+ * Our design system uses data-theme="light" or data-theme="dark" for color themes
+ */
+const themeDecorator = (storyFn: any, context: any) => {
+  // Get theme from Storybook's background addon (syncs with background control)
+  // Storybook stores background in globals.backgrounds.value or we can check the background name
+  const backgrounds = context?.globals?.backgrounds;
+  let theme = 'light';
+  
+  if (backgrounds) {
+    // Check if background value matches dark theme color
+    const bgValue = backgrounds.value || '';
+    const bgName = backgrounds.name || '';
+    
+    // Match by color value or name
+    if (bgValue === '#1a1a1a' || bgName === 'dark' || bgValue.includes('1a1a1a')) {
+      theme = 'dark';
+    }
+  }
+  
+  // Get platform from our custom control
+  const platform = context?.globals?.platform || 'ios';
+  
+  // Apply theme to html element
+  if (typeof document !== 'undefined') {
+    const html = document.documentElement;
+    
+    // Remove existing theme attributes and platform classes
+    html.removeAttribute('data-theme');
+    html.classList.remove('ios', 'md');
+    
+    // Apply color theme (light/dark) - synced with Storybook background
+    html.setAttribute('data-theme', theme);
+    
+    // Apply platform class (ios/md) for Ionic styling
+    html.classList.add(platform);
+  }
+  
+  return storyFn();
+};
+
+export const decorators = [themeDecorator];
+
+export const globalTypes = {
+  platform: {
+    name: 'Platform',
+    description: 'Ionic platform theme',
+    defaultValue: 'ios',
+    toolbar: {
+      icon: 'mobile',
+      items: [
+        { value: 'ios', title: 'iOS' },
+        { value: 'md', title: 'Material Design' },
+      ],
+      showName: true,
+    },
+  },
+};
+
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: '#ffffff',
+      },
+      {
+        name: 'dark',
+        value: '#1a1a1a',
+      },
+    ],
+  },
+};

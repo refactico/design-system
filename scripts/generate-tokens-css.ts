@@ -27,6 +27,49 @@ function toKebabCase(str: string): string {
 }
 
 /**
+ * Converts hex color to RGB array
+ */
+function hexToRgb(hex: string): [number, number, number] {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16),
+      ]
+    : [0, 0, 0];
+}
+
+/**
+ * Converts RGB array to hex color
+ */
+function rgbToHex(r: number, g: number, b: number): string {
+  return '#' + [r, g, b].map(x => {
+    const hex = Math.round(x).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  }).join('');
+}
+
+/**
+ * Blends two colors with given opacity
+ * Formula: result = foreground * opacity + background * (1 - opacity)
+ */
+function blendColors(
+  foregroundHex: string,
+  backgroundHex: string,
+  opacity: number
+): string {
+  const fg = hexToRgb(foregroundHex);
+  const bg = hexToRgb(backgroundHex);
+  
+  const r = fg[0] * opacity + bg[0] * (1 - opacity);
+  const g = fg[1] * opacity + bg[1] * (1 - opacity);
+  const b = fg[2] * opacity + bg[2] * (1 - opacity);
+  
+  return rgbToHex(r, g, b);
+}
+
+/**
  * Generates CSS variables from a flat object using naming convention
  * Convention: key → --r-{prefix}-{key}
  */
@@ -40,74 +83,94 @@ function generateFromObject(obj: Record<string, any>, prefix: string): string {
 }
 
 /**
- * Generates color CSS variables matching Ionic's exact naming
+ * Generates color CSS variables matching Ionic's exact naming and default values
  * Convention: Follows Ionic's --ion-color-* pattern but with --r- prefix
- * Examples:
- *   primary → --r-color-primary
- *   background.surface → --r-background-color
- *   text.primary → --r-text-color
  */
 function generateColorVariables(): string {
   let css = '';
   
-  // Color system (matches Ionic exactly)
-  css += `  /* Color System - matches Ionic naming */\n`;
-  css += `  --r-color-primary: ${colors.interactive.primaryHex};\n`;
-  css += `  --r-color-primary-rgb: ${colors.interactive.primary.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-primary-shade: ${colors.interactive.primaryShadeHex};\n`;
-  css += `  --r-color-primary-tint: ${colors.interactive.primaryTintHex};\n`;
-  css += `  --r-color-primary-contrast: ${colors.text.onInteractiveHex};\n`;
-  css += `  --r-color-primary-contrast-rgb: ${colors.text.onInteractive.replace(/ /g, ', ')};\n`;
+  // Color system (matches Ionic defaults exactly)
+  css += `  /* Color System - matches Ionic naming and defaults */\n`;
+  
+  // Primary
+  css += `  --r-color-primary: ${colors.primary.baseHex};\n`;
+  css += `  --r-color-primary-rgb: ${colors.primary.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-primary-shade: ${colors.primary.shadeHex};\n`;
+  css += `  --r-color-primary-tint: ${colors.primary.tintHex};\n`;
+  css += `  --r-color-primary-contrast: ${colors.primary.contrastHex};\n`;
+  css += `  --r-color-primary-contrast-rgb: ${colors.primary.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
-  css += `  --r-color-secondary: ${colors.interactive.secondaryHex};\n`;
-  css += `  --r-color-secondary-rgb: ${colors.interactive.secondary.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-secondary-shade: ${colors.interactive.secondaryShadeHex};\n`;
-  css += `  --r-color-secondary-tint: ${colors.interactive.secondaryTintHex};\n`;
-  css += `  --r-color-secondary-contrast: ${colors.text.onInteractiveHex};\n`;
-  css += `  --r-color-secondary-contrast-rgb: ${colors.text.onInteractive.replace(/ /g, ', ')};\n`;
+  // Secondary
+  css += `  --r-color-secondary: ${colors.secondary.baseHex};\n`;
+  css += `  --r-color-secondary-rgb: ${colors.secondary.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-secondary-shade: ${colors.secondary.shadeHex};\n`;
+  css += `  --r-color-secondary-tint: ${colors.secondary.tintHex};\n`;
+  css += `  --r-color-secondary-contrast: ${colors.secondary.contrastHex};\n`;
+  css += `  --r-color-secondary-contrast-rgb: ${colors.secondary.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
+  // Tertiary
+  css += `  --r-color-tertiary: ${colors.tertiary.baseHex};\n`;
+  css += `  --r-color-tertiary-rgb: ${colors.tertiary.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-tertiary-shade: ${colors.tertiary.shadeHex};\n`;
+  css += `  --r-color-tertiary-tint: ${colors.tertiary.tintHex};\n`;
+  css += `  --r-color-tertiary-contrast: ${colors.tertiary.contrastHex};\n`;
+  css += `  --r-color-tertiary-contrast-rgb: ${colors.tertiary.contrast.replace(/ /g, ', ')};\n`;
+  css += `\n`;
+  
+  // Success
   css += `  --r-color-success: ${colors.success.baseHex};\n`;
   css += `  --r-color-success-rgb: ${colors.success.base.replace(/ /g, ', ')};\n`;
   css += `  --r-color-success-shade: ${colors.success.shadeHex};\n`;
   css += `  --r-color-success-tint: ${colors.success.tintHex};\n`;
+  css += `  --r-color-success-contrast: ${colors.success.contrastHex};\n`;
+  css += `  --r-color-success-contrast-rgb: ${colors.success.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
+  // Warning
   css += `  --r-color-warning: ${colors.warning.baseHex};\n`;
   css += `  --r-color-warning-rgb: ${colors.warning.base.replace(/ /g, ', ')};\n`;
   css += `  --r-color-warning-shade: ${colors.warning.shadeHex};\n`;
   css += `  --r-color-warning-tint: ${colors.warning.tintHex};\n`;
+  css += `  --r-color-warning-contrast: ${colors.warning.contrastHex};\n`;
+  css += `  --r-color-warning-contrast-rgb: ${colors.warning.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
-  css += `  --r-color-danger: ${colors.error.baseHex};\n`;
-  css += `  --r-color-danger-rgb: ${colors.error.base.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-danger-shade: ${colors.error.shadeHex};\n`;
-  css += `  --r-color-danger-tint: ${colors.error.tintHex};\n`;
+  // Danger
+  css += `  --r-color-danger: ${colors.danger.baseHex};\n`;
+  css += `  --r-color-danger-rgb: ${colors.danger.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-danger-shade: ${colors.danger.shadeHex};\n`;
+  css += `  --r-color-danger-tint: ${colors.danger.tintHex};\n`;
+  css += `  --r-color-danger-contrast: ${colors.danger.contrastHex};\n`;
+  css += `  --r-color-danger-contrast-rgb: ${colors.danger.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
-  css += `  --r-color-dark: ${colors.text.primaryHex};\n`;
-  css += `  --r-color-dark-rgb: ${colors.text.primary.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-dark-shade: ${colors.text.primaryHex};\n`;
-  css += `  --r-color-dark-tint: ${colors.text.primaryHex};\n`;
-  css += `  --r-color-dark-contrast: ${colors.background.surfaceHex};\n`;
-  css += `  --r-color-dark-contrast-rgb: ${colors.background.surface.replace(/ /g, ', ')};\n`;
+  // Light
+  css += `  --r-color-light: ${colors.light.baseHex};\n`;
+  css += `  --r-color-light-rgb: ${colors.light.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-light-shade: ${colors.light.shadeHex};\n`;
+  css += `  --r-color-light-tint: ${colors.light.tintHex};\n`;
+  css += `  --r-color-light-contrast: ${colors.light.contrastHex};\n`;
+  css += `  --r-color-light-contrast-rgb: ${colors.light.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
-  css += `  --r-color-light: ${colors.background.surfaceSecondaryHex};\n`;
-  css += `  --r-color-light-rgb: ${colors.background.surfaceSecondary.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-light-shade: ${colors.background.surfaceSecondaryHex};\n`;
-  css += `  --r-color-light-tint: ${colors.background.surfaceSecondaryHex};\n`;
-  css += `  --r-color-light-contrast: ${colors.text.primaryHex};\n`;
-  css += `  --r-color-light-contrast-rgb: ${colors.text.primary.replace(/ /g, ', ')};\n`;
+  // Medium
+  css += `  --r-color-medium: ${colors.medium.baseHex};\n`;
+  css += `  --r-color-medium-rgb: ${colors.medium.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-medium-shade: ${colors.medium.shadeHex};\n`;
+  css += `  --r-color-medium-tint: ${colors.medium.tintHex};\n`;
+  css += `  --r-color-medium-contrast: ${colors.medium.contrastHex};\n`;
+  css += `  --r-color-medium-contrast-rgb: ${colors.medium.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
-  css += `  --r-color-medium: ${colors.text.secondaryHex};\n`;
-  css += `  --r-color-medium-rgb: ${colors.text.secondary.replace(/ /g, ', ')};\n`;
-  css += `  --r-color-medium-shade: ${colors.text.secondaryHex};\n`;
-  css += `  --r-color-medium-tint: ${colors.text.secondaryHex};\n`;
-  css += `  --r-color-medium-contrast: ${colors.background.surfaceHex};\n`;
-  css += `  --r-color-medium-contrast-rgb: ${colors.background.surface.replace(/ /g, ', ')};\n`;
+  // Dark
+  css += `  --r-color-dark: ${colors.dark.baseHex};\n`;
+  css += `  --r-color-dark-rgb: ${colors.dark.base.replace(/ /g, ', ')};\n`;
+  css += `  --r-color-dark-shade: ${colors.dark.shadeHex};\n`;
+  css += `  --r-color-dark-tint: ${colors.dark.tintHex};\n`;
+  css += `  --r-color-dark-contrast: ${colors.dark.contrastHex};\n`;
+  css += `  --r-color-dark-contrast-rgb: ${colors.dark.contrast.replace(/ /g, ', ')};\n`;
   css += `\n`;
   
   // Background (matches Ionic exactly)
@@ -120,25 +183,21 @@ function generateColorVariables(): string {
   css += `  /* Text Colors - matches Ionic naming */\n`;
   css += `  --r-text-color: ${colors.text.primaryHex};\n`;
   css += `  --r-text-color-rgb: ${colors.text.primary.replace(/ /g, ', ')};\n`;
-  css += `  --r-text-color-step-50: ${colors.text.secondaryHex};\n`;
-  css += `  --r-text-color-step-100: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-150: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-200: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-250: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-300: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-350: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-400: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-450: ${colors.text.disabledHex};\n`;
-  css += `  --r-text-color-step-500: ${colors.text.secondaryHex};\n`;
-  css += `  --r-text-color-step-550: ${colors.text.secondaryHex};\n`;
-  css += `  --r-text-color-step-600: ${colors.text.secondaryHex};\n`;
-  css += `  --r-text-color-step-650: ${colors.text.secondaryHex};\n`;
-  css += `  --r-text-color-step-700: ${colors.text.primaryHex};\n`;
-  css += `  --r-text-color-step-750: ${colors.text.primaryHex};\n`;
-  css += `  --r-text-color-step-800: ${colors.text.primaryHex};\n`;
-  css += `  --r-text-color-step-850: ${colors.text.primaryHex};\n`;
-  css += `  --r-text-color-step-900: ${colors.text.primaryHex};\n`;
-  css += `  --r-text-color-step-950: ${colors.text.primaryHex};\n`;
+  
+  // Text color steps - Ionic uses opacity-based steps (50-950)
+  // These represent different opacity levels of text color blended with background
+  // Step number = opacity percentage (e.g., step-150 = 15% opacity, step-300 = 30% opacity)
+  const textColorHex = colors.text.primaryHex;
+  const backgroundColorHex = colors.background.surfaceHex;
+  
+  const textSteps = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950];
+  
+  textSteps.forEach((step) => {
+    // Convert step to opacity (step-150 = 0.15, step-300 = 0.30, etc.)
+    const opacity = step / 1000;
+    const blendedColor = blendColors(textColorHex, backgroundColorHex, opacity);
+    css += `  --r-text-color-step-${step}: ${blendedColor};\n`;
+  });
   css += `\n`;
   
   // Border colors (matches Ionic exactly)

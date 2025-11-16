@@ -66,32 +66,32 @@ export const ionicMappingConfig = {
     {
       ionicPattern: '--ion-color-{name}',
       rTokenPattern: '--r-color-{name}',
-      colors: ['primary', 'secondary', 'success', 'warning', 'danger', 'dark', 'light', 'medium'],
+      colors: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'dark', 'light', 'medium'],
     },
     {
       ionicPattern: '--ion-color-{name}-rgb',
       rTokenPattern: '--r-color-{name}-rgb',
-      colors: ['primary', 'secondary', 'success', 'warning', 'danger', 'dark', 'light', 'medium'],
+      colors: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'dark', 'light', 'medium'],
     },
     {
       ionicPattern: '--ion-color-{name}-shade',
       rTokenPattern: '--r-color-{name}-shade',
-      colors: ['primary', 'secondary', 'success', 'warning', 'danger'],
+      colors: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
     },
     {
       ionicPattern: '--ion-color-{name}-tint',
       rTokenPattern: '--r-color-{name}-tint',
-      colors: ['primary', 'secondary', 'success', 'warning', 'danger'],
+      colors: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
     },
     {
       ionicPattern: '--ion-color-{name}-contrast',
       rTokenPattern: '--r-color-{name}-contrast',
-      colors: ['primary', 'secondary', 'dark', 'light', 'medium'],
+      colors: ['primary', 'secondary', 'tertiary', 'dark', 'light', 'medium'],
     },
     {
       ionicPattern: '--ion-color-{name}-contrast-rgb',
       rTokenPattern: '--r-color-{name}-contrast-rgb',
-      colors: ['primary', 'secondary', 'dark', 'light', 'medium'],
+      colors: ['primary', 'secondary', 'tertiary', 'dark', 'light', 'medium'],
     },
   ] as MappingPattern[],
 

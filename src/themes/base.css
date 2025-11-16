@@ -1,6 +1,0 @@
-/* Base theme - Static values (spacing, typography, borders, shadows) */
-/* These values don't change between light/dark themes */
-/* All tokens are generated from TypeScript token definitions */
-
-@import './tokens.css';
-

@@ -59,25 +59,8 @@
   /* Text Colors */
   --r-text-color: #ffffff;
   --r-text-color-rgb: 255, 255, 255;
-  --r-text-color-step-50: #b3b3b3;
-  --r-text-color-step-100: #808080;
-  --r-text-color-step-150: #808080;
-  --r-text-color-step-200: #808080;
-  --r-text-color-step-250: #808080;
-  --r-text-color-step-300: #808080;
-  --r-text-color-step-350: #808080;
-  --r-text-color-step-400: #808080;
-  --r-text-color-step-450: #808080;
-  --r-text-color-step-500: #b3b3b3;
-  --r-text-color-step-550: #b3b3b3;
-  --r-text-color-step-600: #b3b3b3;
-  --r-text-color-step-650: #b3b3b3;
-  --r-text-color-step-700: #ffffff;
-  --r-text-color-step-750: #ffffff;
-  --r-text-color-step-800: #ffffff;
-  --r-text-color-step-850: #ffffff;
-  --r-text-color-step-900: #ffffff;
-  --r-text-color-step-950: #ffffff;
+  /* Text color steps are calculated dynamically during build from text color and background */
+  /* These values are generated inline in dist/theme.css */
   
   /* Border Colors */
   --r-border-color: #404040;

@@ -1,111 +1,169 @@
 /**
  * Color palette definitions for Refactico Design System
+ * Matches Ionic's default color values exactly
  * All colors defined in RGB format (space-separated) for alpha usage
  */
 
 export const colors = {
-  // Base color palette
+  // Primary color (Ionic default: #0054e9)
   primary: {
-    base: '0 102 204',
-    baseHex: '#0066cc',
-    baseRgb: 'rgb(0, 102, 204)',
-    shade: '0 82 163',
-    shadeHex: '#0052a3',
-    tint: '26 115 217',
-    tintHex: '#1a73d9',
+    base: '0 84 233',
+    baseHex: '#0054e9',
+    baseRgb: 'rgb(0, 84, 233)',
+    shade: '0 74 205',
+    shadeHex: '#004acd',
+    tint: '26 101 235',
+    tintHex: '#1a65eb',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
   },
+  
+  // Secondary color (Ionic default: #0163aa)
   secondary: {
-    base: '88 86 214',
-    baseHex: '#5856d6',
-    baseRgb: 'rgb(88, 86, 214)',
-    shade: '69 68 171',
-    shadeHex: '#4544ab',
-    tint: '106 104 218',
-    tintHex: '#6a68da',
+    base: '1 99 170',
+    baseHex: '#0163aa',
+    baseRgb: 'rgb(1, 99, 170)',
+    shade: '1 87 150',
+    shadeHex: '#015796',
+    tint: '26 115 179',
+    tintHex: '#1a73b3',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
   },
   
-  // Semantic colors
-  text: {
-    primary: '33 33 33',
-    primaryHex: '#212121',
-    secondary: '102 102 102',
-    secondaryHex: '#666666',
-    disabled: '153 153 153',
-    disabledHex: '#999999',
-    onInteractive: '255 255 255',
-    onInteractiveHex: '#ffffff',
+  // Tertiary color (Ionic default: #6030ff)
+  tertiary: {
+    base: '96 48 255',
+    baseHex: '#6030ff',
+    baseRgb: 'rgb(96, 48, 255)',
+    shade: '84 42 224',
+    shadeHex: '#542ae0',
+    tint: '112 69 255',
+    tintHex: '#7045ff',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
   },
   
+  // Success color (Ionic default: #2dd55b)
+  success: {
+    base: '45 213 91',
+    baseHex: '#2dd55b',
+    baseRgb: 'rgb(45, 213, 91)',
+    shade: '40 187 80',
+    shadeHex: '#28bb50',
+    tint: '66 217 107',
+    tintHex: '#42d96b',
+    contrast: '0 0 0',
+    contrastHex: '#000000',
+    contrastRgb: 'rgb(0, 0, 0)',
+  },
+  
+  // Warning color (Ionic default: #ffc409)
+  warning: {
+    base: '255 196 9',
+    baseHex: '#ffc409',
+    baseRgb: 'rgb(255, 196, 9)',
+    shade: '224 172 8',
+    shadeHex: '#e0ac08',
+    tint: '255 202 34',
+    tintHex: '#ffca22',
+    contrast: '0 0 0',
+    contrastHex: '#000000',
+    contrastRgb: 'rgb(0, 0, 0)',
+  },
+  
+  // Danger color (Ionic default: #c5000f)
+  danger: {
+    base: '197 0 15',
+    baseHex: '#c5000f',
+    baseRgb: 'rgb(197, 0, 15)',
+    shade: '173 0 13',
+    shadeHex: '#ad000d',
+    tint: '203 26 39',
+    tintHex: '#cb1a27',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
+  },
+  
+  // Light color (Ionic default: #f4f5f8)
+  light: {
+    base: '244 245 248',
+    baseHex: '#f4f5f8',
+    baseRgb: 'rgb(244, 245, 248)',
+    shade: '215 216 218',
+    shadeHex: '#d7d8da',
+    tint: '245 246 249',
+    tintHex: '#f5f6f9',
+    contrast: '0 0 0',
+    contrastHex: '#000000',
+    contrastRgb: 'rgb(0, 0, 0)',
+  },
+  
+  // Medium color (Ionic default: #636469)
+  medium: {
+    base: '99 100 105',
+    baseHex: '#636469',
+    baseRgb: 'rgb(99, 100, 105)',
+    shade: '87 88 92',
+    shadeHex: '#57585c',
+    tint: '115 116 120',
+    tintHex: '#737478',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
+  },
+  
+  // Dark color (Ionic default: #222428)
+  dark: {
+    base: '34 36 40',
+    baseHex: '#222428',
+    baseRgb: 'rgb(34, 36, 40)',
+    shade: '30 32 35',
+    shadeHex: '#1e2023',
+    tint: '56 58 62',
+    tintHex: '#383a3e',
+    contrast: '255 255 255',
+    contrastHex: '#ffffff',
+    contrastRgb: 'rgb(255, 255, 255)',
+  },
+  
+  // Background colors (Ionic defaults)
   background: {
     surface: '255 255 255',
     surfaceHex: '#ffffff',
-    surfaceSecondary: '245 245 245',
-    surfaceSecondaryHex: '#f5f5f5',
+    surfaceRgb: 'rgb(255, 255, 255)',
+    surfaceSecondary: '244 245 248',
+    surfaceSecondaryHex: '#f4f5f8',
+    surfaceSecondaryRgb: 'rgb(244, 245, 248)',
   },
   
-  interactive: {
-    primary: '0 102 204',
-    primaryHex: '#0066cc',
-    primaryRgb: 'rgb(0, 102, 204)',
-    primaryShade: '0 82 163',
-    primaryShadeHex: '#0052a3',
-    primaryTint: '26 115 217',
-    primaryTintHex: '#1a73d9',
-    secondary: '88 86 214',
-    secondaryHex: '#5856d6',
-    secondaryRgb: 'rgb(88, 86, 214)',
-    secondaryShade: '69 68 171',
-    secondaryShadeHex: '#4544ab',
-    secondaryTint: '106 104 218',
-    secondaryTintHex: '#6a68da',
-    hover: '0 82 163',
-    hoverHex: '#0052a3',
-    active: '0 61 122',
-    activeHex: '#003d7a',
+  // Text colors (Ionic defaults)
+  text: {
+    primary: '34 36 40',
+    primaryHex: '#222428',
+    primaryRgb: 'rgb(34, 36, 40)',
+    secondary: '99 100 105',
+    secondaryHex: '#636469',
+    secondaryRgb: 'rgb(99, 100, 105)',
+    disabled: '152 154 162',
+    disabledHex: '#989aa2',
+    disabledRgb: 'rgb(152, 154, 162)',
+    onInteractive: '255 255 255',
+    onInteractiveHex: '#ffffff',
+    onInteractiveRgb: 'rgb(255, 255, 255)',
   },
   
+  // Border colors (Ionic defaults)
   border: {
-    default: '224 224 224',
-    defaultHex: '#e0e0e0',
-    focus: '0 102 204',
-    focusHex: '#0066cc',
-  },
-  
-  // Status colors
-  success: {
-    base: '40 167 69',
-    baseHex: '#28a745',
-    baseRgb: 'rgb(40, 167, 69)',
-    shade: '32 140 58',
-    shadeHex: '#208c3a',
-    tint: '62 180 87',
-    tintHex: '#3eb457',
-  },
-  
-  warning: {
-    base: '255 193 7',
-    baseHex: '#ffc107',
-    baseRgb: 'rgb(255, 193, 7)',
-    shade: '224 169 6',
-    shadeHex: '#e0a906',
-    tint: '255 202 44',
-    tintHex: '#ffca2c',
-  },
-  
-  error: {
-    base: '220 53 69',
-    baseHex: '#dc3545',
-    baseRgb: 'rgb(220, 53, 69)',
-    shade: '194 46 59',
-    shadeHex: '#c22e3b',
-    tint: '224 74 88',
-    tintHex: '#e04a58',
-  },
-  
-  info: {
-    base: '0 123 255',
-    baseHex: '#007bff',
-    baseRgb: 'rgb(0, 123, 255)',
+    default: '216 218 222',
+    defaultHex: '#d7d8da',
+    defaultRgb: 'rgb(215, 216, 218)',
+    focus: '0 84 233',
+    focusHex: '#0054e9',
+    focusRgb: 'rgb(0, 84, 233)',
   },
 };
-

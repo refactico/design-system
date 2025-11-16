@@ -5,6 +5,7 @@
 :root {
   --ion-color-primary: var(--r-color-primary);
   --ion-color-secondary: var(--r-color-secondary);
+  --ion-color-tertiary: var(--r-color-tertiary);
   --ion-color-success: var(--r-color-success);
   --ion-color-warning: var(--r-color-warning);
   --ion-color-danger: var(--r-color-danger);
@@ -14,6 +15,7 @@
 
   --ion-color-primary-rgb: var(--r-color-primary-rgb);
   --ion-color-secondary-rgb: var(--r-color-secondary-rgb);
+  --ion-color-tertiary-rgb: var(--r-color-tertiary-rgb);
   --ion-color-success-rgb: var(--r-color-success-rgb);
   --ion-color-warning-rgb: var(--r-color-warning-rgb);
   --ion-color-danger-rgb: var(--r-color-danger-rgb);
@@ -23,24 +25,28 @@
 
   --ion-color-primary-shade: var(--r-color-primary-shade);
   --ion-color-secondary-shade: var(--r-color-secondary-shade);
+  --ion-color-tertiary-shade: var(--r-color-tertiary-shade);
   --ion-color-success-shade: var(--r-color-success-shade);
   --ion-color-warning-shade: var(--r-color-warning-shade);
   --ion-color-danger-shade: var(--r-color-danger-shade);
 
   --ion-color-primary-tint: var(--r-color-primary-tint);
   --ion-color-secondary-tint: var(--r-color-secondary-tint);
+  --ion-color-tertiary-tint: var(--r-color-tertiary-tint);
   --ion-color-success-tint: var(--r-color-success-tint);
   --ion-color-warning-tint: var(--r-color-warning-tint);
   --ion-color-danger-tint: var(--r-color-danger-tint);
 
   --ion-color-primary-contrast: var(--r-color-primary-contrast);
   --ion-color-secondary-contrast: var(--r-color-secondary-contrast);
+  --ion-color-tertiary-contrast: var(--r-color-tertiary-contrast);
   --ion-color-dark-contrast: var(--r-color-dark-contrast);
   --ion-color-light-contrast: var(--r-color-light-contrast);
   --ion-color-medium-contrast: var(--r-color-medium-contrast);
 
   --ion-color-primary-contrast-rgb: var(--r-color-primary-contrast-rgb);
   --ion-color-secondary-contrast-rgb: var(--r-color-secondary-contrast-rgb);
+  --ion-color-tertiary-contrast-rgb: var(--r-color-tertiary-contrast-rgb);
   --ion-color-dark-contrast-rgb: var(--r-color-dark-contrast-rgb);
   --ion-color-light-contrast-rgb: var(--r-color-light-contrast-rgb);
   --ion-color-medium-contrast-rgb: var(--r-color-medium-contrast-rgb);
