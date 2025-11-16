@@ -6,7 +6,7 @@ export const typography = {
   fontFamily: {
     primary: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif',
     secondary: 'Georgia, serif',
-    mono: '"Courier New", monospace',
+    monospace: '"Courier New", monospace',
   },
   
   fontSize: {
