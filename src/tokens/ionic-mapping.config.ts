@@ -60,19 +60,8 @@ export interface DirectMapping {
 
 // Export for ES modules
 export const ionicMappingConfig = {
-  // Color system mappings (pattern-based)
-  colorMappings: [
-    { ionic: 'primary', rToken: 'interactive-primary' },
-    { ionic: 'secondary', rToken: 'interactive-secondary' },
-    { ionic: 'success', rToken: 'success' },
-    { ionic: 'warning', rToken: 'warning' },
-    { ionic: 'danger', rToken: 'error' },
-    { ionic: 'dark', rToken: 'text-primary' },
-    { ionic: 'light', rToken: 'bg-surface-secondary' },
-    { ionic: 'medium', rToken: 'text-secondary' },
-  ] as ColorMapping[],
-
-  // Pattern-based mappings (auto-generate for each color)
+  // Pattern-based mappings (auto-generate for each variable)
+  // Maps --ion-* to --r-* with exact same names
   patterns: [
     {
       ionicPattern: '--ion-color-{name}',
@@ -96,56 +85,63 @@ export const ionicMappingConfig = {
     },
     {
       ionicPattern: '--ion-color-{name}-contrast',
-      rTokenPattern: '--r-color-text-on-interactive',
-      colors: ['primary', 'secondary'], // Only primary/secondary use text-on-interactive
+      rTokenPattern: '--r-color-{name}-contrast',
+      colors: ['primary', 'secondary', 'dark', 'light', 'medium'],
     },
     {
       ionicPattern: '--ion-color-{name}-contrast-rgb',
-      rTokenPattern: '--r-color-text-on-interactive-rgb',
-      colors: ['primary', 'secondary'],
+      rTokenPattern: '--r-color-{name}-contrast-rgb',
+      colors: ['primary', 'secondary', 'dark', 'light', 'medium'],
     },
   ] as MappingPattern[],
 
   // Direct mappings (special cases, no pattern)
+  // Maps --ion-* to --r-* with exact same names (replacing ion- with r-)
+  // NOTE: --ion-color-base and --ion-color-contrast are INTERNAL Ionic variables
+  // They are automatically set by Ionic's .ion-color-* classes and should NOT be mapped
   directMappings: [
     // Background
-    { ionic: '--ion-background-color', rToken: '--r-color-bg-surface' },
-    { ionic: '--ion-background-color-rgb', rToken: '--r-color-bg-surface-rgb' },
+    { ionic: '--ion-background-color', rToken: '--r-background-color' },
+    { ionic: '--ion-background-color-rgb', rToken: '--r-background-color-rgb' },
     
-    // Text
-    { ionic: '--ion-text-color', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-rgb', rToken: '--r-color-text-primary-rgb' },
-    { ionic: '--ion-text-color-step-50', rToken: '--r-color-text-secondary' },
-    { ionic: '--ion-text-color-step-100', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-150', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-200', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-250', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-300', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-350', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-400', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-450', rToken: '--r-color-text-disabled' },
-    { ionic: '--ion-text-color-step-500', rToken: '--r-color-text-secondary' },
-    { ionic: '--ion-text-color-step-550', rToken: '--r-color-text-secondary' },
-    { ionic: '--ion-text-color-step-600', rToken: '--r-color-text-secondary' },
-    { ionic: '--ion-text-color-step-650', rToken: '--r-color-text-secondary' },
-    { ionic: '--ion-text-color-step-700', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-step-750', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-step-800', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-step-850', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-step-900', rToken: '--r-color-text-primary' },
-    { ionic: '--ion-text-color-step-950', rToken: '--r-color-text-primary' },
+    // Text colors
+    { ionic: '--ion-text-color', rToken: '--r-text-color' },
+    { ionic: '--ion-text-color-rgb', rToken: '--r-text-color-rgb' },
+    
+    // Text color steps (Ionic's opacity system)
+    { ionic: '--ion-text-color-step-50', rToken: '--r-text-color-step-50' },
+    { ionic: '--ion-text-color-step-100', rToken: '--r-text-color-step-100' },
+    { ionic: '--ion-text-color-step-150', rToken: '--r-text-color-step-150' },
+    { ionic: '--ion-text-color-step-200', rToken: '--r-text-color-step-200' },
+    { ionic: '--ion-text-color-step-250', rToken: '--r-text-color-step-250' },
+    { ionic: '--ion-text-color-step-300', rToken: '--r-text-color-step-300' },
+    { ionic: '--ion-text-color-step-350', rToken: '--r-text-color-step-350' },
+    { ionic: '--ion-text-color-step-400', rToken: '--r-text-color-step-400' },
+    { ionic: '--ion-text-color-step-450', rToken: '--r-text-color-step-450' },
+    { ionic: '--ion-text-color-step-500', rToken: '--r-text-color-step-500' },
+    { ionic: '--ion-text-color-step-550', rToken: '--r-text-color-step-550' },
+    { ionic: '--ion-text-color-step-600', rToken: '--r-text-color-step-600' },
+    { ionic: '--ion-text-color-step-650', rToken: '--r-text-color-step-650' },
+    { ionic: '--ion-text-color-step-700', rToken: '--r-text-color-step-700' },
+    { ionic: '--ion-text-color-step-750', rToken: '--r-text-color-step-750' },
+    { ionic: '--ion-text-color-step-800', rToken: '--r-text-color-step-800' },
+    { ionic: '--ion-text-color-step-850', rToken: '--r-text-color-step-850' },
+    { ionic: '--ion-text-color-step-900', rToken: '--r-text-color-step-900' },
+    { ionic: '--ion-text-color-step-950', rToken: '--r-text-color-step-950' },
     
     // Typography
-    { ionic: '--ion-font-family', rToken: '--r-typography-font-family-primary' },
-    { ionic: '--ion-font-size-base', rToken: '--r-typography-font-size-base' },
+    { ionic: '--ion-font-family', rToken: '--r-font-family' },
+    { ionic: '--ion-font-size-base', rToken: '--r-font-size-base' },
     
     // Spacing/Layout
-    { ionic: '--ion-padding', rToken: '--r-spacing-4' },
-    { ionic: '--ion-margin', rToken: '--r-spacing-4' },
-    { ionic: '--ion-border-color', rToken: '--r-color-border-default' },
-    { ionic: '--ion-border-width', rToken: '--r-border-width-base' },
-    { ionic: '--ion-border-radius', rToken: '--r-border-radius-base' },
-    { ionic: '--ion-border-style', rToken: 'solid' },
+    { ionic: '--ion-padding', rToken: '--r-padding' },
+    { ionic: '--ion-margin', rToken: '--r-margin' },
+    
+    // Borders
+    { ionic: '--ion-border-color', rToken: '--r-border-color' },
+    { ionic: '--ion-border-width', rToken: '--r-border-width' },
+    { ionic: '--ion-border-radius', rToken: '--r-border-radius' },
+    { ionic: '--ion-border-style', rToken: '--r-border-style' },
   ] as DirectMapping[],
 };
 

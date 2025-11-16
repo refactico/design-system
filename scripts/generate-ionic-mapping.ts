@@ -10,11 +10,6 @@ const path = require('path');
 // The config file has both ES module and CommonJS exports for compatibility
 const { ionicMappingConfig } = require('../src/tokens/ionic-mapping.config');
 
-function getRTokenName(ionicColorName: string): string {
-  const mapping = ionicMappingConfig.colorMappings.find(m => m.ionic === ionicColorName);
-  return mapping ? mapping.rToken : ionicColorName;
-}
-
 function generateCSS(): string {
   let css = `/* Auto-generated Ionic Bridge CSS - DO NOT EDIT MANUALLY */\n`;
   css += `/* Generated from: src/tokens/ionic-mapping.config.ts */\n`;
@@ -31,10 +26,10 @@ function generateCSS(): string {
       css += `\n`;
     }
     
-    colors.forEach((ionicColor) => {
-      const rTokenName = getRTokenName(ionicColor);
-      const ionicVar = pattern.ionicPattern.replace('{name}', ionicColor);
-      const rToken = pattern.rTokenPattern.replace('{name}', rTokenName);
+    colors.forEach((colorName) => {
+      // Use exact same name (no mapping needed - just replace ion- with r-)
+      const ionicVar = pattern.ionicPattern.replace('{name}', colorName);
+      const rToken = pattern.rTokenPattern.replace('{name}', colorName);
       css += `  ${ionicVar}: var(${rToken});\n`;
     });
     

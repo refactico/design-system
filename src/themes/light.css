@@ -1,62 +1,9 @@
 /* Light Theme - Color tokens */
+/* Light theme colors are defined in tokens.css (generated from TypeScript) */
+/* This file is kept for potential light theme overrides if needed */
 :root[data-theme="light"],
 :root:not([data-theme]) {
-  /* Background Colors */
-  --r-color-bg-surface: #ffffff;
-  --r-color-bg-surface-rgb: 255, 255, 255;
-  --r-color-bg-surface-secondary: #f5f5f5;
-  --r-color-bg-surface-secondary-rgb: 245, 245, 245;
-  
-  /* Text Colors */
-  --r-color-text-primary: #212121;
-  --r-color-text-primary-rgb: 33, 33, 33;
-  --r-color-text-secondary: #666666;
-  --r-color-text-secondary-rgb: 102, 102, 102;
-  --r-color-text-disabled: #999999;
-  --r-color-text-disabled-rgb: 153, 153, 153;
-  --r-color-text-on-interactive: #ffffff;
-  --r-color-text-on-interactive-rgb: 255, 255, 255;
-  
-  /* Interactive Colors */
-  --r-color-interactive-primary: #0066cc;
-  --r-color-interactive-primary-rgb: 0, 102, 204;
-  --r-color-interactive-primary-shade: #0052a3;
-  --r-color-interactive-primary-tint: #1a73d9;
-  --r-color-interactive-secondary: #5856d6;
-  --r-color-interactive-secondary-rgb: 88, 86, 214;
-  --r-color-interactive-secondary-shade: #4544ab;
-  --r-color-interactive-secondary-tint: #6a68da;
-  --r-color-interactive-hover: #0052a3;
-  --r-color-interactive-active: #003d7a;
-  
-  /* Border Colors */
-  --r-color-border-default: #e0e0e0;
-  --r-color-border-default-rgb: 224, 224, 224;
-  --r-color-border-focus: #0066cc;
-  --r-color-border-focus-rgb: 0, 102, 204;
-  
-  /* Status Colors */
-  --r-color-success: #28a745;
-  --r-color-success-rgb: 40, 167, 69;
-  --r-color-success-shade: #208c3a;
-  --r-color-success-tint: #3eb052;
-  --r-color-warning: #ffc107;
-  --r-color-warning-rgb: 255, 193, 7;
-  --r-color-warning-shade: #e0a906;
-  --r-color-warning-tint: #ffca2c;
-  --r-color-error: #dc3545;
-  --r-color-error-rgb: 220, 53, 69;
-  --r-color-error-shade: #c22e3b;
-  --r-color-error-tint: #e04a58;
-  --r-color-info: #007bff;
-  --r-color-info-rgb: 0, 123, 255;
-  
-  /* Dark/Light/Medium for Ionic compatibility */
-  --r-color-dark: #212121;
-  --r-color-dark-rgb: 33, 33, 33;
-  --r-color-light: #f5f5f5;
-  --r-color-light-rgb: 245, 245, 245;
-  --r-color-medium: #666666;
-  --r-color-medium-rgb: 102, 102, 102;
+  /* All color tokens are generated from src/tokens/colors.ts */
+  /* See src/themes/tokens.css for the actual values */
 }
 

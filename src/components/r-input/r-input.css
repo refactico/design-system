@@ -8,8 +8,8 @@
   --r-internal-input-padding-y: var(--r-spacing-3);
   --r-internal-input-border-radius: var(--r-border-radius-base);
   --r-internal-input-font-size: var(--r-typography-font-size-base);
-  --r-internal-input-border-color: var(--r-color-border-default);
-  --r-internal-input-border-focus: var(--r-color-border-focus);
+  --r-internal-input-border-color: var(--r-border-color);
+  --r-internal-input-border-focus: var(--r-color-primary);
 }
 
 /* Map component tokens to Ionic input/item variables */
@@ -31,6 +31,6 @@ r-input ion-item.item-has-focus {
 
 /* Error state uses our error color */
 r-input ion-item.item-has-error {
-  --border-color: var(--r-color-error);
+  --border-color: var(--r-color-danger);
 }
 

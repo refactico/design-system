@@ -1,61 +1,85 @@
 /* Dark Theme - Color tokens */
+/* Dark theme overrides - matches Ionic naming exactly (--r-* instead of --ion-*) */
 :root[data-theme="dark"] {
-  /* Background Colors */
-  --r-color-bg-surface: #1a1a1a;
-  --r-color-bg-surface-rgb: 26, 26, 26;
-  --r-color-bg-surface-secondary: #2d2d2d;
-  --r-color-bg-surface-secondary-rgb: 45, 45, 45;
+  /* Color System */
+  --r-color-primary: #3388dd;
+  --r-color-primary-rgb: 51, 136, 221;
+  --r-color-primary-shade: #2a6db3;
+  --r-color-primary-tint: #4d99e6;
+  --r-color-primary-contrast: #ffffff;
+  --r-color-primary-contrast-rgb: 255, 255, 255;
   
-  /* Text Colors */
-  --r-color-text-primary: #ffffff;
-  --r-color-text-primary-rgb: 255, 255, 255;
-  --r-color-text-secondary: #b3b3b3;
-  --r-color-text-secondary-rgb: 179, 179, 179;
-  --r-color-text-disabled: #808080;
-  --r-color-text-disabled-rgb: 128, 128, 128;
-  --r-color-text-on-interactive: #ffffff;
-  --r-color-text-on-interactive-rgb: 255, 255, 255;
+  --r-color-secondary: #7a78e6;
+  --r-color-secondary-rgb: 122, 120, 230;
+  --r-color-secondary-shade: #6361c0;
+  --r-color-secondary-tint: #8a88ea;
+  --r-color-secondary-contrast: #ffffff;
+  --r-color-secondary-contrast-rgb: 255, 255, 255;
   
-  /* Interactive Colors */
-  --r-color-interactive-primary: #3388dd;
-  --r-color-interactive-primary-rgb: 51, 136, 221;
-  --r-color-interactive-primary-shade: #2a6db3;
-  --r-color-interactive-primary-tint: #4d99e6;
-  --r-color-interactive-secondary: #7a78e6;
-  --r-color-interactive-secondary-rgb: 122, 120, 230;
-  --r-color-interactive-secondary-shade: #6361c0;
-  --r-color-interactive-secondary-tint: #8a88ea;
-  --r-color-interactive-hover: #2a6db3;
-  --r-color-interactive-active: #1f5288;
-  
-  /* Border Colors */
-  --r-color-border-default: #404040;
-  --r-color-border-default-rgb: 64, 64, 64;
-  --r-color-border-focus: #3388dd;
-  --r-color-border-focus-rgb: 51, 136, 221;
-  
-  /* Status Colors */
   --r-color-success: #4caf50;
   --r-color-success-rgb: 76, 175, 80;
   --r-color-success-shade: #409944;
   --r-color-success-tint: #5eb862;
+  
   --r-color-warning: #ffb300;
   --r-color-warning-rgb: 255, 179, 0;
   --r-color-warning-shade: #e09f00;
   --r-color-warning-tint: #ffbc1a;
-  --r-color-error: #f44336;
-  --r-color-error-rgb: 244, 67, 54;
-  --r-color-error-shade: #d73a2e;
-  --r-color-error-tint: #f55a4e;
-  --r-color-info: #2196f3;
-  --r-color-info-rgb: 33, 150, 243;
   
-  /* Dark/Light/Medium for Ionic compatibility */
+  --r-color-danger: #f44336;
+  --r-color-danger-rgb: 244, 67, 54;
+  --r-color-danger-shade: #d73a2e;
+  --r-color-danger-tint: #f55a4e;
+  
   --r-color-dark: #ffffff;
   --r-color-dark-rgb: 255, 255, 255;
+  --r-color-dark-shade: #ffffff;
+  --r-color-dark-tint: #ffffff;
+  --r-color-dark-contrast: #1a1a1a;
+  --r-color-dark-contrast-rgb: 26, 26, 26;
+  
   --r-color-light: #2d2d2d;
   --r-color-light-rgb: 45, 45, 45;
+  --r-color-light-shade: #2d2d2d;
+  --r-color-light-tint: #2d2d2d;
+  --r-color-light-contrast: #ffffff;
+  --r-color-light-contrast-rgb: 255, 255, 255;
+  
   --r-color-medium: #b3b3b3;
   --r-color-medium-rgb: 179, 179, 179;
+  --r-color-medium-shade: #b3b3b3;
+  --r-color-medium-tint: #b3b3b3;
+  --r-color-medium-contrast: #1a1a1a;
+  --r-color-medium-contrast-rgb: 26, 26, 26;
+  
+  /* Background */
+  --r-background-color: #1a1a1a;
+  --r-background-color-rgb: 26, 26, 26;
+  
+  /* Text Colors */
+  --r-text-color: #ffffff;
+  --r-text-color-rgb: 255, 255, 255;
+  --r-text-color-step-50: #b3b3b3;
+  --r-text-color-step-100: #808080;
+  --r-text-color-step-150: #808080;
+  --r-text-color-step-200: #808080;
+  --r-text-color-step-250: #808080;
+  --r-text-color-step-300: #808080;
+  --r-text-color-step-350: #808080;
+  --r-text-color-step-400: #808080;
+  --r-text-color-step-450: #808080;
+  --r-text-color-step-500: #b3b3b3;
+  --r-text-color-step-550: #b3b3b3;
+  --r-text-color-step-600: #b3b3b3;
+  --r-text-color-step-650: #b3b3b3;
+  --r-text-color-step-700: #ffffff;
+  --r-text-color-step-750: #ffffff;
+  --r-text-color-step-800: #ffffff;
+  --r-text-color-step-850: #ffffff;
+  --r-text-color-step-900: #ffffff;
+  --r-text-color-step-950: #ffffff;
+  
+  /* Border Colors */
+  --r-border-color: #404040;
 }
 

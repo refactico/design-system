@@ -4,7 +4,8 @@
 @import '../../node_modules/@ionic/core/css/ionic.bundle.css';
 
 /* Import design system theme files */
-@import '../themes/base.css';
+/* tokens.css is generated from TypeScript token definitions */
+@import '../themes/tokens.css';
 @import '../themes/light.css';
 @import '../themes/dark.css';
 @import '../themes/ionic-bridge.css';

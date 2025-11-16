@@ -59,9 +59,10 @@
     "loader/"
   ],
   "scripts": {
+    "generate:tokens-css": "ts-node --project tsconfig.scripts.json scripts/generate-tokens-css.ts",
     "generate:ionic-mapping": "ts-node --project tsconfig.scripts.json scripts/generate-ionic-mapping.ts",
     "bundle:theme": "ts-node --project tsconfig.scripts.json scripts/bundle-theme.css.ts",
-    "prebuild": "npm run generate:ionic-mapping",
+    "prebuild": "npm run generate:tokens-css && npm run generate:ionic-mapping",
     "build": "stencil build",
     "postbuild": "npm run bundle:theme",
     "start": "stencil build --dev --watch --serve",

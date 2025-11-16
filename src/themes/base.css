@@ -1,59 +1,6 @@
-/* Base theme - Static values (spacing, typography) */
+/* Base theme - Static values (spacing, typography, borders, shadows) */
 /* These values don't change between light/dark themes */
+/* All tokens are generated from TypeScript token definitions */
 
-:root {
-  /* Spacing Scale (4px base) */
-  --r-spacing-0: 0px;
-  --r-spacing-1: 4px;
-  --r-spacing-2: 8px;
-  --r-spacing-3: 12px;
-  --r-spacing-4: 16px;
-  --r-spacing-5: 20px;
-  --r-spacing-6: 24px;
-  --r-spacing-8: 32px;
-  --r-spacing-10: 40px;
-  --r-spacing-12: 48px;
-  --r-spacing-16: 64px;
-  --r-spacing-20: 80px;
-  --r-spacing-24: 96px;
-  
-  /* Typography */
-  --r-typography-font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --r-typography-font-family-secondary: Georgia, serif;
-  --r-typography-font-family-mono: "Courier New", monospace;
-  
-  --r-typography-font-size-xs: 12px;
-  --r-typography-font-size-sm: 14px;
-  --r-typography-font-size-base: 16px;
-  --r-typography-font-size-lg: 18px;
-  --r-typography-font-size-xl: 20px;
-  --r-typography-font-size-2xl: 24px;
-  --r-typography-font-size-3xl: 30px;
-  --r-typography-font-size-4xl: 36px;
-  
-  --r-typography-font-weight-light: 300;
-  --r-typography-font-weight-normal: 400;
-  --r-typography-font-weight-medium: 500;
-  --r-typography-font-weight-semibold: 600;
-  --r-typography-font-weight-bold: 700;
-  
-  --r-typography-line-height-tight: 1.2;
-  --r-typography-line-height-normal: 1.5;
-  --r-typography-line-height-relaxed: 1.6;
-  
-  /* Borders */
-  --r-border-radius-sm: 4px;
-  --r-border-radius-base: 8px;
-  --r-border-radius-lg: 12px;
-  --r-border-radius-xl: 16px;
-  --r-border-radius-full: 9999px;
-  --r-border-width-base: 1px;
-  --r-border-width-thick: 2px;
-  
-  /* Shadows */
-  --r-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --r-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --r-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --r-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
+@import './tokens.css';
 
