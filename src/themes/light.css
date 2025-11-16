@@ -24,7 +24,7 @@
   --r-color-interactive-primary-tint: #1a73d9;
   --r-color-interactive-secondary: #5856d6;
   --r-color-interactive-secondary-rgb: 88, 86, 214;
-  --r-color-interactive-secondary-shade: #4543b0;
+  --r-color-interactive-secondary-shade: #4544ab;
   --r-color-interactive-secondary-tint: #6a68da;
   --r-color-interactive-hover: #0052a3;
   --r-color-interactive-active: #003d7a;
@@ -38,8 +38,8 @@
   /* Status Colors */
   --r-color-success: #28a745;
   --r-color-success-rgb: 40, 167, 69;
-  --r-color-success-shade: #20943a;
-  --r-color-success-tint: #3eb052;
+  --r-color-success-shade: #208c3a;
+  --r-color-success-tint: #3eb457;
   --r-color-warning: #ffc107;
   --r-color-warning-rgb: 255, 193, 7;
   --r-color-warning-shade: #e0a906;

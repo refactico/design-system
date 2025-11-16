@@ -5,6 +5,9 @@
 
 const fs = require('fs');
 const path = require('path');
+
+// Import config - ts-node will compile the TypeScript file
+// The config file has both ES module and CommonJS exports for compatibility
 const { ionicMappingConfig } = require('../src/tokens/ionic-mapping.config');
 
 function getRTokenName(ionicColorName: string): string {

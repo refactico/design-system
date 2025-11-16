@@ -56,7 +56,7 @@
     "loader/"
   ],
   "scripts": {
-    "generate:ionic-mapping": "ts-node scripts/generate-ionic-mapping.ts",
+    "generate:ionic-mapping": "ts-node --project tsconfig.scripts.json scripts/generate-ionic-mapping.ts",
     "prebuild": "npm run generate:ionic-mapping",
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",

@@ -5,6 +5,7 @@
  * To modify mappings, edit this file and run: npm run generate:ionic-mapping
  */
 
+// Type definitions (for TypeScript)
 export interface ColorMapping {
   ionic: string;      // Ionic color name (e.g., 'primary', 'secondary')
   rToken: string;     // Our token name (e.g., 'interactive-primary', 'success')
@@ -21,6 +22,7 @@ export interface DirectMapping {
   rToken: string;     // Exact our token name
 }
 
+// Export for ES modules
 export const ionicMappingConfig = {
   // Color system mappings (pattern-based)
   colorMappings: [
@@ -110,4 +112,12 @@ export const ionicMappingConfig = {
     { ionic: '--ion-border-style', rToken: 'solid' },
   ] as DirectMapping[],
 };
+
+// CommonJS export for ts-node compatibility (when loaded via require)
+// This allows the file to work with both ES modules and CommonJS
+declare const module: any;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { ionicMappingConfig };
+  module.exports.ionicMappingConfig = ionicMappingConfig;
+}
 
