@@ -21,16 +21,30 @@ function generateCSS(): string {
   css += `/* To regenerate: npm run generate:ionic-mapping */\n\n`;
   css += `:root {\n`;
 
-  // Generate from patterns
-  ionicMappingConfig.patterns.forEach(pattern => {
+  // Generate from patterns - add blank lines between pattern groups
+  let isFirstPattern = true;
+  ionicMappingConfig.patterns.forEach((pattern) => {
     const colors = pattern.colors || [];
-    colors.forEach(ionicColor => {
+    
+    // Add blank line before each pattern group (except the first)
+    if (!isFirstPattern && colors.length > 0) {
+      css += `\n`;
+    }
+    
+    colors.forEach((ionicColor) => {
       const rTokenName = getRTokenName(ionicColor);
       const ionicVar = pattern.ionicPattern.replace('{name}', ionicColor);
       const rToken = pattern.rTokenPattern.replace('{name}', rTokenName);
       css += `  ${ionicVar}: var(${rToken});\n`;
     });
+    
+    isFirstPattern = false;
   });
+
+  // Add blank line before direct mappings section
+  if (ionicMappingConfig.directMappings.length > 0) {
+    css += `\n`;
+  }
 
   // Add direct mappings
   ionicMappingConfig.directMappings.forEach(mapping => {

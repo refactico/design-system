@@ -11,6 +11,7 @@
   --ion-color-dark: var(--r-color-text-primary);
   --ion-color-light: var(--r-color-bg-surface-secondary);
   --ion-color-medium: var(--r-color-text-secondary);
+
   --ion-color-primary-rgb: var(--r-color-interactive-primary-rgb);
   --ion-color-secondary-rgb: var(--r-color-interactive-secondary-rgb);
   --ion-color-success-rgb: var(--r-color-success-rgb);
@@ -19,20 +20,25 @@
   --ion-color-dark-rgb: var(--r-color-text-primary-rgb);
   --ion-color-light-rgb: var(--r-color-bg-surface-secondary-rgb);
   --ion-color-medium-rgb: var(--r-color-text-secondary-rgb);
+
   --ion-color-primary-shade: var(--r-color-interactive-primary-shade);
   --ion-color-secondary-shade: var(--r-color-interactive-secondary-shade);
   --ion-color-success-shade: var(--r-color-success-shade);
   --ion-color-warning-shade: var(--r-color-warning-shade);
   --ion-color-danger-shade: var(--r-color-error-shade);
+
   --ion-color-primary-tint: var(--r-color-interactive-primary-tint);
   --ion-color-secondary-tint: var(--r-color-interactive-secondary-tint);
   --ion-color-success-tint: var(--r-color-success-tint);
   --ion-color-warning-tint: var(--r-color-warning-tint);
   --ion-color-danger-tint: var(--r-color-error-tint);
+
   --ion-color-primary-contrast: var(--r-color-text-on-interactive);
   --ion-color-secondary-contrast: var(--r-color-text-on-interactive);
+
   --ion-color-primary-contrast-rgb: var(--r-color-text-on-interactive-rgb);
   --ion-color-secondary-contrast-rgb: var(--r-color-text-on-interactive-rgb);
+
   --ion-background-color: var(--r-color-bg-surface);
   --ion-background-color-rgb: var(--r-color-bg-surface-rgb);
   --ion-text-color: var(--r-color-text-primary);
