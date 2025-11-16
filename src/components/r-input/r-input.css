@@ -2,8 +2,8 @@
   display: block;
   width: 100%;
 
-  /* Component tokens (PRIVATE - do not override) */
-  /* These map to our semantic tokens and can be customized via semantic tokens */
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
   --r-internal-input-padding-x: var(--r-spacing-4);
   --r-internal-input-padding-y: var(--r-spacing-3);
   --r-internal-input-border-radius: var(--r-border-radius-base);
