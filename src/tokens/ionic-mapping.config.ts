@@ -5,21 +5,57 @@
  * To modify mappings, edit this file and run: npm run generate:ionic-mapping
  */
 
-// Type definitions (for TypeScript)
+/**
+ * Maps an Ionic color name to our design system token name.
+ * Used to translate Ionic's color system to our semantic token names.
+ * 
+ * @example
+ * { ionic: 'primary', rToken: 'interactive-primary' }
+ * { ionic: 'success', rToken: 'success' }
+ */
 export interface ColorMapping {
-  ionic: string;      // Ionic color name (e.g., 'primary', 'secondary')
-  rToken: string;     // Our token name (e.g., 'interactive-primary', 'success')
+  /** Ionic color name (e.g., 'primary', 'secondary', 'success') */
+  ionic: string;
+  /** Our design system token name (e.g., 'interactive-primary', 'success') */
+  rToken: string;
 }
 
+/**
+ * Defines a pattern-based mapping that generates multiple CSS variable mappings.
+ * Uses {name} placeholder to generate mappings for multiple colors at once.
+ * 
+ * @example
+ * {
+ *   ionicPattern: '--ion-color-{name}',
+ *   rTokenPattern: '--r-color-{name}',
+ *   colors: ['primary', 'secondary']
+ * }
+ * // Generates:
+ * // --ion-color-primary: var(--r-color-primary);
+ * // --ion-color-secondary: var(--r-color-secondary);
+ */
 export interface MappingPattern {
-  ionicPattern: string;    // Pattern with {name} placeholder
-  rTokenPattern: string;   // Pattern with {name} placeholder
-  colors?: string[];       // Apply to these colors (if pattern-based)
+  /** Pattern for Ionic variable with {name} placeholder */
+  ionicPattern: string;
+  /** Pattern for our token with {name} placeholder */
+  rTokenPattern: string;
+  /** Optional: Apply pattern to these specific colors. If omitted, applies to all colors. */
+  colors?: string[];
 }
 
+/**
+ * Direct mapping from an Ionic CSS variable to our design system token.
+ * Used for one-to-one mappings that don't follow a pattern.
+ * 
+ * @example
+ * { ionic: '--ion-background-color', rToken: '--r-color-bg-surface' }
+ * { ionic: '--ion-text-color', rToken: '--r-color-text-primary' }
+ */
 export interface DirectMapping {
-  ionic: string;      // Exact Ionic variable name
-  rToken: string;     // Exact our token name
+  /** Exact Ionic CSS variable name (e.g., '--ion-background-color') */
+  ionic: string;
+  /** Exact our design system token name (e.g., '--r-color-bg-surface') */
+  rToken: string;
 }
 
 // Export for ES modules
