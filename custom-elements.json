@@ -1,0 +1,1076 @@
+{
+  "timestamp": "2025-11-16T02:05:19",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.38.3",
+    "typescriptVersion": "5.9.3"
+  },
+  "components": [
+    {
+      "filePath": "src/components/app-home/app-home.tsx",
+      "encapsulation": "none",
+      "tag": "app-home",
+      "readme": "# app-home\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-shell"
+      ],
+      "dependencies": [
+        "ion-icon",
+        "r-button",
+        "r-input"
+      ],
+      "dependencyGraph": {
+        "app-home": [
+          "ion-icon",
+          "r-button",
+          "r-input"
+        ],
+        "r-button": [
+          "ion-button",
+          "ion-icon"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "r-input": [
+          "ion-item",
+          "ion-label",
+          "ion-input",
+          "ion-button",
+          "ion-icon",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-input": [
+          "ion-icon"
+        ],
+        "app-shell": [
+          "app-home"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/app-shell/app-shell.tsx",
+      "encapsulation": "none",
+      "tag": "app-shell",
+      "readme": "# app-shell\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "app-home"
+      ],
+      "dependencyGraph": {
+        "app-shell": [
+          "app-home"
+        ],
+        "app-home": [
+          "ion-icon",
+          "r-button",
+          "r-input"
+        ],
+        "r-button": [
+          "ion-button",
+          "ion-icon"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "r-input": [
+          "ion-item",
+          "ion-label",
+          "ion-input",
+          "ion-button",
+          "ion-icon",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-input": [
+          "ion-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-button/r-button.tsx",
+      "encapsulation": "none",
+      "tag": "r-button",
+      "readme": "# r-button\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The button color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the button is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "expand",
+          "type": "\"block\" | \"full\"",
+          "complexType": {
+            "original": "'full' | 'block'",
+            "resolved": "\"block\" | \"full\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "expand",
+          "reflectToAttr": false,
+          "docs": "If true, the button takes full width",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "block",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'clear' | 'outline' | 'solid' | 'default'",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "Button fill style",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Icon name (Ionic icon name)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "iconOnly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-only",
+          "reflectToAttr": false,
+          "docs": "If true, shows only the icon (icon-only button)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "iconPosition",
+          "type": "\"end\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end'",
+            "resolved": "\"end\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-position",
+          "reflectToAttr": false,
+          "docs": "Icon position",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "shape",
+          "type": "\"round\"",
+          "complexType": {
+            "original": "'round'",
+            "resolved": "\"round\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "Button shape",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "round",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "'small' | 'default' | 'large'",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The button size",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"reset\" | \"submit\"",
+          "complexType": {
+            "original": "'button' | 'submit' | 'reset'",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The button type (button, submit, reset)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'button'"
+            }
+          ],
+          "default": "'button'",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "reset",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rClick",
+          "detail": "MouseEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "MouseEvent",
+            "resolved": "MouseEvent",
+            "references": {
+              "MouseEvent": {
+                "location": "global",
+                "id": "global::MouseEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the button is clicked",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-button",
+        "ion-icon"
+      ],
+      "dependencyGraph": {
+        "r-button": [
+          "ion-button",
+          "ion-icon"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "app-home": [
+          "r-button"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-input/r-input.tsx",
+      "encapsulation": "none",
+      "tag": "r-input",
+      "readme": "# r-input\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "autocomplete",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "autocomplete",
+          "reflectToAttr": false,
+          "docs": "The input autocomplete attribute",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "clearOnEdit",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "clear-on-edit",
+          "reflectToAttr": false,
+          "docs": "If true, clears the input on edit",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The input color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the input is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "If true, the input has error state",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-text",
+          "reflectToAttr": false,
+          "docs": "Error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'outline' | 'solid'",
+            "resolved": "\"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "The input fill style",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "Helper text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The input label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "maxlength",
+          "reflectToAttr": false,
+          "docs": "Maximum length of the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "minlength",
+          "reflectToAttr": false,
+          "docs": "Minimum length of the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The input name",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "pattern",
+          "reflectToAttr": false,
+          "docs": "Pattern for validation",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The input placeholder",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If true, the input is readonly",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If true, the input is required",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "shape",
+          "type": "\"round\"",
+          "complexType": {
+            "original": "'round'",
+            "resolved": "\"round\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "The input shape",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "round",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "showPasswordToggle",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-password-toggle",
+          "reflectToAttr": false,
+          "docs": "If true, shows password toggle button (only for password type)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The input type (text, password, email, number, tel, url, search, etc.)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'text'"
+            }
+          ],
+          "default": "'text'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The input value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "rFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input is focused",
+          "docsTags": []
+        },
+        {
+          "event": "rInput",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input value changes",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-item",
+        "ion-label",
+        "ion-input",
+        "ion-button",
+        "ion-icon",
+        "ion-note"
+      ],
+      "dependencyGraph": {
+        "r-input": [
+          "ion-item",
+          "ion-label",
+          "ion-input",
+          "ion-button",
+          "ion-icon",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-input": [
+          "ion-icon"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "app-home": [
+          "r-input"
+        ]
+      }
+    }
+  ],
+  "typeLibrary": {}
+}
