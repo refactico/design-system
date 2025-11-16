@@ -70,7 +70,7 @@ type Story = StoryObj<RButton>;
 export const Primary: Story = {
   render: (props) => {
     const { children, ...rest } = props as any;
-    return h('r-button', rest, children || 'Primary Button');
+    return h('r-button', rest, 'Primary Button');
   },
   args: {
     color: 'primary',
@@ -89,7 +89,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   render: (props) => {
     const { children, ...rest } = props as any;
-    return h('r-button', rest, children || 'Secondary Button');
+    return h('r-button', rest, 'Secondary Button');
   },
   args: {
     color: 'secondary',
@@ -107,7 +107,7 @@ export const Secondary: Story = {
 export const Danger: Story = {
   render: (props) => {
     const { children, ...rest } = props as any;
-    return h('r-button', rest, children || 'Danger Button');
+    return h('r-button', rest, 'Danger Button');
   },
   args: {
     color: 'danger',

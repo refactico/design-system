@@ -1,4 +1,9 @@
 /* Global theme injection - Import all theme files */
+
+/* Import Ionic CSS first (required for Ionic components) */
+@import '../../node_modules/@ionic/core/css/ionic.bundle.css';
+
+/* Import design system theme files */
 @import '../themes/base.css';
 @import '../themes/light.css';
 @import '../themes/dark.css';

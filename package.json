@@ -41,6 +41,9 @@
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
       "require": "./loader/index.cjs"
+    },
+    "./theme.css": {
+      "default": "./dist/theme.css"
     }
   },
   "repository": {
@@ -57,8 +60,10 @@
   ],
   "scripts": {
     "generate:ionic-mapping": "ts-node --project tsconfig.scripts.json scripts/generate-ionic-mapping.ts",
+    "bundle:theme": "ts-node --project tsconfig.scripts.json scripts/bundle-theme.css.ts",
     "prebuild": "npm run generate:ionic-mapping",
     "build": "stencil build",
+    "postbuild": "npm run bundle:theme",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
