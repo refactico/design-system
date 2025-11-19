@@ -1,0 +1,85 @@
+/* Auto-generated Ionic Bridge CSS - DO NOT EDIT MANUALLY */
+/* Generated from: src/tokens/ionic-mapping.config.ts */
+/* To regenerate: npm run generate:ionic-mapping */
+
+:root {
+  --ion-color-primary: var(--r-color-primary);
+  --ion-color-secondary: var(--r-color-secondary);
+  --ion-color-tertiary: var(--r-color-tertiary);
+  --ion-color-success: var(--r-color-success);
+  --ion-color-warning: var(--r-color-warning);
+  --ion-color-danger: var(--r-color-danger);
+  --ion-color-dark: var(--r-color-dark);
+  --ion-color-light: var(--r-color-light);
+  --ion-color-medium: var(--r-color-medium);
+
+  --ion-color-primary-rgb: var(--r-color-primary-rgb);
+  --ion-color-secondary-rgb: var(--r-color-secondary-rgb);
+  --ion-color-tertiary-rgb: var(--r-color-tertiary-rgb);
+  --ion-color-success-rgb: var(--r-color-success-rgb);
+  --ion-color-warning-rgb: var(--r-color-warning-rgb);
+  --ion-color-danger-rgb: var(--r-color-danger-rgb);
+  --ion-color-dark-rgb: var(--r-color-dark-rgb);
+  --ion-color-light-rgb: var(--r-color-light-rgb);
+  --ion-color-medium-rgb: var(--r-color-medium-rgb);
+
+  --ion-color-primary-shade: var(--r-color-primary-shade);
+  --ion-color-secondary-shade: var(--r-color-secondary-shade);
+  --ion-color-tertiary-shade: var(--r-color-tertiary-shade);
+  --ion-color-success-shade: var(--r-color-success-shade);
+  --ion-color-warning-shade: var(--r-color-warning-shade);
+  --ion-color-danger-shade: var(--r-color-danger-shade);
+
+  --ion-color-primary-tint: var(--r-color-primary-tint);
+  --ion-color-secondary-tint: var(--r-color-secondary-tint);
+  --ion-color-tertiary-tint: var(--r-color-tertiary-tint);
+  --ion-color-success-tint: var(--r-color-success-tint);
+  --ion-color-warning-tint: var(--r-color-warning-tint);
+  --ion-color-danger-tint: var(--r-color-danger-tint);
+
+  --ion-color-primary-contrast: var(--r-color-primary-contrast);
+  --ion-color-secondary-contrast: var(--r-color-secondary-contrast);
+  --ion-color-tertiary-contrast: var(--r-color-tertiary-contrast);
+  --ion-color-dark-contrast: var(--r-color-dark-contrast);
+  --ion-color-light-contrast: var(--r-color-light-contrast);
+  --ion-color-medium-contrast: var(--r-color-medium-contrast);
+
+  --ion-color-primary-contrast-rgb: var(--r-color-primary-contrast-rgb);
+  --ion-color-secondary-contrast-rgb: var(--r-color-secondary-contrast-rgb);
+  --ion-color-tertiary-contrast-rgb: var(--r-color-tertiary-contrast-rgb);
+  --ion-color-dark-contrast-rgb: var(--r-color-dark-contrast-rgb);
+  --ion-color-light-contrast-rgb: var(--r-color-light-contrast-rgb);
+  --ion-color-medium-contrast-rgb: var(--r-color-medium-contrast-rgb);
+
+  --ion-background-color: var(--r-background-color);
+  --ion-background-color-rgb: var(--r-background-color-rgb);
+  --ion-text-color: var(--r-text-color);
+  --ion-text-color-rgb: var(--r-text-color-rgb);
+  --ion-text-color-step-50: var(--r-text-color-step-50);
+  --ion-text-color-step-100: var(--r-text-color-step-100);
+  --ion-text-color-step-150: var(--r-text-color-step-150);
+  --ion-text-color-step-200: var(--r-text-color-step-200);
+  --ion-text-color-step-250: var(--r-text-color-step-250);
+  --ion-text-color-step-300: var(--r-text-color-step-300);
+  --ion-text-color-step-350: var(--r-text-color-step-350);
+  --ion-text-color-step-400: var(--r-text-color-step-400);
+  --ion-text-color-step-450: var(--r-text-color-step-450);
+  --ion-text-color-step-500: var(--r-text-color-step-500);
+  --ion-text-color-step-550: var(--r-text-color-step-550);
+  --ion-text-color-step-600: var(--r-text-color-step-600);
+  --ion-text-color-step-650: var(--r-text-color-step-650);
+  --ion-text-color-step-700: var(--r-text-color-step-700);
+  --ion-text-color-step-750: var(--r-text-color-step-750);
+  --ion-text-color-step-800: var(--r-text-color-step-800);
+  --ion-text-color-step-850: var(--r-text-color-step-850);
+  --ion-text-color-step-900: var(--r-text-color-step-900);
+  --ion-text-color-step-950: var(--r-text-color-step-950);
+  --ion-font-family: var(--r-font-family);
+  --ion-font-size-base: var(--r-font-size-base);
+  --ion-padding: var(--r-padding);
+  --ion-margin: var(--r-margin);
+  --ion-border-color: var(--r-border-color);
+  --ion-border-width: var(--r-border-width);
+  --ion-border-radius: var(--r-border-radius);
+  --ion-border-style: var(--r-border-style);
+}

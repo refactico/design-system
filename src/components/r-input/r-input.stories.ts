@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from '@stencil/storybook-plugin';
+import { h } from '@stencil/core';
+import { RInput } from './r-input';
 
 const meta: Meta = {
-  title: 'Design System/r-input',
-  component: 'r-input',
+  title: 'Components/r-input',
+  component: RInput,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -66,29 +68,10 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj;
-
-const createInput = (args: any) => {
-  const input = document.createElement('r-input');
-  if (args.type) input.setAttribute('type', args.type);
-  if (args.label) input.setAttribute('label', args.label);
-  if (args.placeholder) input.setAttribute('placeholder', args.placeholder);
-  if (args.value) input.setAttribute('value', args.value);
-  if (args.disabled) input.setAttribute('disabled', '');
-  if (args.readonly) input.setAttribute('readonly', '');
-  if (args.required) input.setAttribute('required', '');
-  if (args.showPasswordToggle !== undefined) input.setAttribute('show-password-toggle', args.showPasswordToggle.toString());
-  if (args.fill) input.setAttribute('fill', args.fill);
-  if (args.error) input.setAttribute('error', '');
-  if (args.errorText) input.setAttribute('error-text', args.errorText);
-  if (args.helperText) input.setAttribute('helper-text', args.helperText);
-  if (args.name) input.setAttribute('name', args.name);
-  if (args.autocomplete) input.setAttribute('autocomplete', args.autocomplete);
-  return input;
-};
+type Story = StoryObj<RInput>;
 
 export const Basic: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Name',
@@ -97,7 +80,7 @@ export const Basic: Story = {
 };
 
 export const WithPlaceholder: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     placeholder: 'Enter text here',
@@ -105,7 +88,7 @@ export const WithPlaceholder: Story = {
 };
 
 export const Password: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'password',
     label: 'Password',
@@ -115,7 +98,7 @@ export const Password: Story = {
 };
 
 export const PasswordWithoutToggle: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'password',
     label: 'Password',
@@ -125,7 +108,7 @@ export const PasswordWithoutToggle: Story = {
 };
 
 export const Email: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'email',
     label: 'Email',
@@ -135,7 +118,7 @@ export const Email: Story = {
 };
 
 export const Number: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'number',
     label: 'Age',
@@ -144,7 +127,7 @@ export const Number: Story = {
 };
 
 export const Disabled: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Disabled Input',
@@ -155,7 +138,7 @@ export const Disabled: Story = {
 };
 
 export const Readonly: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Readonly Input',
@@ -165,7 +148,7 @@ export const Readonly: Story = {
 };
 
 export const Required: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Required Field',
@@ -175,7 +158,7 @@ export const Required: Story = {
 };
 
 export const WithError: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'email',
     label: 'Email',
@@ -187,7 +170,7 @@ export const WithError: Story = {
 };
 
 export const WithHelperText: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Username',
@@ -197,7 +180,7 @@ export const WithHelperText: Story = {
 };
 
 export const OutlineFill: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Outline Style',
@@ -207,7 +190,7 @@ export const OutlineFill: Story = {
 };
 
 export const SolidFill: Story = {
-  render: (args) => createInput(args),
+  render: (props) => h('r-input', props),
   args: {
     type: 'text',
     label: 'Solid Style',
@@ -218,13 +201,6 @@ export const SolidFill: Story = {
 
 export const AllTypes: Story = {
   render: () => {
-    const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.gap = '20px';
-    container.style.padding = '20px';
-    container.style.maxWidth = '500px';
-
     const types = [
       { type: 'text', label: 'Text Input', placeholder: 'Enter text' },
       { type: 'email', label: 'Email Input', placeholder: 'Enter email' },
@@ -235,12 +211,10 @@ export const AllTypes: Story = {
       { type: 'search', label: 'Search Input', placeholder: 'Search...' },
     ];
 
-    types.forEach(({ type, label, placeholder }) => {
-      const input = createInput({ type, label, placeholder, showPasswordToggle: type === 'password' });
-      container.appendChild(input);
-    });
-
-    return container;
+    return h('div', { style: { display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px', maxWidth: '500px' } }, [
+      ...types.map(({ type, label, placeholder }) =>
+        h('r-input', { type, label, placeholder, showPasswordToggle: type === 'password' })
+      )
+    ]);
   },
 };
-

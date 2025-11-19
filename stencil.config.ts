@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'refactico',
+  globalStyle: 'src/global/theme.css',
   outputTargets: [
     {
       type: 'dist',
@@ -18,6 +19,10 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+    },
+    {
+      type: 'docs-json',
+      file: './custom-elements.json',
     },
   ],
   testing: {

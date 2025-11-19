@@ -1,5 +1,40 @@
 :host {
   display: block;
   width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-input-padding-x: var(--r-spacing-4);
+  --r-internal-input-padding-y: var(--r-spacing-3);
+  --r-internal-input-border-radius: var(--r-border-radius-base);
+  --r-internal-input-font-size: var(--r-typography-font-size-base);
+  --r-internal-input-border-color: var(--r-border-color);
+  --r-internal-input-border-focus: var(--r-color-primary);
+}
+
+/* Map component tokens to Ionic input/item variables */
+r-input ion-item {
+  --padding-start: var(--r-internal-input-padding-x);
+  --padding-end: var(--r-internal-input-padding-x);
+  --padding-top: var(--r-internal-input-padding-y);
+  --padding-bottom: var(--r-internal-input-padding-y);
+  /* Make background transparent to inherit from parent */
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-input ion-input {
+  font-size: var(--r-internal-input-font-size);
+}
+
+/* Focus state uses our border focus color */
+r-input ion-item.item-has-focus {
+  --border-color: var(--r-internal-input-border-focus);
+}
+
+/* Error state uses our error color */
+r-input ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
 }
 

@@ -86,20 +86,22 @@ export class RButton {
       }
     });
 
+    if (this.iconOnly && this.icon) {
+      return (
+        <ion-button {...buttonProps}>
+          <ion-icon name={this.icon} slot="icon-only"></ion-icon>
+        </ion-button>
+      );
+    }
+
     return (
       <ion-button {...buttonProps}>
-        {this.iconOnly && this.icon ? (
-          <ion-icon name={this.icon} slot="icon-only"></ion-icon>
-        ) : (
-          <>
-            {this.icon && this.iconPosition !== 'end' && (
-              <ion-icon name={this.icon} slot="start"></ion-icon>
-            )}
-            <slot></slot>
-            {this.icon && this.iconPosition === 'end' && (
-              <ion-icon name={this.icon} slot="end"></ion-icon>
-            )}
-          </>
+        {this.icon && this.iconPosition !== 'end' && (
+          <ion-icon name={this.icon} slot="start"></ion-icon>
+        )}
+        <slot></slot>
+        {this.icon && this.iconPosition === 'end' && (
+          <ion-icon name={this.icon} slot="end"></ion-icon>
         )}
       </ion-button>
     );

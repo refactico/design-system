@@ -1,0 +1,9 @@
+/* Light Theme - Color tokens */
+/* Light theme colors are defined in tokens.css (generated from TypeScript) */
+/* This file is kept for potential light theme overrides if needed */
+:root[data-theme="light"],
+:root:not([data-theme]) {
+  /* All color tokens are generated from src/tokens/colors.ts */
+  /* See src/themes/tokens.css for the actual values */
+}
+
