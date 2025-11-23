@@ -50,7 +50,7 @@ describe('r-input', () => {
     
     // Simulate button click
     if (toggleButton) {
-      toggleButton.click();
+      (toggleButton as HTMLElement).click();
       await page.waitForChanges();
       
       expect(component.showPassword).toBe(true);

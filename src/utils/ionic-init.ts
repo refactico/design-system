@@ -1,18 +1,7 @@
-import { defineCustomElements } from '@ionic/core/loader';
-
 /**
- * Initialize Ionic components with lazy loading
- * Components are registered but only loaded when actually used in the DOM
- * This keeps bundle size small - only components you use are loaded
+ * Initialize Ionic components
+ * Import the Ionic bundle that automatically defines all custom elements
+ * This is the same file that the CDN uses: @ionic/core/dist/ionic/ionic.esm.js
  */
-export const initIonic = () => {
-  if (typeof window !== 'undefined') {
-    defineCustomElements(window);
-  }
-};
-
-// Auto-initialize on import
-if (typeof window !== 'undefined') {
-  initIonic();
-}
+import '@ionic/core/dist/ionic/ionic.esm.js';
 

@@ -33,11 +33,11 @@ describe('r-button', () => {
       components: [RButton],
       html: `<r-button>Click me</r-button>`,
     });
-    const ionButton = page.root.querySelector('ion-button');
+    const ionButton = page.root.querySelector('ion-button') as HTMLElement;
     const clickSpy = jest.fn();
     page.doc.addEventListener('rClick', clickSpy);
     
-    ionButton.click();
+    ionButton?.click();
     await page.waitForChanges();
     
     expect(clickSpy).toHaveBeenCalled();
