@@ -25,20 +25,22 @@ Refactico Design System provides a collection of reusable, accessible, and custo
 ### NPM
 
 ```bash
-npm install @refactico/design-system @ionic/core
+npm install @refactico/design-system
 ```
 
 ### Yarn
 
 ```bash
-yarn add @refactico/design-system @ionic/core
+yarn add @refactico/design-system
 ```
 
 ### PNPM
 
 ```bash
-pnpm add @refactico/design-system @ionic/core
+pnpm add @refactico/design-system
 ```
+
+> **Note:** `@ionic/core` is automatically installed as a dependency - you don't need to install it separately!
 
 ## Quick Start
 
@@ -50,11 +52,11 @@ Import the loader script to enable lazy loading of components:
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Ionic CSS (required) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@latest/css/ionic.bundle.css">
+  <!-- Theme CSS (includes Ionic CSS automatically) -->
+  <link rel="stylesheet" href="https://unpkg.com/@refactico/design-system@latest/dist/theme.css">
 </head>
 <body>
-  <!-- Load Refactico components -->
+  <!-- Load Refactico components (Ionic loads automatically) -->
   <script type="module" src="https://unpkg.com/@refactico/design-system@latest/dist/refactico/refactico.esm.js"></script>
   <script nomodule src="https://unpkg.com/@refactico/design-system@latest/dist/refactico/refactico.js"></script>
   
@@ -71,6 +73,10 @@ Import individual components in your application:
 
 ```javascript
 // In your app entry file
+// Import theme CSS (includes Ionic CSS automatically)
+import '@refactico/design-system/theme.css';
+
+// Import components (Ionic loads automatically)
 import '@refactico/design-system/r-button';
 import '@refactico/design-system/r-input';
 ```
@@ -80,6 +86,10 @@ import '@refactico/design-system/r-input';
 #### React
 
 ```tsx
+// Import theme CSS (includes Ionic CSS)
+import '@refactico/design-system/theme.css';
+
+// Import components (Ionic loads automatically)
 import '@refactico/design-system/r-button';
 import '@refactico/design-system/r-input';
 
@@ -97,6 +107,10 @@ function App() {
 
 ```typescript
 // In your module or component
+// Import theme CSS (includes Ionic CSS)
+import '@refactico/design-system/theme.css';
+
+// Import components (Ionic loads automatically)
 import '@refactico/design-system/r-button';
 import '@refactico/design-system/r-input';
 ```
@@ -109,8 +123,11 @@ import '@refactico/design-system/r-input';
 
 #### Vue
 
-```vue
 <script setup>
+// Import theme CSS (includes Ionic CSS)
+import '@refactico/design-system/theme.css';
+
+// Import components (Ionic loads automatically)
 import '@refactico/design-system/r-button';
 import '@refactico/design-system/r-input';
 </script>

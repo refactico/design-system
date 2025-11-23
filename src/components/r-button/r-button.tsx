@@ -1,4 +1,6 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
+// Auto-initialize Ionic (lazy loads components on demand)
+import '../../utils/ionic-init';
 
 @Component({
   tag: 'r-button',
