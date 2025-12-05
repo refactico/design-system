@@ -151,7 +151,7 @@ export class RDatepicker {
     return (
       <ion-item class={{ 'item-has-error': this.error }} lines={this.fill === 'outline' ? 'none' : 'full'}>
         {this.label && (
-          <ion-label position={this.fill === 'outline' ? 'stacked' : 'floating'}>
+          <ion-label position="stacked">
             {this.label}
           </ion-label>
         )}

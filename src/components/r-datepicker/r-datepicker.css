@@ -30,9 +30,14 @@ r-datepicker ion-label {
   pointer-events: none;
   user-select: none;
   cursor: default;
-  /* Ensure label doesn't get overridden by datetime padding */
+  /* Ensure label is always visible */
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  /* Ensure label doesn't get overridden by datetime padding */
+  width: 100%;
 }
 
 /* Prevent all hover, focus, and active effects on label */
@@ -89,6 +94,9 @@ r-datepicker ion-datetime {
   display: block;
   width: 100%;
   cursor: pointer;
+  /* Ensure datetime doesn't cover the label */
+  position: relative;
+  z-index: 1;
 }
 
 /* Ensure datetime text is visible when not disabled */
