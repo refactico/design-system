@@ -55,6 +55,79 @@ export namespace Components {
          */
         "type": 'button' | 'submit' | 'reset';
     }
+    interface RDatepicker {
+        /**
+          * The datepicker color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the datepicker is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the datepicker has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The datepicker fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The datepicker label
+         */
+        "label"?: string;
+        /**
+          * Maximum date (ISO string)
+         */
+        "max"?: string;
+        /**
+          * Minimum date (ISO string)
+         */
+        "min"?: string;
+        /**
+          * If true, shows multiple date selection
+         */
+        "multiple"?: boolean;
+        /**
+          * The datepicker name
+         */
+        "name"?: string;
+        /**
+          * The datepicker placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Preferred format for display
+         */
+        "preferWheel"?: boolean;
+        /**
+          * Presentation style (date, time, date-time)
+         */
+        "presentation"?: 'date' | 'time' | 'date-time' | 'month' | 'year' | 'month-year' | 'time-date';
+        /**
+          * If true, the datepicker is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The datepicker shape
+         */
+        "shape"?: 'round';
+        /**
+          * The datepicker value (ISO string format)
+         */
+        "value"?: string;
+    }
     interface RDropdown {
         /**
           * If true, the interface is cancelable
@@ -215,6 +288,10 @@ export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRButtonElement;
 }
+export interface RDatepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRDatepickerElement;
+}
 export interface RDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRDropdownElement;
@@ -252,6 +329,25 @@ declare global {
     var HTMLRButtonElement: {
         prototype: HTMLRButtonElement;
         new (): HTMLRButtonElement;
+    };
+    interface HTMLRDatepickerElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRDatepickerElement extends Components.RDatepicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRDatepickerElementEventMap>(type: K, listener: (this: HTMLRDatepickerElement, ev: RDatepickerCustomEvent<HTMLRDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRDatepickerElementEventMap>(type: K, listener: (this: HTMLRDatepickerElement, ev: RDatepickerCustomEvent<HTMLRDatepickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRDatepickerElement: {
+        prototype: HTMLRDatepickerElement;
+        new (): HTMLRDatepickerElement;
     };
     interface HTMLRDropdownElementEventMap {
         "rChange": CustomEvent;
@@ -295,6 +391,7 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
         "r-button": HTMLRButtonElement;
+        "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-input": HTMLRInputElement;
     }
@@ -352,6 +449,91 @@ declare namespace LocalJSX {
           * @default 'button'
          */
         "type"?: 'button' | 'submit' | 'reset';
+    }
+    interface RDatepicker {
+        /**
+          * The datepicker color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the datepicker is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the datepicker has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The datepicker fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The datepicker label
+         */
+        "label"?: string;
+        /**
+          * Maximum date (ISO string)
+         */
+        "max"?: string;
+        /**
+          * Minimum date (ISO string)
+         */
+        "min"?: string;
+        /**
+          * If true, shows multiple date selection
+         */
+        "multiple"?: boolean;
+        /**
+          * The datepicker name
+         */
+        "name"?: string;
+        /**
+          * Emitted when the datepicker is blurred
+         */
+        "onRBlur"?: (event: RDatepickerCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the datepicker value changes
+         */
+        "onRChange"?: (event: RDatepickerCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the datepicker is focused
+         */
+        "onRFocus"?: (event: RDatepickerCustomEvent<CustomEvent>) => void;
+        /**
+          * The datepicker placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Preferred format for display
+         */
+        "preferWheel"?: boolean;
+        /**
+          * Presentation style (date, time, date-time)
+         */
+        "presentation"?: 'date' | 'time' | 'date-time' | 'month' | 'year' | 'month-year' | 'time-date';
+        /**
+          * If true, the datepicker is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The datepicker shape
+         */
+        "shape"?: 'round';
+        /**
+          * The datepicker value (ISO string format)
+         */
+        "value"?: string;
     }
     interface RDropdown {
         /**
@@ -536,6 +718,7 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-shell": AppShell;
         "r-button": RButton;
+        "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-input": RInput;
     }
@@ -547,6 +730,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
+            "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
         }

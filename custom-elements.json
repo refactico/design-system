@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-05T05:03:48",
+  "timestamp": "2025-12-05T05:13:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -29,7 +29,8 @@
         "r-button",
         "r-input",
         "r-dropdown",
-        "ion-select-option"
+        "ion-select-option",
+        "r-datepicker"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -37,7 +38,8 @@
           "r-button",
           "r-input",
           "r-dropdown",
-          "ion-select-option"
+          "ion-select-option",
+          "r-datepicker"
         ],
         "r-button": [
           "ion-button",
@@ -112,6 +114,22 @@
         ],
         "ion-modal": [
           "ion-backdrop"
+        ],
+        "r-datepicker": [
+          "ion-item",
+          "ion-label",
+          "ion-datetime",
+          "ion-note"
+        ],
+        "ion-datetime": [
+          "ion-buttons",
+          "ion-button",
+          "ion-picker",
+          "ion-picker-column",
+          "ion-picker-column-option",
+          "ion-icon",
+          "ion-ripple-effect",
+          "ion-popover"
         ],
         "app-shell": [
           "app-home"
@@ -146,7 +164,8 @@
           "r-button",
           "r-input",
           "r-dropdown",
-          "ion-select-option"
+          "ion-select-option",
+          "r-datepicker"
         ],
         "r-button": [
           "ion-button",
@@ -221,6 +240,22 @@
         ],
         "ion-modal": [
           "ion-backdrop"
+        ],
+        "r-datepicker": [
+          "ion-item",
+          "ion-label",
+          "ion-datetime",
+          "ion-note"
+        ],
+        "ion-datetime": [
+          "ion-buttons",
+          "ion-button",
+          "ion-picker",
+          "ion-picker-column",
+          "ion-picker-column-option",
+          "ion-icon",
+          "ion-ripple-effect",
+          "ion-popover"
         ]
       }
     },
@@ -567,6 +602,561 @@
         ],
         "app-home": [
           "r-button"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-datepicker/r-datepicker.tsx",
+      "encapsulation": "none",
+      "tag": "r-datepicker",
+      "readme": "# r-datepicker\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The datepicker color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the datepicker is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "If true, the datepicker has error state",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-text",
+          "reflectToAttr": false,
+          "docs": "Error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'outline' | 'solid'",
+            "resolved": "\"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "The datepicker fill style",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "Helper text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The datepicker label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "Maximum date (ISO string)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "Minimum date (ISO string)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If true, shows multiple date selection",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The datepicker name",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The datepicker placeholder",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "preferWheel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "prefer-wheel",
+          "reflectToAttr": false,
+          "docs": "Preferred format for display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "presentation",
+          "type": "\"date\" | \"date-time\" | \"month\" | \"month-year\" | \"time\" | \"time-date\" | \"year\"",
+          "complexType": {
+            "original": "'date' | 'time' | 'date-time' | 'month' | 'year' | 'month-year' | 'time-date'",
+            "resolved": "\"date\" | \"date-time\" | \"month\" | \"month-year\" | \"time\" | \"time-date\" | \"year\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "presentation",
+          "reflectToAttr": false,
+          "docs": "Presentation style (date, time, date-time)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "date",
+              "type": "string"
+            },
+            {
+              "value": "date-time",
+              "type": "string"
+            },
+            {
+              "value": "month",
+              "type": "string"
+            },
+            {
+              "value": "month-year",
+              "type": "string"
+            },
+            {
+              "value": "time",
+              "type": "string"
+            },
+            {
+              "value": "time-date",
+              "type": "string"
+            },
+            {
+              "value": "year",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If true, the datepicker is required",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "shape",
+          "type": "\"round\"",
+          "complexType": {
+            "original": "'round'",
+            "resolved": "\"round\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "The datepicker shape",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "round",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The datepicker value (ISO string format)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rBlur",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the datepicker is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "rChange",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the datepicker value changes",
+          "docsTags": []
+        },
+        {
+          "event": "rFocus",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the datepicker is focused",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-item",
+        "ion-label",
+        "ion-datetime",
+        "ion-note"
+      ],
+      "dependencyGraph": {
+        "r-datepicker": [
+          "ion-item",
+          "ion-label",
+          "ion-datetime",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-datetime": [
+          "ion-buttons",
+          "ion-button",
+          "ion-picker",
+          "ion-picker-column",
+          "ion-picker-column-option",
+          "ion-icon",
+          "ion-ripple-effect",
+          "ion-popover"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "ion-popover": [
+          "ion-backdrop"
+        ],
+        "app-home": [
+          "r-datepicker"
         ]
       }
     },
