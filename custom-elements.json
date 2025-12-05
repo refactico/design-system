@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-05T04:12:43",
+  "timestamp": "2025-12-05T05:03:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -27,13 +27,17 @@
       "dependencies": [
         "ion-icon",
         "r-button",
-        "r-input"
+        "r-input",
+        "r-dropdown",
+        "ion-select-option"
       ],
       "dependencyGraph": {
         "app-home": [
           "ion-icon",
           "r-button",
-          "r-input"
+          "r-input",
+          "r-dropdown",
+          "ion-select-option"
         ],
         "r-button": [
           "ion-button",
@@ -56,6 +60,58 @@
         ],
         "ion-input": [
           "ion-icon"
+        ],
+        "r-dropdown": [
+          "ion-item",
+          "ion-label",
+          "ion-select",
+          "ion-note"
+        ],
+        "ion-select": [
+          "ion-select-popover",
+          "ion-popover",
+          "ion-action-sheet",
+          "ion-alert",
+          "ion-select-modal",
+          "ion-modal",
+          "ion-icon"
+        ],
+        "ion-select-popover": [
+          "ion-item",
+          "ion-checkbox",
+          "ion-radio-group",
+          "ion-radio",
+          "ion-list",
+          "ion-list-header",
+          "ion-label"
+        ],
+        "ion-popover": [
+          "ion-backdrop"
+        ],
+        "ion-action-sheet": [
+          "ion-backdrop",
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-alert": [
+          "ion-ripple-effect",
+          "ion-backdrop"
+        ],
+        "ion-select-modal": [
+          "ion-radio-group",
+          "ion-item",
+          "ion-radio",
+          "ion-checkbox",
+          "ion-header",
+          "ion-toolbar",
+          "ion-title",
+          "ion-buttons",
+          "ion-button",
+          "ion-content",
+          "ion-list"
+        ],
+        "ion-modal": [
+          "ion-backdrop"
         ],
         "app-shell": [
           "app-home"
@@ -88,7 +144,9 @@
         "app-home": [
           "ion-icon",
           "r-button",
-          "r-input"
+          "r-input",
+          "r-dropdown",
+          "ion-select-option"
         ],
         "r-button": [
           "ion-button",
@@ -111,6 +169,58 @@
         ],
         "ion-input": [
           "ion-icon"
+        ],
+        "r-dropdown": [
+          "ion-item",
+          "ion-label",
+          "ion-select",
+          "ion-note"
+        ],
+        "ion-select": [
+          "ion-select-popover",
+          "ion-popover",
+          "ion-action-sheet",
+          "ion-alert",
+          "ion-select-modal",
+          "ion-modal",
+          "ion-icon"
+        ],
+        "ion-select-popover": [
+          "ion-item",
+          "ion-checkbox",
+          "ion-radio-group",
+          "ion-radio",
+          "ion-list",
+          "ion-list-header",
+          "ion-label"
+        ],
+        "ion-popover": [
+          "ion-backdrop"
+        ],
+        "ion-action-sheet": [
+          "ion-backdrop",
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-alert": [
+          "ion-ripple-effect",
+          "ion-backdrop"
+        ],
+        "ion-select-modal": [
+          "ion-radio-group",
+          "ion-item",
+          "ion-radio",
+          "ion-checkbox",
+          "ion-header",
+          "ion-toolbar",
+          "ion-title",
+          "ion-buttons",
+          "ion-button",
+          "ion-content",
+          "ion-list"
+        ],
+        "ion-modal": [
+          "ion-backdrop"
         ]
       }
     },
@@ -457,6 +567,547 @@
         ],
         "app-home": [
           "r-button"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-dropdown/r-dropdown.tsx",
+      "encapsulation": "none",
+      "tag": "r-dropdown",
+      "readme": "# r-dropdown\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "cancelable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "cancelable",
+          "reflectToAttr": false,
+          "docs": "If true, the interface is cancelable",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The dropdown color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the dropdown is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "If true, the dropdown has error state",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-text",
+          "reflectToAttr": false,
+          "docs": "Error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'outline' | 'solid'",
+            "resolved": "\"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "The dropdown fill style",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "Helper text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "interface",
+          "type": "\"action-sheet\" | \"alert\" | \"popover\"",
+          "complexType": {
+            "original": "'action-sheet' | 'popover' | 'alert'",
+            "resolved": "\"action-sheet\" | \"alert\" | \"popover\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "interface",
+          "reflectToAttr": false,
+          "docs": "Interface style (action-sheet, popover, alert)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "action-sheet",
+              "type": "string"
+            },
+            {
+              "value": "alert",
+              "type": "string"
+            },
+            {
+              "value": "popover",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The dropdown label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If true, allows multiple selections",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The dropdown name",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The dropdown placeholder",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If true, the dropdown is required",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "shape",
+          "type": "\"round\"",
+          "complexType": {
+            "original": "'round'",
+            "resolved": "\"round\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "The dropdown shape",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "round",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "complexType": {
+            "original": "string | number",
+            "resolved": "number | string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The dropdown value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rBlur",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dropdown is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "rChange",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dropdown value changes",
+          "docsTags": []
+        },
+        {
+          "event": "rFocus",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dropdown is focused",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-item",
+        "ion-label",
+        "ion-select",
+        "ion-note"
+      ],
+      "dependencyGraph": {
+        "r-dropdown": [
+          "ion-item",
+          "ion-label",
+          "ion-select",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-select": [
+          "ion-select-popover",
+          "ion-popover",
+          "ion-action-sheet",
+          "ion-alert",
+          "ion-select-modal",
+          "ion-modal",
+          "ion-icon"
+        ],
+        "ion-select-popover": [
+          "ion-item",
+          "ion-checkbox",
+          "ion-radio-group",
+          "ion-radio",
+          "ion-list",
+          "ion-list-header",
+          "ion-label"
+        ],
+        "ion-popover": [
+          "ion-backdrop"
+        ],
+        "ion-action-sheet": [
+          "ion-backdrop",
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-alert": [
+          "ion-ripple-effect",
+          "ion-backdrop"
+        ],
+        "ion-select-modal": [
+          "ion-radio-group",
+          "ion-item",
+          "ion-radio",
+          "ion-checkbox",
+          "ion-header",
+          "ion-toolbar",
+          "ion-title",
+          "ion-buttons",
+          "ion-button",
+          "ion-content",
+          "ion-list"
+        ],
+        "ion-button": [
+          "ion-ripple-effect"
+        ],
+        "ion-modal": [
+          "ion-backdrop"
+        ],
+        "app-home": [
+          "r-dropdown"
         ]
       }
     },

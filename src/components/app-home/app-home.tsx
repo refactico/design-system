@@ -12,6 +12,7 @@ export class AppHome {
   private menuItems = [
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
     { id: 'r-input', name: 'Input', description: 'Input field component with password visibility toggle and validation support' },
+    { id: 'r-dropdown', name: 'Dropdown', description: 'Dropdown component that wraps Ionic select with validation, error handling, and multiple selection support' },
     // Add more components here as they are created
   ];
 
@@ -138,6 +139,74 @@ export class AppHome {
                           <div class="example-group">
                             <h3>Outline Style</h3>
                             <r-input label="Outline Input" placeholder="Enter text" fill="outline"></r-input>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-dropdown' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Dropdown</h3>
+                            <r-dropdown label="Country" placeholder="Select a country">
+                              <ion-select-option value="us">United States</ion-select-option>
+                              <ion-select-option value="uk">United Kingdom</ion-select-option>
+                              <ion-select-option value="ca">Canada</ion-select-option>
+                              <ion-select-option value="au">Australia</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Dropdown with Default Value</h3>
+                            <r-dropdown label="Size" value="medium">
+                              <ion-select-option value="small">Small</ion-select-option>
+                              <ion-select-option value="medium">Medium</ion-select-option>
+                              <ion-select-option value="large">Large</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Required Dropdown</h3>
+                            <r-dropdown label="Favorite Color" placeholder="Select a color" required>
+                              <ion-select-option value="red">Red</ion-select-option>
+                              <ion-select-option value="green">Green</ion-select-option>
+                              <ion-select-option value="blue">Blue</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Dropdown with Error</h3>
+                            <r-dropdown label="Required Field" placeholder="Select an option" error error-text="This field is required">
+                              <ion-select-option value="option1">Option 1</ion-select-option>
+                              <ion-select-option value="option2">Option 2</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Dropdown with Helper Text</h3>
+                            <r-dropdown label="Experience Level" placeholder="Select your level" helper-text="Choose the level that best describes your experience">
+                              <ion-select-option value="beginner">Beginner</ion-select-option>
+                              <ion-select-option value="intermediate">Intermediate</ion-select-option>
+                              <ion-select-option value="advanced">Advanced</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Multiple Selection</h3>
+                            <r-dropdown label="Select Frameworks" placeholder="Choose multiple options" multiple>
+                              <ion-select-option value="react">React</ion-select-option>
+                              <ion-select-option value="vue">Vue</ion-select-option>
+                              <ion-select-option value="angular">Angular</ion-select-option>
+                              <ion-select-option value="svelte">Svelte</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Outline Style</h3>
+                            <r-dropdown label="Outline Style" placeholder="Select an option" fill="outline">
+                              <ion-select-option value="option1">Option 1</ion-select-option>
+                              <ion-select-option value="option2">Option 2</ion-select-option>
+                            </r-dropdown>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Dropdown</h3>
+                            <r-dropdown label="Disabled Dropdown" placeholder="This dropdown is disabled" disabled>
+                              <ion-select-option value="option1">Option 1</ion-select-option>
+                              <ion-select-option value="option2">Option 2</ion-select-option>
+                            </r-dropdown>
                           </div>
                         </div>
                       )}

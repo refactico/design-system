@@ -55,6 +55,73 @@ export namespace Components {
          */
         "type": 'button' | 'submit' | 'reset';
     }
+    interface RDropdown {
+        /**
+          * If true, the interface is cancelable
+          * @default true
+         */
+        "cancelable": boolean;
+        /**
+          * The dropdown color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the dropdown is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the dropdown has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The dropdown fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Interface style (action-sheet, popover, alert)
+         */
+        "interface"?: 'action-sheet' | 'popover' | 'alert';
+        /**
+          * The dropdown label
+         */
+        "label"?: string;
+        /**
+          * If true, allows multiple selections
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * The dropdown name
+         */
+        "name"?: string;
+        /**
+          * The dropdown placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the dropdown is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The dropdown shape
+         */
+        "shape"?: 'round';
+        /**
+          * The dropdown value
+         */
+        "value"?: string | number;
+    }
     interface RInput {
         /**
           * The input autocomplete attribute
@@ -148,6 +215,10 @@ export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRButtonElement;
 }
+export interface RDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRDropdownElement;
+}
 export interface RInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRInputElement;
@@ -182,6 +253,25 @@ declare global {
         prototype: HTMLRButtonElement;
         new (): HTMLRButtonElement;
     };
+    interface HTMLRDropdownElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRDropdownElement extends Components.RDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRDropdownElementEventMap>(type: K, listener: (this: HTMLRDropdownElement, ev: RDropdownCustomEvent<HTMLRDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRDropdownElementEventMap>(type: K, listener: (this: HTMLRDropdownElement, ev: RDropdownCustomEvent<HTMLRDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRDropdownElement: {
+        prototype: HTMLRDropdownElement;
+        new (): HTMLRDropdownElement;
+    };
     interface HTMLRInputElementEventMap {
         "rInput": CustomEvent;
         "rFocus": FocusEvent;
@@ -205,6 +295,7 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
         "r-button": HTMLRButtonElement;
+        "r-dropdown": HTMLRDropdownElement;
         "r-input": HTMLRInputElement;
     }
 }
@@ -261,6 +352,85 @@ declare namespace LocalJSX {
           * @default 'button'
          */
         "type"?: 'button' | 'submit' | 'reset';
+    }
+    interface RDropdown {
+        /**
+          * If true, the interface is cancelable
+          * @default true
+         */
+        "cancelable"?: boolean;
+        /**
+          * The dropdown color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * If true, the dropdown is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the dropdown has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The dropdown fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Interface style (action-sheet, popover, alert)
+         */
+        "interface"?: 'action-sheet' | 'popover' | 'alert';
+        /**
+          * The dropdown label
+         */
+        "label"?: string;
+        /**
+          * If true, allows multiple selections
+          * @default false
+         */
+        "multiple"?: boolean;
+        /**
+          * The dropdown name
+         */
+        "name"?: string;
+        /**
+          * Emitted when the dropdown is blurred
+         */
+        "onRBlur"?: (event: RDropdownCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the dropdown value changes
+         */
+        "onRChange"?: (event: RDropdownCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the dropdown is focused
+         */
+        "onRFocus"?: (event: RDropdownCustomEvent<CustomEvent>) => void;
+        /**
+          * The dropdown placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the dropdown is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The dropdown shape
+         */
+        "shape"?: 'round';
+        /**
+          * The dropdown value
+         */
+        "value"?: string | number;
     }
     interface RInput {
         /**
@@ -366,6 +536,7 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-shell": AppShell;
         "r-button": RButton;
+        "r-dropdown": RDropdown;
         "r-input": RInput;
     }
 }
@@ -376,6 +547,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
+            "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
         }
     }

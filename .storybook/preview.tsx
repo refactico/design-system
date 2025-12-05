@@ -4,6 +4,7 @@ import { setCustomElementsManifest } from '@stencil/storybook-plugin';
 import customElements from '../custom-elements.json';
 
 // Import the bundled theme CSS (same as end users will import)
+// dist/theme.css is generated during build (npm run build or npm run bundle:theme)
 import '../dist/theme.css';
 
 /**

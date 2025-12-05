@@ -1,6 +1,6 @@
 {
   "name": "@refactico/design-system",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Refactico Design System - A comprehensive component library built with Stencil and Ionic for mobile and web applications",
   "keywords": [
     "design-system",
