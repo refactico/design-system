@@ -24,8 +24,26 @@ r-input ion-item {
   background: transparent;
 }
 
+r-input ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
 r-input ion-input {
   font-size: var(--r-internal-input-font-size);
+  margin-top: var(--r-spacing-2, 8px);
+}
+
+/* Style password toggle icon inside input */
+r-input ion-input ion-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin: 0;
+  height: auto;
+}
+
+r-input ion-input ion-button ion-icon {
+  font-size: 20px;
+  color: var(--ion-color-medium, #666);
 }
 
 /* Focus state uses our border focus color */

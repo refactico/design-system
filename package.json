@@ -1,6 +1,6 @@
 {
   "name": "@refactico/design-system",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Refactico Design System - A comprehensive component library built with Stencil and Ionic for mobile and web applications",
   "keywords": [
     "design-system",
@@ -64,7 +64,7 @@
     "prebuild": "npm run generate:ionic-mapping",
     "build": "stencil build",
     "postbuild": "npm run bundle:theme",
-    "start": "stencil build --dev --watch",
+    "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",

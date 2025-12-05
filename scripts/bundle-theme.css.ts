@@ -235,22 +235,49 @@ function resolveImports(cssContent: string, baseDir: string): string {
       continue;
     }
     
-    // Handle other node_modules imports
-    let fullPath: string;
-    if (importPath.startsWith('../../node_modules/')) {
-      fullPath = path.join(__dirname, '../', importPath);
-    } else if (importPath.startsWith('../node_modules/')) {
-      fullPath = path.join(__dirname, '../', importPath);
+    // Handle other Ionic CSS files and node_modules imports
+    if (importPath.includes('@ionic/core/css/')) {
+      // Extract filename from path
+      const filename = importPath.split('/').pop();
+      const possiblePaths = [
+        path.join(__dirname, '../node_modules/@ionic/core/css', filename || ''),
+        path.join(__dirname, '../', importPath),
+        path.resolve(baseDir, importPath),
+      ];
+      
+      let importedContent: string | null = null;
+      for (const possiblePath of possiblePaths) {
+        if (fs.existsSync(possiblePath)) {
+          importedContent = fs.readFileSync(possiblePath, 'utf-8');
+          console.log(`✅ Found CSS at: ${possiblePath}`);
+          break;
+        }
+      }
+      
+      if (importedContent) {
+        const resolvedImported = resolveImports(importedContent, path.dirname(possiblePaths.find(p => fs.existsSync(p)) || possiblePaths[0]));
+        resolved = resolved.replace(match[0], resolvedImported);
+      } else {
+        console.warn(`⚠️  Warning: Could not find import: ${importPath}`);
+      }
     } else {
-      fullPath = path.resolve(baseDir, importPath);
-    }
-    
-    if (fs.existsSync(fullPath)) {
-      const importedContent = fs.readFileSync(fullPath, 'utf-8');
-      const resolvedImported = resolveImports(importedContent, path.dirname(fullPath));
-      resolved = resolved.replace(match[0], resolvedImported);
-    } else {
-      console.warn(`⚠️  Warning: Could not find import: ${importPath}`);
+      // Handle other node_modules imports
+      let fullPath: string;
+      if (importPath.startsWith('../../node_modules/')) {
+        fullPath = path.join(__dirname, '../', importPath);
+      } else if (importPath.startsWith('../node_modules/')) {
+        fullPath = path.join(__dirname, '../', importPath);
+      } else {
+        fullPath = path.resolve(baseDir, importPath);
+      }
+      
+      if (fs.existsSync(fullPath)) {
+        const importedContent = fs.readFileSync(fullPath, 'utf-8');
+        const resolvedImported = resolveImports(importedContent, path.dirname(fullPath));
+        resolved = resolved.replace(match[0], resolvedImported);
+      } else {
+        console.warn(`⚠️  Warning: Could not find import: ${importPath}`);
+      }
     }
   }
 

@@ -187,20 +187,20 @@ export class RInput {
         )}
         <ion-input {...inputProps}>
           <slot></slot>
+          {isPassword && this.showPasswordToggle && (
+            <ion-button
+              fill="clear"
+              slot="end"
+              onClick={this.togglePasswordVisibility}
+              aria-label={this.showPassword ? 'Hide password' : 'Show password'}
+            >
+              <ion-icon
+                slot="icon-only"
+                name={this.showPassword ? 'eye-off-outline' : 'eye-outline'}
+              ></ion-icon>
+            </ion-button>
+          )}
         </ion-input>
-        {isPassword && this.showPasswordToggle && (
-          <ion-button
-            fill="clear"
-            slot="end"
-            onClick={this.togglePasswordVisibility}
-            aria-label={this.showPassword ? 'Hide password' : 'Show password'}
-          >
-            <ion-icon
-              slot="icon-only"
-              name={this.showPassword ? 'eye-off-outline' : 'eye-outline'}
-            ></ion-icon>
-          </ion-button>
-        )}
         {this.error && this.errorText && (
           <ion-note slot="error" color="danger">
             {this.errorText}
