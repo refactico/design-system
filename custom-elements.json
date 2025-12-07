@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T20:19:27",
+  "timestamp": "2025-12-07T20:43:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -45,7 +45,8 @@
         "r-card-title",
         "r-card-subtitle",
         "r-card-content",
-        "r-card-footer"
+        "r-card-footer",
+        "r-checkbox"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -69,7 +70,8 @@
           "r-card-title",
           "r-card-subtitle",
           "r-card-content",
-          "r-card-footer"
+          "r-card-footer",
+          "r-checkbox"
         ],
         "r-button": [
           "ion-button",
@@ -198,6 +200,12 @@
         ],
         "r-card-content": [
           "ion-card-content"
+        ],
+        "r-checkbox": [
+          "ion-item",
+          "ion-label",
+          "ion-checkbox",
+          "ion-note"
         ],
         "app-shell": [
           "app-home"
@@ -248,7 +256,8 @@
           "r-card-title",
           "r-card-subtitle",
           "r-card-content",
-          "r-card-footer"
+          "r-card-footer",
+          "r-checkbox"
         ],
         "r-button": [
           "ion-button",
@@ -377,6 +386,12 @@
         ],
         "r-card-content": [
           "ion-card-content"
+        ],
+        "r-checkbox": [
+          "ion-item",
+          "ion-label",
+          "ion-checkbox",
+          "ion-note"
         ]
       }
     },
@@ -1992,6 +2007,622 @@
         ],
         "app-home": [
           "r-card-title"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-checkbox/r-checkbox.tsx",
+      "encapsulation": "none",
+      "tag": "r-checkbox",
+      "readme": "# r-checkbox\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "alignment",
+          "type": "\"center\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'center'",
+            "resolved": "\"center\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "alignment",
+          "reflectToAttr": false,
+          "docs": "Checkbox alignment (start or center)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": false,
+          "docs": "If true, the checkbox is checked",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The checkbox color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the checkbox is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "If true, the checkbox has error state",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-text",
+          "reflectToAttr": false,
+          "docs": "Error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'outline' | 'solid' | 'clear' | 'default'",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "The fill style (only applies when formField is true)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formField",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-field",
+          "reflectToAttr": false,
+          "docs": "If true, wraps checkbox in ion-item for form field styling",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "Helper text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "indeterminate",
+          "reflectToAttr": false,
+          "docs": "If true, the checkbox is in an indeterminate state (useful for \"select all\" scenarios)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "justify",
+          "type": "\"end\" | \"space-between\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end' | 'space-between'",
+            "resolved": "\"end\" | \"space-between\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "justify",
+          "reflectToAttr": false,
+          "docs": "Justify content (start, end, space-between)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "space-between",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The checkbox label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "\"end\" | \"fixed\" | \"stacked\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end' | 'fixed' | 'stacked'",
+            "resolved": "\"end\" | \"fixed\" | \"stacked\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-placement",
+          "reflectToAttr": false,
+          "docs": "Label placement relative to the checkbox",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "fixed",
+              "type": "string"
+            },
+            {
+              "value": "stacked",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The checkbox mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The checkbox name (for form submission)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If true, the checkbox is required",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The checkbox value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rBlur",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checkbox is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "rChange",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checkbox checked state changes",
+          "docsTags": []
+        },
+        {
+          "event": "rFocus",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checkbox is focused",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-item",
+        "ion-label",
+        "ion-checkbox",
+        "ion-note"
+      ],
+      "dependencyGraph": {
+        "r-checkbox": [
+          "ion-item",
+          "ion-label",
+          "ion-checkbox",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "app-home": [
+          "r-checkbox"
         ]
       }
     },

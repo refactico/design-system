@@ -22,6 +22,7 @@ export class AppHome {
     { id: 'r-buttons', name: 'Buttons', description: 'Buttons container component that wraps Ionic buttons with design system spacing' },
     { id: 'r-badge', name: 'Badge', description: 'Badge component that wraps Ionic badge for displaying notification counts, status indicators, or labels' },
     { id: 'r-card', name: 'Card', description: 'Card component that wraps Ionic card with design system styling and support for clickable cards' },
+    { id: 'r-checkbox', name: 'Checkbox', description: 'Checkbox component that wraps Ionic checkbox with design system styling, supporting standalone and form field modes with comprehensive props' },
     // Add more components here as they are created
   ];
 
@@ -870,6 +871,92 @@ export class AppHome {
                                   <p>Success colored card.</p>
                                 </r-card-content>
                               </r-card>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-checkbox' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Checkbox</h3>
+                            <r-checkbox>Accept Terms and Conditions</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Checked Checkbox</h3>
+                            <r-checkbox checked>Already Checked</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Checkbox</h3>
+                            <r-checkbox disabled>Disabled Checkbox</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled and Checked</h3>
+                            <r-checkbox disabled checked>Disabled and Checked</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Checkbox with Color</h3>
+                            <r-checkbox color="primary" checked>Primary Checkbox</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Indeterminate State (Select All)</h3>
+                            <r-checkbox indeterminate>Select All</r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Form Field Mode</h3>
+                            <r-checkbox form-field label="Agree to Terms" helper-text="You must agree to continue">
+                              I agree to the terms and conditions
+                            </r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Form Field with Error</h3>
+                            <r-checkbox form-field label="Required Field" error error-text="This field is required">
+                              Required checkbox
+                            </r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Required Checkbox</h3>
+                            <r-checkbox required label="I agree to the terms">
+                              Required checkbox
+                            </r-checkbox>
+                          </div>
+                          <div class="example-group">
+                            <h3>Checkbox List</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                              <r-checkbox value="option1" checked>Option 1</r-checkbox>
+                              <r-checkbox value="option2">Option 2</r-checkbox>
+                              <r-checkbox value="option3" checked>Option 3</r-checkbox>
+                              <r-checkbox value="option4">Option 4</r-checkbox>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Select All Pattern</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-checkbox indeterminate justify="space-between">Select All</r-checkbox>
+                              <div style={{ marginLeft: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                <r-checkbox value="item1" checked>Item 1</r-checkbox>
+                                <r-checkbox value="item2" checked>Item 2</r-checkbox>
+                                <r-checkbox value="item3">Item 3</r-checkbox>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Label Placement Variants</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-checkbox label-placement="start" checked>Label on Start</r-checkbox>
+                              <r-checkbox label-placement="end" checked>Label on End (Default)</r-checkbox>
+                              <r-checkbox label-placement="fixed" checked>Label Fixed</r-checkbox>
+                              <r-checkbox label-placement="stacked" checked>Label Stacked</r-checkbox>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Color Variants</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-checkbox color="primary" checked>Primary</r-checkbox>
+                              <r-checkbox color="secondary" checked>Secondary</r-checkbox>
+                              <r-checkbox color="success" checked>Success</r-checkbox>
+                              <r-checkbox color="warning" checked>Warning</r-checkbox>
+                              <r-checkbox color="danger" checked>Danger</r-checkbox>
                             </div>
                           </div>
                         </div>

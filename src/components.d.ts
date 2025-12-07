@@ -182,6 +182,82 @@ export namespace Components {
          */
         "color"?: IonicColor;
     }
+    interface RCheckbox {
+        /**
+          * Checkbox alignment (start or center)
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, the checkbox is checked
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * The checkbox color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the checkbox is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the checkbox has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style (only applies when formField is true)
+         */
+        "fill"?: 'outline' | 'solid' | 'clear' | 'default';
+        /**
+          * If true, wraps checkbox in ion-item for form field styling
+          * @default false
+         */
+        "formField": boolean;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * If true, the checkbox is in an indeterminate state (useful for "select all" scenarios)
+          * @default false
+         */
+        "indeterminate": boolean;
+        /**
+          * Justify content (start, end, space-between)
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The checkbox label
+         */
+        "label"?: string;
+        /**
+          * Label placement relative to the checkbox
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * The checkbox mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The checkbox name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * If true, the checkbox is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The checkbox value
+         */
+        "value"?: string;
+    }
     interface RDatepicker {
         /**
           * The datepicker color (Ionic color)
@@ -474,6 +550,10 @@ export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRButtonElement;
 }
+export interface RCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRCheckboxElement;
+}
 export interface RDatepickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRDatepickerElement;
@@ -584,6 +664,25 @@ declare global {
         prototype: HTMLRCardTitleElement;
         new (): HTMLRCardTitleElement;
     };
+    interface HTMLRCheckboxElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRCheckboxElement extends Components.RCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRCheckboxElementEventMap>(type: K, listener: (this: HTMLRCheckboxElement, ev: RCheckboxCustomEvent<HTMLRCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRCheckboxElementEventMap>(type: K, listener: (this: HTMLRCheckboxElement, ev: RCheckboxCustomEvent<HTMLRCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRCheckboxElement: {
+        prototype: HTMLRCheckboxElement;
+        new (): HTMLRCheckboxElement;
+    };
     interface HTMLRDatepickerElementEventMap {
         "rChange": CustomEvent;
         "rFocus": CustomEvent;
@@ -672,6 +771,7 @@ declare global {
         "r-card-header": HTMLRCardHeaderElement;
         "r-card-subtitle": HTMLRCardSubtitleElement;
         "r-card-title": HTMLRCardTitleElement;
+        "r-checkbox": HTMLRCheckboxElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
@@ -874,6 +974,94 @@ declare namespace LocalJSX {
           * The card title color (Ionic color)
          */
         "color"?: IonicColor;
+    }
+    interface RCheckbox {
+        /**
+          * Checkbox alignment (start or center)
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, the checkbox is checked
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * The checkbox color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the checkbox is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the checkbox has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style (only applies when formField is true)
+         */
+        "fill"?: 'outline' | 'solid' | 'clear' | 'default';
+        /**
+          * If true, wraps checkbox in ion-item for form field styling
+          * @default false
+         */
+        "formField"?: boolean;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * If true, the checkbox is in an indeterminate state (useful for "select all" scenarios)
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
+          * Justify content (start, end, space-between)
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The checkbox label
+         */
+        "label"?: string;
+        /**
+          * Label placement relative to the checkbox
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * The checkbox mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The checkbox name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when the checkbox is blurred
+         */
+        "onRBlur"?: (event: RCheckboxCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the checkbox checked state changes
+         */
+        "onRChange"?: (event: RCheckboxCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the checkbox is focused
+         */
+        "onRFocus"?: (event: RCheckboxCustomEvent<CustomEvent>) => void;
+        /**
+          * If true, the checkbox is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The checkbox value
+         */
+        "value"?: string;
     }
     interface RDatepicker {
         /**
@@ -1207,6 +1395,7 @@ declare namespace LocalJSX {
         "r-card-header": RCardHeader;
         "r-card-subtitle": RCardSubtitle;
         "r-card-title": RCardTitle;
+        "r-checkbox": RCheckbox;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-header": RHeader;
@@ -1231,6 +1420,7 @@ declare module "@stencil/core" {
             "r-card-header": LocalJSX.RCardHeader & JSXBase.HTMLAttributes<HTMLRCardHeaderElement>;
             "r-card-subtitle": LocalJSX.RCardSubtitle & JSXBase.HTMLAttributes<HTMLRCardSubtitleElement>;
             "r-card-title": LocalJSX.RCardTitle & JSXBase.HTMLAttributes<HTMLRCardTitleElement>;
+            "r-checkbox": LocalJSX.RCheckbox & JSXBase.HTMLAttributes<HTMLRCheckboxElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
