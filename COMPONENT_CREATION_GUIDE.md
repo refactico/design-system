@@ -4,13 +4,21 @@ This guide ensures all new components follow the design system's patterns and us
 
 ## 📋 Pre-Creation Checklist
 
+**CRITICAL:** This design system is used by 69+ apps and enterprise clients. Components MUST be production-ready from day one.
+
 Before creating a new component, check:
 
 - [ ] Does a similar component already exist?
 - [ ] Is this a wrapper around an Ionic component?
-- [ ] What props/events does the Ionic component support?
+- [ ] **What props/events does the Ionic component support? (Research THOROUGHLY - don't miss any)**
+- [ ] **What are ALL the use cases? (How will 69+ apps use this?)**
+- [ ] **What are ALL the edge cases? (Disabled, error, loading, empty, validation states)**
+- [ ] **What features do similar components in other design systems have?**
+- [ ] **What props will users actually need? (Not just basic ones - ALL useful props)**
 - [ ] Do we need form field utilities (for inputs, dropdowns, etc.)?
 - [ ] What types will be needed?
+- [ ] **What sub-components are needed? (Complete component families)**
+- [ ] **What accessibility features are needed?**
 
 ## 🚀 Component Creation Steps
 

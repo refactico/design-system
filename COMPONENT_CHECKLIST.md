@@ -5,9 +5,13 @@ Use this checklist every time you create a new component to ensure consistency a
 ## 📋 Pre-Creation
 
 - [ ] Checked if similar component exists
-- [ ] Reviewed Ionic component documentation
-- [ ] Identified required props and events
+- [ ] **Reviewed Ionic component documentation THOROUGHLY** - Don't miss any props/features
+- [ ] **Identified ALL useful props and events** - Not just basic ones, ALL that users might need
+- [ ] **Identified ALL use cases** - How will 69+ apps use this? What scenarios?
+- [ ] **Identified ALL edge cases** - Disabled, error, loading, empty states, validation, etc.
+- [ ] **Researched real-world usage** - What features do similar components in other design systems have?
 - [ ] Determined if it's a form field component
+- [ ] **Listed ALL sub-components needed** - Don't create incomplete component families
 
 ## 📁 File Creation
 
@@ -32,6 +36,11 @@ Use this checklist every time you create a new component to ensure consistency a
 - [ ] Component decorator has `shadow: false`
 - [ ] All event handlers use arrow functions
 - [ ] Props are properly documented with JSDoc comments
+- [ ] **Included ALL useful props** - Not just basic ones, ALL that users might need
+- [ ] **Handled ALL edge cases** - Disabled, error, loading, empty, validation states
+- [ ] **Included ALL events** - All events that users might need to listen to
+- [ ] **Proper error handling** - Component handles errors gracefully
+- [ ] **Accessibility support** - ARIA attributes, keyboard navigation, screen reader support
 
 ### CSS Styling
 
@@ -72,11 +81,32 @@ Use this checklist every time you create a new component to ensure consistency a
 - [ ] `npm run storybook` works
 - [ ] No TypeScript errors
 - [ ] No linting errors
-- [ ] No console errors
+- [ ] **No console errors or warnings** - Zero tolerance for errors
 - [ ] Component works in browser
-- [ ] All props work as expected
-- [ ] All events fire correctly
+- [ ] **ALL props work as expected** - Test every single prop
+- [ ] **ALL events fire correctly** - Test every event
 - [ ] Styles are applied correctly
+- [ ] **Tested ALL edge cases:**
+  - [ ] Disabled state works correctly
+  - [ ] Error state works correctly
+  - [ ] Loading state works correctly (if applicable)
+  - [ ] Empty state works correctly (if applicable)
+  - [ ] Validation works correctly (if applicable)
+  - [ ] All color variants work
+  - [ ] All size variants work
+  - [ ] All fill/style variants work
+- [ ] **Tested in different scenarios:**
+  - [ ] Mobile viewport
+  - [ ] Desktop viewport
+  - [ ] Different screen sizes
+  - [ ] Dark mode (if applicable)
+  - [ ] Light mode
+- [ ] **Accessibility verified:**
+  - [ ] Keyboard navigation works
+  - [ ] Screen reader compatible
+  - [ ] ARIA attributes correct
+  - [ ] Focus states visible
+- [ ] **No bugs found** - Component is production-ready
 
 ## 📝 Documentation
 
@@ -88,10 +118,19 @@ Use this checklist every time you create a new component to ensure consistency a
 
 ## 🚀 Ready to Publish?
 
+**CRITICAL:** This design system is used by 69+ apps and enterprise clients. Components MUST be production-ready.
+
 - [ ] All checklist items completed
+- [ ] **ALL use cases covered** - Component handles all scenarios users might need
+- [ ] **ALL edge cases handled** - No missing states or error handling
+- [ ] **Comprehensive testing done** - Tested all props, events, states, scenarios
+- [ ] **No bugs or issues** - Zero tolerance - component must work perfectly
+- [ ] **No missing features** - All useful features included upfront
 - [ ] Code reviewed
-- [ ] Tested thoroughly
+- [ ] **Production-ready** - Safe for 69+ apps and enterprise clients to use
 - [ ] Ready for commit and publish
+
+**Remember:** Enhancements are welcome, but bugs and missing features are NOT acceptable. Users consume our design system directly - they shouldn't have to come back asking for features or reporting bugs.
 
 ---
 
