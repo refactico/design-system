@@ -1,0 +1,115 @@
+# Component Creation Rules for Cursor AI
+
+**IMPORTANT:** When asked to create a new component (e.g., "create r-card component"), you MUST:
+1. Read this file first
+2. Check `COMPONENT_TEMPLATE.tsx` for the template
+3. Read `COMPONENT_CREATION_GUIDE.md` for detailed patterns
+4. Look at existing components (`r-badge`, `r-input`, etc.) for examples
+5. Follow ALL rules below
+
+When creating new components in this design system, you MUST follow these rules:
+
+## Required Imports
+
+1. **Always import utilities:**
+   ```typescript
+   import { removeUndefinedProps, IonicColor, FillStyle, IonicMode } from '../../utils';
+   ```
+
+2. **For form field components, also import:**
+   ```typescript
+   import { buildFormFieldProps, getLabelPosition, getItemLines } from '../../utils/form-field-props';
+   ```
+
+## Workflow When Creating Components
+
+1. **FIRST:** Read `COMPONENT_TEMPLATE.tsx` - Copy it as your starting point
+2. **SECOND:** Check `COMPONENT_CREATION_GUIDE.md` for patterns and examples
+3. **THIRD:** Look at existing components:
+   - Simple component? → See `src/components/r-badge/` or `src/components/r-buttons/`
+   - Form field component? → See `src/components/r-input/`, `src/components/r-dropdown/`, or `src/components/r-datepicker/`
+4. **FOURTH:** Create all required files (see File Structure below)
+5. **FIFTH:** Add component to `src/components/app-home/app-home.tsx` menu and examples
+
+## Required Patterns
+
+1. **ALWAYS use `removeUndefinedProps`** - Never manually filter props with `Object.keys().forEach()`
+   ```typescript
+   // ❌ WRONG
+   const props: any = { color: this.color };
+   Object.keys(props).forEach(key => { if (props[key] === undefined) delete props[key]; });
+   
+   // ✅ CORRECT
+   const props = removeUndefinedProps({ color: this.color, size: this.size });
+   ```
+
+2. **ALWAYS use type definitions:**
+   - `IonicColor` instead of `string` for color props
+   - `FillStyle` instead of `'outline' | 'solid'` for fill props
+   - `IonicMode` instead of `'ios' | 'md'` for mode props
+   ```typescript
+   // ❌ WRONG
+   @Prop() color?: string;
+   @Prop() fill?: 'outline' | 'solid';
+   
+   // ✅ CORRECT
+   import { IonicColor, FillStyle } from '../../utils';
+   @Prop() color?: IonicColor;
+   @Prop() fill?: FillStyle;
+   ```
+
+3. **For form field components (has label, error, helper text):**
+   - Use `buildFormFieldProps()` for common props
+   - Use `getLabelPosition()` for label positioning
+   - Use `getItemLines()` for item lines styling
+   - See `src/components/r-dropdown/r-dropdown.tsx` for complete example
+
+4. **Component decorator:**
+   ```typescript
+   @Component({
+     tag: 'r-component-name',
+     styleUrl: 'r-component-name.css',
+     shadow: false, // Always false for Ionic components
+   })
+   ```
+
+## File Structure
+
+Every component must have:
+- `r-component-name.tsx` - Component implementation
+- `r-component-name.css` - Component styles
+- `r-component-name.spec.ts` - Unit tests
+- `r-component-name.e2e.ts` - E2E tests
+- `r-component-name.stories.ts` - Storybook stories
+- `readme.md` - Documentation (auto-generated)
+
+## Integration (REQUIRED)
+
+After creating a component, you MUST:
+1. Add to `src/components/app-home/app-home.tsx`:
+   - Add entry to `menuItems` array
+   - Add rendering block with examples in the `render()` method
+2. Verify component works:
+   - Run `npm run build` (should succeed)
+   - Component should appear in app-home menu
+   - Examples should render correctly
+
+## Reference Files
+
+- `COMPONENT_CREATION_GUIDE.md` - Full guide
+- `COMPONENT_TEMPLATE.tsx` - Template file
+- `COMPONENT_CHECKLIST.md` - Verification checklist
+- `COMPONENT_QUICK_REFERENCE.md` - Quick reference
+
+## Examples
+
+- Simple component: See `r-badge` or `r-buttons`
+- Form field component: See `r-input`, `r-dropdown`, or `r-datepicker`
+
+## DO NOT
+
+- ❌ Use `string` type for colors - use `IonicColor`
+- ❌ Manually filter props - use `removeUndefinedProps`
+- ❌ Duplicate form field code - use form field utilities
+- ❌ Set `shadow: true` - always use `shadow: false`
+

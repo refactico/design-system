@@ -30,6 +30,11 @@ graph TD;
   app-home --> r-title
   app-home --> r-buttons
   app-home --> r-badge
+  app-home --> r-card
+  app-home --> ion-card-header
+  app-home --> ion-card-title
+  app-home --> ion-card-subtitle
+  app-home --> ion-card-content
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -98,6 +103,8 @@ graph TD;
   r-title --> ion-title
   r-buttons --> ion-buttons
   r-badge --> ion-badge
+  r-card --> ion-card
+  ion-card --> ion-ripple-effect
   style app-shell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

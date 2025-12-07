@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T19:19:07",
+  "timestamp": "2025-12-07T19:45:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -39,7 +39,12 @@
         "ion-title",
         "r-title",
         "r-buttons",
-        "r-badge"
+        "r-badge",
+        "r-card",
+        "ion-card-header",
+        "ion-card-title",
+        "ion-card-subtitle",
+        "ion-card-content"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -57,7 +62,12 @@
           "ion-title",
           "r-title",
           "r-buttons",
-          "r-badge"
+          "r-badge",
+          "r-card",
+          "ion-card-header",
+          "ion-card-title",
+          "ion-card-subtitle",
+          "ion-card-content"
         ],
         "r-button": [
           "ion-button",
@@ -168,6 +178,12 @@
         ],
         "r-badge": [
           "ion-badge"
+        ],
+        "r-card": [
+          "ion-card"
+        ],
+        "ion-card": [
+          "ion-ripple-effect"
         ],
         "app-shell": [
           "app-home"
@@ -212,7 +228,12 @@
           "ion-title",
           "r-title",
           "r-buttons",
-          "r-badge"
+          "r-badge",
+          "r-card",
+          "ion-card-header",
+          "ion-card-title",
+          "ion-card-subtitle",
+          "ion-card-content"
         ],
         "r-button": [
           "ion-button",
@@ -323,6 +344,12 @@
         ],
         "r-badge": [
           "ion-badge"
+        ],
+        "r-card": [
+          "ion-card"
+        ],
+        "ion-card": [
+          "ion-ripple-effect"
         ]
       }
     },
@@ -1355,6 +1382,318 @@
         ],
         "app-home": [
           "r-buttons"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card/r-card.tsx",
+      "encapsulation": "none",
+      "tag": "r-card",
+      "readme": "# r-card\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "button",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "button",
+          "reflectToAttr": false,
+          "docs": "If true, the card acts as a button and becomes clickable",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The card color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the card is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "download",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "download",
+          "reflectToAttr": false,
+          "docs": "The download attribute for links",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL to navigate to when the card is clicked (only works if button is true)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The card mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The rel attribute for links",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "routerDirection",
+          "type": "\"back\" | \"forward\" | \"root\"",
+          "complexType": {
+            "original": "'forward' | 'back' | 'root'",
+            "resolved": "\"back\" | \"forward\" | \"root\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "router-direction",
+          "reflectToAttr": false,
+          "docs": "The router direction (forward, back, root) for navigation",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "back",
+              "type": "string"
+            },
+            {
+              "value": "forward",
+              "type": "string"
+            },
+            {
+              "value": "root",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The target attribute for links",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-card"
+      ],
+      "dependencyGraph": {
+        "r-card": [
+          "ion-card"
+        ],
+        "ion-card": [
+          "ion-ripple-effect"
+        ],
+        "app-home": [
+          "r-card"
         ]
       }
     },

@@ -264,11 +264,37 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## Creating New Components
+
+When creating new components, follow our guidelines to ensure consistency:
+
+### 📚 Component Creation Resources
+
+- **[Component Creation Guide](./COMPONENT_CREATION_GUIDE.md)** - Complete guide with templates and examples
+- **[Component Template](./COMPONENT_TEMPLATE.tsx)** - Copy-paste template for new components
+- **[Component Checklist](./COMPONENT_CHECKLIST.md)** - Verification checklist
+- **[Quick Reference](./COMPONENT_QUICK_REFERENCE.md)** - Quick reference card
+
+### ⚡ Quick Start
+
+1. **Read the guide:** `COMPONENT_CREATION_GUIDE.md`
+2. **Use the template:** Copy `COMPONENT_TEMPLATE.tsx` as starting point
+3. **Follow the checklist:** Use `COMPONENT_CHECKLIST.md` to verify
+
+### ✅ Essential Requirements
+
+- ✅ Use `removeUndefinedProps()` for all prop objects
+- ✅ Use type definitions (`IonicColor`, `FillStyle`, `IonicMode`) instead of strings
+- ✅ Use form field utilities for components with label/error/helper text
+- ✅ Follow CSS token patterns
+- ✅ Add to `app-home.tsx` for testing
+
 ## Documentation
 
 - [Component API Documentation](https://refactico.github.io/design-system)
 - [Storybook](https://refactico.github.io/design-system/storybook)
 - [Architecture Recommendations](./ARCHITECTURE_RECOMMENDATIONS.md)
+- [Component Creation Guide](./COMPONENT_CREATION_GUIDE.md)
 
 ## License
 

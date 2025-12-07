@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-card-padding-x: var(--r-spacing-4);
+  --r-internal-card-padding-y: var(--r-spacing-4);
+  --r-internal-card-border-radius: var(--r-border-radius-base);
+  --r-internal-card-background: var(--r-color-background);
+  --r-internal-card-border-color: var(--r-border-color);
+  --r-internal-card-shadow: var(--r-shadow-sm);
+}
+
+/* Map component tokens to Ionic card variables */
+r-card ion-card {
+  --padding-start: var(--r-internal-card-padding-x);
+  --padding-end: var(--r-internal-card-padding-x);
+  --padding-top: var(--r-internal-card-padding-y);
+  --padding-bottom: var(--r-internal-card-padding-y);
+  --background: var(--r-internal-card-background);
+  --border-radius: var(--r-internal-card-border-radius);
+  --border-color: var(--r-internal-card-border-color);
+  --box-shadow: var(--r-internal-card-shadow);
+}
+
+/* Ensure proper spacing and layout */
+r-card ion-card {
+  margin: var(--r-spacing-2, 8px) 0;
+}
+

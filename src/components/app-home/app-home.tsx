@@ -21,6 +21,7 @@ export class AppHome {
     { id: 'r-title', name: 'Title', description: 'Title component that wraps Ionic title for use in toolbars and headers' },
     { id: 'r-buttons', name: 'Buttons', description: 'Buttons container component that wraps Ionic buttons with design system spacing' },
     { id: 'r-badge', name: 'Badge', description: 'Badge component that wraps Ionic badge for displaying notification counts, status indicators, or labels' },
+    { id: 'r-card', name: 'Card', description: 'Card component that wraps Ionic card with design system styling and support for clickable cards' },
     // Add more components here as they are created
   ];
 
@@ -762,6 +763,113 @@ export class AppHome {
                               <r-badge color="light">Light</r-badge>
                               <r-badge color="medium">Medium</r-badge>
                               <r-badge color="dark">Dark</r-badge>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-card' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Card</h3>
+                            <r-card>
+                              <ion-card-header>
+                                <ion-card-title>Card Title</ion-card-title>
+                                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This is a basic card with header and content.</p>
+                              </ion-card-content>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Card with Color</h3>
+                            <r-card color="primary">
+                              <ion-card-header>
+                                <ion-card-title>Colored Card</ion-card-title>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This card has a primary color applied.</p>
+                              </ion-card-content>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Clickable Card (Button)</h3>
+                            <r-card button>
+                              <ion-card-header>
+                                <ion-card-title>Clickable Card</ion-card-title>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This card acts as a button and is clickable. Hover to see the effect.</p>
+                              </ion-card-content>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Card with Image</h3>
+                            <r-card>
+                              <img src="https://via.placeholder.com/400x200?text=Card+Image" alt="Card Image" style={{ width: '100%', height: 'auto' }} />
+                              <ion-card-header>
+                                <ion-card-title>Card with Image</ion-card-title>
+                                <ion-card-subtitle>Image Subtitle</ion-card-subtitle>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This card includes an image at the top.</p>
+                              </ion-card-content>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Card with Buttons</h3>
+                            <r-card>
+                              <ion-card-header>
+                                <ion-card-title>Card with Actions</ion-card-title>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This card has action buttons at the bottom.</p>
+                              </ion-card-content>
+                              <ion-card-footer>
+                                <ion-button fill="clear">Action 1</ion-button>
+                                <ion-button fill="clear">Action 2</ion-button>
+                              </ion-card-footer>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Card</h3>
+                            <r-card button disabled>
+                              <ion-card-header>
+                                <ion-card-title>Disabled Card</ion-card-title>
+                              </ion-card-header>
+                              <ion-card-content>
+                                <p>This card is disabled and cannot be interacted with.</p>
+                              </ion-card-content>
+                            </r-card>
+                          </div>
+                          <div class="example-group">
+                            <h3>Card Color Variants</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                              <r-card color="primary">
+                                <ion-card-header>
+                                  <ion-card-title>Primary Card</ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                  <p>Primary colored card.</p>
+                                </ion-card-content>
+                              </r-card>
+                              <r-card color="secondary">
+                                <ion-card-header>
+                                  <ion-card-title>Secondary Card</ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                  <p>Secondary colored card.</p>
+                                </ion-card-content>
+                              </r-card>
+                              <r-card color="success">
+                                <ion-card-header>
+                                  <ion-card-title>Success Card</ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                  <p>Success colored card.</p>
+                                </ion-card-content>
+                              </r-card>
                             </div>
                           </div>
                         </div>

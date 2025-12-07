@@ -124,6 +124,46 @@ export namespace Components {
          */
         "slot"?: string;
     }
+    interface RCard {
+        /**
+          * If true, the card acts as a button and becomes clickable
+          * @default false
+         */
+        "button": boolean;
+        /**
+          * The card color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the card is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * The download attribute for links
+         */
+        "download"?: string;
+        /**
+          * The URL to navigate to when the card is clicked (only works if button is true)
+         */
+        "href"?: string;
+        /**
+          * The card mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The rel attribute for links
+         */
+        "rel"?: string;
+        /**
+          * The router direction (forward, back, root) for navigation
+         */
+        "routerDirection"?: 'forward' | 'back' | 'root';
+        /**
+          * The target attribute for links
+         */
+        "target"?: string;
+    }
     interface RDatepicker {
         /**
           * The datepicker color (Ionic color)
@@ -490,6 +530,12 @@ declare global {
         prototype: HTMLRButtonsElement;
         new (): HTMLRButtonsElement;
     };
+    interface HTMLRCardElement extends Components.RCard, HTMLStencilElement {
+    }
+    var HTMLRCardElement: {
+        prototype: HTMLRCardElement;
+        new (): HTMLRCardElement;
+    };
     interface HTMLRDatepickerElementEventMap {
         "rChange": CustomEvent;
         "rFocus": CustomEvent;
@@ -572,6 +618,7 @@ declare global {
         "r-badge": HTMLRBadgeElement;
         "r-button": HTMLRButtonElement;
         "r-buttons": HTMLRButtonsElement;
+        "r-card": HTMLRCardElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
@@ -716,6 +763,46 @@ declare namespace LocalJSX {
           * The slot where the buttons should be placed. Can be "start", "end", or "primary" (default).
          */
         "slot"?: string;
+    }
+    interface RCard {
+        /**
+          * If true, the card acts as a button and becomes clickable
+          * @default false
+         */
+        "button"?: boolean;
+        /**
+          * The card color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the card is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The download attribute for links
+         */
+        "download"?: string;
+        /**
+          * The URL to navigate to when the card is clicked (only works if button is true)
+         */
+        "href"?: string;
+        /**
+          * The card mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The rel attribute for links
+         */
+        "rel"?: string;
+        /**
+          * The router direction (forward, back, root) for navigation
+         */
+        "routerDirection"?: 'forward' | 'back' | 'root';
+        /**
+          * The target attribute for links
+         */
+        "target"?: string;
     }
     interface RDatepicker {
         /**
@@ -1043,6 +1130,7 @@ declare namespace LocalJSX {
         "r-badge": RBadge;
         "r-button": RButton;
         "r-buttons": RButtons;
+        "r-card": RCard;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-header": RHeader;
@@ -1061,6 +1149,7 @@ declare module "@stencil/core" {
             "r-badge": LocalJSX.RBadge & JSXBase.HTMLAttributes<HTMLRBadgeElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
             "r-buttons": LocalJSX.RButtons & JSXBase.HTMLAttributes<HTMLRButtonsElement>;
+            "r-card": LocalJSX.RCard & JSXBase.HTMLAttributes<HTMLRCardElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
