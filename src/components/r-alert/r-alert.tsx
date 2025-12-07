@@ -1,6 +1,7 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor } from '../../utils';
 
 @Component({
   tag: 'r-alert',
@@ -31,7 +32,7 @@ export class RAlert {
   /**
    * The alert color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * If true, the alert can be dismissed by clicking the backdrop
@@ -118,7 +119,7 @@ export class RAlert {
   }
 
   render() {
-    const alertProps: any = {
+    const alertProps = removeUndefinedProps({
       isOpen: this.isOpen,
       header: this.header,
       subHeader: this.subHeader,
@@ -133,13 +134,6 @@ export class RAlert {
       onIonAlertDidPresent: this.handleDidPresent,
       onIonAlertWillDismiss: this.handleWillDismiss,
       onIonAlertWillPresent: this.handleWillPresent,
-    };
-
-    // Remove undefined props
-    Object.keys(alertProps).forEach(key => {
-      if (alertProps[key] === undefined) {
-        delete alertProps[key];
-      }
     });
 
     return <ion-alert {...alertProps}></ion-alert>;

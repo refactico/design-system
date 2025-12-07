@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, IonicMode } from '../../utils';
 
 @Component({
   tag: 'r-toolbar',
@@ -11,7 +12,7 @@ export class RToolbar {
   /**
    * The toolbar color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * If true, the toolbar is translucent
@@ -21,7 +22,7 @@ export class RToolbar {
   /**
    * The toolbar mode (ios or md)
    */
-  @Prop() mode?: 'ios' | 'md';
+  @Prop() mode?: IonicMode;
 
   /**
    * If true, the toolbar has no border
@@ -29,17 +30,10 @@ export class RToolbar {
   @Prop() noBorder: boolean = false;
 
   render() {
-    const toolbarProps: any = {
+    const toolbarProps = removeUndefinedProps({
       color: this.color,
       translucent: this.translucent,
       mode: this.mode,
-    };
-
-    // Remove undefined props
-    Object.keys(toolbarProps).forEach(key => {
-      if (toolbarProps[key] === undefined) {
-        delete toolbarProps[key];
-      }
     });
 
     return (

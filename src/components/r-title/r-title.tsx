@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps } from '../../utils';
 
 @Component({
   tag: 'r-title',
@@ -35,15 +36,8 @@ export class RTitle {
   }
 
   render() {
-    const titleProps: any = {
+    const titleProps = removeUndefinedProps({
       size: this.size,
-    };
-
-    // Remove undefined props
-    Object.keys(titleProps).forEach(key => {
-      if (titleProps[key] === undefined) {
-        delete titleProps[key];
-      }
     });
 
     const textContent = this.text ? this.text : <slot></slot>;

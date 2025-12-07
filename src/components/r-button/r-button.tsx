@@ -1,6 +1,7 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, FillStyle, ButtonSize, ButtonType, ExpandOption } from '../../utils';
 
 @Component({
   tag: 'r-button',
@@ -11,12 +12,12 @@ export class RButton {
   /**
    * The button color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * The button size
    */
-  @Prop() size?: 'small' | 'default' | 'large';
+  @Prop() size?: ButtonSize;
 
   /**
    * If true, the button is disabled
@@ -26,17 +27,17 @@ export class RButton {
   /**
    * If true, the button takes full width
    */
-  @Prop() expand?: 'full' | 'block';
+  @Prop() expand?: ExpandOption;
 
   /**
    * The button type (button, submit, reset)
    */
-  @Prop() type: 'button' | 'submit' | 'reset' = 'button';
+  @Prop() type: ButtonType = 'button';
 
   /**
    * Button fill style
    */
-  @Prop() fill?: 'clear' | 'outline' | 'solid' | 'default';
+  @Prop() fill?: FillStyle;
 
   /**
    * Button shape
@@ -70,7 +71,7 @@ export class RButton {
   };
 
   render() {
-    const buttonProps: any = {
+    const buttonProps = removeUndefinedProps({
       color: this.color,
       size: this.size,
       disabled: this.disabled,
@@ -79,13 +80,6 @@ export class RButton {
       fill: this.fill,
       shape: this.shape,
       onClick: this.handleClick,
-    };
-
-    // Remove undefined props
-    Object.keys(buttonProps).forEach(key => {
-      if (buttonProps[key] === undefined) {
-        delete buttonProps[key];
-      }
     });
 
     if (this.iconOnly && this.icon) {

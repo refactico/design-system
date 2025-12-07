@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, IonicMode } from '../../utils';
 
 @Component({
   tag: 'r-badge',
@@ -11,24 +12,17 @@ export class RBadge {
   /**
    * The badge color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * The badge mode (ios or md)
    */
-  @Prop() mode?: 'ios' | 'md';
+  @Prop() mode?: IonicMode;
 
   render() {
-    const badgeProps: any = {
+    const badgeProps = removeUndefinedProps({
       color: this.color,
       mode: this.mode,
-    };
-
-    // Remove undefined props
-    Object.keys(badgeProps).forEach(key => {
-      if (badgeProps[key] === undefined) {
-        delete badgeProps[key];
-      }
     });
 
     return (

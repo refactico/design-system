@@ -74,14 +74,14 @@ You can add multiple buttons in each slot - there's no limit:
 
 ## Properties
 
-| Property      | Attribute     | Description                             | Type                   | Default     |
-| ------------- | ------------- | --------------------------------------- | ---------------------- | ----------- |
-| `collapse`    | `collapse`    | If true, the header collapses on scroll | `"condense" \| "fade"` | `undefined` |
-| `color`       | `color`       | The header color (Ionic color)          | `string`               | `undefined` |
-| `mode`        | `mode`        | The header mode (ios or md)             | `"ios" \| "md"`        | `undefined` |
-| `noBorder`    | `no-border`   | If true, the header has a border        | `boolean`              | `false`     |
-| `title`       | `title`       | The header title text                   | `string`               | `undefined` |
-| `translucent` | `translucent` | If true, the header is translucent      | `boolean`              | `false`     |
+| Property      | Attribute     | Description                             | Type                                                                                                            | Default     |
+| ------------- | ------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| `collapse`    | `collapse`    | If true, the header collapses on scroll | `"condense" \| "fade"`                                                                                          | `undefined` |
+| `color`       | `color`       | The header color (Ionic color)          | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
+| `mode`        | `mode`        | The header mode (ios or md)             | `"ios" \| "md"`                                                                                                 | `undefined` |
+| `noBorder`    | `no-border`   | If true, the header has a border        | `boolean`                                                                                                       | `false`     |
+| `title`       | `title`       | The header title text                   | `string`                                                                                                        | `undefined` |
+| `translucent` | `translucent` | If true, the header is translucent      | `boolean`                                                                                                       | `false`     |
 
 
 ## Dependencies

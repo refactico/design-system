@@ -224,12 +224,12 @@ For contextual actions within page content:
 
 ## Properties
 
-| Property      | Attribute     | Description                         | Type            | Default     |
-| ------------- | ------------- | ----------------------------------- | --------------- | ----------- |
-| `color`       | `color`       | The toolbar color (Ionic color)     | `string`        | `undefined` |
-| `mode`        | `mode`        | The toolbar mode (ios or md)        | `"ios" \| "md"` | `undefined` |
-| `noBorder`    | `no-border`   | If true, the toolbar has no border  | `boolean`       | `false`     |
-| `translucent` | `translucent` | If true, the toolbar is translucent | `boolean`       | `false`     |
+| Property      | Attribute     | Description                         | Type                                                                                                            | Default     |
+| ------------- | ------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`       | `color`       | The toolbar color (Ionic color)     | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
+| `mode`        | `mode`        | The toolbar mode (ios or md)        | `"ios" \| "md"`                                                                                                 | `undefined` |
+| `noBorder`    | `no-border`   | If true, the toolbar has no border  | `boolean`                                                                                                       | `false`     |
+| `translucent` | `translucent` | If true, the toolbar is translucent | `boolean`                                                                                                       | `false`     |
 
 
 ## Dependencies

@@ -1,6 +1,8 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, FillStyle } from '../../utils';
+import { buildFormFieldProps, getLabelPosition, getItemLines } from '../../utils/form-field-props';
 
 @Component({
   tag: 'r-datepicker',
@@ -41,12 +43,12 @@ export class RDatepicker {
   /**
    * The datepicker color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * The datepicker fill style
    */
-  @Prop() fill?: 'outline' | 'solid';
+  @Prop() fill?: FillStyle;
 
   /**
    * The datepicker shape
@@ -122,15 +124,17 @@ export class RDatepicker {
   };
 
   render() {
-    const datetimeProps: any = {
+    const datetimeProps = removeUndefinedProps({
+      ...buildFormFieldProps({
+        placeholder: this.placeholder,
+        disabled: this.disabled,
+        required: this.required,
+        name: this.name,
+        color: this.color,
+        fill: this.fill,
+        shape: this.shape,
+      }),
       value: this.value,
-      placeholder: this.placeholder,
-      disabled: this.disabled,
-      required: this.required,
-      name: this.name,
-      color: this.color,
-      fill: this.fill,
-      shape: this.shape,
       presentation: this.presentation,
       min: this.min,
       max: this.max,
@@ -139,19 +143,12 @@ export class RDatepicker {
       onIonChange: this.handleChange,
       onIonFocus: this.handleFocus,
       onIonBlur: this.handleBlur,
-    };
-
-    // Remove undefined props
-    Object.keys(datetimeProps).forEach(key => {
-      if (datetimeProps[key] === undefined) {
-        delete datetimeProps[key];
-      }
     });
 
     return (
-      <ion-item class={{ 'item-has-error': this.error }} lines={this.fill === 'outline' ? 'none' : 'full'}>
+      <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
         {this.label && (
-          <ion-label position="stacked">
+          <ion-label position={getLabelPosition(this.fill, 'stacked')}>
             {this.label}
           </ion-label>
         )}

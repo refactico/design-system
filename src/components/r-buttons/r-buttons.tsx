@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps } from '../../utils';
 
 @Component({
   tag: 'r-buttons',
@@ -20,16 +21,9 @@ export class RButtons {
   @Prop() collapse?: boolean;
 
   render() {
-    const buttonsProps: any = {
+    const buttonsProps = removeUndefinedProps({
       slot: this.slot,
       collapse: this.collapse,
-    };
-
-    // Remove undefined props
-    Object.keys(buttonsProps).forEach(key => {
-      if (buttonsProps[key] === undefined) {
-        delete buttonsProps[key];
-      }
     });
 
     return (

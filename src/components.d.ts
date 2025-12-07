@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ButtonSize, ButtonType, ExpandOption, FillStyle, IonicColor, IonicMode } from "./utils";
+export { ButtonSize, ButtonType, ExpandOption, FillStyle, IonicColor, IonicMode } from "./utils";
 export namespace Components {
     interface AppHome {
     }
@@ -28,7 +30,7 @@ export namespace Components {
         /**
           * The alert color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The alert header text
          */
@@ -61,17 +63,17 @@ export namespace Components {
         /**
           * The badge color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The badge mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
     }
     interface RButton {
         /**
           * The button color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the button is disabled
           * @default false
@@ -80,11 +82,11 @@ export namespace Components {
         /**
           * If true, the button takes full width
          */
-        "expand"?: 'full' | 'block';
+        "expand"?: ExpandOption;
         /**
           * Button fill style
          */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
+        "fill"?: FillStyle;
         /**
           * Icon name (Ionic icon name)
          */
@@ -105,12 +107,12 @@ export namespace Components {
         /**
           * The button size
          */
-        "size"?: 'small' | 'default' | 'large';
+        "size"?: ButtonSize;
         /**
           * The button type (button, submit, reset)
           * @default 'button'
          */
-        "type": 'button' | 'submit' | 'reset';
+        "type": ButtonType;
     }
     interface RButtons {
         /**
@@ -126,7 +128,7 @@ export namespace Components {
         /**
           * The datepicker color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the datepicker is disabled
           * @default false
@@ -144,7 +146,7 @@ export namespace Components {
         /**
           * The datepicker fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -204,7 +206,7 @@ export namespace Components {
         /**
           * The dropdown color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the dropdown is disabled
           * @default false
@@ -222,7 +224,7 @@ export namespace Components {
         /**
           * The dropdown fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -270,11 +272,11 @@ export namespace Components {
         /**
           * The header color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The header mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
         /**
           * If true, the header has a border
           * @default false
@@ -302,7 +304,7 @@ export namespace Components {
         /**
           * The input color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the input is disabled
           * @default false
@@ -320,7 +322,7 @@ export namespace Components {
         /**
           * The input fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -389,11 +391,11 @@ export namespace Components {
         /**
           * The toolbar color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The toolbar mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
         /**
           * If true, the toolbar has no border
           * @default false
@@ -601,7 +603,7 @@ declare namespace LocalJSX {
         /**
           * The alert color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The alert header text
          */
@@ -650,17 +652,17 @@ declare namespace LocalJSX {
         /**
           * The badge color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The badge mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
     }
     interface RButton {
         /**
           * The button color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the button is disabled
           * @default false
@@ -669,11 +671,11 @@ declare namespace LocalJSX {
         /**
           * If true, the button takes full width
          */
-        "expand"?: 'full' | 'block';
+        "expand"?: ExpandOption;
         /**
           * Button fill style
          */
-        "fill"?: 'clear' | 'outline' | 'solid' | 'default';
+        "fill"?: FillStyle;
         /**
           * Icon name (Ionic icon name)
          */
@@ -698,12 +700,12 @@ declare namespace LocalJSX {
         /**
           * The button size
          */
-        "size"?: 'small' | 'default' | 'large';
+        "size"?: ButtonSize;
         /**
           * The button type (button, submit, reset)
           * @default 'button'
          */
-        "type"?: 'button' | 'submit' | 'reset';
+        "type"?: ButtonType;
     }
     interface RButtons {
         /**
@@ -719,7 +721,7 @@ declare namespace LocalJSX {
         /**
           * The datepicker color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the datepicker is disabled
           * @default false
@@ -737,7 +739,7 @@ declare namespace LocalJSX {
         /**
           * The datepicker fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -809,7 +811,7 @@ declare namespace LocalJSX {
         /**
           * The dropdown color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the dropdown is disabled
           * @default false
@@ -827,7 +829,7 @@ declare namespace LocalJSX {
         /**
           * The dropdown fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -887,11 +889,11 @@ declare namespace LocalJSX {
         /**
           * The header color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The header mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
         /**
           * If true, the header has a border
           * @default false
@@ -919,7 +921,7 @@ declare namespace LocalJSX {
         /**
           * The input color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * If true, the input is disabled
           * @default false
@@ -937,7 +939,7 @@ declare namespace LocalJSX {
         /**
           * The input fill style
          */
-        "fill"?: 'outline' | 'solid';
+        "fill"?: FillStyle;
         /**
           * Helper text to display
          */
@@ -1018,11 +1020,11 @@ declare namespace LocalJSX {
         /**
           * The toolbar color (Ionic color)
          */
-        "color"?: string;
+        "color"?: IonicColor;
         /**
           * The toolbar mode (ios or md)
          */
-        "mode"?: 'ios' | 'md';
+        "mode"?: IonicMode;
         /**
           * If true, the toolbar has no border
           * @default false

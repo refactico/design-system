@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T18:45:37",
+  "timestamp": "2025-12-07T19:19:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -426,11 +426,17 @@
         },
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -439,6 +445,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -717,11 +756,17 @@
       "props": [
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -730,6 +775,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -742,9 +820,15 @@
           "name": "mode",
           "type": "\"ios\" | \"md\"",
           "complexType": {
-            "original": "'ios' | 'md'",
+            "original": "IonicMode",
             "resolved": "\"ios\" | \"md\"",
-            "references": {}
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "mode",
@@ -799,11 +883,17 @@
       "props": [
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -812,6 +902,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -853,9 +976,15 @@
           "name": "expand",
           "type": "\"block\" | \"full\"",
           "complexType": {
-            "original": "'full' | 'block'",
+            "original": "ExpandOption",
             "resolved": "\"block\" | \"full\"",
-            "references": {}
+            "references": {
+              "ExpandOption": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::ExpandOption"
+              }
+            }
           },
           "mutable": false,
           "attr": "expand",
@@ -881,9 +1010,15 @@
           "name": "fill",
           "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
           "complexType": {
-            "original": "'clear' | 'outline' | 'solid' | 'default'",
+            "original": "FillStyle",
             "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
-            "references": {}
+            "references": {
+              "FillStyle": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::FillStyle"
+              }
+            }
           },
           "mutable": false,
           "attr": "fill",
@@ -1021,9 +1156,15 @@
           "name": "size",
           "type": "\"default\" | \"large\" | \"small\"",
           "complexType": {
-            "original": "'small' | 'default' | 'large'",
+            "original": "ButtonSize",
             "resolved": "\"default\" | \"large\" | \"small\"",
-            "references": {}
+            "references": {
+              "ButtonSize": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::ButtonSize"
+              }
+            }
           },
           "mutable": false,
           "attr": "size",
@@ -1053,9 +1194,15 @@
           "name": "type",
           "type": "\"button\" | \"reset\" | \"submit\"",
           "complexType": {
-            "original": "'button' | 'submit' | 'reset'",
+            "original": "ButtonType",
             "resolved": "\"button\" | \"reset\" | \"submit\"",
-            "references": {}
+            "references": {
+              "ButtonType": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::ButtonType"
+              }
+            }
           },
           "mutable": false,
           "attr": "type",
@@ -1222,11 +1369,17 @@
       "props": [
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -1235,6 +1388,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -1326,11 +1512,17 @@
         },
         {
           "name": "fill",
-          "type": "\"outline\" | \"solid\"",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
           "complexType": {
-            "original": "'outline' | 'solid'",
-            "resolved": "\"outline\" | \"solid\"",
-            "references": {}
+            "original": "FillStyle",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {
+              "FillStyle": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::FillStyle"
+              }
+            }
           },
           "mutable": false,
           "attr": "fill",
@@ -1338,6 +1530,14 @@
           "docs": "The datepicker fill style",
           "docsTags": [],
           "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
             {
               "value": "outline",
               "type": "string"
@@ -1806,11 +2006,17 @@
         },
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -1819,6 +2025,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -1910,11 +2149,17 @@
         },
         {
           "name": "fill",
-          "type": "\"outline\" | \"solid\"",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
           "complexType": {
-            "original": "'outline' | 'solid'",
-            "resolved": "\"outline\" | \"solid\"",
-            "references": {}
+            "original": "FillStyle",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {
+              "FillStyle": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::FillStyle"
+              }
+            }
           },
           "mutable": false,
           "attr": "fill",
@@ -1922,6 +2167,14 @@
           "docs": "The dropdown fill style",
           "docsTags": [],
           "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
             {
               "value": "outline",
               "type": "string"
@@ -2346,11 +2599,17 @@
         },
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -2359,6 +2618,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -2371,9 +2663,15 @@
           "name": "mode",
           "type": "\"ios\" | \"md\"",
           "complexType": {
-            "original": "'ios' | 'md'",
+            "original": "IonicMode",
             "resolved": "\"ios\" | \"md\"",
-            "references": {}
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "mode",
@@ -2559,11 +2857,17 @@
         },
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -2572,6 +2876,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -2663,11 +3000,17 @@
         },
         {
           "name": "fill",
-          "type": "\"outline\" | \"solid\"",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
           "complexType": {
-            "original": "'outline' | 'solid'",
-            "resolved": "\"outline\" | \"solid\"",
-            "references": {}
+            "original": "FillStyle",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {
+              "FillStyle": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::FillStyle"
+              }
+            }
           },
           "mutable": false,
           "attr": "fill",
@@ -2675,6 +3018,14 @@
           "docs": "The input fill style",
           "docsTags": [],
           "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
             {
               "value": "outline",
               "type": "string"
@@ -3206,11 +3557,17 @@
       "props": [
         {
           "name": "color",
-          "type": "string",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -3219,6 +3576,39 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -3231,9 +3621,15 @@
           "name": "mode",
           "type": "\"ios\" | \"md\"",
           "complexType": {
-            "original": "'ios' | 'md'",
+            "original": "IonicMode",
             "resolved": "\"ios\" | \"md\"",
-            "references": {}
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "mode",
@@ -3336,5 +3732,36 @@
       }
     }
   ],
-  "typeLibrary": {}
+  "typeLibrary": {
+    "src/utils/index.ts::IonicColor": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    },
+    "src/utils/index.ts::IonicMode": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    },
+    "src/utils/index.ts::ButtonSize": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    },
+    "src/utils/index.ts::ExpandOption": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    },
+    "src/utils/index.ts::ButtonType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    },
+    "src/utils/index.ts::FillStyle": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/utils/index.ts"
+    }
+  }
 }

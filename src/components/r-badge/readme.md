@@ -47,10 +47,10 @@ Badges are typically used to display:
 
 ## Properties
 
-| Property | Attribute | Description                   | Type            | Default     |
-| -------- | --------- | ----------------------------- | --------------- | ----------- |
-| `color`  | `color`   | The badge color (Ionic color) | `string`        | `undefined` |
-| `mode`   | `mode`    | The badge mode (ios or md)    | `"ios" \| "md"` | `undefined` |
+| Property | Attribute | Description                   | Type                                                                                                            | Default     |
+| -------- | --------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`  | `color`   | The badge color (Ionic color) | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
+| `mode`   | `mode`    | The badge mode (ios or md)    | `"ios" \| "md"`                                                                                                 | `undefined` |
 
 
 ## Dependencies

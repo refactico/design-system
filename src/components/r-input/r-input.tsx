@@ -1,6 +1,8 @@
 import { Component, Prop, Event, EventEmitter, State, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, FillStyle } from '../../utils';
+import { buildFormFieldProps, getLabelPosition, getItemLines } from '../../utils/form-field-props';
 
 @Component({
   tag: 'r-input',
@@ -56,7 +58,7 @@ export class RInput {
   /**
    * The input color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * If true, shows password toggle button (only for password type)
@@ -66,7 +68,7 @@ export class RInput {
   /**
    * The input fill style
    */
-  @Prop() fill?: 'outline' | 'solid';
+  @Prop() fill?: FillStyle;
 
   /**
    * The input shape
@@ -150,18 +152,20 @@ export class RInput {
     const isPassword = this.type === 'password';
     const inputType = isPassword && this.showPassword ? 'text' : this.type;
 
-    const inputProps: any = {
+    const inputProps = removeUndefinedProps({
+      ...buildFormFieldProps({
+        placeholder: this.placeholder,
+        disabled: this.disabled,
+        required: this.required,
+        name: this.name,
+        color: this.color,
+        fill: this.fill,
+        shape: this.shape,
+      }),
       type: inputType,
       value: this.value,
-      placeholder: this.placeholder,
-      disabled: this.disabled,
       readonly: this.readonly,
-      required: this.required,
-      name: this.name,
       autocomplete: this.autocomplete,
-      color: this.color,
-      fill: this.fill,
-      shape: this.shape,
       clearOnEdit: this.clearOnEdit,
       maxlength: this.maxlength,
       minlength: this.minlength,
@@ -169,19 +173,12 @@ export class RInput {
       onInput: this.handleInput,
       onFocus: this.handleFocus,
       onBlur: this.handleBlur,
-    };
-
-    // Remove undefined props
-    Object.keys(inputProps).forEach(key => {
-      if (inputProps[key] === undefined) {
-        delete inputProps[key];
-      }
     });
 
     return (
-      <ion-item class={{ 'item-has-error': this.error }} lines={this.fill === 'outline' ? 'none' : 'full'}>
+      <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
         {this.label && (
-          <ion-label position={this.fill === 'outline' ? 'stacked' : 'floating'}>
+          <ion-label position={getLabelPosition(this.fill, 'floating')}>
             {this.label}
           </ion-label>
         )}

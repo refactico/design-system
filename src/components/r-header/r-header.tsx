@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, IonicMode } from '../../utils';
 
 @Component({
   tag: 'r-header',
@@ -16,7 +17,7 @@ export class RHeader {
   /**
    * The header color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * If true, the header is translucent
@@ -31,7 +32,7 @@ export class RHeader {
   /**
    * The header mode (ios or md)
    */
-  @Prop() mode?: 'ios' | 'md';
+  @Prop() mode?: IonicMode;
 
   /**
    * If true, the header has a border
@@ -39,17 +40,10 @@ export class RHeader {
   @Prop() noBorder: boolean = false;
 
   render() {
-    const headerProps: any = {
+    const headerProps = removeUndefinedProps({
       translucent: this.translucent,
       collapse: this.collapse,
       mode: this.mode,
-    };
-
-    // Remove undefined props
-    Object.keys(headerProps).forEach(key => {
-      if (headerProps[key] === undefined) {
-        delete headerProps[key];
-      }
     });
 
     return (

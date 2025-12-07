@@ -1,6 +1,8 @@
 import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
+import { removeUndefinedProps, IonicColor, FillStyle } from '../../utils';
+import { buildFormFieldProps, getLabelPosition, getItemLines } from '../../utils/form-field-props';
 
 @Component({
   tag: 'r-dropdown',
@@ -41,12 +43,12 @@ export class RDropdown {
   /**
    * The dropdown color (Ionic color)
    */
-  @Prop() color?: string;
+  @Prop() color?: IonicColor;
 
   /**
    * The dropdown fill style
    */
-  @Prop() fill?: 'outline' | 'solid';
+  @Prop() fill?: FillStyle;
 
   /**
    * The dropdown shape
@@ -112,34 +114,29 @@ export class RDropdown {
   };
 
   render() {
-    const selectProps: any = {
+    const selectProps = removeUndefinedProps({
+      ...buildFormFieldProps({
+        placeholder: this.placeholder,
+        disabled: this.disabled,
+        required: this.required,
+        name: this.name,
+        color: this.color,
+        fill: this.fill,
+        shape: this.shape,
+      }),
       value: this.value,
-      placeholder: this.placeholder,
-      disabled: this.disabled,
-      required: this.required,
-      name: this.name,
-      color: this.color,
-      fill: this.fill,
-      shape: this.shape,
       multiple: this.multiple,
       interface: this.interface,
       cancelable: this.cancelable,
       onIonChange: this.handleChange,
       onIonFocus: this.handleFocus,
       onIonBlur: this.handleBlur,
-    };
-
-    // Remove undefined props
-    Object.keys(selectProps).forEach(key => {
-      if (selectProps[key] === undefined) {
-        delete selectProps[key];
-      }
     });
 
     return (
-      <ion-item class={{ 'item-has-error': this.error }} lines={this.fill === 'outline' ? 'none' : 'full'}>
+      <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
         {this.label && (
-          <ion-label position={this.fill === 'outline' ? 'stacked' : 'floating'}>
+          <ion-label position={getLabelPosition(this.fill, 'floating')}>
             {this.label}
           </ion-label>
         )}
