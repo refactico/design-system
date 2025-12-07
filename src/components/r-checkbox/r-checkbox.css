@@ -32,11 +32,10 @@ r-checkbox ion-checkbox {
   font-size: var(--r-internal-checkbox-font-size);
   margin-top: var(--r-spacing-2, 8px);
   --size: 20px;
-  --background-checked: var(--r-color-primary) !important;
-  --border-color-checked: var(--r-color-primary) !important;
-  --checkmark-color: var(--r-color-primary-contrast, #fff) !important;
+  --background-checked: var(--r-color-primary);
+  --border-color-checked: var(--r-color-primary);
+  --checkmark-color: var(--r-color-primary-contrast, #fff);
   --checkmark-width: 2px;
-  --color: var(--checkmark-color, #fff) !important;
 }
 
 /* Standalone checkbox styling */
@@ -54,14 +53,11 @@ r-checkbox ion-item.item-has-error {
   --border-color: var(--r-color-danger);
 }
 
-/* When checked, ensure background and checkmark are visible with higher specificity */
+/* When checked, ensure background and checkmark are visible */
 r-checkbox ion-checkbox.checkbox-checked,
-r-checkbox ion-checkbox[checked],
-r-checkbox ion-checkbox.checkbox-checked::part(container),
-r-checkbox ion-checkbox[checked]::part(container) {
-  --background: var(--background-checked, var(--r-color-primary)) !important;
-  --background-checked: var(--r-color-primary) !important;
-  --color: var(--checkmark-color, #fff) !important;
-  --checkmark-color: var(--r-color-primary-contrast, #fff) !important;
+r-checkbox ion-checkbox[checked] {
+  --background-checked: var(--r-color-primary);
+  --border-color-checked: var(--r-color-primary);
+  --checkmark-color: var(--r-color-primary-contrast, #fff);
 }
 

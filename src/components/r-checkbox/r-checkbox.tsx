@@ -124,12 +124,15 @@ export class RCheckbox {
   };
 
   render() {
+    // Ensure checkbox has a color for checkmark visibility (default to primary if not specified)
+    const checkboxColor = this.color || 'primary';
+    
     const checkboxProps = removeUndefinedProps({
       checked: this.checked,
       disabled: this.disabled,
       value: this.value,
       name: this.name,
-      color: this.color,
+      color: checkboxColor,
       mode: this.mode,
       indeterminate: this.indeterminate,
       labelPlacement: this.labelPlacement,
