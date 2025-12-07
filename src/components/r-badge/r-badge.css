@@ -1,0 +1,27 @@
+:host {
+  display: inline-block;
+}
+
+r-badge ion-badge {
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-badge-background: var(--r-color-primary);
+  --r-internal-badge-text-color: var(--ion-color-primary-contrast, #ffffff);
+  --r-internal-badge-border-radius: var(--r-border-radius-sm, 4px);
+  --r-internal-badge-font-size: var(--r-typography-font-size-xs, 12px);
+  --r-internal-badge-padding-x: var(--r-spacing-1, 4px);
+  --r-internal-badge-padding-y: 2px;
+}
+
+/* Map component tokens to Ionic badge variables */
+r-badge ion-badge {
+  --background: var(--r-internal-badge-background);
+  --color: var(--r-internal-badge-text-color);
+  --border-radius: var(--r-internal-badge-border-radius);
+  --padding-start: var(--r-internal-badge-padding-x);
+  --padding-end: var(--r-internal-badge-padding-x);
+  --padding-top: var(--r-internal-badge-padding-y);
+  --padding-bottom: var(--r-internal-badge-padding-y);
+  font-size: var(--r-internal-badge-font-size);
+}
+

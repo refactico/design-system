@@ -57,6 +57,16 @@ export namespace Components {
          */
         "translucent": boolean;
     }
+    interface RBadge {
+        /**
+          * The badge color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The badge mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+    }
     interface RButton {
         /**
           * The button color (Ionic color)
@@ -101,6 +111,16 @@ export namespace Components {
           * @default 'button'
          */
         "type": 'button' | 'submit' | 'reset';
+    }
+    interface RButtons {
+        /**
+          * If true, the buttons will collapse when the content scrolls.
+         */
+        "collapse"?: boolean;
+        /**
+          * The slot where the buttons should be placed. Can be "start", "end", or "primary" (default).
+         */
+        "slot"?: string;
     }
     interface RDatepicker {
         /**
@@ -439,6 +459,12 @@ declare global {
         prototype: HTMLRAlertElement;
         new (): HTMLRAlertElement;
     };
+    interface HTMLRBadgeElement extends Components.RBadge, HTMLStencilElement {
+    }
+    var HTMLRBadgeElement: {
+        prototype: HTMLRBadgeElement;
+        new (): HTMLRBadgeElement;
+    };
     interface HTMLRButtonElementEventMap {
         "rClick": MouseEvent;
     }
@@ -455,6 +481,12 @@ declare global {
     var HTMLRButtonElement: {
         prototype: HTMLRButtonElement;
         new (): HTMLRButtonElement;
+    };
+    interface HTMLRButtonsElement extends Components.RButtons, HTMLStencilElement {
+    }
+    var HTMLRButtonsElement: {
+        prototype: HTMLRButtonsElement;
+        new (): HTMLRButtonsElement;
     };
     interface HTMLRDatepickerElementEventMap {
         "rChange": CustomEvent;
@@ -535,7 +567,9 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
         "r-alert": HTMLRAlertElement;
+        "r-badge": HTMLRBadgeElement;
         "r-button": HTMLRButtonElement;
+        "r-buttons": HTMLRButtonsElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
@@ -612,6 +646,16 @@ declare namespace LocalJSX {
          */
         "translucent"?: boolean;
     }
+    interface RBadge {
+        /**
+          * The badge color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The badge mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+    }
     interface RButton {
         /**
           * The button color (Ionic color)
@@ -660,6 +704,16 @@ declare namespace LocalJSX {
           * @default 'button'
          */
         "type"?: 'button' | 'submit' | 'reset';
+    }
+    interface RButtons {
+        /**
+          * If true, the buttons will collapse when the content scrolls.
+         */
+        "collapse"?: boolean;
+        /**
+          * The slot where the buttons should be placed. Can be "start", "end", or "primary" (default).
+         */
+        "slot"?: string;
     }
     interface RDatepicker {
         /**
@@ -984,7 +1038,9 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-shell": AppShell;
         "r-alert": RAlert;
+        "r-badge": RBadge;
         "r-button": RButton;
+        "r-buttons": RButtons;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-header": RHeader;
@@ -1000,7 +1056,9 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
             "r-alert": LocalJSX.RAlert & JSXBase.HTMLAttributes<HTMLRAlertElement>;
+            "r-badge": LocalJSX.RBadge & JSXBase.HTMLAttributes<HTMLRBadgeElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
+            "r-buttons": LocalJSX.RButtons & JSXBase.HTMLAttributes<HTMLRButtonsElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;

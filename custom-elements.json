@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T16:46:33",
+  "timestamp": "2025-12-07T18:45:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -37,7 +37,9 @@
         "ion-button",
         "r-toolbar",
         "ion-title",
-        "r-title"
+        "r-title",
+        "r-buttons",
+        "r-badge"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -53,7 +55,9 @@
           "ion-button",
           "r-toolbar",
           "ion-title",
-          "r-title"
+          "r-title",
+          "r-buttons",
+          "r-badge"
         ],
         "r-button": [
           "ion-button",
@@ -158,6 +162,12 @@
         ],
         "r-title": [
           "ion-title"
+        ],
+        "r-buttons": [
+          "ion-buttons"
+        ],
+        "r-badge": [
+          "ion-badge"
         ],
         "app-shell": [
           "app-home"
@@ -200,7 +210,9 @@
           "ion-button",
           "r-toolbar",
           "ion-title",
-          "r-title"
+          "r-title",
+          "r-buttons",
+          "r-badge"
         ],
         "r-button": [
           "ion-button",
@@ -305,6 +317,12 @@
         ],
         "r-title": [
           "ion-title"
+        ],
+        "r-buttons": [
+          "ion-buttons"
+        ],
+        "r-badge": [
+          "ion-badge"
         ]
       }
     },
@@ -689,6 +707,88 @@
       }
     },
     {
+      "filePath": "src/components/r-badge/r-badge.tsx",
+      "encapsulation": "none",
+      "tag": "r-badge",
+      "readme": "# r-badge\r\n\r\nBadge component that wraps Ionic badge. Used to display small pieces of information like notification counts, status indicators, or labels with design system styling.\r\n\r\n## Usage\r\n\r\nBadges are typically used to display:\r\n- Notification counts (e.g., unread messages)\r\n- Status indicators (e.g., \"New\", \"Active\")\r\n- Labels or tags\r\n- Numeric indicators\r\n\r\n### Basic Badge\r\n\r\n```html\r\n<r-badge>5</r-badge>\r\n```\r\n\r\n### Badge with Color\r\n\r\n```html\r\n<r-badge color=\"primary\">12</r-badge>\r\n<r-badge color=\"danger\">99+</r-badge>\r\n<r-badge color=\"success\">New</r-badge>\r\n```\r\n\r\n### Badge on Button\r\n\r\n```html\r\n<ion-button color=\"primary\">\r\n  <ion-icon slot=\"icon-only\" name=\"notifications-outline\"></ion-icon>\r\n  <r-badge color=\"danger\">5</r-badge>\r\n</ion-button>\r\n```\r\n\r\n### Badge on Icon\r\n\r\n```html\r\n<div style=\"position: relative; display: inline-block;\">\r\n  <ion-icon name=\"mail-outline\"></ion-icon>\r\n  <r-badge color=\"primary\" style=\"position: absolute; top: -5px; right: -5px;\">3</r-badge>\r\n</div>\r\n```\r\n\r",
+      "docs": "Badge component that wraps Ionic badge. Used to display small pieces of information like notification counts, status indicators, or labels with design system styling.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The badge color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "'ios' | 'md'",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The badge mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-badge"
+      ],
+      "dependencyGraph": {
+        "r-badge": [
+          "ion-badge"
+        ],
+        "app-home": [
+          "r-badge"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/r-button/r-button.tsx",
       "encapsulation": "none",
       "tag": "r-button",
@@ -1031,6 +1131,83 @@
         ],
         "app-home": [
           "r-button"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-buttons/r-buttons.tsx",
+      "encapsulation": "none",
+      "tag": "r-buttons",
+      "readme": "# r-buttons\r\n\r\nButtons container component that wraps Ionic buttons. Groups multiple buttons together, typically used in toolbars and headers with design system spacing.\r\n\r\n## Differences: r-buttons vs ion-buttons\r\n\r\n### **Regular `ion-buttons` (Ionic Native)**\r\n- Direct Ionic component\r\n- Basic container for grouping buttons\r\n- Minimal styling\r\n- Requires manual configuration\r\n\r\n```html\r\n<ion-buttons slot=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</ion-buttons>\r\n```\r\n\r\n### **`r-buttons` (Our Design System Wrapper)**\r\n- Wraps `ion-buttons` with design system integration\r\n- Consistent spacing using design tokens\r\n- Better integration with other `r-*` components\r\n- Same functionality as `ion-buttons` but with design system benefits\r\n\r\n```html\r\n<r-buttons slot=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</r-buttons>\r\n```\r\n\r\n## Key Differences\r\n\r\n| Feature | `ion-buttons` | `r-buttons` |\r\n|---------|---------------|-------------|\r\n| **Design Tokens** | ❌ No | ✅ Yes - uses `--r-spacing-2` for gap |\r\n| **Consistency** | Manual styling | Automatic spacing |\r\n| **Integration** | Works with Ionic | Works with Ionic + Design System |\r\n| **Functionality** | ✅ Full Ionic support | ✅ Full Ionic support (pass-through) |\r\n| **Collapse** | ✅ Supported | ✅ Supported (pass-through) |\r\n| **Styling** | Manual CSS | Design system tokens |\r\n\r\n## When to Use r-buttons vs ion-buttons\r\n\r\n### ✅ **Use `r-buttons` when:**\r\n- You want consistent spacing from design tokens\r\n- You're using other `r-*` components (r-toolbar, r-header)\r\n- You want automatic design system integration\r\n- You want future-proof styling that follows design tokens\r\n\r\n### ✅ **Use `ion-buttons` when:**\r\n- You need direct Ionic control without wrapper\r\n- You're not using the design system\r\n- You need custom styling that doesn't follow design tokens\r\n\r",
+      "docs": "Buttons container component that wraps Ionic buttons. Groups multiple buttons together, typically used in toolbars and headers with design system spacing.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "collapse",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "collapse",
+          "reflectToAttr": false,
+          "docs": "If true, the buttons will collapse when the content scrolls.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "slot",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "slot",
+          "reflectToAttr": false,
+          "docs": "The slot where the buttons should be placed.\r\nCan be \"start\", \"end\", or \"primary\" (default).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-buttons"
+      ],
+      "dependencyGraph": {
+        "r-buttons": [
+          "ion-buttons"
+        ],
+        "app-home": [
+          "r-buttons"
         ]
       }
     },

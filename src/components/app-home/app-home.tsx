@@ -19,6 +19,8 @@ export class AppHome {
     { id: 'r-header', name: 'Header', description: 'Header component that wraps Ionic header with toolbar and title support' },
     { id: 'r-toolbar', name: 'Toolbar', description: 'Toolbar component that wraps Ionic toolbar with support for buttons and content slots' },
     { id: 'r-title', name: 'Title', description: 'Title component that wraps Ionic title for use in toolbars and headers' },
+    { id: 'r-buttons', name: 'Buttons', description: 'Buttons container component that wraps Ionic buttons with design system spacing' },
+    { id: 'r-badge', name: 'Badge', description: 'Badge component that wraps Ionic badge for displaying notification counts, status indicators, or labels' },
     // Add more components here as they are created
   ];
 
@@ -601,6 +603,166 @@ export class AppHome {
                             <r-toolbar color="danger">
                               <r-title text="Danger Title"></r-title>
                             </r-toolbar>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-buttons' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic R-Buttons</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="R-Buttons Example"></r-title>
+                              <r-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </r-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>R-Buttons with Multiple Buttons</h3>
+                            <r-toolbar color="primary">
+                              <r-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </r-buttons>
+                              <r-title text="Multiple R-Buttons"></r-title>
+                              <r-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+                                </ion-button>
+                              </r-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Text Buttons</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="Text Buttons"></r-title>
+                              <r-buttons slot="end">
+                                <ion-button fill="clear">Save</ion-button>
+                                <ion-button fill="clear">Cancel</ion-button>
+                              </r-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Collapsible Buttons</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="Collapsible Buttons"></r-title>
+                              <r-buttons slot="end" collapse>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </r-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>In Header</h3>
+                            <r-header color="primary">
+                              <r-toolbar color="primary">
+                                <r-buttons slot="start">
+                                  <ion-button>
+                                    <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                  </ion-button>
+                                </r-buttons>
+                                <r-title text="Header with Buttons"></r-title>
+                                <r-buttons slot="end">
+                                  <ion-button>
+                                    <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                  </ion-button>
+                                  <ion-button>
+                                    <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                  </ion-button>
+                                </r-buttons>
+                              </r-toolbar>
+                            </r-header>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-badge' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Badge</h3>
+                            <r-badge>5</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Badge with Color</h3>
+                            <r-badge color="primary">12</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Secondary Badge</h3>
+                            <r-badge color="secondary">3</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Danger Badge</h3>
+                            <r-badge color="danger">99+</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Success Badge</h3>
+                            <r-badge color="success">New</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Warning Badge</h3>
+                            <r-badge color="warning">!</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Badge on Button</h3>
+                            <ion-button color="primary">
+                              <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+                              <r-badge color="danger">5</r-badge>
+                            </ion-button>
+                          </div>
+                          <div class="example-group">
+                            <h3>Badge on Icon</h3>
+                            <div style={{ position: 'relative', display: 'inline-block', padding: '20px' }}>
+                              <ion-icon name="mail-outline" style={{ fontSize: '32px' }}></ion-icon>
+                              <r-badge color="primary" style={{ position: 'absolute', top: '10px', right: '10px' }}>3</r-badge>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Large Number Badge</h3>
+                            <r-badge color="primary">999</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Text Badge</h3>
+                            <r-badge color="success">New</r-badge>
+                          </div>
+                          <div class="example-group">
+                            <h3>Color Variants</h3>
+                            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                              <r-badge color="primary">Primary</r-badge>
+                              <r-badge color="secondary">Secondary</r-badge>
+                              <r-badge color="tertiary">Tertiary</r-badge>
+                              <r-badge color="success">Success</r-badge>
+                              <r-badge color="warning">Warning</r-badge>
+                              <r-badge color="danger">Danger</r-badge>
+                              <r-badge color="light">Light</r-badge>
+                              <r-badge color="medium">Medium</r-badge>
+                              <r-badge color="dark">Dark</r-badge>
+                            </div>
                           </div>
                         </div>
                       )}
