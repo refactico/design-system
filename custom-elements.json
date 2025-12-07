@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T19:45:26",
+  "timestamp": "2025-12-07T20:19:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -41,10 +41,11 @@
         "r-buttons",
         "r-badge",
         "r-card",
-        "ion-card-header",
-        "ion-card-title",
-        "ion-card-subtitle",
-        "ion-card-content"
+        "r-card-header",
+        "r-card-title",
+        "r-card-subtitle",
+        "r-card-content",
+        "r-card-footer"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -64,10 +65,11 @@
           "r-buttons",
           "r-badge",
           "r-card",
-          "ion-card-header",
-          "ion-card-title",
-          "ion-card-subtitle",
-          "ion-card-content"
+          "r-card-header",
+          "r-card-title",
+          "r-card-subtitle",
+          "r-card-content",
+          "r-card-footer"
         ],
         "r-button": [
           "ion-button",
@@ -184,6 +186,18 @@
         ],
         "ion-card": [
           "ion-ripple-effect"
+        ],
+        "r-card-header": [
+          "ion-card-header"
+        ],
+        "r-card-title": [
+          "ion-card-title"
+        ],
+        "r-card-subtitle": [
+          "ion-card-subtitle"
+        ],
+        "r-card-content": [
+          "ion-card-content"
         ],
         "app-shell": [
           "app-home"
@@ -230,10 +244,11 @@
           "r-buttons",
           "r-badge",
           "r-card",
-          "ion-card-header",
-          "ion-card-title",
-          "ion-card-subtitle",
-          "ion-card-content"
+          "r-card-header",
+          "r-card-title",
+          "r-card-subtitle",
+          "r-card-content",
+          "r-card-footer"
         ],
         "r-button": [
           "ion-button",
@@ -350,6 +365,18 @@
         ],
         "ion-card": [
           "ion-ripple-effect"
+        ],
+        "r-card-header": [
+          "ion-card-header"
+        ],
+        "r-card-title": [
+          "ion-card-title"
+        ],
+        "r-card-subtitle": [
+          "ion-card-subtitle"
+        ],
+        "r-card-content": [
+          "ion-card-content"
         ]
       }
     },
@@ -1694,6 +1721,277 @@
         ],
         "app-home": [
           "r-card"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card-content/r-card-content.tsx",
+      "encapsulation": "none",
+      "tag": "r-card-content",
+      "readme": "# r-card-content\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-card-content"
+      ],
+      "dependencyGraph": {
+        "r-card-content": [
+          "ion-card-content"
+        ],
+        "app-home": [
+          "r-card-content"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card-footer/r-card-footer.tsx",
+      "encapsulation": "none",
+      "tag": "r-card-footer",
+      "readme": "# r-card-footer\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "app-home": [
+          "r-card-footer"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card-header/r-card-header.tsx",
+      "encapsulation": "none",
+      "tag": "r-card-header",
+      "readme": "# r-card-header\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-card-header"
+      ],
+      "dependencyGraph": {
+        "r-card-header": [
+          "ion-card-header"
+        ],
+        "app-home": [
+          "r-card-header"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card-subtitle/r-card-subtitle.tsx",
+      "encapsulation": "none",
+      "tag": "r-card-subtitle",
+      "readme": "# r-card-subtitle\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The card subtitle color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-card-subtitle"
+      ],
+      "dependencyGraph": {
+        "r-card-subtitle": [
+          "ion-card-subtitle"
+        ],
+        "app-home": [
+          "r-card-subtitle"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-card-title/r-card-title.tsx",
+      "encapsulation": "none",
+      "tag": "r-card-title",
+      "readme": "# r-card-title\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The card title color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-card-title"
+      ],
+      "dependencyGraph": {
+        "r-card-title": [
+          "ion-card-title"
+        ],
+        "app-home": [
+          "r-card-title"
         ]
       }
     },

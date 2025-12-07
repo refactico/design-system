@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Map design system tokens to Ionic card-footer variables */
+r-card-footer ion-card-footer {
+  /* Use design system spacing */
+  --padding-start: var(--r-spacing-4, 16px);
+  --padding-end: var(--r-spacing-4, 16px);
+  --padding-top: var(--r-spacing-3, 12px);
+  --padding-bottom: var(--r-spacing-3, 12px);
+}
+

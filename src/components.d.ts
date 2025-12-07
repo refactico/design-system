@@ -164,6 +164,24 @@ export namespace Components {
          */
         "target"?: string;
     }
+    interface RCardContent {
+    }
+    interface RCardFooter {
+    }
+    interface RCardHeader {
+    }
+    interface RCardSubtitle {
+        /**
+          * The card subtitle color (Ionic color)
+         */
+        "color"?: IonicColor;
+    }
+    interface RCardTitle {
+        /**
+          * The card title color (Ionic color)
+         */
+        "color"?: IonicColor;
+    }
     interface RDatepicker {
         /**
           * The datepicker color (Ionic color)
@@ -536,6 +554,36 @@ declare global {
         prototype: HTMLRCardElement;
         new (): HTMLRCardElement;
     };
+    interface HTMLRCardContentElement extends Components.RCardContent, HTMLStencilElement {
+    }
+    var HTMLRCardContentElement: {
+        prototype: HTMLRCardContentElement;
+        new (): HTMLRCardContentElement;
+    };
+    interface HTMLRCardFooterElement extends Components.RCardFooter, HTMLStencilElement {
+    }
+    var HTMLRCardFooterElement: {
+        prototype: HTMLRCardFooterElement;
+        new (): HTMLRCardFooterElement;
+    };
+    interface HTMLRCardHeaderElement extends Components.RCardHeader, HTMLStencilElement {
+    }
+    var HTMLRCardHeaderElement: {
+        prototype: HTMLRCardHeaderElement;
+        new (): HTMLRCardHeaderElement;
+    };
+    interface HTMLRCardSubtitleElement extends Components.RCardSubtitle, HTMLStencilElement {
+    }
+    var HTMLRCardSubtitleElement: {
+        prototype: HTMLRCardSubtitleElement;
+        new (): HTMLRCardSubtitleElement;
+    };
+    interface HTMLRCardTitleElement extends Components.RCardTitle, HTMLStencilElement {
+    }
+    var HTMLRCardTitleElement: {
+        prototype: HTMLRCardTitleElement;
+        new (): HTMLRCardTitleElement;
+    };
     interface HTMLRDatepickerElementEventMap {
         "rChange": CustomEvent;
         "rFocus": CustomEvent;
@@ -619,6 +667,11 @@ declare global {
         "r-button": HTMLRButtonElement;
         "r-buttons": HTMLRButtonsElement;
         "r-card": HTMLRCardElement;
+        "r-card-content": HTMLRCardContentElement;
+        "r-card-footer": HTMLRCardFooterElement;
+        "r-card-header": HTMLRCardHeaderElement;
+        "r-card-subtitle": HTMLRCardSubtitleElement;
+        "r-card-title": HTMLRCardTitleElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
@@ -803,6 +856,24 @@ declare namespace LocalJSX {
           * The target attribute for links
          */
         "target"?: string;
+    }
+    interface RCardContent {
+    }
+    interface RCardFooter {
+    }
+    interface RCardHeader {
+    }
+    interface RCardSubtitle {
+        /**
+          * The card subtitle color (Ionic color)
+         */
+        "color"?: IonicColor;
+    }
+    interface RCardTitle {
+        /**
+          * The card title color (Ionic color)
+         */
+        "color"?: IonicColor;
     }
     interface RDatepicker {
         /**
@@ -1131,6 +1202,11 @@ declare namespace LocalJSX {
         "r-button": RButton;
         "r-buttons": RButtons;
         "r-card": RCard;
+        "r-card-content": RCardContent;
+        "r-card-footer": RCardFooter;
+        "r-card-header": RCardHeader;
+        "r-card-subtitle": RCardSubtitle;
+        "r-card-title": RCardTitle;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-header": RHeader;
@@ -1150,6 +1226,11 @@ declare module "@stencil/core" {
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
             "r-buttons": LocalJSX.RButtons & JSXBase.HTMLAttributes<HTMLRButtonsElement>;
             "r-card": LocalJSX.RCard & JSXBase.HTMLAttributes<HTMLRCardElement>;
+            "r-card-content": LocalJSX.RCardContent & JSXBase.HTMLAttributes<HTMLRCardContentElement>;
+            "r-card-footer": LocalJSX.RCardFooter & JSXBase.HTMLAttributes<HTMLRCardFooterElement>;
+            "r-card-header": LocalJSX.RCardHeader & JSXBase.HTMLAttributes<HTMLRCardHeaderElement>;
+            "r-card-subtitle": LocalJSX.RCardSubtitle & JSXBase.HTMLAttributes<HTMLRCardSubtitleElement>;
+            "r-card-title": LocalJSX.RCardTitle & JSXBase.HTMLAttributes<HTMLRCardTitleElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;

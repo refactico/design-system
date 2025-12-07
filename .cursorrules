@@ -1,11 +1,29 @@
 # Component Creation Rules for Cursor AI
 
+## 🎯 Design System Philosophy
+
+**CRITICAL:** This is a design system abstraction layer. Our users should ONLY use `r-*` components, NEVER `ion-*` components directly.
+
+**Why?** 
+- Complete abstraction from Ionic - if we switch frameworks in the future, users' code won't break
+- Users only need to learn our `r-*` API, not Ionic's API
+- Consistent design system experience across all components
+- Future-proof architecture
+
+**Rule:** If an Ionic component has sub-components that users would need, we MUST wrap ALL of them.
+
+**Example:** 
+- `ion-card` has `ion-card-header`, `ion-card-title`, `ion-card-content`, `ion-card-subtitle`, `ion-card-footer`
+- We need: `r-card`, `r-card-header`, `r-card-title`, `r-card-content`, `r-card-subtitle`, `r-card-footer`
+- Users should NEVER use `ion-card-header` - they use `r-card-header` instead
+
 **IMPORTANT:** When asked to create a new component (e.g., "create r-card component"), you MUST:
 1. Read this file first
 2. Check `COMPONENT_TEMPLATE.tsx` for the template
 3. Read `COMPONENT_CREATION_GUIDE.md` for detailed patterns
 4. Look at existing components (`r-badge`, `r-input`, etc.) for examples
-5. Follow ALL rules below
+5. **Check if the Ionic component has sub-components that need wrapping**
+6. Follow ALL rules below
 
 When creating new components in this design system, you MUST follow these rules:
 
@@ -25,11 +43,17 @@ When creating new components in this design system, you MUST follow these rules:
 
 1. **FIRST:** Read `COMPONENT_TEMPLATE.tsx` - Copy it as your starting point
 2. **SECOND:** Check `COMPONENT_CREATION_GUIDE.md` for patterns and examples
-3. **THIRD:** Look at existing components:
+3. **THIRD:** **CRITICAL - Check for sub-components:**
+   - Research the Ionic component documentation
+   - Identify ALL sub-components (e.g., `ion-card-header`, `ion-card-title`, etc.)
+   - **You MUST create wrappers for ALL sub-components that users would need**
+   - Example: For `ion-card`, create `r-card`, `r-card-header`, `r-card-title`, `r-card-content`, `r-card-subtitle`, `r-card-footer`
+4. **FOURTH:** Look at existing components:
    - Simple component? → See `src/components/r-badge/` or `src/components/r-buttons/`
    - Form field component? → See `src/components/r-input/`, `src/components/r-dropdown/`, or `src/components/r-datepicker/`
-4. **FOURTH:** Create all required files (see File Structure below)
-5. **FIFTH:** Add component to `src/components/app-home/app-home.tsx` menu and examples
+   - Component with sub-components? → See `r-header` + `r-toolbar` + `r-title` pattern
+5. **FIFTH:** Create all required files for main component AND all sub-components (see File Structure below)
+6. **SIXTH:** Add component to `src/components/app-home/app-home.tsx` menu and examples
 
 ## Required Patterns
 
@@ -112,4 +136,27 @@ After creating a component, you MUST:
 - ❌ Manually filter props - use `removeUndefinedProps`
 - ❌ Duplicate form field code - use form field utilities
 - ❌ Set `shadow: true` - always use `shadow: false`
+- ❌ **Leave Ionic sub-components unwrapped** - If users need them, wrap them!
+- ❌ **Document or show `ion-*` components in examples** - Always use `r-*` components
+- ❌ **Assume users can use Ionic directly** - They should ONLY use our `r-*` components
+
+## Sub-Component Strategy
+
+**When to create sub-component wrappers:**
+
+✅ **DO create wrappers if:**
+- The Ionic component has sub-components (e.g., `ion-card` → `ion-card-header`, `ion-card-title`)
+- Users would need these sub-components to build complete UIs
+- The sub-components are part of the component's API (not just internal implementation)
+
+❌ **DON'T create wrappers if:**
+- The sub-components are purely internal implementation details
+- Users never interact with them directly
+- They're only used internally by the main component
+
+**Examples:**
+- ✅ `ion-card` → Need: `r-card`, `r-card-header`, `r-card-title`, `r-card-content`, `r-card-subtitle`, `r-card-footer`
+- ✅ `ion-item` → Need: `r-item` (if we create it), `r-item-sliding`, `r-item-options`
+- ❌ `ion-input` → No sub-components needed (we already have `r-input`)
+- ❌ `ion-button` → No sub-components needed (we already have `r-button`)
 

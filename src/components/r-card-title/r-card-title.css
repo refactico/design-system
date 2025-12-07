@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Map design system tokens to Ionic card-title variables */
+r-card-title ion-card-title {
+  /* Use design system typography tokens */
+  font-size: var(--r-typography-font-size-lg, 20px);
+  font-weight: var(--r-typography-font-weight-semibold, 600);
+  line-height: var(--r-typography-line-height-normal, 1.5);
+  color: var(--r-color-text, inherit);
+}
+

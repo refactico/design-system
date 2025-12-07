@@ -29,10 +29,11 @@
 - [r-buttons](../r-buttons)
 - [r-badge](../r-badge)
 - [r-card](../r-card)
-- ion-card-header
-- ion-card-title
-- ion-card-subtitle
-- ion-card-content
+- [r-card-header](../r-card-header)
+- [r-card-title](../r-card-title)
+- [r-card-subtitle](../r-card-subtitle)
+- [r-card-content](../r-card-content)
+- [r-card-footer](../r-card-footer)
 
 ### Graph
 ```mermaid
@@ -53,10 +54,11 @@ graph TD;
   app-home --> r-buttons
   app-home --> r-badge
   app-home --> r-card
-  app-home --> ion-card-header
-  app-home --> ion-card-title
-  app-home --> ion-card-subtitle
-  app-home --> ion-card-content
+  app-home --> r-card-header
+  app-home --> r-card-title
+  app-home --> r-card-subtitle
+  app-home --> r-card-content
+  app-home --> r-card-footer
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -127,6 +129,10 @@ graph TD;
   r-badge --> ion-badge
   r-card --> ion-card
   ion-card --> ion-ripple-effect
+  r-card-header --> ion-card-header
+  r-card-title --> ion-card-title
+  r-card-subtitle --> ion-card-subtitle
+  r-card-content --> ion-card-content
   app-shell --> app-home
   style app-home fill:#f9f,stroke:#333,stroke-width:4px
 ```

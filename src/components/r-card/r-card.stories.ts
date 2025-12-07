@@ -44,11 +44,11 @@ type Story = StoryObj<RCard>;
 
 export const Basic: Story = {
   render: (props) => h('r-card', props, [
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Card Title'),
-      h('ion-card-subtitle', null, 'Card Subtitle'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Card Title'),
+      h('r-card-subtitle', null, 'Card Subtitle'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This is the basic card content. You can add any content here.'),
     ]),
   ]),
@@ -57,10 +57,10 @@ export const Basic: Story = {
 
 export const WithColor: Story = {
   render: (props) => h('r-card', props, [
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Colored Card'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Colored Card'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This card has a primary color applied.'),
     ]),
   ]),
@@ -71,10 +71,10 @@ export const WithColor: Story = {
 
 export const ButtonCard: Story = {
   render: (props) => h('r-card', props, [
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Clickable Card'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Clickable Card'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This card acts as a button and is clickable.'),
     ]),
   ]),
@@ -86,11 +86,11 @@ export const ButtonCard: Story = {
 export const CardWithImage: Story = {
   render: (props) => h('r-card', props, [
     h('img', { src: 'https://via.placeholder.com/400x200', alt: 'Placeholder' }),
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Card with Image'),
-      h('ion-card-subtitle', null, 'Image Subtitle'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Card with Image'),
+      h('r-card-subtitle', null, 'Image Subtitle'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This card includes an image at the top.'),
     ]),
   ]),
@@ -99,15 +99,15 @@ export const CardWithImage: Story = {
 
 export const CardWithButtons: Story = {
   render: (props) => h('r-card', props, [
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Card with Buttons'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Card with Buttons'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This card has action buttons at the bottom.'),
     ]),
-    h('ion-card-footer', null, [
-      h('ion-button', { fill: 'clear' }, 'Action 1'),
-      h('ion-button', { fill: 'clear' }, 'Action 2'),
+    h('r-card-footer', null, [
+      h('r-button', { fill: 'clear' }, 'Action 1'),
+      h('r-button', { fill: 'clear' }, 'Action 2'),
     ]),
   ]),
   args: {},
@@ -115,10 +115,10 @@ export const CardWithButtons: Story = {
 
 export const DisabledCard: Story = {
   render: (props) => h('r-card', props, [
-    h('ion-card-header', null, [
-      h('ion-card-title', null, 'Disabled Card'),
+    h('r-card-header', null, [
+      h('r-card-title', null, 'Disabled Card'),
     ]),
-    h('ion-card-content', null, [
+    h('r-card-content', null, [
       h('p', null, 'This card is disabled and cannot be interacted with.'),
     ]),
   ]),

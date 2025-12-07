@@ -773,102 +773,102 @@ export class AppHome {
                           <div class="example-group">
                             <h3>Basic Card</h3>
                             <r-card>
-                              <ion-card-header>
-                                <ion-card-title>Card Title</ion-card-title>
-                                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Card Title</r-card-title>
+                                <r-card-subtitle>Card Subtitle</r-card-subtitle>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This is a basic card with header and content.</p>
-                              </ion-card-content>
+                              </r-card-content>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Card with Color</h3>
                             <r-card color="primary">
-                              <ion-card-header>
-                                <ion-card-title>Colored Card</ion-card-title>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Colored Card</r-card-title>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This card has a primary color applied.</p>
-                              </ion-card-content>
+                              </r-card-content>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Clickable Card (Button)</h3>
                             <r-card button>
-                              <ion-card-header>
-                                <ion-card-title>Clickable Card</ion-card-title>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Clickable Card</r-card-title>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This card acts as a button and is clickable. Hover to see the effect.</p>
-                              </ion-card-content>
+                              </r-card-content>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Card with Image</h3>
                             <r-card>
                               <img src="https://via.placeholder.com/400x200?text=Card+Image" alt="Card Image" style={{ width: '100%', height: 'auto' }} />
-                              <ion-card-header>
-                                <ion-card-title>Card with Image</ion-card-title>
-                                <ion-card-subtitle>Image Subtitle</ion-card-subtitle>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Card with Image</r-card-title>
+                                <r-card-subtitle>Image Subtitle</r-card-subtitle>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This card includes an image at the top.</p>
-                              </ion-card-content>
+                              </r-card-content>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Card with Buttons</h3>
                             <r-card>
-                              <ion-card-header>
-                                <ion-card-title>Card with Actions</ion-card-title>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Card with Actions</r-card-title>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This card has action buttons at the bottom.</p>
-                              </ion-card-content>
-                              <ion-card-footer>
-                                <ion-button fill="clear">Action 1</ion-button>
-                                <ion-button fill="clear">Action 2</ion-button>
-                              </ion-card-footer>
+                              </r-card-content>
+                              <r-card-footer>
+                                <r-button fill="clear">Action 1</r-button>
+                                <r-button fill="clear">Action 2</r-button>
+                              </r-card-footer>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Disabled Card</h3>
                             <r-card button disabled>
-                              <ion-card-header>
-                                <ion-card-title>Disabled Card</ion-card-title>
-                              </ion-card-header>
-                              <ion-card-content>
+                              <r-card-header>
+                                <r-card-title>Disabled Card</r-card-title>
+                              </r-card-header>
+                              <r-card-content>
                                 <p>This card is disabled and cannot be interacted with.</p>
-                              </ion-card-content>
+                              </r-card-content>
                             </r-card>
                           </div>
                           <div class="example-group">
                             <h3>Card Color Variants</h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                               <r-card color="primary">
-                                <ion-card-header>
-                                  <ion-card-title>Primary Card</ion-card-title>
-                                </ion-card-header>
-                                <ion-card-content>
+                                <r-card-header>
+                                  <r-card-title>Primary Card</r-card-title>
+                                </r-card-header>
+                                <r-card-content>
                                   <p>Primary colored card.</p>
-                                </ion-card-content>
+                                </r-card-content>
                               </r-card>
                               <r-card color="secondary">
-                                <ion-card-header>
-                                  <ion-card-title>Secondary Card</ion-card-title>
-                                </ion-card-header>
-                                <ion-card-content>
+                                <r-card-header>
+                                  <r-card-title>Secondary Card</r-card-title>
+                                </r-card-header>
+                                <r-card-content>
                                   <p>Secondary colored card.</p>
-                                </ion-card-content>
+                                </r-card-content>
                               </r-card>
                               <r-card color="success">
-                                <ion-card-header>
-                                  <ion-card-title>Success Card</ion-card-title>
-                                </ion-card-header>
-                                <ion-card-content>
+                                <r-card-header>
+                                  <r-card-title>Success Card</r-card-title>
+                                </r-card-header>
+                                <r-card-content>
                                   <p>Success colored card.</p>
-                                </ion-card-content>
+                                </r-card-content>
                               </r-card>
                             </div>
                           </div>
