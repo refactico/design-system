@@ -242,6 +242,34 @@ export namespace Components {
          */
         "value"?: string | number;
     }
+    interface RHeader {
+        /**
+          * If true, the header collapses on scroll
+         */
+        "collapse"?: 'condense' | 'fade';
+        /**
+          * The header color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The header mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+        /**
+          * If true, the header has a border
+          * @default false
+         */
+        "noBorder": boolean;
+        /**
+          * The header title text
+         */
+        "title"?: string;
+        /**
+          * If true, the header is translucent
+          * @default false
+         */
+        "translucent": boolean;
+    }
     interface RInput {
         /**
           * The input autocomplete attribute
@@ -439,6 +467,12 @@ declare global {
         prototype: HTMLRDropdownElement;
         new (): HTMLRDropdownElement;
     };
+    interface HTMLRHeaderElement extends Components.RHeader, HTMLStencilElement {
+    }
+    var HTMLRHeaderElement: {
+        prototype: HTMLRHeaderElement;
+        new (): HTMLRHeaderElement;
+    };
     interface HTMLRInputElementEventMap {
         "rInput": CustomEvent;
         "rFocus": FocusEvent;
@@ -465,6 +499,7 @@ declare global {
         "r-button": HTMLRButtonElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
+        "r-header": HTMLRHeaderElement;
         "r-input": HTMLRInputElement;
     }
 }
@@ -749,6 +784,34 @@ declare namespace LocalJSX {
          */
         "value"?: string | number;
     }
+    interface RHeader {
+        /**
+          * If true, the header collapses on scroll
+         */
+        "collapse"?: 'condense' | 'fade';
+        /**
+          * The header color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The header mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+        /**
+          * If true, the header has a border
+          * @default false
+         */
+        "noBorder"?: boolean;
+        /**
+          * The header title text
+         */
+        "title"?: string;
+        /**
+          * If true, the header is translucent
+          * @default false
+         */
+        "translucent"?: boolean;
+    }
     interface RInput {
         /**
           * The input autocomplete attribute
@@ -856,6 +919,7 @@ declare namespace LocalJSX {
         "r-button": RButton;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
+        "r-header": RHeader;
         "r-input": RInput;
     }
 }
@@ -869,6 +933,7 @@ declare module "@stencil/core" {
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
+            "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
         }
     }

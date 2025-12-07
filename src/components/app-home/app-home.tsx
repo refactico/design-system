@@ -16,6 +16,7 @@ export class AppHome {
     { id: 'r-dropdown', name: 'Dropdown', description: 'Dropdown component that wraps Ionic select with validation, error handling, and multiple selection support' },
     { id: 'r-datepicker', name: 'Datepicker', description: 'Datepicker component that wraps Ionic datetime with validation, error handling, and various presentation styles' },
     { id: 'r-alert', name: 'Alert', description: 'Alert component that wraps Ionic alert with inline usage support' },
+    { id: 'r-header', name: 'Header', description: 'Header component that wraps Ionic header with toolbar and title support' },
     // Add more components here as they are created
   ];
 
@@ -332,6 +333,87 @@ export class AppHome {
                               buttons="OK"
                               onRDidDismiss={() => this.closeAlert('success')}
                             ></r-alert>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-header' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Header</h3>
+                            <r-header title="My App"></r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Header with Color</h3>
+                            <r-header title="Colored Header" color="primary"></r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Header with Buttons</h3>
+                            <r-header title="Header with Buttons">
+                              <ion-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                              <ion-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                            </r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Header with Multiple Buttons</h3>
+                            <r-header title="Multiple Buttons">
+                              <ion-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                              <ion-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                            </r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Translucent Header</h3>
+                            <div style={{ background: 'linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%)', padding: '20px', minHeight: '100px', borderRadius: '8px' }}>
+                              <r-header title="Translucent Header" translucent></r-header>
+                              <div style={{ padding: '20px', color: 'white' }}>Content below translucent header</div>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Header Without Border</h3>
+                            <r-header title="Header Without Border" no-border></r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Secondary Color Header</h3>
+                            <r-header title="Secondary Header" color="secondary"></r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Danger Color Header</h3>
+                            <r-header title="Danger Header" color="danger"></r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Success Color Header</h3>
+                            <r-header title="Success Header" color="success"></r-header>
                           </div>
                         </div>
                       )}

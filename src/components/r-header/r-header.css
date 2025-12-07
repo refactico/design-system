@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-header-background: var(--r-color-background);
+  --r-internal-header-text-color: var(--r-color-text);
+  --r-internal-header-border-color: var(--r-border-color);
+}
+
+/* Map component tokens to Ionic header/toolbar variables */
+r-header ion-header {
+  --background: var(--r-internal-header-background);
+  --color: var(--r-internal-header-text-color);
+  --border-color: var(--r-internal-header-border-color);
+}
+
+r-header ion-toolbar {
+  --background: var(--r-internal-header-background);
+  --color: var(--r-internal-header-text-color);
+  --border-color: var(--r-internal-header-border-color);
+}
+
+r-header ion-title {
+  --color: var(--r-internal-header-text-color);
+  color: var(--r-internal-header-text-color);
+}
+
+/* Remove border when noBorder prop is set */
+r-header ion-header.header-no-border ion-toolbar {
+  --border-width: 0;
+  --border-style: none;
+}
+
+/* Ensure proper spacing and layout */
+r-header ion-toolbar {
+  padding: 0;
+}
+
+r-header ion-title {
+  padding: 0 16px;
+  font-size: var(--r-typography-font-size-lg, 20px);
+  font-weight: var(--r-typography-font-weight-semibold, 600);
+}
+

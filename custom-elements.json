@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T06:52:42",
+  "timestamp": "2025-12-07T15:41:43",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -31,7 +31,10 @@
         "r-dropdown",
         "ion-select-option",
         "r-datepicker",
-        "r-alert"
+        "r-alert",
+        "r-header",
+        "ion-buttons",
+        "ion-button"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -41,7 +44,10 @@
           "r-dropdown",
           "ion-select-option",
           "r-datepicker",
-          "r-alert"
+          "r-alert",
+          "r-header",
+          "ion-buttons",
+          "ion-button"
         ],
         "r-button": [
           "ion-button",
@@ -135,6 +141,11 @@
         ],
         "r-alert": [
           "ion-alert"
+        ],
+        "r-header": [
+          "ion-header",
+          "ion-toolbar",
+          "ion-title"
         ],
         "app-shell": [
           "app-home"
@@ -171,7 +182,10 @@
           "r-dropdown",
           "ion-select-option",
           "r-datepicker",
-          "r-alert"
+          "r-alert",
+          "r-header",
+          "ion-buttons",
+          "ion-button"
         ],
         "r-button": [
           "ion-button",
@@ -265,6 +279,11 @@
         ],
         "r-alert": [
           "ion-alert"
+        ],
+        "r-header": [
+          "ion-header",
+          "ion-toolbar",
+          "ion-title"
         ]
       }
     },
@@ -2087,6 +2106,201 @@
         ],
         "app-home": [
           "r-dropdown"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-header/r-header.tsx",
+      "encapsulation": "none",
+      "tag": "r-header",
+      "readme": "# r-header\n\nHeader component that wraps Ionic header with toolbar and title support. Provides a consistent header structure for applications.\n\n## Usage\n\n### Basic Header\n\n```html\n<r-header title=\"My App\"></r-header>\n```\n\n### Header with Buttons\n\nYou can add **as many buttons as you want** in the `start` and `end` slots. Each slot can contain multiple `ion-button` elements inside an `ion-buttons` container.\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Header with Multiple Buttons\n\nYou can add multiple buttons in each slot - there's no limit:\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"notifications-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"settings-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Translucent Header\n\n```html\n<r-header title=\"My App\" translucent></r-header>\n```\n",
+      "docs": "Header component that wraps Ionic header with toolbar and title support. Provides a consistent header structure for applications.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "collapse",
+          "type": "\"condense\" | \"fade\"",
+          "complexType": {
+            "original": "'condense' | 'fade'",
+            "resolved": "\"condense\" | \"fade\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "collapse",
+          "reflectToAttr": false,
+          "docs": "If true, the header collapses on scroll",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "condense",
+              "type": "string"
+            },
+            {
+              "value": "fade",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The header color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "'ios' | 'md'",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The header mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "noBorder",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "no-border",
+          "reflectToAttr": false,
+          "docs": "If true, the header has a border",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "title",
+          "reflectToAttr": false,
+          "docs": "The header title text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "translucent",
+          "reflectToAttr": false,
+          "docs": "If true, the header is translucent",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-header",
+        "ion-toolbar",
+        "ion-title"
+      ],
+      "dependencyGraph": {
+        "r-header": [
+          "ion-header",
+          "ion-toolbar",
+          "ion-title"
+        ],
+        "app-home": [
+          "r-header"
         ]
       }
     },
