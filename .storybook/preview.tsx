@@ -11,12 +11,21 @@ import '../dist/theme.css';
  * Registers all custom elements in the Storybook preview.
  */
 defineCustomElements();
-
+// TODO: REMOVE IT AFTER TESTING
 /**
  * Loads and registers component metadata for Storybook.
  * This enables automatic generation of props, methods, events, slots, shadow parts, and CSS variables tables.
+ * Filter out any components that don't have story files (like r-action-sheet which was removed)
  */
-setCustomElementsManifest(customElements);
+const filteredCustomElements = {
+  ...customElements,
+  components: customElements.components.filter((component: any) => {
+    // Only include components that have story files or are not r-action-sheet
+    const tag = component.tag || '';
+    return tag !== 'r-action-sheet';
+  }),
+};
+setCustomElementsManifest(filteredCustomElements);
 
 /**
  * Theme decorator - applies theme classes to document

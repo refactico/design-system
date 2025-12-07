@@ -3,10 +3,13 @@ const config = {
     addons: [
       '@storybook/addon-links',
       '@storybook/addon-docs',
-      '@storybook/addon-backgrounds',
     ],
     framework: {
       name: '@stencil/storybook-plugin',
+    },
+    // Disable auto-generating docs for components without stories
+    docs: {
+      autodocs: 'tag',
     },
   };
   
