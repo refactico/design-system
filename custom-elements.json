@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T06:39:21",
+  "timestamp": "2025-12-07T06:52:42",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -30,7 +30,8 @@
         "r-input",
         "r-dropdown",
         "ion-select-option",
-        "r-datepicker"
+        "r-datepicker",
+        "r-alert"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -39,7 +40,8 @@
           "r-input",
           "r-dropdown",
           "ion-select-option",
-          "r-datepicker"
+          "r-datepicker",
+          "r-alert"
         ],
         "r-button": [
           "ion-button",
@@ -130,6 +132,9 @@
           "ion-icon",
           "ion-ripple-effect",
           "ion-popover"
+        ],
+        "r-alert": [
+          "ion-alert"
         ],
         "app-shell": [
           "app-home"
@@ -165,7 +170,8 @@
           "r-input",
           "r-dropdown",
           "ion-select-option",
-          "r-datepicker"
+          "r-datepicker",
+          "r-alert"
         ],
         "r-button": [
           "ion-button",
@@ -256,6 +262,389 @@
           "ion-icon",
           "ion-ripple-effect",
           "ion-popover"
+        ],
+        "r-alert": [
+          "ion-alert"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-alert/r-alert.tsx",
+      "encapsulation": "none",
+      "tag": "r-alert",
+      "readme": "# r-alert\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "animated",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "animated",
+          "reflectToAttr": false,
+          "docs": "If true, the alert is animated",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "backdropDismiss",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "backdrop-dismiss",
+          "reflectToAttr": false,
+          "docs": "If true, the alert can be dismissed by clicking the backdrop",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "buttons",
+          "type": "string | ({ text: string; role?: string; handler?: () => void; }[])",
+          "complexType": {
+            "original": "string | Array<{ text: string; role?: string; handler?: () => void }>",
+            "resolved": "string | ({ text: string; role?: string; handler?: () => void; }[])",
+            "references": {
+              "Array": {
+                "location": "global",
+                "id": "global::Array"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "buttons",
+          "reflectToAttr": false,
+          "docs": "Alert buttons configuration\r\nCan be a string (single button text) or an array of button objects\r\nExample: \"OK\" or [{ text: \"Cancel\", role: \"cancel\" }, { text: \"OK\", role: \"confirm\" }]",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "({ text: string; role?: string; handler?: () => void; }[])"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The alert color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "header",
+          "reflectToAttr": false,
+          "docs": "The alert header text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "is-open",
+          "reflectToAttr": false,
+          "docs": "If true, the alert is open",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "keyboardClose",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "keyboard-close",
+          "reflectToAttr": false,
+          "docs": "If true, the alert can be dismissed by pressing the escape key",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "true"
+            }
+          ],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "The alert message text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "subHeader",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sub-header",
+          "reflectToAttr": false,
+          "docs": "The alert subheader text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "translucent",
+          "reflectToAttr": false,
+          "docs": "If true, the alert is translucent",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rDidDismiss",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the alert is dismissed",
+          "docsTags": []
+        },
+        {
+          "event": "rDidPresent",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the alert is presented",
+          "docsTags": []
+        },
+        {
+          "event": "rWillDismiss",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the alert will dismiss",
+          "docsTags": []
+        },
+        {
+          "event": "rWillPresent",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the alert will present",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-alert"
+      ],
+      "dependencyGraph": {
+        "r-alert": [
+          "ion-alert"
+        ],
+        "ion-alert": [
+          "ion-ripple-effect",
+          "ion-backdrop"
+        ],
+        "app-home": [
+          "r-alert"
         ]
       }
     },

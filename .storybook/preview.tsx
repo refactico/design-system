@@ -11,7 +11,7 @@ import '../dist/theme.css';
  * Registers all custom elements in the Storybook preview.
  */
 defineCustomElements();
-// TODO: REMOVE IT AFTER TESTING
+
 /**
  * Loads and registers component metadata for Storybook.
  * This enables automatic generation of props, methods, events, slots, shadow parts, and CSS variables tables.

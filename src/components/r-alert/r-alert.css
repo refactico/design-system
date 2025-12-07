@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-alert-border-radius: var(--r-border-radius-base);
+  --r-internal-alert-font-size: var(--r-typography-font-size-base);
+  --r-internal-alert-background: var(--r-color-background);
+  --r-internal-alert-text-color: var(--r-color-text);
+}
+
+/* Map component tokens to Ionic alert variables */
+r-alert ion-alert {
+  --border-radius: var(--r-internal-alert-border-radius);
+  --font-size: var(--r-internal-alert-font-size);
+  --background: var(--r-internal-alert-background);
+  --color: var(--r-internal-alert-text-color);
+}
+
+/* Ensure alert text is visible */
+r-alert ion-alert .alert-title,
+r-alert ion-alert .alert-sub-title,
+r-alert ion-alert .alert-message {
+  color: var(--ion-text-color, #000);
+  --color: var(--ion-text-color, #000);
+}
+
+/* Ensure button text is visible */
+r-alert ion-alert .alert-button {
+  color: var(--ion-color-primary, #3880ff);
+  --color: var(--ion-color-primary, #3880ff);
+}
+
+r-alert ion-alert .alert-button.alert-button-role-cancel {
+  color: var(--ion-color-medium, #666);
+  --color: var(--ion-color-medium, #666);
+}
+
+r-alert ion-alert .alert-button.alert-button-role-destructive {
+  color: var(--ion-color-danger, #eb445a);
+  --color: var(--ion-color-danger, #eb445a);
+}
+

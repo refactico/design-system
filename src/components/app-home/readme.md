@@ -19,6 +19,7 @@
 - [r-dropdown](../r-dropdown)
 - ion-select-option
 - [r-datepicker](../r-datepicker)
+- [r-alert](../r-alert)
 
 ### Graph
 ```mermaid
@@ -29,6 +30,7 @@ graph TD;
   app-home --> r-dropdown
   app-home --> ion-select-option
   app-home --> r-datepicker
+  app-home --> r-alert
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -89,6 +91,7 @@ graph TD;
   ion-datetime --> ion-icon
   ion-datetime --> ion-ripple-effect
   ion-datetime --> ion-popover
+  r-alert --> ion-alert
   app-shell --> app-home
   style app-home fill:#f9f,stroke:#333,stroke-width:4px
 ```

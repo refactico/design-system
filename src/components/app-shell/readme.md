@@ -21,6 +21,7 @@ graph TD;
   app-home --> r-dropdown
   app-home --> ion-select-option
   app-home --> r-datepicker
+  app-home --> r-alert
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -81,6 +82,7 @@ graph TD;
   ion-datetime --> ion-icon
   ion-datetime --> ion-ripple-effect
   ion-datetime --> ion-popover
+  r-alert --> ion-alert
   style app-shell fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -8,12 +8,14 @@ import { Component, State, h } from '@stencil/core';
 export class AppHome {
   @State() selectedComponent: string | null = null;
   @State() sidebarCollapsed: boolean = false;
+  @State() alertStates: { [key: string]: boolean } = {};
 
   private menuItems = [
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
     { id: 'r-input', name: 'Input', description: 'Input field component with password visibility toggle and validation support' },
     { id: 'r-dropdown', name: 'Dropdown', description: 'Dropdown component that wraps Ionic select with validation, error handling, and multiple selection support' },
     { id: 'r-datepicker', name: 'Datepicker', description: 'Datepicker component that wraps Ionic datetime with validation, error handling, and various presentation styles' },
+    { id: 'r-alert', name: 'Alert', description: 'Alert component that wraps Ionic alert with inline usage support' },
     // Add more components here as they are created
   ];
 
@@ -27,6 +29,14 @@ export class AppHome {
 
   private toggleSidebar = () => {
     this.sidebarCollapsed = !this.sidebarCollapsed;
+  };
+
+  private openAlert = (alertId: string) => {
+    this.alertStates = { ...this.alertStates, [alertId]: true };
+  };
+
+  private closeAlert = (alertId: string) => {
+    this.alertStates = { ...this.alertStates, [alertId]: false };
   };
 
   render() {
@@ -253,6 +263,75 @@ export class AppHome {
                           <div class="example-group">
                             <h3>Disabled Datepicker</h3>
                             <r-datepicker label="Disabled Datepicker" placeholder="This datepicker is disabled" disabled presentation="date"></r-datepicker>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-alert' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Alert</h3>
+                            <r-button onClick={() => this.openAlert('basic')}>Open Basic Alert</r-button>
+                            <r-alert
+                              isOpen={this.alertStates['basic'] || false}
+                              header="Alert"
+                              message="This is a basic alert message."
+                              buttons="OK"
+                              onRDidDismiss={() => this.closeAlert('basic')}
+                            ></r-alert>
+                          </div>
+                          <div class="example-group">
+                            <h3>Alert with SubHeader</h3>
+                            <r-button onClick={() => this.openAlert('subheader')}>Open Alert with SubHeader</r-button>
+                            <r-alert
+                              isOpen={this.alertStates['subheader'] || false}
+                              header="Alert Title"
+                              subHeader="Subheader"
+                              message="This alert has a subheader."
+                              buttons="OK"
+                              onRDidDismiss={() => this.closeAlert('subheader')}
+                            ></r-alert>
+                          </div>
+                          <div class="example-group">
+                            <h3>Alert with Multiple Buttons</h3>
+                            <r-button onClick={() => this.openAlert('multiple')}>Open Alert with Multiple Buttons</r-button>
+                            <r-alert
+                              isOpen={this.alertStates['multiple'] || false}
+                              header="Confirm"
+                              message="Are you sure you want to proceed?"
+                              buttons={[
+                                { text: 'Cancel', role: 'cancel' },
+                                { text: 'OK', role: 'confirm' }
+                              ]}
+                              onRDidDismiss={() => this.closeAlert('multiple')}
+                            ></r-alert>
+                          </div>
+                          <div class="example-group">
+                            <h3>Destructive Alert</h3>
+                            <r-button color="danger" onClick={() => this.openAlert('destructive')}>Open Destructive Alert</r-button>
+                            <r-alert
+                              isOpen={this.alertStates['destructive'] || false}
+                              header="Delete Item"
+                              message="This action cannot be undone."
+                              color="danger"
+                              buttons={[
+                                { text: 'Cancel', role: 'cancel' },
+                                { text: 'Delete', role: 'destructive' }
+                              ]}
+                              onRDidDismiss={() => this.closeAlert('destructive')}
+                            ></r-alert>
+                          </div>
+                          <div class="example-group">
+                            <h3>Success Alert</h3>
+                            <r-button color="success" onClick={() => this.openAlert('success')}>Open Success Alert</r-button>
+                            <r-alert
+                              isOpen={this.alertStates['success'] || false}
+                              header="Success!"
+                              message="Your action was completed successfully."
+                              color="success"
+                              buttons="OK"
+                              onRDidDismiss={() => this.closeAlert('success')}
+                            ></r-alert>
                           </div>
                         </div>
                       )}

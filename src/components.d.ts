@@ -10,6 +10,53 @@ export namespace Components {
     }
     interface AppShell {
     }
+    interface RAlert {
+        /**
+          * If true, the alert is animated
+          * @default true
+         */
+        "animated": boolean;
+        /**
+          * If true, the alert can be dismissed by clicking the backdrop
+          * @default true
+         */
+        "backdropDismiss": boolean;
+        /**
+          * Alert buttons configuration Can be a string (single button text) or an array of button objects Example: "OK" or [{ text: "Cancel", role: "cancel" }, { text: "OK", role: "confirm" }]
+         */
+        "buttons"?: string | Array<{ text: string; role?: string; handler?: () => void }>;
+        /**
+          * The alert color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The alert header text
+         */
+        "header"?: string;
+        /**
+          * If true, the alert is open
+          * @default false
+         */
+        "isOpen": boolean;
+        /**
+          * If true, the alert can be dismissed by pressing the escape key
+          * @default true
+         */
+        "keyboardClose": boolean;
+        /**
+          * The alert message text
+         */
+        "message"?: string;
+        /**
+          * The alert subheader text
+         */
+        "subHeader"?: string;
+        /**
+          * If true, the alert is translucent
+          * @default false
+         */
+        "translucent": boolean;
+    }
     interface RButton {
         /**
           * The button color (Ionic color)
@@ -284,6 +331,10 @@ export namespace Components {
         "value"?: string;
     }
 }
+export interface RAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRAlertElement;
+}
 export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRButtonElement;
@@ -312,6 +363,26 @@ declare global {
     var HTMLAppShellElement: {
         prototype: HTMLAppShellElement;
         new (): HTMLAppShellElement;
+    };
+    interface HTMLRAlertElementEventMap {
+        "rDidDismiss": CustomEvent;
+        "rDidPresent": CustomEvent;
+        "rWillDismiss": CustomEvent;
+        "rWillPresent": CustomEvent;
+    }
+    interface HTMLRAlertElement extends Components.RAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRAlertElementEventMap>(type: K, listener: (this: HTMLRAlertElement, ev: RAlertCustomEvent<HTMLRAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRAlertElementEventMap>(type: K, listener: (this: HTMLRAlertElement, ev: RAlertCustomEvent<HTMLRAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRAlertElement: {
+        prototype: HTMLRAlertElement;
+        new (): HTMLRAlertElement;
     };
     interface HTMLRButtonElementEventMap {
         "rClick": MouseEvent;
@@ -390,6 +461,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
+        "r-alert": HTMLRAlertElement;
         "r-button": HTMLRButtonElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
@@ -400,6 +472,69 @@ declare namespace LocalJSX {
     interface AppHome {
     }
     interface AppShell {
+    }
+    interface RAlert {
+        /**
+          * If true, the alert is animated
+          * @default true
+         */
+        "animated"?: boolean;
+        /**
+          * If true, the alert can be dismissed by clicking the backdrop
+          * @default true
+         */
+        "backdropDismiss"?: boolean;
+        /**
+          * Alert buttons configuration Can be a string (single button text) or an array of button objects Example: "OK" or [{ text: "Cancel", role: "cancel" }, { text: "OK", role: "confirm" }]
+         */
+        "buttons"?: string | Array<{ text: string; role?: string; handler?: () => void }>;
+        /**
+          * The alert color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The alert header text
+         */
+        "header"?: string;
+        /**
+          * If true, the alert is open
+          * @default false
+         */
+        "isOpen"?: boolean;
+        /**
+          * If true, the alert can be dismissed by pressing the escape key
+          * @default true
+         */
+        "keyboardClose"?: boolean;
+        /**
+          * The alert message text
+         */
+        "message"?: string;
+        /**
+          * Emitted when the alert is dismissed
+         */
+        "onRDidDismiss"?: (event: RAlertCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the alert is presented
+         */
+        "onRDidPresent"?: (event: RAlertCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the alert will dismiss
+         */
+        "onRWillDismiss"?: (event: RAlertCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the alert will present
+         */
+        "onRWillPresent"?: (event: RAlertCustomEvent<CustomEvent>) => void;
+        /**
+          * The alert subheader text
+         */
+        "subHeader"?: string;
+        /**
+          * If true, the alert is translucent
+          * @default false
+         */
+        "translucent"?: boolean;
     }
     interface RButton {
         /**
@@ -717,6 +852,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-shell": AppShell;
+        "r-alert": RAlert;
         "r-button": RButton;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
@@ -729,6 +865,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-shell": LocalJSX.AppShell & JSXBase.HTMLAttributes<HTMLAppShellElement>;
+            "r-alert": LocalJSX.RAlert & JSXBase.HTMLAttributes<HTMLRAlertElement>;
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
