@@ -358,6 +358,33 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface RTitle {
+        "size"?: 'large' | 'small';
+        /**
+          * The title text
+         */
+        "text"?: string;
+    }
+    interface RToolbar {
+        /**
+          * The toolbar color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The toolbar mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+        /**
+          * If true, the toolbar has no border
+          * @default false
+         */
+        "noBorder": boolean;
+        /**
+          * If true, the toolbar is translucent
+          * @default false
+         */
+        "translucent": boolean;
+    }
 }
 export interface RAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -492,6 +519,18 @@ declare global {
         prototype: HTMLRInputElement;
         new (): HTMLRInputElement;
     };
+    interface HTMLRTitleElement extends Components.RTitle, HTMLStencilElement {
+    }
+    var HTMLRTitleElement: {
+        prototype: HTMLRTitleElement;
+        new (): HTMLRTitleElement;
+    };
+    interface HTMLRToolbarElement extends Components.RToolbar, HTMLStencilElement {
+    }
+    var HTMLRToolbarElement: {
+        prototype: HTMLRToolbarElement;
+        new (): HTMLRToolbarElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-shell": HTMLAppShellElement;
@@ -501,6 +540,8 @@ declare global {
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
         "r-input": HTMLRInputElement;
+        "r-title": HTMLRTitleElement;
+        "r-toolbar": HTMLRToolbarElement;
     }
 }
 declare namespace LocalJSX {
@@ -912,6 +953,33 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface RTitle {
+        "size"?: 'large' | 'small';
+        /**
+          * The title text
+         */
+        "text"?: string;
+    }
+    interface RToolbar {
+        /**
+          * The toolbar color (Ionic color)
+         */
+        "color"?: string;
+        /**
+          * The toolbar mode (ios or md)
+         */
+        "mode"?: 'ios' | 'md';
+        /**
+          * If true, the toolbar has no border
+          * @default false
+         */
+        "noBorder"?: boolean;
+        /**
+          * If true, the toolbar is translucent
+          * @default false
+         */
+        "translucent"?: boolean;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-shell": AppShell;
@@ -921,6 +989,8 @@ declare namespace LocalJSX {
         "r-dropdown": RDropdown;
         "r-header": RHeader;
         "r-input": RInput;
+        "r-title": RTitle;
+        "r-toolbar": RToolbar;
     }
 }
 export { LocalJSX as JSX };
@@ -935,6 +1005,8 @@ declare module "@stencil/core" {
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
+            "r-title": LocalJSX.RTitle & JSXBase.HTMLAttributes<HTMLRTitleElement>;
+            "r-toolbar": LocalJSX.RToolbar & JSXBase.HTMLAttributes<HTMLRToolbarElement>;
         }
     }
 }

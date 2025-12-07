@@ -17,6 +17,8 @@ export class AppHome {
     { id: 'r-datepicker', name: 'Datepicker', description: 'Datepicker component that wraps Ionic datetime with validation, error handling, and various presentation styles' },
     { id: 'r-alert', name: 'Alert', description: 'Alert component that wraps Ionic alert with inline usage support' },
     { id: 'r-header', name: 'Header', description: 'Header component that wraps Ionic header with toolbar and title support' },
+    { id: 'r-toolbar', name: 'Toolbar', description: 'Toolbar component that wraps Ionic toolbar with support for buttons and content slots' },
+    { id: 'r-title', name: 'Title', description: 'Title component that wraps Ionic title for use in toolbars and headers' },
     // Add more components here as they are created
   ];
 
@@ -414,6 +416,191 @@ export class AppHome {
                           <div class="example-group">
                             <h3>Success Color Header</h3>
                             <r-header title="Success Header" color="success"></r-header>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-toolbar' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Toolbar</h3>
+                            <r-toolbar></r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toolbar with Color</h3>
+                            <r-toolbar color="primary">
+                              <ion-title>Colored Toolbar</ion-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toolbar with Buttons</h3>
+                            <r-toolbar color="primary">
+                              <ion-title>Toolbar with Buttons</ion-title>
+                              <ion-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                              <ion-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toolbar with Multiple Buttons</h3>
+                            <r-toolbar color="primary">
+                              <ion-title>Multiple Buttons</ion-title>
+                              <ion-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                              <ion-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+                                </ion-button>
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Translucent Toolbar</h3>
+                            <div style={{ background: 'linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%)', padding: '20px', minHeight: '100px', borderRadius: '8px' }}>
+                              <r-toolbar color="primary" translucent>
+                                <ion-title>Translucent Toolbar</ion-title>
+                              </r-toolbar>
+                              <div style={{ padding: '20px', color: 'white' }}>Content below translucent toolbar</div>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toolbar Without Border</h3>
+                            <r-toolbar color="primary" no-border>
+                              <ion-title>Toolbar Without Border</ion-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Secondary Color Toolbar</h3>
+                            <r-toolbar color="secondary">
+                              <ion-title>Secondary Toolbar</ion-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Danger Color Toolbar</h3>
+                            <r-toolbar color="danger">
+                              <ion-title>Danger Toolbar</ion-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Success Color Toolbar</h3>
+                            <r-toolbar color="success">
+                              <ion-title>Success Toolbar</ion-title>
+                            </r-toolbar>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-title' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Title</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="Page Title"></r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Title with Slot</h3>
+                            <r-toolbar color="primary">
+                              <r-title>Title from Slot</r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Size Comparison (Side by Side)</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                              <r-toolbar color="primary">
+                                <r-title text="Large Title (36px)" size="large"></r-title>
+                              </r-toolbar>
+                              <r-toolbar color="primary">
+                                <r-title text="Default Title (20px)"></r-title>
+                              </r-toolbar>
+                              <r-toolbar color="primary">
+                                <r-title text="Small Title (12px)" size="small"></r-title>
+                              </r-toolbar>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Large Title</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="Large Title" size="large"></r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Small Title</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="Small Title" size="small"></r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Title in Header</h3>
+                            <r-header color="primary">
+                              <r-toolbar color="primary">
+                                <r-title text="Header Title"></r-title>
+                                <ion-buttons slot="end">
+                                  <ion-button>
+                                    <ion-icon slot="icon-only" name="more-outline"></ion-icon>
+                                  </ion-button>
+                                </ion-buttons>
+                              </r-toolbar>
+                            </r-header>
+                          </div>
+                          <div class="example-group">
+                            <h3>Title with Buttons</h3>
+                            <r-toolbar color="primary">
+                              <ion-buttons slot="start">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                              <r-title text="Title with Buttons"></r-title>
+                              <ion-buttons slot="end">
+                                <ion-button>
+                                  <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+                                </ion-button>
+                              </ion-buttons>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Long Title</h3>
+                            <r-toolbar color="primary">
+                              <r-title text="This is a Very Long Title That Should Wrap or Truncate Properly"></r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Secondary Color Title</h3>
+                            <r-toolbar color="secondary">
+                              <r-title text="Secondary Title"></r-title>
+                            </r-toolbar>
+                          </div>
+                          <div class="example-group">
+                            <h3>Danger Color Title</h3>
+                            <r-toolbar color="danger">
+                              <r-title text="Danger Title"></r-title>
+                            </r-toolbar>
                           </div>
                         </div>
                       )}

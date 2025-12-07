@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T16:14:58",
+  "timestamp": "2025-12-07T16:46:33",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -34,7 +34,10 @@
         "r-alert",
         "r-header",
         "ion-buttons",
-        "ion-button"
+        "ion-button",
+        "r-toolbar",
+        "ion-title",
+        "r-title"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -47,7 +50,10 @@
           "r-alert",
           "r-header",
           "ion-buttons",
-          "ion-button"
+          "ion-button",
+          "r-toolbar",
+          "ion-title",
+          "r-title"
         ],
         "r-button": [
           "ion-button",
@@ -147,6 +153,12 @@
           "ion-toolbar",
           "ion-title"
         ],
+        "r-toolbar": [
+          "ion-toolbar"
+        ],
+        "r-title": [
+          "ion-title"
+        ],
         "app-shell": [
           "app-home"
         ]
@@ -185,7 +197,10 @@
           "r-alert",
           "r-header",
           "ion-buttons",
-          "ion-button"
+          "ion-button",
+          "r-toolbar",
+          "ion-title",
+          "r-title"
         ],
         "r-button": [
           "ion-button",
@@ -283,6 +298,12 @@
         "r-header": [
           "ion-header",
           "ion-toolbar",
+          "ion-title"
+        ],
+        "r-toolbar": [
+          "ion-toolbar"
+        ],
+        "r-title": [
           "ion-title"
         ]
       }
@@ -2912,6 +2933,228 @@
         ],
         "app-home": [
           "r-input"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-title/r-title.tsx",
+      "encapsulation": "none",
+      "tag": "r-title",
+      "readme": "# r-title\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "size",
+          "type": "\"large\" | \"small\"",
+          "complexType": {
+            "original": "'large' | 'small'",
+            "resolved": "\"large\" | \"small\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "The title text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-title"
+      ],
+      "dependencyGraph": {
+        "r-title": [
+          "ion-title"
+        ],
+        "app-home": [
+          "r-title"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-toolbar/r-toolbar.tsx",
+      "encapsulation": "none",
+      "tag": "r-toolbar",
+      "readme": "# r-toolbar\n\nToolbar component that wraps Ionic toolbar. Provides a consistent toolbar structure for applications with support for buttons and content slots.\n\n## What is a Toolbar?\n\nA toolbar is a horizontal bar that contains action buttons, titles, and other controls. It's typically placed at the top or bottom of a screen to provide navigation and actions.\n\n## When to Use Toolbars\n\n### 1. **Inside Headers (Most Common)**\nToolbars are typically placed inside headers to provide navigation and actions:\n\n```html\n<r-header title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Standalone Toolbars**\nUse standalone toolbars for:\n- **Bottom navigation bars** (footer toolbars)\n- **Action bars** within content areas\n- **Floating toolbars** for specific actions\n\n```html\n<!-- Bottom toolbar (footer) -->\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-title>Footer Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n      <ion-button>Cancel</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Multiple Toolbars in Header**\nYou can stack multiple toolbars in a header for complex layouts:\n\n```html\n<r-header>\n  <!-- Primary toolbar -->\n  <r-toolbar color=\"primary\">\n    <ion-title>Page Title</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  \n  <!-- Secondary toolbar (e.g., for tabs or filters) -->\n  <r-toolbar color=\"light\">\n    <ion-segment value=\"all\">\n      <ion-segment-button value=\"all\">All</ion-segment-button>\n      <ion-segment-button value=\"favorites\">Favorites</ion-segment-button>\n    </ion-segment>\n  </r-toolbar>\n</r-header>\n```\n\n## Where to Place Toolbars\n\n### ✅ **Top of Screen (Header)**\nMost common placement - inside `r-header` or `ion-header`:\n\n```html\n<r-header title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <!-- Navigation and actions -->\n  </r-toolbar>\n</r-header>\n```\n\n### ✅ **Bottom of Screen (Footer)**\nFor action buttons or secondary navigation:\n\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>Previous</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Next</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### ✅ **Inside Content Areas**\nFor contextual actions within page content:\n\n```html\n<ion-content>\n  <r-toolbar color=\"light\">\n    <ion-title>Section Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Edit</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  <!-- Content here -->\n</ion-content>\n```\n\n## r-header vs r-toolbar\n\n### **r-header** (Use for full page headers)\n- Wraps `ion-header` (provides header container)\n- Includes title prop for convenience\n- Best for: Main page headers with title and actions\n\n```html\n<r-header title=\"My App\" color=\"primary\">\n  <ion-buttons slot=\"start\">...</ion-buttons>\n  <ion-buttons slot=\"end\">...</ion-buttons>\n</r-header>\n```\n\n### **r-toolbar** (Use for flexible toolbars)\n- Wraps `ion-toolbar` only (no header container)\n- More flexible - can be used anywhere\n- Best for: \n  - Inside custom headers\n  - Footer toolbars\n  - Multiple toolbars in one header\n  - Standalone action bars\n\n```html\n<!-- Inside header -->\n<ion-header>\n  <r-toolbar color=\"primary\">\n    <ion-title>Title</ion-title>\n  </r-toolbar>\n</ion-header>\n\n<!-- Or standalone -->\n<r-toolbar color=\"primary\">\n  <ion-title>Standalone Toolbar</ion-title>\n</r-toolbar>\n```\n\n## Common Use Cases\n\n### 1. **Navigation Toolbar**\n```html\n<r-header title=\"Products\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"cart-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Action Toolbar (Footer)**\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button fill=\"outline\">Cancel</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Search Toolbar**\n```html\n<r-toolbar color=\"light\">\n  <ion-searchbar placeholder=\"Search...\"></ion-searchbar>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"filter-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-toolbar>\n```\n\n### 4. **Tab Toolbar**\n```html\n<r-toolbar color=\"primary\">\n  <ion-segment value=\"home\">\n    <ion-segment-button value=\"home\">Home</ion-segment-button>\n    <ion-segment-button value=\"about\">About</ion-segment-button>\n    <ion-segment-button value=\"contact\">Contact</ion-segment-button>\n  </ion-segment>\n</r-toolbar>\n```\n\n## Best Practices\n\n1. **Use r-header for simple page headers** - It includes the header container and title\n2. **Use r-toolbar for flexibility** - When you need multiple toolbars or custom placement\n3. **Place primary actions on the right** - Use `slot=\"end\"` for main actions\n4. **Place navigation on the left** - Use `slot=\"start\"` for back buttons and menus\n5. **Keep toolbars consistent** - Use the same color and style across your app\n6. **Limit button count** - Too many buttons can clutter the toolbar (3-4 max recommended)\n",
+      "docs": "Toolbar component that wraps Ionic toolbar. Provides a consistent toolbar structure for applications with support for buttons and content slots.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The toolbar color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "'ios' | 'md'",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The toolbar mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "noBorder",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "no-border",
+          "reflectToAttr": false,
+          "docs": "If true, the toolbar has no border",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "translucent",
+          "reflectToAttr": false,
+          "docs": "If true, the toolbar is translucent",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-toolbar"
+      ],
+      "dependencyGraph": {
+        "r-toolbar": [
+          "ion-toolbar"
+        ],
+        "app-home": [
+          "r-toolbar"
         ]
       }
     }

@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  /* These reference semantic tokens (--r-*) which CAN be customized */
+  --r-internal-title-text-color: var(--r-color-text);
+  --r-internal-title-font-size: var(--r-typography-font-size-lg);
+  --r-internal-title-font-weight: var(--r-typography-font-weight-semibold);
+}
+
+/* Map component tokens to Ionic title variables */
+r-title ion-title {
+  --color: var(--r-internal-title-text-color);
+  color: var(--r-internal-title-text-color);
+}
+
+/* Style the text span directly - this will work even with Shadow DOM */
+r-title ion-title .r-title-text {
+  display: inline-block;
+  color: inherit;
+}
+
+/* Size variants - target the span directly */
+r-title[size="large"] ion-title .r-title-text {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+r-title[size="small"] ion-title .r-title-text {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+}
+
+/* Default size */
+r-title:not([size]) ion-title .r-title-text,
+r-title ion-title .r-title-text {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+}
+
+/* Ensure proper spacing and layout */
+r-title ion-title {
+  padding: 0 16px;
+  text-align: center;
+}
+

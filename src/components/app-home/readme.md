@@ -23,6 +23,9 @@
 - [r-header](../r-header)
 - ion-buttons
 - ion-button
+- [r-toolbar](../r-toolbar)
+- ion-title
+- [r-title](../r-title)
 
 ### Graph
 ```mermaid
@@ -37,6 +40,9 @@ graph TD;
   app-home --> r-header
   app-home --> ion-buttons
   app-home --> ion-button
+  app-home --> r-toolbar
+  app-home --> ion-title
+  app-home --> r-title
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -101,6 +107,8 @@ graph TD;
   r-header --> ion-header
   r-header --> ion-toolbar
   r-header --> ion-title
+  r-toolbar --> ion-toolbar
+  r-title --> ion-title
   app-shell --> app-home
   style app-home fill:#f9f,stroke:#333,stroke-width:4px
 ```
