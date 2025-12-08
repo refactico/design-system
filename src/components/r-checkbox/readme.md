@@ -39,10 +39,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-item
@@ -59,7 +55,6 @@ graph TD;
   r-checkbox --> ion-note
   ion-item --> ion-icon
   ion-item --> ion-ripple-effect
-  app-home --> r-checkbox
   style r-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

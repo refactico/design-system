@@ -7,10 +7,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-card-header
@@ -19,7 +15,6 @@
 ```mermaid
 graph TD;
   r-card-header --> ion-card-header
-  app-home --> r-card-header
   style r-card-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

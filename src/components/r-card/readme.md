@@ -22,10 +22,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-card
@@ -35,7 +31,6 @@
 graph TD;
   r-card --> ion-card
   ion-card --> ion-ripple-effect
-  app-home --> r-card
   style r-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

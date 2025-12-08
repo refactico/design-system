@@ -21,10 +21,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-badge
@@ -36,7 +32,6 @@ graph TD;
   r-tab-button --> ion-badge
   r-tab-button --> ion-tab-button
   ion-tab-button --> ion-ripple-effect
-  app-home --> r-tab-button
   style r-tab-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

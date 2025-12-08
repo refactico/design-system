@@ -37,10 +37,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-item
@@ -67,7 +63,6 @@ graph TD;
   ion-datetime --> ion-popover
   ion-button --> ion-ripple-effect
   ion-popover --> ion-backdrop
-  app-home --> r-datepicker
   style r-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

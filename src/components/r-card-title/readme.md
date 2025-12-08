@@ -14,10 +14,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-card-title
@@ -26,7 +22,6 @@
 ```mermaid
 graph TD;
   r-card-title --> ion-card-title
-  app-home --> r-card-title
   style r-card-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

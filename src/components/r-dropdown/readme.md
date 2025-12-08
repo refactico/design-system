@@ -35,10 +35,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-item
@@ -88,7 +84,6 @@ graph TD;
   ion-select-modal --> ion-list
   ion-button --> ion-ripple-effect
   ion-modal --> ion-backdrop
-  app-home --> r-dropdown
   style r-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -74,21 +74,17 @@ You can add multiple buttons in each slot - there's no limit:
 
 ## Properties
 
-| Property      | Attribute     | Description                             | Type                                                                                                            | Default     |
-| ------------- | ------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| `collapse`    | `collapse`    | If true, the header collapses on scroll | `"condense" \| "fade"`                                                                                          | `undefined` |
-| `color`       | `color`       | The header color (Ionic color)          | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
-| `mode`        | `mode`        | The header mode (ios or md)             | `"ios" \| "md"`                                                                                                 | `undefined` |
-| `noBorder`    | `no-border`   | If true, the header has a border        | `boolean`                                                                                                       | `false`     |
+| Property      | Attribute      | Description                             | Type                                                                                                            | Default     |
+| ------------- | -------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| `collapse`    | `collapse`     | If true, the header collapses on scroll | `"condense" \| "fade"`                                                                                          | `undefined` |
+| `color`       | `color`        | The header color (Ionic color)          | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
 | `headerTitle` | `header-title` | The header title text                   | `string`                                                                                                        | `undefined` |
-| `translucent` | `translucent` | If true, the header is translucent      | `boolean`                                                                                                       | `false`     |
+| `mode`        | `mode`         | The header mode (ios or md)             | `"ios" \| "md"`                                                                                                 | `undefined` |
+| `noBorder`    | `no-border`    | If true, the header has a border        | `boolean`                                                                                                       | `false`     |
+| `translucent` | `translucent`  | If true, the header is translucent      | `boolean`                                                                                                       | `false`     |
 
 
 ## Dependencies
-
-### Used by
-
- - [app-home](../app-home)
 
 ### Depends on
 
@@ -102,7 +98,6 @@ graph TD;
   r-header --> ion-header
   r-header --> ion-toolbar
   r-header --> ion-title
-  app-home --> r-header
   style r-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

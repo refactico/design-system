@@ -116,6 +116,16 @@ export class RInput {
   @State() showPassword: boolean = false;
 
   /**
+   * Internal state to track if field has been touched (for validation)
+   */
+  @State() touched: boolean = false;
+
+  /**
+   * Internal state for automatic email validation
+   */
+  @State() internalEmailError: boolean = false;
+
+  /**
    * Emitted when the input value changes
    */
   @Event() rInput: EventEmitter<CustomEvent>;
@@ -130,9 +140,35 @@ export class RInput {
    */
   @Event() rBlur: EventEmitter<FocusEvent>;
 
+  /**
+   * Validate email format
+   */
+  private isValidEmail(email: string): boolean {
+    if (!email || email.trim() === '') return true; // Empty is valid (handled by required)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.trim());
+  }
+
+  /**
+   * Validate input based on type
+   */
+  private validateInput() {
+    if (this.type === 'email' && this.touched && this.value) {
+      this.internalEmailError = !this.isValidEmail(this.value);
+    } else {
+      this.internalEmailError = false;
+    }
+  }
+
   private handleInput = (event: Event) => {
     const input = event.target as HTMLInputElement;
     this.value = input.value;
+    
+    // Auto-validate email as user types (if touched)
+    if (this.type === 'email' && this.touched) {
+      this.validateInput();
+    }
+    
     this.rInput.emit(event as CustomEvent);
   };
 
@@ -141,6 +177,13 @@ export class RInput {
   };
 
   private handleBlur = (event: FocusEvent) => {
+    this.touched = true;
+    
+    // Validate on blur
+    if (this.type === 'email') {
+      this.validateInput();
+    }
+    
     this.rBlur.emit(event);
   };
 
@@ -151,6 +194,14 @@ export class RInput {
   render() {
     const isPassword = this.type === 'password';
     const inputType = isPassword && this.showPassword ? 'text' : this.type;
+    
+    // Determine error state: use explicit error prop if provided, otherwise use internal validation
+    const hasError = this.error !== undefined ? this.error : (this.type === 'email' ? this.internalEmailError : false);
+    
+    // Determine error text: use explicit errorText if provided, otherwise use internal validation message
+    const errorMessage = this.errorText || (this.type === 'email' && this.internalEmailError && this.touched 
+      ? 'Please enter a valid email address (e.g., user@example.com)' 
+      : undefined);
 
     const inputProps = removeUndefinedProps({
       ...buildFormFieldProps({
@@ -176,7 +227,7 @@ export class RInput {
     });
 
     return (
-      <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
+      <ion-item class={{ 'item-has-error': hasError }} lines={getItemLines(this.fill)}>
         {this.label && (
           <ion-label position={getLabelPosition(this.fill, 'floating')}>
             {this.label}
@@ -198,12 +249,12 @@ export class RInput {
             </ion-button>
           )}
         </ion-input>
-        {this.error && this.errorText && (
+        {hasError && errorMessage && (
           <ion-note slot="error" color="danger">
-            {this.errorText}
+            {errorMessage}
           </ion-note>
         )}
-        {!this.error && this.helperText && (
+        {!hasError && this.helperText && (
           <ion-note slot="helper">
             {this.helperText}
           </ion-note>

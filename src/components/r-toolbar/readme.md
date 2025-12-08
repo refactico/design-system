@@ -234,10 +234,6 @@ For contextual actions within page content:
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-toolbar
@@ -246,7 +242,6 @@ For contextual actions within page content:
 ```mermaid
 graph TD;
   r-toolbar --> ion-toolbar
-  app-home --> r-toolbar
   style r-toolbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

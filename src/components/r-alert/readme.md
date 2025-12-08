@@ -33,10 +33,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-alert
@@ -47,7 +43,6 @@ graph TD;
   r-alert --> ion-alert
   ion-alert --> ion-ripple-effect
   ion-alert --> ion-backdrop
-  app-home --> r-alert
   style r-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

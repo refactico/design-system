@@ -69,10 +69,6 @@ Buttons container component that wraps Ionic buttons. Groups multiple buttons to
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-buttons
@@ -81,7 +77,6 @@ Buttons container component that wraps Ionic buttons. Groups multiple buttons to
 ```mermaid
 graph TD;
   r-buttons --> ion-buttons
-  app-home --> r-buttons
   style r-buttons fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

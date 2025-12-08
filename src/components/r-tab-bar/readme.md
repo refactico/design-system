@@ -18,10 +18,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-tab-bar
@@ -30,7 +26,6 @@
 ```mermaid
 graph TD;
   r-tab-bar --> ion-tab-bar
-  app-home --> r-tab-bar
   style r-tab-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

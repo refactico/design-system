@@ -55,10 +55,6 @@ Badges are typically used to display:
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-badge
@@ -67,7 +63,6 @@ Badges are typically used to display:
 ```mermaid
 graph TD;
   r-badge --> ion-badge
-  app-home --> r-badge
   style r-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

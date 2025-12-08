@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-08T18:52:06",
+  "timestamp": "2025-12-08T20:17:38",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -25,224 +25,11 @@
         "app-shell"
       ],
       "dependencies": [
-        "ion-icon",
-        "r-button",
-        "r-input",
-        "r-dropdown",
-        "ion-select-option",
-        "r-datepicker",
-        "r-alert",
-        "r-header",
-        "ion-buttons",
-        "ion-button",
-        "r-toolbar",
-        "ion-title",
-        "r-title",
-        "r-buttons",
-        "r-badge",
-        "r-card",
-        "r-card-header",
-        "r-card-title",
-        "r-card-subtitle",
-        "r-card-content",
-        "r-card-footer",
-        "r-checkbox",
-        "r-toggle",
-        "r-tabs",
-        "r-tab",
-        "r-tab-bar",
-        "r-tab-button",
-        "ion-label"
+        "ion-icon"
       ],
       "dependencyGraph": {
         "app-home": [
-          "ion-icon",
-          "r-button",
-          "r-input",
-          "r-dropdown",
-          "ion-select-option",
-          "r-datepicker",
-          "r-alert",
-          "r-header",
-          "ion-buttons",
-          "ion-button",
-          "r-toolbar",
-          "ion-title",
-          "r-title",
-          "r-buttons",
-          "r-badge",
-          "r-card",
-          "r-card-header",
-          "r-card-title",
-          "r-card-subtitle",
-          "r-card-content",
-          "r-card-footer",
-          "r-checkbox",
-          "r-toggle",
-          "r-tabs",
-          "r-tab",
-          "r-tab-bar",
-          "r-tab-button",
-          "ion-label"
-        ],
-        "r-button": [
-          "ion-button",
           "ion-icon"
-        ],
-        "ion-button": [
-          "ion-ripple-effect"
-        ],
-        "r-input": [
-          "ion-item",
-          "ion-label",
-          "ion-input",
-          "ion-button",
-          "ion-icon",
-          "ion-note"
-        ],
-        "ion-item": [
-          "ion-icon",
-          "ion-ripple-effect"
-        ],
-        "ion-input": [
-          "ion-icon"
-        ],
-        "r-dropdown": [
-          "ion-item",
-          "ion-label",
-          "ion-select",
-          "ion-note"
-        ],
-        "ion-select": [
-          "ion-select-popover",
-          "ion-popover",
-          "ion-action-sheet",
-          "ion-alert",
-          "ion-select-modal",
-          "ion-modal",
-          "ion-icon"
-        ],
-        "ion-select-popover": [
-          "ion-item",
-          "ion-checkbox",
-          "ion-radio-group",
-          "ion-radio",
-          "ion-list",
-          "ion-list-header",
-          "ion-label"
-        ],
-        "ion-popover": [
-          "ion-backdrop"
-        ],
-        "ion-action-sheet": [
-          "ion-backdrop",
-          "ion-icon",
-          "ion-ripple-effect"
-        ],
-        "ion-alert": [
-          "ion-ripple-effect",
-          "ion-backdrop"
-        ],
-        "ion-select-modal": [
-          "ion-radio-group",
-          "ion-item",
-          "ion-radio",
-          "ion-checkbox",
-          "ion-header",
-          "ion-toolbar",
-          "ion-title",
-          "ion-buttons",
-          "ion-button",
-          "ion-content",
-          "ion-list"
-        ],
-        "ion-modal": [
-          "ion-backdrop"
-        ],
-        "r-datepicker": [
-          "ion-item",
-          "ion-label",
-          "ion-datetime",
-          "ion-note"
-        ],
-        "ion-datetime": [
-          "ion-buttons",
-          "ion-button",
-          "ion-picker",
-          "ion-picker-column",
-          "ion-picker-column-option",
-          "ion-icon",
-          "ion-ripple-effect",
-          "ion-popover"
-        ],
-        "r-alert": [
-          "ion-alert"
-        ],
-        "r-header": [
-          "ion-header",
-          "ion-toolbar",
-          "ion-title"
-        ],
-        "r-toolbar": [
-          "ion-toolbar"
-        ],
-        "r-title": [
-          "ion-title"
-        ],
-        "r-buttons": [
-          "ion-buttons"
-        ],
-        "r-badge": [
-          "ion-badge"
-        ],
-        "r-card": [
-          "ion-card"
-        ],
-        "ion-card": [
-          "ion-ripple-effect"
-        ],
-        "r-card-header": [
-          "ion-card-header"
-        ],
-        "r-card-title": [
-          "ion-card-title"
-        ],
-        "r-card-subtitle": [
-          "ion-card-subtitle"
-        ],
-        "r-card-content": [
-          "ion-card-content"
-        ],
-        "r-checkbox": [
-          "ion-item",
-          "ion-label",
-          "ion-checkbox",
-          "ion-note"
-        ],
-        "r-toggle": [
-          "ion-item",
-          "ion-label",
-          "ion-toggle",
-          "ion-note"
-        ],
-        "ion-toggle": [
-          "ion-icon"
-        ],
-        "r-tabs": [
-          "ion-tabs"
-        ],
-        "r-tab": [
-          "ion-tab"
-        ],
-        "r-tab-bar": [
-          "ion-tab-bar"
-        ],
-        "r-tab-button": [
-          "ion-badge",
-          "ion-tab-button"
-        ],
-        "ion-tab-button": [
-          "ion-ripple-effect"
         ],
         "app-shell": [
           "app-home"
@@ -273,193 +60,7 @@
           "app-home"
         ],
         "app-home": [
-          "ion-icon",
-          "r-button",
-          "r-input",
-          "r-dropdown",
-          "ion-select-option",
-          "r-datepicker",
-          "r-alert",
-          "r-header",
-          "ion-buttons",
-          "ion-button",
-          "r-toolbar",
-          "ion-title",
-          "r-title",
-          "r-buttons",
-          "r-badge",
-          "r-card",
-          "r-card-header",
-          "r-card-title",
-          "r-card-subtitle",
-          "r-card-content",
-          "r-card-footer",
-          "r-checkbox",
-          "r-toggle",
-          "r-tabs",
-          "r-tab",
-          "r-tab-bar",
-          "r-tab-button",
-          "ion-label"
-        ],
-        "r-button": [
-          "ion-button",
           "ion-icon"
-        ],
-        "ion-button": [
-          "ion-ripple-effect"
-        ],
-        "r-input": [
-          "ion-item",
-          "ion-label",
-          "ion-input",
-          "ion-button",
-          "ion-icon",
-          "ion-note"
-        ],
-        "ion-item": [
-          "ion-icon",
-          "ion-ripple-effect"
-        ],
-        "ion-input": [
-          "ion-icon"
-        ],
-        "r-dropdown": [
-          "ion-item",
-          "ion-label",
-          "ion-select",
-          "ion-note"
-        ],
-        "ion-select": [
-          "ion-select-popover",
-          "ion-popover",
-          "ion-action-sheet",
-          "ion-alert",
-          "ion-select-modal",
-          "ion-modal",
-          "ion-icon"
-        ],
-        "ion-select-popover": [
-          "ion-item",
-          "ion-checkbox",
-          "ion-radio-group",
-          "ion-radio",
-          "ion-list",
-          "ion-list-header",
-          "ion-label"
-        ],
-        "ion-popover": [
-          "ion-backdrop"
-        ],
-        "ion-action-sheet": [
-          "ion-backdrop",
-          "ion-icon",
-          "ion-ripple-effect"
-        ],
-        "ion-alert": [
-          "ion-ripple-effect",
-          "ion-backdrop"
-        ],
-        "ion-select-modal": [
-          "ion-radio-group",
-          "ion-item",
-          "ion-radio",
-          "ion-checkbox",
-          "ion-header",
-          "ion-toolbar",
-          "ion-title",
-          "ion-buttons",
-          "ion-button",
-          "ion-content",
-          "ion-list"
-        ],
-        "ion-modal": [
-          "ion-backdrop"
-        ],
-        "r-datepicker": [
-          "ion-item",
-          "ion-label",
-          "ion-datetime",
-          "ion-note"
-        ],
-        "ion-datetime": [
-          "ion-buttons",
-          "ion-button",
-          "ion-picker",
-          "ion-picker-column",
-          "ion-picker-column-option",
-          "ion-icon",
-          "ion-ripple-effect",
-          "ion-popover"
-        ],
-        "r-alert": [
-          "ion-alert"
-        ],
-        "r-header": [
-          "ion-header",
-          "ion-toolbar",
-          "ion-title"
-        ],
-        "r-toolbar": [
-          "ion-toolbar"
-        ],
-        "r-title": [
-          "ion-title"
-        ],
-        "r-buttons": [
-          "ion-buttons"
-        ],
-        "r-badge": [
-          "ion-badge"
-        ],
-        "r-card": [
-          "ion-card"
-        ],
-        "ion-card": [
-          "ion-ripple-effect"
-        ],
-        "r-card-header": [
-          "ion-card-header"
-        ],
-        "r-card-title": [
-          "ion-card-title"
-        ],
-        "r-card-subtitle": [
-          "ion-card-subtitle"
-        ],
-        "r-card-content": [
-          "ion-card-content"
-        ],
-        "r-checkbox": [
-          "ion-item",
-          "ion-label",
-          "ion-checkbox",
-          "ion-note"
-        ],
-        "r-toggle": [
-          "ion-item",
-          "ion-label",
-          "ion-toggle",
-          "ion-note"
-        ],
-        "ion-toggle": [
-          "ion-icon"
-        ],
-        "r-tabs": [
-          "ion-tabs"
-        ],
-        "r-tab": [
-          "ion-tab"
-        ],
-        "r-tab-bar": [
-          "ion-tab-bar"
-        ],
-        "r-tab-button": [
-          "ion-badge",
-          "ion-tab-button"
-        ],
-        "ion-tab-button": [
-          "ion-ripple-effect"
         ]
       }
     },
@@ -863,9 +464,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-alert"
       ],
@@ -876,9 +475,6 @@
         "ion-alert": [
           "ion-ripple-effect",
           "ion-backdrop"
-        ],
-        "app-home": [
-          "r-alert"
         ]
       }
     },
@@ -994,18 +590,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-badge"
       ],
       "dependencyGraph": {
         "r-badge": [
           "ion-badge"
-        ],
-        "app-home": [
-          "r-badge"
         ]
       }
     },
@@ -1398,9 +989,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-button",
         "ion-icon"
@@ -1412,9 +1001,6 @@
         ],
         "ion-button": [
           "ion-ripple-effect"
-        ],
-        "app-home": [
-          "r-button"
         ]
       }
     },
@@ -1422,7 +1008,7 @@
       "filePath": "src/components/r-buttons/r-buttons.tsx",
       "encapsulation": "none",
       "tag": "r-buttons",
-      "readme": "# r-buttons\r\n\r\nButtons container component that wraps Ionic buttons. Groups multiple buttons together, typically used in toolbars and headers with design system spacing.\r\n\r\n## Differences: r-buttons vs ion-buttons\r\n\r\n### **Regular `ion-buttons` (Ionic Native)**\r\n- Direct Ionic component\r\n- Basic container for grouping buttons\r\n- Minimal styling\r\n- Requires manual configuration\r\n\r\n```html\r\n<ion-buttons slot=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</ion-buttons>\r\n```\r\n\r\n### **`r-buttons` (Our Design System Wrapper)**\r\n- Wraps `ion-buttons` with design system integration\r\n- Consistent spacing using design tokens\r\n- Better integration with other `r-*` components\r\n- Same functionality as `ion-buttons` but with design system benefits\r\n\r\n```html\r\n<r-buttons slot=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</r-buttons>\r\n```\r\n\r\n## Key Differences\r\n\r\n| Feature | `ion-buttons` | `r-buttons` |\r\n|---------|---------------|-------------|\r\n| **Design Tokens** | ❌ No | ✅ Yes - uses `--r-spacing-2` for gap |\r\n| **Consistency** | Manual styling | Automatic spacing |\r\n| **Integration** | Works with Ionic | Works with Ionic + Design System |\r\n| **Functionality** | ✅ Full Ionic support | ✅ Full Ionic support (pass-through) |\r\n| **Collapse** | ✅ Supported | ✅ Supported (pass-through) |\r\n| **Styling** | Manual CSS | Design system tokens |\r\n\r\n## When to Use r-buttons vs ion-buttons\r\n\r\n### ✅ **Use `r-buttons` when:**\r\n- You want consistent spacing from design tokens\r\n- You're using other `r-*` components (r-toolbar, r-header)\r\n- You want automatic design system integration\r\n- You want future-proof styling that follows design tokens\r\n\r\n### ✅ **Use `ion-buttons` when:**\r\n- You need direct Ionic control without wrapper\r\n- You're not using the design system\r\n- You need custom styling that doesn't follow design tokens\r\n\r",
+      "readme": "# r-buttons\r\n\r\nButtons container component that wraps Ionic buttons. Groups multiple buttons together, typically used in toolbars and headers with design system spacing.\r\n\r\n## Differences: r-buttons vs ion-buttons\r\n\r\n### **Regular `ion-buttons` (Ionic Native)**\r\n- Direct Ionic component\r\n- Basic container for grouping buttons\r\n- Minimal styling\r\n- Requires manual configuration\r\n\r\n```html\r\n<ion-buttons slot=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</ion-buttons>\r\n```\r\n\r\n### **`r-buttons` (Our Design System Wrapper)**\r\n- Wraps `ion-buttons` with design system integration\r\n- Consistent spacing using design tokens\r\n- Better integration with other `r-*` components\r\n- Same functionality as `ion-buttons` but with design system benefits\r\n\r\n```html\r\n<r-buttons position=\"end\">\r\n  <ion-button>\r\n    <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\r\n  </ion-button>\r\n</r-buttons>\r\n```\r\n\r\n## Key Differences\r\n\r\n| Feature | `ion-buttons` | `r-buttons` |\r\n|---------|---------------|-------------|\r\n| **Design Tokens** | ❌ No | ✅ Yes - uses `--r-spacing-2` for gap |\r\n| **Consistency** | Manual styling | Automatic spacing |\r\n| **Integration** | Works with Ionic | Works with Ionic + Design System |\r\n| **Functionality** | ✅ Full Ionic support | ✅ Full Ionic support (pass-through) |\r\n| **Collapse** | ✅ Supported | ✅ Supported (pass-through) |\r\n| **Styling** | Manual CSS | Design system tokens |\r\n\r\n## When to Use r-buttons vs ion-buttons\r\n\r\n### ✅ **Use `r-buttons` when:**\r\n- You want consistent spacing from design tokens\r\n- You're using other `r-*` components (r-toolbar, r-header)\r\n- You want automatic design system integration\r\n- You want future-proof styling that follows design tokens\r\n\r\n### ✅ **Use `ion-buttons` when:**\r\n- You need direct Ionic control without wrapper\r\n- You're not using the design system\r\n- You need custom styling that doesn't follow design tokens\r\n\r",
       "docs": "Buttons container component that wraps Ionic buttons. Groups multiple buttons together, typically used in toolbars and headers with design system spacing.",
       "docsTags": [],
       "usage": {},
@@ -1451,7 +1037,7 @@
           "setter": false
         },
         {
-          "name": "slot",
+          "name": "position",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -1459,7 +1045,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "slot",
+          "attr": "position",
           "reflectToAttr": false,
           "docs": "The slot where the buttons should be placed.\r\nCan be \"start\", \"end\", or \"primary\" (default).",
           "docsTags": [],
@@ -1480,18 +1066,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-buttons"
       ],
       "dependencyGraph": {
         "r-buttons": [
           "ion-buttons"
-        ],
-        "app-home": [
-          "r-buttons"
         ]
       }
     },
@@ -1789,9 +1370,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-card"
       ],
@@ -1801,9 +1380,6 @@
         ],
         "ion-card": [
           "ion-ripple-effect"
-        ],
-        "app-home": [
-          "r-card"
         ]
       }
     },
@@ -1822,18 +1398,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-card-content"
       ],
       "dependencyGraph": {
         "r-card-content": [
           "ion-card-content"
-        ],
-        "app-home": [
-          "r-card-content"
         ]
       }
     },
@@ -1852,15 +1423,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "app-home": [
-          "r-card-footer"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/r-card-header/r-card-header.tsx",
@@ -1877,18 +1442,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-card-header"
       ],
       "dependencyGraph": {
         "r-card-header": [
           "ion-card-header"
-        ],
-        "app-home": [
-          "r-card-header"
         ]
       }
     },
@@ -1970,18 +1530,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-card-subtitle"
       ],
       "dependencyGraph": {
         "r-card-subtitle": [
           "ion-card-subtitle"
-        ],
-        "app-home": [
-          "r-card-subtitle"
         ]
       }
     },
@@ -2063,18 +1618,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-card-title"
       ],
       "dependencyGraph": {
         "r-card-title": [
           "ion-card-title"
-        ],
-        "app-home": [
-          "r-card-title"
         ]
       }
     },
@@ -2669,9 +2219,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-item",
         "ion-label",
@@ -2688,9 +2236,6 @@
         "ion-item": [
           "ion-icon",
           "ion-ripple-effect"
-        ],
-        "app-home": [
-          "r-checkbox"
         ]
       }
     },
@@ -3261,9 +2806,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-item",
         "ion-label",
@@ -3296,9 +2839,6 @@
         ],
         "ion-popover": [
           "ion-backdrop"
-        ],
-        "app-home": [
-          "r-datepicker"
         ]
       }
     },
@@ -3822,9 +3362,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-item",
         "ion-label",
@@ -3890,9 +3428,6 @@
         ],
         "ion-modal": [
           "ion-backdrop"
-        ],
-        "app-home": [
-          "r-dropdown"
         ]
       }
     },
@@ -3900,7 +3435,7 @@
       "filePath": "src/components/r-header/r-header.tsx",
       "encapsulation": "none",
       "tag": "r-header",
-      "readme": "# r-header\n\nHeader component that wraps Ionic header with toolbar and title support. Provides a consistent header structure for applications.\n\n## Usage\n\n### Basic Header\n\n```html\n<r-header title=\"My App\"></r-header>\n```\n\n### Header with Buttons\n\nYou can add **as many buttons as you want** in the `start` and `end` slots. Each slot can contain multiple `ion-button` elements inside an `ion-buttons` container.\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Header with Multiple Buttons\n\nYou can add multiple buttons in each slot - there's no limit:\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"notifications-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"settings-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Translucent Header\n\n```html\n<r-header title=\"My App\" translucent></r-header>\n```\n",
+      "readme": "# r-header\n\nHeader component that wraps Ionic header with toolbar and title support. Provides a consistent header structure for applications.\n\n## Usage\n\n### Basic Header\n\n```html\n<r-header header-title=\"My App\"></r-header>\n```\n\n### Header with Buttons\n\nYou can add **as many buttons as you want** in the `start` and `end` slots. Each slot can contain multiple `ion-button` elements inside an `ion-buttons` container.\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Header with Multiple Buttons\n\nYou can add multiple buttons in each slot - there's no limit:\n\n```html\n<r-header title=\"My App\">\n  <ion-buttons slot=\"start\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"notifications-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"settings-outline\"></ion-icon>\n    </ion-button>\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-header>\n```\n\n### Translucent Header\n\n```html\n<r-header title=\"My App\" translucent></r-header>\n```\n",
       "docs": "Header component that wraps Ionic header with toolbar and title support. Provides a consistent header structure for applications.",
       "docsTags": [],
       "usage": {},
@@ -3996,6 +3531,29 @@
           "setter": false
         },
         {
+          "name": "headerTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "header-title",
+          "reflectToAttr": false,
+          "docs": "The header title text",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
           "name": "mode",
           "type": "\"ios\" | \"md\"",
           "complexType": {
@@ -4059,29 +3617,6 @@
           "setter": false
         },
         {
-          "name": "title",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "title",
-          "reflectToAttr": false,
-          "docs": "The header title text",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
           "name": "translucent",
           "type": "boolean",
           "complexType": {
@@ -4117,9 +3652,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-header",
         "ion-toolbar",
@@ -4130,9 +3663,6 @@
           "ion-header",
           "ion-toolbar",
           "ion-title"
-        ],
-        "app-home": [
-          "r-header"
         ]
       }
     },
@@ -4765,9 +4295,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-item",
         "ion-label",
@@ -4794,9 +4322,6 @@
         ],
         "ion-button": [
           "ion-ripple-effect"
-        ],
-        "app-home": [
-          "r-input"
         ]
       }
     },
@@ -4981,18 +4506,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-tab"
       ],
       "dependencyGraph": {
         "r-tab": [
           "ion-tab"
-        ],
-        "app-home": [
-          "r-tab"
         ]
       }
     },
@@ -5194,18 +4714,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-tab-bar"
       ],
       "dependencyGraph": {
         "r-tab-bar": [
           "ion-tab-bar"
-        ],
-        "app-home": [
-          "r-tab-bar"
         ]
       }
     },
@@ -5531,9 +5046,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-badge",
         "ion-tab-button"
@@ -5545,9 +5058,6 @@
         ],
         "ion-tab-button": [
           "ion-ripple-effect"
-        ],
-        "app-home": [
-          "r-tab-button"
         ]
       }
     },
@@ -5692,18 +5202,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-tabs"
       ],
       "dependencyGraph": {
         "r-tabs": [
           "ion-tabs"
-        ],
-        "app-home": [
-          "r-tabs"
         ]
       }
     },
@@ -5774,18 +5279,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-title"
       ],
       "dependencyGraph": {
         "r-title": [
           "ion-title"
-        ],
-        "app-home": [
-          "r-title"
         ]
       }
     },
@@ -6380,9 +5880,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-item",
         "ion-label",
@@ -6402,9 +5900,6 @@
         ],
         "ion-toggle": [
           "ion-icon"
-        ],
-        "app-home": [
-          "r-toggle"
         ]
       }
     },
@@ -6412,7 +5907,7 @@
       "filePath": "src/components/r-toolbar/r-toolbar.tsx",
       "encapsulation": "none",
       "tag": "r-toolbar",
-      "readme": "# r-toolbar\n\nToolbar component that wraps Ionic toolbar. Provides a consistent toolbar structure for applications with support for buttons and content slots.\n\n## What is a Toolbar?\n\nA toolbar is a horizontal bar that contains action buttons, titles, and other controls. It's typically placed at the top or bottom of a screen to provide navigation and actions.\n\n## When to Use Toolbars\n\n### 1. **Inside Headers (Most Common)**\nToolbars are typically placed inside headers to provide navigation and actions:\n\n```html\n<r-header title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Standalone Toolbars**\nUse standalone toolbars for:\n- **Bottom navigation bars** (footer toolbars)\n- **Action bars** within content areas\n- **Floating toolbars** for specific actions\n\n```html\n<!-- Bottom toolbar (footer) -->\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-title>Footer Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n      <ion-button>Cancel</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Multiple Toolbars in Header**\nYou can stack multiple toolbars in a header for complex layouts:\n\n```html\n<r-header>\n  <!-- Primary toolbar -->\n  <r-toolbar color=\"primary\">\n    <ion-title>Page Title</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  \n  <!-- Secondary toolbar (e.g., for tabs or filters) -->\n  <r-toolbar color=\"light\">\n    <ion-segment value=\"all\">\n      <ion-segment-button value=\"all\">All</ion-segment-button>\n      <ion-segment-button value=\"favorites\">Favorites</ion-segment-button>\n    </ion-segment>\n  </r-toolbar>\n</r-header>\n```\n\n## Where to Place Toolbars\n\n### ✅ **Top of Screen (Header)**\nMost common placement - inside `r-header` or `ion-header`:\n\n```html\n<r-header title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <!-- Navigation and actions -->\n  </r-toolbar>\n</r-header>\n```\n\n### ✅ **Bottom of Screen (Footer)**\nFor action buttons or secondary navigation:\n\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>Previous</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Next</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### ✅ **Inside Content Areas**\nFor contextual actions within page content:\n\n```html\n<ion-content>\n  <r-toolbar color=\"light\">\n    <ion-title>Section Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Edit</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  <!-- Content here -->\n</ion-content>\n```\n\n## r-header vs r-toolbar\n\n### **r-header** (Use for full page headers)\n- Wraps `ion-header` (provides header container)\n- Includes title prop for convenience\n- Best for: Main page headers with title and actions\n\n```html\n<r-header title=\"My App\" color=\"primary\">\n  <ion-buttons slot=\"start\">...</ion-buttons>\n  <ion-buttons slot=\"end\">...</ion-buttons>\n</r-header>\n```\n\n### **r-toolbar** (Use for flexible toolbars)\n- Wraps `ion-toolbar` only (no header container)\n- More flexible - can be used anywhere\n- Best for: \n  - Inside custom headers\n  - Footer toolbars\n  - Multiple toolbars in one header\n  - Standalone action bars\n\n```html\n<!-- Inside header -->\n<ion-header>\n  <r-toolbar color=\"primary\">\n    <ion-title>Title</ion-title>\n  </r-toolbar>\n</ion-header>\n\n<!-- Or standalone -->\n<r-toolbar color=\"primary\">\n  <ion-title>Standalone Toolbar</ion-title>\n</r-toolbar>\n```\n\n## Common Use Cases\n\n### 1. **Navigation Toolbar**\n```html\n<r-header title=\"Products\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"cart-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Action Toolbar (Footer)**\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button fill=\"outline\">Cancel</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Search Toolbar**\n```html\n<r-toolbar color=\"light\">\n  <ion-searchbar placeholder=\"Search...\"></ion-searchbar>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"filter-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-toolbar>\n```\n\n### 4. **Tab Toolbar**\n```html\n<r-toolbar color=\"primary\">\n  <ion-segment value=\"home\">\n    <ion-segment-button value=\"home\">Home</ion-segment-button>\n    <ion-segment-button value=\"about\">About</ion-segment-button>\n    <ion-segment-button value=\"contact\">Contact</ion-segment-button>\n  </ion-segment>\n</r-toolbar>\n```\n\n## Best Practices\n\n1. **Use r-header for simple page headers** - It includes the header container and title\n2. **Use r-toolbar for flexibility** - When you need multiple toolbars or custom placement\n3. **Place primary actions on the right** - Use `slot=\"end\"` for main actions\n4. **Place navigation on the left** - Use `slot=\"start\"` for back buttons and menus\n5. **Keep toolbars consistent** - Use the same color and style across your app\n6. **Limit button count** - Too many buttons can clutter the toolbar (3-4 max recommended)\n",
+      "readme": "# r-toolbar\n\nToolbar component that wraps Ionic toolbar. Provides a consistent toolbar structure for applications with support for buttons and content slots.\n\n## What is a Toolbar?\n\nA toolbar is a horizontal bar that contains action buttons, titles, and other controls. It's typically placed at the top or bottom of a screen to provide navigation and actions.\n\n## When to Use Toolbars\n\n### 1. **Inside Headers (Most Common)**\nToolbars are typically placed inside headers to provide navigation and actions:\n\n```html\n<r-header header-title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"menu-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"search-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Standalone Toolbars**\nUse standalone toolbars for:\n- **Bottom navigation bars** (footer toolbars)\n- **Action bars** within content areas\n- **Floating toolbars** for specific actions\n\n```html\n<!-- Bottom toolbar (footer) -->\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-title>Footer Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n      <ion-button>Cancel</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Multiple Toolbars in Header**\nYou can stack multiple toolbars in a header for complex layouts:\n\n```html\n<r-header>\n  <!-- Primary toolbar -->\n  <r-toolbar color=\"primary\">\n    <ion-title>Page Title</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"more-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  \n  <!-- Secondary toolbar (e.g., for tabs or filters) -->\n  <r-toolbar color=\"light\">\n    <ion-segment value=\"all\">\n      <ion-segment-button value=\"all\">All</ion-segment-button>\n      <ion-segment-button value=\"favorites\">Favorites</ion-segment-button>\n    </ion-segment>\n  </r-toolbar>\n</r-header>\n```\n\n## Where to Place Toolbars\n\n### ✅ **Top of Screen (Header)**\nMost common placement - inside `r-header` or `ion-header`:\n\n```html\n<r-header header-title=\"My App\">\n  <r-toolbar color=\"primary\">\n    <!-- Navigation and actions -->\n  </r-toolbar>\n</r-header>\n```\n\n### ✅ **Bottom of Screen (Footer)**\nFor action buttons or secondary navigation:\n\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>Previous</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Next</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### ✅ **Inside Content Areas**\nFor contextual actions within page content:\n\n```html\n<ion-content>\n  <r-toolbar color=\"light\">\n    <ion-title>Section Actions</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button>Edit</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n  <!-- Content here -->\n</ion-content>\n```\n\n## r-header vs r-toolbar\n\n### **r-header** (Use for full page headers)\n- Wraps `ion-header` (provides header container)\n- Includes title prop for convenience\n- Best for: Main page headers with title and actions\n\n```html\n<r-header title=\"My App\" color=\"primary\">\n  <ion-buttons slot=\"start\">...</ion-buttons>\n  <ion-buttons slot=\"end\">...</ion-buttons>\n</r-header>\n```\n\n### **r-toolbar** (Use for flexible toolbars)\n- Wraps `ion-toolbar` only (no header container)\n- More flexible - can be used anywhere\n- Best for: \n  - Inside custom headers\n  - Footer toolbars\n  - Multiple toolbars in one header\n  - Standalone action bars\n\n```html\n<!-- Inside header -->\n<ion-header>\n  <r-toolbar color=\"primary\">\n    <ion-title>Title</ion-title>\n  </r-toolbar>\n</ion-header>\n\n<!-- Or standalone -->\n<r-toolbar color=\"primary\">\n  <ion-title>Standalone Toolbar</ion-title>\n</r-toolbar>\n```\n\n## Common Use Cases\n\n### 1. **Navigation Toolbar**\n```html\n<r-header header-title=\"Products\">\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"arrow-back-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>\n        <ion-icon slot=\"icon-only\" name=\"cart-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</r-header>\n```\n\n### 2. **Action Toolbar (Footer)**\n```html\n<ion-footer>\n  <r-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-button fill=\"outline\">Cancel</ion-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n      <ion-button>Save</ion-button>\n    </ion-buttons>\n  </r-toolbar>\n</ion-footer>\n```\n\n### 3. **Search Toolbar**\n```html\n<r-toolbar color=\"light\">\n  <ion-searchbar placeholder=\"Search...\"></ion-searchbar>\n  <ion-buttons slot=\"end\">\n    <ion-button>\n      <ion-icon slot=\"icon-only\" name=\"filter-outline\"></ion-icon>\n    </ion-button>\n  </ion-buttons>\n</r-toolbar>\n```\n\n### 4. **Tab Toolbar**\n```html\n<r-toolbar color=\"primary\">\n  <ion-segment value=\"home\">\n    <ion-segment-button value=\"home\">Home</ion-segment-button>\n    <ion-segment-button value=\"about\">About</ion-segment-button>\n    <ion-segment-button value=\"contact\">Contact</ion-segment-button>\n  </ion-segment>\n</r-toolbar>\n```\n\n## Best Practices\n\n1. **Use r-header for simple page headers** - It includes the header container and title\n2. **Use r-toolbar for flexibility** - When you need multiple toolbars or custom placement\n3. **Place primary actions on the right** - Use `slot=\"end\"` for main actions\n4. **Place navigation on the left** - Use `slot=\"start\"` for back buttons and menus\n5. **Keep toolbars consistent** - Use the same color and style across your app\n6. **Limit button count** - Too many buttons can clutter the toolbar (3-4 max recommended)\n",
       "docs": "Toolbar component that wraps Ionic toolbar. Provides a consistent toolbar structure for applications with support for buttons and content slots.",
       "docsTags": [],
       "usage": {},
@@ -6578,18 +6073,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "app-home"
-      ],
+      "dependents": [],
       "dependencies": [
         "ion-toolbar"
       ],
       "dependencyGraph": {
         "r-toolbar": [
           "ion-toolbar"
-        ],
-        "app-home": [
-          "r-toolbar"
         ]
       }
     }

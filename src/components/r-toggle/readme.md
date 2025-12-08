@@ -39,10 +39,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-home](../app-home)
-
 ### Depends on
 
 - ion-item
@@ -60,7 +56,6 @@ graph TD;
   ion-item --> ion-icon
   ion-item --> ion-ripple-effect
   ion-toggle --> ion-icon
-  app-home --> r-toggle
   style r-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
