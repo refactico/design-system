@@ -27,11 +27,13 @@
 
 ### Depends on
 
+- ion-badge
 - ion-tab-button
 
 ### Graph
 ```mermaid
 graph TD;
+  r-tab-button --> ion-badge
   r-tab-button --> ion-tab-button
   ion-tab-button --> ion-ripple-effect
   app-home --> r-tab-button

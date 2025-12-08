@@ -50,20 +50,46 @@ export class RTabButton {
   @Prop() badgeColor?: IonicColor;
 
   render() {
-    const tabButtonProps = removeUndefinedProps({
+    const tabButtonProps: any = removeUndefinedProps({
       tab: this.tab,
       selected: this.selected,
       disabled: this.disabled,
       color: this.color,
       mode: this.mode,
       layout: this.layout,
-      badge: this.badge,
-      badgeColor: this.badgeColor,
     });
+
+    // Ionic tab-button supports badge and badge-color as attributes
+    // Also add as child component for better compatibility
+    if (this.badge) {
+      tabButtonProps.badge = this.badge;
+    }
+    if (this.badgeColor) {
+      tabButtonProps['badge-color'] = this.badgeColor;
+    }
+
+    // Build children - slot content plus optional badge
+    const children: any[] = [];
+    
+    // Add slot content
+    children.push(<slot></slot>);
+    
+    // Add badge as child component if provided
+    // Ionic tab-button can use badge attribute OR ion-badge child component
+    if (this.badge) {
+      const badgeProps: any = {};
+      if (this.badgeColor) {
+        badgeProps.color = this.badgeColor;
+      }
+      // Add badge as a child - Ionic will position it automatically
+      children.push(
+        <ion-badge {...badgeProps}>{this.badge}</ion-badge>
+      );
+    }
 
     return (
       <ion-tab-button {...tabButtonProps}>
-        <slot></slot>
+        {children}
       </ion-tab-button>
     );
   }

@@ -253,6 +253,17 @@
   margin-top: 10px;
 }
 
+/* Tabs need explicit height to work properly */
+.example-group r-tabs {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
+
+.example-group r-tabs[style*="height"] {
+  /* Respect inline height styles */
+}
+
 /* Scrollbar styling for sidebar */
 .app-home-sidebar::-webkit-scrollbar {
   width: 8px;

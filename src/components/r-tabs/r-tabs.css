@@ -2,6 +2,8 @@
   display: block;
   width: 100%;
   height: 100%;
+  min-height: 300px; /* Minimum height for tabs to work properly */
+  position: relative;
 
   /* Component tokens (PRIVATE - do not override directly) */
   /* These reference semantic tokens (--r-*) which CAN be customized */
@@ -13,5 +15,37 @@
 r-tabs ion-tabs {
   --background: var(--r-internal-tabs-background);
   --border-color: var(--r-internal-tabs-border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure tab content area has proper height */
+r-tabs ion-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+r-tabs ion-tab > * {
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure tab bar doesn't get cut off */
+r-tabs ion-tab-bar {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
 }
 

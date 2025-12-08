@@ -129,6 +129,7 @@ graph TD;
   r-tabs --> ion-tabs
   r-tab --> ion-tab
   r-tab-bar --> ion-tab-bar
+  r-tab-button --> ion-badge
   r-tab-button --> ion-tab-button
   ion-tab-button --> ion-ripple-effect
   style app-shell fill:#f9f,stroke:#333,stroke-width:4px

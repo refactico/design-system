@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-08T16:26:01",
+  "timestamp": "2025-12-08T18:52:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -238,6 +238,7 @@
           "ion-tab-bar"
         ],
         "r-tab-button": [
+          "ion-badge",
           "ion-tab-button"
         ],
         "ion-tab-button": [
@@ -454,6 +455,7 @@
           "ion-tab-bar"
         ],
         "r-tab-button": [
+          "ion-badge",
           "ion-tab-button"
         ],
         "ion-tab-button": [
@@ -5533,10 +5535,12 @@
         "app-home"
       ],
       "dependencies": [
+        "ion-badge",
         "ion-tab-button"
       ],
       "dependencyGraph": {
         "r-tab-button": [
+          "ion-badge",
           "ion-tab-button"
         ],
         "ion-tab-button": [
