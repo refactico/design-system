@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { ExampleContext } from './index';
 
-export function renderButtonsExamples(context?: ExampleContext) {
+export function renderButtonsExamples(_context?: ExampleContext) {
   return (
     <div class="preview-examples">
       <h2>Examples</h2>
@@ -9,7 +9,7 @@ export function renderButtonsExamples(context?: ExampleContext) {
         <h3>Basic R-Buttons</h3>
         <r-toolbar color="primary">
           <r-title text="R-Buttons Example"></r-title>
-          <r-buttons slot="end">
+          <r-buttons position="end">
             <ion-button>
               <ion-icon slot="icon-only" name="search-outline"></ion-icon>
             </ion-button>
@@ -22,13 +22,13 @@ export function renderButtonsExamples(context?: ExampleContext) {
       <div class="example-group">
         <h3>R-Buttons with Multiple Buttons</h3>
         <r-toolbar color="primary">
-          <r-buttons slot="start">
+          <r-buttons position="start">
             <ion-button>
               <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
             </ion-button>
           </r-buttons>
           <r-title text="Multiple R-Buttons"></r-title>
-          <r-buttons slot="end">
+          <r-buttons position="end">
             <ion-button>
               <ion-icon slot="icon-only" name="search-outline"></ion-icon>
             </ion-button>
@@ -42,7 +42,7 @@ export function renderButtonsExamples(context?: ExampleContext) {
         <h3>Collapsible Buttons</h3>
         <r-toolbar color="primary">
           <r-title text="Collapsible Buttons"></r-title>
-          <r-buttons slot="end" collapse>
+          <r-buttons position="end" collapse>
             <ion-button>
               <ion-icon slot="icon-only" name="search-outline"></ion-icon>
             </ion-button>

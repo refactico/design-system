@@ -122,7 +122,7 @@ export namespace Components {
         /**
           * The slot where the buttons should be placed. Can be "start", "end", or "primary" (default).
          */
-        "slot"?: string;
+        "position"?: string;
     }
     interface RCard {
         /**
@@ -408,6 +408,10 @@ export namespace Components {
          */
         "color"?: IonicColor;
         /**
+          * The header title text
+         */
+        "headerTitle"?: string;
+        /**
           * The header mode (ios or md)
          */
         "mode"?: IonicMode;
@@ -416,10 +420,6 @@ export namespace Components {
           * @default false
          */
         "noBorder": boolean;
-        /**
-          * The header title text
-         */
-        "title"?: string;
         /**
           * If true, the header is translucent
           * @default false
@@ -1140,7 +1140,7 @@ declare namespace LocalJSX {
         /**
           * The slot where the buttons should be placed. Can be "start", "end", or "primary" (default).
          */
-        "slot"?: string;
+        "position"?: string;
     }
     interface RCard {
         /**
@@ -1462,6 +1462,10 @@ declare namespace LocalJSX {
          */
         "color"?: IonicColor;
         /**
+          * The header title text
+         */
+        "headerTitle"?: string;
+        /**
           * The header mode (ios or md)
          */
         "mode"?: IonicMode;
@@ -1470,10 +1474,6 @@ declare namespace LocalJSX {
           * @default false
          */
         "noBorder"?: boolean;
-        /**
-          * The header title text
-         */
-        "title"?: string;
         /**
           * If true, the header is translucent
           * @default false

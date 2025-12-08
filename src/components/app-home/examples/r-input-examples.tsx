@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { ExampleContext } from './index';
 
-export function renderInputExamples(context?: ExampleContext) {
+export function renderInputExamples(_context?: ExampleContext) {
   return (
     <div class="preview-examples">
       <h2>Examples</h2>

@@ -13,7 +13,7 @@ export class RButtons {
    * The slot where the buttons should be placed.
    * Can be "start", "end", or "primary" (default).
    */
-  @Prop() slot?: string;
+  @Prop() position?: string;
 
   /**
    * If true, the buttons will collapse when the content scrolls.
@@ -21,10 +21,14 @@ export class RButtons {
   @Prop() collapse?: boolean;
 
   render() {
-    const buttonsProps = removeUndefinedProps({
-      slot: this.slot,
+    const buttonsProps: any = removeUndefinedProps({
       collapse: this.collapse,
     });
+    
+    // Map position prop to slot attribute (slot is reserved in Stencil)
+    if (this.position) {
+      buttonsProps.slot = this.position;
+    }
 
     return (
       <ion-buttons {...buttonsProps}>

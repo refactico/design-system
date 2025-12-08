@@ -11,7 +11,7 @@ describe('r-header e2e', () => {
 
   it('displays title when provided', async () => {
     const page = await newE2EPage();
-    await page.setContent('<r-header title="Test Header"></r-header>');
+    await page.setContent('<r-header header-title="Test Header"></r-header>');
 
     const title = await page.find('r-header ion-title');
     expect(title).toBeTruthy();

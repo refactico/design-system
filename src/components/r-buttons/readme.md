@@ -25,7 +25,7 @@ Buttons container component that wraps Ionic buttons. Groups multiple buttons to
 - Same functionality as `ion-buttons` but with design system benefits
 
 ```html
-<r-buttons slot="end">
+<r-buttons position="end">
   <ion-button>
     <ion-icon slot="icon-only" name="search-outline"></ion-icon>
   </ion-button>
@@ -64,7 +64,7 @@ Buttons container component that wraps Ionic buttons. Groups multiple buttons to
 | Property   | Attribute  | Description                                                                                 | Type      | Default     |
 | ---------- | ---------- | ------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `collapse` | `collapse` | If true, the buttons will collapse when the content scrolls.                                | `boolean` | `undefined` |
-| `slot`     | `slot`     | The slot where the buttons should be placed. Can be "start", "end", or "primary" (default). | `string`  | `undefined` |
+| `position` | `position` | The slot where the buttons should be placed. Can be "start", "end", or "primary" (default). | `string`  | `undefined` |
 
 
 ## Dependencies

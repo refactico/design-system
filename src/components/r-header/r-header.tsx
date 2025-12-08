@@ -12,7 +12,7 @@ export class RHeader {
   /**
    * The header title text
    */
-  @Prop() title?: string;
+  @Prop() headerTitle?: string;
 
   /**
    * The header color (Ionic color)
@@ -50,7 +50,7 @@ export class RHeader {
       <ion-header {...headerProps} class={this.noBorder ? 'header-no-border' : ''}>
         <ion-toolbar color={this.color}>
           <slot name="start"></slot>
-          {this.title && <ion-title>{this.title}</ion-title>}
+          {this.headerTitle && <ion-title>{this.headerTitle}</ion-title>}
           <slot name="end"></slot>
           <slot></slot>
         </ion-toolbar>

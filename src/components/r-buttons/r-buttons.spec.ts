@@ -14,10 +14,10 @@ describe('r-buttons', () => {
     `);
   });
 
-  it('renders with slot prop', async () => {
+  it('renders with position prop', async () => {
     const page = await newSpecPage({
       components: [RButtons],
-      html: `<r-buttons slot="end"></r-buttons>`,
+      html: `<r-buttons position="end"></r-buttons>`,
     });
     const buttons = page.root?.querySelector('ion-buttons');
     expect(buttons?.getAttribute('slot')).toBe('end');

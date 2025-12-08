@@ -12,7 +12,7 @@ A toolbar is a horizontal bar that contains action buttons, titles, and other co
 Toolbars are typically placed inside headers to provide navigation and actions:
 
 ```html
-<r-header title="My App">
+<r-header header-title="My App">
   <r-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button>
@@ -78,7 +78,7 @@ You can stack multiple toolbars in a header for complex layouts:
 Most common placement - inside `r-header` or `ion-header`:
 
 ```html
-<r-header title="My App">
+<r-header header-title="My App">
   <r-toolbar color="primary">
     <!-- Navigation and actions -->
   </r-toolbar>
@@ -157,7 +157,7 @@ For contextual actions within page content:
 
 ### 1. **Navigation Toolbar**
 ```html
-<r-header title="Products">
+<r-header header-title="Products">
   <r-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button>

@@ -18,10 +18,10 @@ describe('r-header', () => {
     `);
   });
 
-  it('renders with title', async () => {
+  it('renders with headerTitle', async () => {
     const page = await newSpecPage({
       components: [RHeader],
-      html: `<r-header title="My Header"></r-header>`,
+      html: `<r-header header-title="My Header"></r-header>`,
     });
     const title = page.root?.querySelector('ion-title');
     expect(title?.textContent).toBe('My Header');
