@@ -514,12 +514,185 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface RTab {
+        /**
+          * The tab color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tab component to render
+         */
+        "component"?: string;
+        /**
+          * The tab component props
+         */
+        "componentProps"?: any;
+        /**
+          * The tab mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The tab identifier
+         */
+        "tab": string;
+    }
+    interface RTabBar {
+        /**
+          * The tab bar color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tab bar mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The tab bar position (top or bottom)
+          * @default 'bottom'
+         */
+        "position": 'top' | 'bottom';
+        /**
+          * The selected tab
+         */
+        "selectedTab"?: string;
+        /**
+          * If true, the tab bar is translucent
+          * @default false
+         */
+        "translucent": boolean;
+    }
+    interface RTabButton {
+        /**
+          * The tab button badge
+         */
+        "badge"?: string;
+        /**
+          * The tab button badge color
+         */
+        "badgeColor"?: IonicColor;
+        /**
+          * The tab button color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the tab button is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * The tab button layout (icon-top, icon-start, icon-end, icon-bottom, icon-hide, label-hide)
+         */
+        "layout"?: 'icon-top' | 'icon-start' | 'icon-end' | 'icon-bottom' | 'icon-hide' | 'label-hide';
+        /**
+          * The tab button mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * If true, the tab button is selected
+          * @default false
+         */
+        "selected": boolean;
+        /**
+          * The tab identifier this button corresponds to
+         */
+        "tab": string;
+    }
+    interface RTabs {
+        /**
+          * The tabs color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tabs mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * If true, the tabs are translucent
+          * @default false
+         */
+        "translucent": boolean;
+    }
     interface RTitle {
         "size"?: 'large' | 'small';
         /**
           * The title text
          */
         "text"?: string;
+    }
+    interface RToggle {
+        /**
+          * Toggle alignment (start or center)
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, the toggle is checked
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * The toggle color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the toggle is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, displays "on" and "off" labels within the toggle for accessibility
+          * @default false
+         */
+        "enableOnOffLabels": boolean;
+        /**
+          * If true, the toggle has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style (only applies when formField is true)
+         */
+        "fill"?: 'outline' | 'solid' | 'clear' | 'default';
+        /**
+          * If true, wraps toggle in ion-item for form field styling
+          * @default false
+         */
+        "formField": boolean;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Justify content (start, end, space-between)
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The toggle label
+         */
+        "label"?: string;
+        /**
+          * Label placement relative to the toggle
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * The toggle mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The toggle name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * If true, the toggle is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The toggle value
+         */
+        "value"?: string;
     }
     interface RToolbar {
         /**
@@ -565,6 +738,10 @@ export interface RDropdownCustomEvent<T> extends CustomEvent<T> {
 export interface RInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRInputElement;
+}
+export interface RToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRToggleElement;
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -746,11 +923,54 @@ declare global {
         prototype: HTMLRInputElement;
         new (): HTMLRInputElement;
     };
+    interface HTMLRTabElement extends Components.RTab, HTMLStencilElement {
+    }
+    var HTMLRTabElement: {
+        prototype: HTMLRTabElement;
+        new (): HTMLRTabElement;
+    };
+    interface HTMLRTabBarElement extends Components.RTabBar, HTMLStencilElement {
+    }
+    var HTMLRTabBarElement: {
+        prototype: HTMLRTabBarElement;
+        new (): HTMLRTabBarElement;
+    };
+    interface HTMLRTabButtonElement extends Components.RTabButton, HTMLStencilElement {
+    }
+    var HTMLRTabButtonElement: {
+        prototype: HTMLRTabButtonElement;
+        new (): HTMLRTabButtonElement;
+    };
+    interface HTMLRTabsElement extends Components.RTabs, HTMLStencilElement {
+    }
+    var HTMLRTabsElement: {
+        prototype: HTMLRTabsElement;
+        new (): HTMLRTabsElement;
+    };
     interface HTMLRTitleElement extends Components.RTitle, HTMLStencilElement {
     }
     var HTMLRTitleElement: {
         prototype: HTMLRTitleElement;
         new (): HTMLRTitleElement;
+    };
+    interface HTMLRToggleElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRToggleElement extends Components.RToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRToggleElementEventMap>(type: K, listener: (this: HTMLRToggleElement, ev: RToggleCustomEvent<HTMLRToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRToggleElementEventMap>(type: K, listener: (this: HTMLRToggleElement, ev: RToggleCustomEvent<HTMLRToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRToggleElement: {
+        prototype: HTMLRToggleElement;
+        new (): HTMLRToggleElement;
     };
     interface HTMLRToolbarElement extends Components.RToolbar, HTMLStencilElement {
     }
@@ -776,7 +996,12 @@ declare global {
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
         "r-input": HTMLRInputElement;
+        "r-tab": HTMLRTabElement;
+        "r-tab-bar": HTMLRTabBarElement;
+        "r-tab-button": HTMLRTabButtonElement;
+        "r-tabs": HTMLRTabsElement;
         "r-title": HTMLRTitleElement;
+        "r-toggle": HTMLRToggleElement;
         "r-toolbar": HTMLRToolbarElement;
     }
 }
@@ -1355,12 +1580,197 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface RTab {
+        /**
+          * The tab color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tab component to render
+         */
+        "component"?: string;
+        /**
+          * The tab component props
+         */
+        "componentProps"?: any;
+        /**
+          * The tab mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The tab identifier
+         */
+        "tab"?: string;
+    }
+    interface RTabBar {
+        /**
+          * The tab bar color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tab bar mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The tab bar position (top or bottom)
+          * @default 'bottom'
+         */
+        "position"?: 'top' | 'bottom';
+        /**
+          * The selected tab
+         */
+        "selectedTab"?: string;
+        /**
+          * If true, the tab bar is translucent
+          * @default false
+         */
+        "translucent"?: boolean;
+    }
+    interface RTabButton {
+        /**
+          * The tab button badge
+         */
+        "badge"?: string;
+        /**
+          * The tab button badge color
+         */
+        "badgeColor"?: IonicColor;
+        /**
+          * The tab button color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the tab button is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The tab button layout (icon-top, icon-start, icon-end, icon-bottom, icon-hide, label-hide)
+         */
+        "layout"?: 'icon-top' | 'icon-start' | 'icon-end' | 'icon-bottom' | 'icon-hide' | 'label-hide';
+        /**
+          * The tab button mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * If true, the tab button is selected
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * The tab identifier this button corresponds to
+         */
+        "tab"?: string;
+    }
+    interface RTabs {
+        /**
+          * The tabs color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The tabs mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * If true, the tabs are translucent
+          * @default false
+         */
+        "translucent"?: boolean;
+    }
     interface RTitle {
         "size"?: 'large' | 'small';
         /**
           * The title text
          */
         "text"?: string;
+    }
+    interface RToggle {
+        /**
+          * Toggle alignment (start or center)
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, the toggle is checked
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * The toggle color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the toggle is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, displays "on" and "off" labels within the toggle for accessibility
+          * @default false
+         */
+        "enableOnOffLabels"?: boolean;
+        /**
+          * If true, the toggle has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style (only applies when formField is true)
+         */
+        "fill"?: 'outline' | 'solid' | 'clear' | 'default';
+        /**
+          * If true, wraps toggle in ion-item for form field styling
+          * @default false
+         */
+        "formField"?: boolean;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Justify content (start, end, space-between)
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The toggle label
+         */
+        "label"?: string;
+        /**
+          * Label placement relative to the toggle
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * The toggle mode (ios or md)
+         */
+        "mode"?: IonicMode;
+        /**
+          * The toggle name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when the toggle is blurred
+         */
+        "onRBlur"?: (event: RToggleCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the toggle checked state changes
+         */
+        "onRChange"?: (event: RToggleCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the toggle is focused
+         */
+        "onRFocus"?: (event: RToggleCustomEvent<CustomEvent>) => void;
+        /**
+          * If true, the toggle is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The toggle value
+         */
+        "value"?: string;
     }
     interface RToolbar {
         /**
@@ -1400,7 +1810,12 @@ declare namespace LocalJSX {
         "r-dropdown": RDropdown;
         "r-header": RHeader;
         "r-input": RInput;
+        "r-tab": RTab;
+        "r-tab-bar": RTabBar;
+        "r-tab-button": RTabButton;
+        "r-tabs": RTabs;
         "r-title": RTitle;
+        "r-toggle": RToggle;
         "r-toolbar": RToolbar;
     }
 }
@@ -1425,7 +1840,12 @@ declare module "@stencil/core" {
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
+            "r-tab": LocalJSX.RTab & JSXBase.HTMLAttributes<HTMLRTabElement>;
+            "r-tab-bar": LocalJSX.RTabBar & JSXBase.HTMLAttributes<HTMLRTabBarElement>;
+            "r-tab-button": LocalJSX.RTabButton & JSXBase.HTMLAttributes<HTMLRTabButtonElement>;
+            "r-tabs": LocalJSX.RTabs & JSXBase.HTMLAttributes<HTMLRTabsElement>;
             "r-title": LocalJSX.RTitle & JSXBase.HTMLAttributes<HTMLRTitleElement>;
+            "r-toggle": LocalJSX.RToggle & JSXBase.HTMLAttributes<HTMLRToggleElement>;
             "r-toolbar": LocalJSX.RToolbar & JSXBase.HTMLAttributes<HTMLRToolbarElement>;
         }
     }

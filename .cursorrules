@@ -87,6 +87,36 @@ When creating new components in this design system, you MUST follow these rules:
    - Verify all checklist items completed
    - Confirm production-ready status
 
+## Batch Component Creation
+
+**When creating multiple components in one prompt:**
+
+1. **Read `BATCH_COMPONENT_CREATION.md`** - Batch creation guide
+2. **Recommended batch size:** 2-5 components (not more than 5)
+3. **Group by similarity:** Related components or similar complexity
+4. **Apply ALL rules to EACH component** - Don't skip steps for any component
+5. **Verify EACH component individually** - Test each one separately
+6. **Update verification log for ALL components** - One entry per component
+
+**Example batch request:**
+```
+Create these 3 components in batch:
+1. r-badge - Simple badge component
+2. r-chip - Chip component
+3. r-label - Label component
+
+All should follow component creation guidelines.
+```
+
+**For each component in the batch, you MUST:**
+- Follow all workflow steps (1-9 above)
+- Research each component individually
+- Create all required files for each
+- Test each component separately
+- Update verification log for each
+
+**⚠️ Don't batch more than 5 components** - Quality verification becomes difficult.
+
 ## Required Patterns
 
 1. **ALWAYS use `removeUndefinedProps`** - Never manually filter props with `Object.keys().forEach()`

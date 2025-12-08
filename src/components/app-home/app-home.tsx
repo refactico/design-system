@@ -23,6 +23,8 @@ export class AppHome {
     { id: 'r-badge', name: 'Badge', description: 'Badge component that wraps Ionic badge for displaying notification counts, status indicators, or labels' },
     { id: 'r-card', name: 'Card', description: 'Card component that wraps Ionic card with design system styling and support for clickable cards' },
     { id: 'r-checkbox', name: 'Checkbox', description: 'Checkbox component that wraps Ionic checkbox with design system styling, supporting standalone and form field modes with comprehensive props' },
+    { id: 'r-toggle', name: 'Toggle', description: 'Toggle switch component that wraps Ionic toggle with design system styling, supporting standalone and form field modes with comprehensive props' },
+    { id: 'r-tabs', name: 'Tabs', description: 'Tabs navigation component family that wraps Ionic tabs, tab, tab-bar, and tab-button for complete tab-based navigation' },
     // Add more components here as they are created
   ];
 
@@ -958,6 +960,207 @@ export class AppHome {
                               <r-checkbox color="warning" checked>Warning</r-checkbox>
                               <r-checkbox color="danger" checked>Danger</r-checkbox>
                             </div>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-toggle' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Toggle</h3>
+                            <r-toggle>Enable Notifications</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Checked Toggle</h3>
+                            <r-toggle checked>Already Enabled</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Toggle</h3>
+                            <r-toggle disabled>Disabled Toggle</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled and Checked</h3>
+                            <r-toggle disabled checked>Disabled and Checked</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toggle with Color</h3>
+                            <r-toggle color="primary" checked>Primary Toggle</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toggle with On/Off Labels</h3>
+                            <r-toggle enable-on-off-labels checked>Toggle with Labels</r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Form Field Mode</h3>
+                            <r-toggle form-field label="Enable Feature" helper-text="Turn this feature on or off">
+                              Enable notifications
+                            </r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Form Field with Error</h3>
+                            <r-toggle form-field label="Required Field" error error-text="This field is required">
+                              Required toggle
+                            </r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Required Toggle</h3>
+                            <r-toggle required label="I agree to the terms">
+                              Required toggle
+                            </r-toggle>
+                          </div>
+                          <div class="example-group">
+                            <h3>Toggle List</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                              <r-toggle value="option1" checked>Enable Option 1</r-toggle>
+                              <r-toggle value="option2">Enable Option 2</r-toggle>
+                              <r-toggle value="option3" checked>Enable Option 3</r-toggle>
+                              <r-toggle value="option4">Enable Option 4</r-toggle>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Settings Panel Pattern</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-toggle justify="space-between" checked>Push Notifications</r-toggle>
+                              <r-toggle justify="space-between" checked>Email Notifications</r-toggle>
+                              <r-toggle justify="space-between">SMS Notifications</r-toggle>
+                              <r-toggle justify="space-between" checked>Marketing Emails</r-toggle>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Label Placement Variants</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-toggle label-placement="start" checked>Label on Start</r-toggle>
+                              <r-toggle label-placement="end" checked>Label on End (Default)</r-toggle>
+                              <r-toggle label-placement="fixed" checked>Label Fixed</r-toggle>
+                              <r-toggle label-placement="stacked" checked>Label Stacked</r-toggle>
+                            </div>
+                          </div>
+                          <div class="example-group">
+                            <h3>Color Variants</h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                              <r-toggle color="primary" checked>Primary</r-toggle>
+                              <r-toggle color="secondary" checked>Secondary</r-toggle>
+                              <r-toggle color="success" checked>Success</r-toggle>
+                              <r-toggle color="warning" checked>Warning</r-toggle>
+                              <r-toggle color="danger" checked>Danger</r-toggle>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {this.selectedComponent === 'r-tabs' && (
+                        <div class="preview-examples">
+                          <h2>Examples</h2>
+                          <div class="example-group">
+                            <h3>Basic Tabs Structure</h3>
+                            <p style={{ marginBottom: '16px', color: '#666' }}>
+                              Tabs require all components working together: r-tabs, r-tab, r-tab-bar, and r-tab-button
+                            </p>
+                            <r-tabs>
+                              <r-tab tab="home">
+                                <div style={{ padding: '20px' }}>
+                                  <h4>Home Tab Content</h4>
+                                  <p>This is the home tab content area.</p>
+                                </div>
+                              </r-tab>
+                              <r-tab tab="settings">
+                                <div style={{ padding: '20px' }}>
+                                  <h4>Settings Tab Content</h4>
+                                  <p>This is the settings tab content area.</p>
+                                </div>
+                              </r-tab>
+                              <r-tab-bar position="bottom">
+                                <r-tab-button tab="home">
+                                  <ion-icon name="home"></ion-icon>
+                                  <ion-label>Home</ion-label>
+                                </r-tab-button>
+                                <r-tab-button tab="settings">
+                                  <ion-icon name="settings"></ion-icon>
+                                  <ion-label>Settings</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
+                          </div>
+                          <div class="example-group">
+                            <h3>Tab Button with Badge</h3>
+                            <r-tabs>
+                              <r-tab tab="notifications">
+                                <div style={{ padding: '20px' }}>
+                                  <h4>Notifications</h4>
+                                </div>
+                              </r-tab>
+                              <r-tab-bar position="bottom">
+                                <r-tab-button tab="notifications" badge="3" badge-color="danger">
+                                  <ion-icon name="notifications"></ion-icon>
+                                  <ion-label>Notifications</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
+                          </div>
+                          <div class="example-group">
+                            <h3>Tab Button Layouts</h3>
+                            <p style={{ marginBottom: '16px', color: '#666' }}>
+                              Different layout options for tab buttons
+                            </p>
+                            <r-tabs>
+                              <r-tab tab="tab1">
+                                <div style={{ padding: '20px' }}>Tab 1</div>
+                              </r-tab>
+                              <r-tab-bar position="bottom">
+                                <r-tab-button tab="tab1" layout="icon-top">
+                                  <ion-icon name="home"></ion-icon>
+                                  <ion-label>Icon Top</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
+                          </div>
+                          <div class="example-group">
+                            <h3>Disabled Tab Button</h3>
+                            <r-tabs>
+                              <r-tab tab="enabled">
+                                <div style={{ padding: '20px' }}>Enabled Tab</div>
+                              </r-tab>
+                              <r-tab tab="disabled">
+                                <div style={{ padding: '20px' }}>Disabled Tab</div>
+                              </r-tab>
+                              <r-tab-bar position="bottom">
+                                <r-tab-button tab="enabled">
+                                  <ion-icon name="checkmark"></ion-icon>
+                                  <ion-label>Enabled</ion-label>
+                                </r-tab-button>
+                                <r-tab-button tab="disabled" disabled>
+                                  <ion-icon name="close"></ion-icon>
+                                  <ion-label>Disabled</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
+                          </div>
+                          <div class="example-group">
+                            <h3>Tabs with Color</h3>
+                            <r-tabs color="primary">
+                              <r-tab tab="colored">
+                                <div style={{ padding: '20px' }}>Colored Tabs</div>
+                              </r-tab>
+                              <r-tab-bar slot="bottom" color="primary">
+                                <r-tab-button tab="colored" color="primary">
+                                  <ion-icon name="color-palette"></ion-icon>
+                                  <ion-label>Colored</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
+                          </div>
+                          <div class="example-group">
+                            <h3>Top Tab Bar</h3>
+                            <r-tabs>
+                              <r-tab tab="top-tab">
+                                <div style={{ padding: '20px' }}>Top Tab Bar Example</div>
+                              </r-tab>
+                              <r-tab-bar position="top">
+                                <r-tab-button tab="top-tab">
+                                  <ion-icon name="arrow-up"></ion-icon>
+                                  <ion-label>Top</ion-label>
+                                </r-tab-button>
+                              </r-tab-bar>
+                            </r-tabs>
                           </div>
                         </div>
                       )}

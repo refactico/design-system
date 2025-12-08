@@ -35,6 +35,12 @@
 - [r-card-content](../r-card-content)
 - [r-card-footer](../r-card-footer)
 - [r-checkbox](../r-checkbox)
+- [r-toggle](../r-toggle)
+- [r-tabs](../r-tabs)
+- [r-tab](../r-tab)
+- [r-tab-bar](../r-tab-bar)
+- [r-tab-button](../r-tab-button)
+- ion-label
 
 ### Graph
 ```mermaid
@@ -61,6 +67,12 @@ graph TD;
   app-home --> r-card-content
   app-home --> r-card-footer
   app-home --> r-checkbox
+  app-home --> r-toggle
+  app-home --> r-tabs
+  app-home --> r-tab
+  app-home --> r-tab-bar
+  app-home --> r-tab-button
+  app-home --> ion-label
   r-button --> ion-button
   r-button --> ion-icon
   ion-button --> ion-ripple-effect
@@ -139,6 +151,16 @@ graph TD;
   r-checkbox --> ion-label
   r-checkbox --> ion-checkbox
   r-checkbox --> ion-note
+  r-toggle --> ion-item
+  r-toggle --> ion-label
+  r-toggle --> ion-toggle
+  r-toggle --> ion-note
+  ion-toggle --> ion-icon
+  r-tabs --> ion-tabs
+  r-tab --> ion-tab
+  r-tab-bar --> ion-tab-bar
+  r-tab-button --> ion-tab-button
+  ion-tab-button --> ion-ripple-effect
   app-shell --> app-home
   style app-home fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-07T21:07:40",
+  "timestamp": "2025-12-08T16:26:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -46,7 +46,13 @@
         "r-card-subtitle",
         "r-card-content",
         "r-card-footer",
-        "r-checkbox"
+        "r-checkbox",
+        "r-toggle",
+        "r-tabs",
+        "r-tab",
+        "r-tab-bar",
+        "r-tab-button",
+        "ion-label"
       ],
       "dependencyGraph": {
         "app-home": [
@@ -71,7 +77,13 @@
           "r-card-subtitle",
           "r-card-content",
           "r-card-footer",
-          "r-checkbox"
+          "r-checkbox",
+          "r-toggle",
+          "r-tabs",
+          "r-tab",
+          "r-tab-bar",
+          "r-tab-button",
+          "ion-label"
         ],
         "r-button": [
           "ion-button",
@@ -206,6 +218,30 @@
           "ion-label",
           "ion-checkbox",
           "ion-note"
+        ],
+        "r-toggle": [
+          "ion-item",
+          "ion-label",
+          "ion-toggle",
+          "ion-note"
+        ],
+        "ion-toggle": [
+          "ion-icon"
+        ],
+        "r-tabs": [
+          "ion-tabs"
+        ],
+        "r-tab": [
+          "ion-tab"
+        ],
+        "r-tab-bar": [
+          "ion-tab-bar"
+        ],
+        "r-tab-button": [
+          "ion-tab-button"
+        ],
+        "ion-tab-button": [
+          "ion-ripple-effect"
         ],
         "app-shell": [
           "app-home"
@@ -257,7 +293,13 @@
           "r-card-subtitle",
           "r-card-content",
           "r-card-footer",
-          "r-checkbox"
+          "r-checkbox",
+          "r-toggle",
+          "r-tabs",
+          "r-tab",
+          "r-tab-bar",
+          "r-tab-button",
+          "ion-label"
         ],
         "r-button": [
           "ion-button",
@@ -392,6 +434,30 @@
           "ion-label",
           "ion-checkbox",
           "ion-note"
+        ],
+        "r-toggle": [
+          "ion-item",
+          "ion-label",
+          "ion-toggle",
+          "ion-note"
+        ],
+        "ion-toggle": [
+          "ion-icon"
+        ],
+        "r-tabs": [
+          "ion-tabs"
+        ],
+        "r-tab": [
+          "ion-tab"
+        ],
+        "r-tab-bar": [
+          "ion-tab-bar"
+        ],
+        "r-tab-button": [
+          "ion-tab-button"
+        ],
+        "ion-tab-button": [
+          "ion-ripple-effect"
         ]
       }
     },
@@ -4733,6 +4799,911 @@
       }
     },
     {
+      "filePath": "src/components/r-tab/r-tab.tsx",
+      "encapsulation": "none",
+      "tag": "r-tab",
+      "readme": "# r-tab\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The tab color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "component",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "component",
+          "reflectToAttr": false,
+          "docs": "The tab component to render",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "componentProps",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "component-props",
+          "reflectToAttr": false,
+          "docs": "The tab component props",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The tab mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "tab",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tab",
+          "reflectToAttr": false,
+          "docs": "The tab identifier",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-tab"
+      ],
+      "dependencyGraph": {
+        "r-tab": [
+          "ion-tab"
+        ],
+        "app-home": [
+          "r-tab"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-tab-bar/r-tab-bar.tsx",
+      "encapsulation": "none",
+      "tag": "r-tab-bar",
+      "readme": "# r-tab-bar\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The tab bar color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The tab bar mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "position",
+          "type": "\"bottom\" | \"top\"",
+          "complexType": {
+            "original": "'top' | 'bottom'",
+            "resolved": "\"bottom\" | \"top\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": false,
+          "docs": "The tab bar position (top or bottom)",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'bottom'"
+            }
+          ],
+          "default": "'bottom'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "selectedTab",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "selected-tab",
+          "reflectToAttr": false,
+          "docs": "The selected tab",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "translucent",
+          "reflectToAttr": false,
+          "docs": "If true, the tab bar is translucent",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-tab-bar"
+      ],
+      "dependencyGraph": {
+        "r-tab-bar": [
+          "ion-tab-bar"
+        ],
+        "app-home": [
+          "r-tab-bar"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-tab-button/r-tab-button.tsx",
+      "encapsulation": "none",
+      "tag": "r-tab-button",
+      "readme": "# r-tab-button\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "badge",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "badge",
+          "reflectToAttr": false,
+          "docs": "The tab button badge",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "badgeColor",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "badge-color",
+          "reflectToAttr": false,
+          "docs": "The tab button badge color",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The tab button color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the tab button is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "layout",
+          "type": "\"icon-bottom\" | \"icon-end\" | \"icon-hide\" | \"icon-start\" | \"icon-top\" | \"label-hide\"",
+          "complexType": {
+            "original": "'icon-top' | 'icon-start' | 'icon-end' | 'icon-bottom' | 'icon-hide' | 'label-hide'",
+            "resolved": "\"icon-bottom\" | \"icon-end\" | \"icon-hide\" | \"icon-start\" | \"icon-top\" | \"label-hide\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layout",
+          "reflectToAttr": false,
+          "docs": "The tab button layout (icon-top, icon-start, icon-end, icon-bottom, icon-hide, label-hide)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "icon-bottom",
+              "type": "string"
+            },
+            {
+              "value": "icon-end",
+              "type": "string"
+            },
+            {
+              "value": "icon-hide",
+              "type": "string"
+            },
+            {
+              "value": "icon-start",
+              "type": "string"
+            },
+            {
+              "value": "icon-top",
+              "type": "string"
+            },
+            {
+              "value": "label-hide",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The tab button mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "If true, the tab button is selected",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "tab",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tab",
+          "reflectToAttr": false,
+          "docs": "The tab identifier this button corresponds to",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-tab-button"
+      ],
+      "dependencyGraph": {
+        "r-tab-button": [
+          "ion-tab-button"
+        ],
+        "ion-tab-button": [
+          "ion-ripple-effect"
+        ],
+        "app-home": [
+          "r-tab-button"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-tabs/r-tabs.tsx",
+      "encapsulation": "none",
+      "tag": "r-tabs",
+      "readme": "# r-tabs\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The tabs color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The tabs mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "translucent",
+          "reflectToAttr": false,
+          "docs": "If true, the tabs are translucent",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-tabs"
+      ],
+      "dependencyGraph": {
+        "r-tabs": [
+          "ion-tabs"
+        ],
+        "app-home": [
+          "r-tabs"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/r-title/r-title.tsx",
       "encapsulation": "none",
       "tag": "r-title",
@@ -4811,6 +5782,625 @@
         ],
         "app-home": [
           "r-title"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/r-toggle/r-toggle.tsx",
+      "encapsulation": "none",
+      "tag": "r-toggle",
+      "readme": "# r-toggle\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "alignment",
+          "type": "\"center\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'center'",
+            "resolved": "\"center\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "alignment",
+          "reflectToAttr": false,
+          "docs": "Toggle alignment (start or center)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": false,
+          "docs": "If true, the toggle is checked",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "color",
+          "type": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+          "complexType": {
+            "original": "IonicColor",
+            "resolved": "\"danger\" | \"dark\" | \"light\" | \"medium\" | \"primary\" | \"secondary\" | \"success\" | \"tertiary\" | \"warning\"",
+            "references": {
+              "IonicColor": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "The toggle color (Ionic color)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If true, the toggle is disabled",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "enableOnOffLabels",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "enable-on-off-labels",
+          "reflectToAttr": false,
+          "docs": "If true, displays \"on\" and \"off\" labels within the toggle for accessibility",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error",
+          "reflectToAttr": false,
+          "docs": "If true, the toggle has error state",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-text",
+          "reflectToAttr": false,
+          "docs": "Error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "fill",
+          "type": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+          "complexType": {
+            "original": "'outline' | 'solid' | 'clear' | 'default'",
+            "resolved": "\"clear\" | \"default\" | \"outline\" | \"solid\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "fill",
+          "reflectToAttr": false,
+          "docs": "The fill style (only applies when formField is true)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "formField",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "form-field",
+          "reflectToAttr": false,
+          "docs": "If true, wraps toggle in ion-item for form field styling",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "Helper text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "justify",
+          "type": "\"end\" | \"space-between\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end' | 'space-between'",
+            "resolved": "\"end\" | \"space-between\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "justify",
+          "reflectToAttr": false,
+          "docs": "Justify content (start, end, space-between)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "space-between",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The toggle label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "\"end\" | \"fixed\" | \"stacked\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end' | 'fixed' | 'stacked'",
+            "resolved": "\"end\" | \"fixed\" | \"stacked\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-placement",
+          "reflectToAttr": false,
+          "docs": "Label placement relative to the toggle",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "fixed",
+              "type": "string"
+            },
+            {
+              "value": "stacked",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "mode",
+          "type": "\"ios\" | \"md\"",
+          "complexType": {
+            "original": "IonicMode",
+            "resolved": "\"ios\" | \"md\"",
+            "references": {
+              "IonicMode": {
+                "location": "import",
+                "path": "../../utils",
+                "id": "src/utils/index.ts::IonicMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "The toggle mode (ios or md)",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "ios",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The toggle name (for form submission)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If true, the toggle is required",
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false,
+          "getter": false,
+          "setter": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The toggle value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false,
+          "getter": false,
+          "setter": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "rBlur",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the toggle is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "rChange",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the toggle checked state changes",
+          "docsTags": []
+        },
+        {
+          "event": "rFocus",
+          "detail": "CustomEvent<any>",
+          "bubbles": true,
+          "complexType": {
+            "original": "CustomEvent",
+            "resolved": "CustomEvent<any>",
+            "references": {
+              "CustomEvent": {
+                "location": "global",
+                "id": "global::CustomEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the toggle is focused",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "app-home"
+      ],
+      "dependencies": [
+        "ion-item",
+        "ion-label",
+        "ion-toggle",
+        "ion-note"
+      ],
+      "dependencyGraph": {
+        "r-toggle": [
+          "ion-item",
+          "ion-label",
+          "ion-toggle",
+          "ion-note"
+        ],
+        "ion-item": [
+          "ion-icon",
+          "ion-ripple-effect"
+        ],
+        "ion-toggle": [
+          "ion-icon"
+        ],
+        "app-home": [
+          "r-toggle"
         ]
       }
     },
