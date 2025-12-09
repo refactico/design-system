@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, State, h } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, State, Watch, h, Element } from '@stencil/core';
 // Auto-initialize Ionic (lazy loads components on demand)
 import '../../utils/ionic-init';
 import { removeUndefinedProps, IonicColor, FillStyle } from '../../utils';
@@ -19,6 +19,8 @@ export class RInput {
    * The input value
    */
   @Prop({ mutable: true }) value?: string;
+
+  @Element() el!: HTMLElement;
 
   /**
    * The input placeholder
@@ -186,6 +188,28 @@ export class RInput {
     
     this.rBlur.emit(event);
   };
+
+  /**
+   * Watch for value prop changes and sync to ion-input
+   * This ensures React-controlled inputs stay in sync
+   */
+  @Watch('value')
+  valueChanged(newValue: string | undefined) {
+    // Sync the value prop to the internal ion-input element
+    // Use setTimeout to ensure DOM is ready
+    setTimeout(() => {
+      const ionInput = this.el.querySelector('ion-input') as any;
+      if (ionInput) {
+        // ion-input has a value property that we can set directly
+        // This will sync the prop value to the internal input
+        const currentValue = ionInput.value || '';
+        const newValueStr = newValue || '';
+        if (currentValue !== newValueStr) {
+          ionInput.value = newValueStr;
+        }
+      }
+    }, 0);
+  }
 
   private togglePasswordVisibility = () => {
     this.showPassword = !this.showPassword;
