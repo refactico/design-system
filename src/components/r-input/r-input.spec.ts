@@ -27,35 +27,13 @@ describe('r-input', () => {
     expect(label?.textContent).toBe('Email');
   });
 
-  it('renders password toggle for password type', async () => {
+  it('renders password type correctly', async () => {
     const page = await newSpecPage({
       components: [RInput],
       html: `<r-input type="password"></r-input>`,
     });
-    const toggleButton = page.root?.querySelector('ion-button');
-    expect(toggleButton).toBeTruthy();
-  });
-
-  it('toggles password visibility', async () => {
-    const page = await newSpecPage({
-      components: [RInput],
-      html: `<r-input type="password"></r-input>`,
-    });
-    const component = page.rootInstance as RInput;
     const input = page.root?.querySelector('ion-input');
-    const toggleButton = page.root?.querySelector('ion-button');
-    
-    expect(component.showPassword).toBe(false);
     expect(input?.getAttribute('type')).toBe('password');
-    
-    // Simulate button click
-    if (toggleButton) {
-      (toggleButton as HTMLElement).click();
-      await page.waitForChanges();
-      
-      expect(component.showPassword).toBe(true);
-      expect(input?.getAttribute('type')).toBe('text');
-    }
   });
 });
 

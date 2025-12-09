@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-09T05:07:25",
+  "timestamp": "2025-12-09T05:41:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.38.3",
@@ -3686,7 +3686,7 @@
           "mutable": false,
           "attr": "autocomplete",
           "reflectToAttr": false,
-          "docs": "The input autocomplete attribute",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3709,7 +3709,7 @@
           "mutable": false,
           "attr": "clear-on-edit",
           "reflectToAttr": false,
-          "docs": "If true, clears the input on edit",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3738,7 +3738,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
-          "docs": "The input color (Ionic color)",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3794,7 +3794,7 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "If true, the input is disabled",
+          "docs": "",
           "docsTags": [
             {
               "name": "default",
@@ -3823,7 +3823,7 @@
           "mutable": false,
           "attr": "error",
           "reflectToAttr": false,
-          "docs": "If true, the input has error state",
+          "docs": "",
           "docsTags": [
             {
               "name": "default",
@@ -3852,7 +3852,7 @@
           "mutable": false,
           "attr": "error-text",
           "reflectToAttr": false,
-          "docs": "Error message to display",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3881,7 +3881,7 @@
           "mutable": false,
           "attr": "fill",
           "reflectToAttr": false,
-          "docs": "The input fill style",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3917,7 +3917,7 @@
           "mutable": false,
           "attr": "helper-text",
           "reflectToAttr": false,
-          "docs": "Helper text to display",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3940,7 +3940,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The input label",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3963,7 +3963,7 @@
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
-          "docs": "Maximum length of the input",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -3986,7 +3986,7 @@
           "mutable": false,
           "attr": "minlength",
           "reflectToAttr": false,
-          "docs": "Minimum length of the input",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4009,7 +4009,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
-          "docs": "The input name",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4032,7 +4032,7 @@
           "mutable": false,
           "attr": "pattern",
           "reflectToAttr": false,
-          "docs": "Pattern for validation",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4055,7 +4055,7 @@
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
-          "docs": "The input placeholder",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4078,7 +4078,7 @@
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
-          "docs": "If true, the input is readonly",
+          "docs": "",
           "docsTags": [
             {
               "name": "default",
@@ -4107,7 +4107,7 @@
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
-          "docs": "If true, the input is required",
+          "docs": "",
           "docsTags": [
             {
               "name": "default",
@@ -4136,7 +4136,7 @@
           "mutable": false,
           "attr": "shape",
           "reflectToAttr": false,
-          "docs": "The input shape",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4145,35 +4145,6 @@
             }
           ],
           "optional": true,
-          "required": false,
-          "getter": false,
-          "setter": false
-        },
-        {
-          "name": "showPasswordToggle",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-password-toggle",
-          "reflectToAttr": false,
-          "docs": "If true, shows password toggle button (only for password type)",
-          "docsTags": [
-            {
-              "name": "default",
-              "text": "true"
-            }
-          ],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
           "required": false,
           "getter": false,
           "setter": false
@@ -4189,7 +4160,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "The input type (text, password, email, number, tel, url, search, etc.)",
+          "docs": "",
           "docsTags": [
             {
               "name": "default",
@@ -4218,7 +4189,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The input value",
+          "docs": "",
           "docsTags": [],
           "values": [
             {
@@ -4249,7 +4220,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the input is blurred",
+          "docs": "",
           "docsTags": []
         },
         {
@@ -4268,7 +4239,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the input is focused",
+          "docs": "",
           "docsTags": []
         },
         {
@@ -4287,7 +4258,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the input value changes",
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -4300,8 +4271,6 @@
         "ion-item",
         "ion-label",
         "ion-input",
-        "ion-button",
-        "ion-icon",
         "ion-note"
       ],
       "dependencyGraph": {
@@ -4309,8 +4278,6 @@
           "ion-item",
           "ion-label",
           "ion-input",
-          "ion-button",
-          "ion-icon",
           "ion-note"
         ],
         "ion-item": [
@@ -4319,9 +4286,6 @@
         ],
         "ion-input": [
           "ion-icon"
-        ],
-        "ion-button": [
-          "ion-ripple-effect"
         ]
       }
     },

@@ -427,91 +427,39 @@ export namespace Components {
         "translucent": boolean;
     }
     interface RInput {
-        /**
-          * The input autocomplete attribute
-         */
         "autocomplete"?: string;
-        /**
-          * If true, clears the input on edit
-         */
         "clearOnEdit"?: boolean;
-        /**
-          * The input color (Ionic color)
-         */
         "color"?: IonicColor;
         /**
-          * If true, the input is disabled
           * @default false
          */
         "disabled": boolean;
         /**
-          * If true, the input has error state
           * @default false
          */
         "error": boolean;
-        /**
-          * Error message to display
-         */
         "errorText"?: string;
-        /**
-          * The input fill style
-         */
         "fill"?: FillStyle;
-        /**
-          * Helper text to display
-         */
         "helperText"?: string;
-        /**
-          * The input label
-         */
         "label"?: string;
-        /**
-          * Maximum length of the input
-         */
         "maxlength"?: number;
-        /**
-          * Minimum length of the input
-         */
         "minlength"?: number;
-        /**
-          * The input name
-         */
         "name"?: string;
-        /**
-          * Pattern for validation
-         */
         "pattern"?: string;
-        /**
-          * The input placeholder
-         */
         "placeholder"?: string;
         /**
-          * If true, the input is readonly
           * @default false
          */
         "readonly": boolean;
         /**
-          * If true, the input is required
           * @default false
          */
         "required": boolean;
-        /**
-          * The input shape
-         */
         "shape"?: 'round';
         /**
-          * If true, shows password toggle button (only for password type)
-          * @default true
-         */
-        "showPasswordToggle": boolean;
-        /**
-          * The input type (text, password, email, number, tel, url, search, etc.)
           * @default 'text'
          */
         "type": string;
-        /**
-          * The input value
-         */
         "value"?: string;
     }
     interface RTab {
@@ -1481,103 +1429,42 @@ declare namespace LocalJSX {
         "translucent"?: boolean;
     }
     interface RInput {
-        /**
-          * The input autocomplete attribute
-         */
         "autocomplete"?: string;
-        /**
-          * If true, clears the input on edit
-         */
         "clearOnEdit"?: boolean;
-        /**
-          * The input color (Ionic color)
-         */
         "color"?: IonicColor;
         /**
-          * If true, the input is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * If true, the input has error state
           * @default false
          */
         "error"?: boolean;
-        /**
-          * Error message to display
-         */
         "errorText"?: string;
-        /**
-          * The input fill style
-         */
         "fill"?: FillStyle;
-        /**
-          * Helper text to display
-         */
         "helperText"?: string;
-        /**
-          * The input label
-         */
         "label"?: string;
-        /**
-          * Maximum length of the input
-         */
         "maxlength"?: number;
-        /**
-          * Minimum length of the input
-         */
         "minlength"?: number;
-        /**
-          * The input name
-         */
         "name"?: string;
-        /**
-          * Emitted when the input is blurred
-         */
         "onRBlur"?: (event: RInputCustomEvent<FocusEvent>) => void;
-        /**
-          * Emitted when the input is focused
-         */
         "onRFocus"?: (event: RInputCustomEvent<FocusEvent>) => void;
-        /**
-          * Emitted when the input value changes
-         */
         "onRInput"?: (event: RInputCustomEvent<CustomEvent>) => void;
-        /**
-          * Pattern for validation
-         */
         "pattern"?: string;
-        /**
-          * The input placeholder
-         */
         "placeholder"?: string;
         /**
-          * If true, the input is readonly
           * @default false
          */
         "readonly"?: boolean;
         /**
-          * If true, the input is required
           * @default false
          */
         "required"?: boolean;
-        /**
-          * The input shape
-         */
         "shape"?: 'round';
         /**
-          * If true, shows password toggle button (only for password type)
-          * @default true
-         */
-        "showPasswordToggle"?: boolean;
-        /**
-          * The input type (text, password, email, number, tel, url, search, etc.)
           * @default 'text'
          */
         "type"?: string;
-        /**
-          * The input value
-         */
         "value"?: string;
     }
     interface RTab {
