@@ -16,6 +16,8 @@ export class AppHome {
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
     { id: 'r-input', name: 'Input', description: 'Input field component with password visibility toggle and validation support' },
     { id: 'r-textarea', name: 'Textarea', description: 'Textarea component that wraps Ionic textarea with validation, error handling, and auto-grow support' },
+    { id: 'r-range', name: 'Range', description: 'Range slider component that wraps Ionic range with validation, error handling, dual knob support, and tick marks' },
+    { id: 'r-file-upload', name: 'File Upload', description: 'File upload component with drag and drop support, file preview, validation, and error handling' },
     { id: 'r-dropdown', name: 'Dropdown', description: 'Dropdown component that wraps Ionic select with validation, error handling, and multiple selection support' },
     { id: 'r-datepicker', name: 'Datepicker', description: 'Datepicker component that wraps Ionic datetime with validation, error handling, and various presentation styles' },
     { id: 'r-alert', name: 'Alert', description: 'Alert component that wraps Ionic alert with inline usage support' },

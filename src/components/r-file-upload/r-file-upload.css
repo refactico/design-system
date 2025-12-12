@@ -1,0 +1,165 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  --r-internal-file-upload-padding-x: var(--r-spacing-4);
+  --r-internal-file-upload-padding-y: var(--r-spacing-3);
+  --r-internal-file-upload-border-radius: var(--r-border-radius-base);
+  --r-internal-file-upload-border-color: var(--r-border-color);
+  --r-internal-file-upload-border-focus: var(--r-color-primary);
+  --r-internal-file-upload-bg: var(--r-color-light, #f4f5f8);
+  --r-internal-file-upload-bg-hover: var(--r-color-medium, #92949c);
+}
+
+/* Map component tokens to Ionic item variables */
+r-file-upload ion-item {
+  --padding-start: var(--r-internal-file-upload-padding-x);
+  --padding-end: var(--r-internal-file-upload-padding-x);
+  --padding-top: var(--r-internal-file-upload-padding-y);
+  --padding-bottom: var(--r-internal-file-upload-padding-y);
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-file-upload ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
+/* File upload container */
+r-file-upload .file-upload-container {
+  width: 100%;
+  margin-top: var(--r-spacing-2, 8px);
+  position: relative;
+}
+
+/* Drag and drop area */
+r-file-upload .drag-drop-area {
+  border: 2px dashed var(--r-internal-file-upload-border-color);
+  border-radius: var(--r-internal-file-upload-border-radius);
+  padding: var(--r-spacing-6, 24px);
+  text-align: center;
+  background-color: var(--r-internal-file-upload-bg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--r-spacing-2, 8px);
+}
+
+r-file-upload .drag-drop-area:hover:not(.disabled) {
+  border-color: var(--r-internal-file-upload-border-focus);
+  background-color: var(--r-internal-file-upload-bg-hover);
+  opacity: 0.8;
+}
+
+r-file-upload .drag-drop-area.drag-over {
+  border-color: var(--r-color-primary);
+  background-color: var(--r-color-primary);
+  opacity: 0.1;
+}
+
+r-file-upload .drag-drop-area.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+r-file-upload .upload-icon {
+  font-size: 48px;
+  color: var(--r-color-medium, #92949c);
+}
+
+r-file-upload .drag-drop-area.drag-over .upload-icon {
+  color: var(--r-color-primary);
+}
+
+r-file-upload .drag-drop-text {
+  margin: 0;
+  font-size: var(--r-typography-font-size-base, 1rem);
+  color: var(--r-color-text, #000);
+  font-weight: 500;
+}
+
+r-file-upload .file-types-hint,
+r-file-upload .file-size-hint {
+  margin: 0;
+  font-size: var(--r-typography-font-size-sm, 0.875rem);
+  color: var(--r-color-medium, #92949c);
+}
+
+/* File preview list */
+r-file-upload .file-preview-list {
+  width: 100%;
+  margin-top: var(--r-spacing-3, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-spacing-2, 8px);
+}
+
+r-file-upload .file-preview-item {
+  display: flex;
+  align-items: center;
+  gap: var(--r-spacing-3, 12px);
+  padding: var(--r-spacing-3, 12px);
+  background-color: var(--r-internal-file-upload-bg);
+  border-radius: var(--r-internal-file-upload-border-radius);
+  border: 1px solid var(--r-internal-file-upload-border-color);
+}
+
+r-file-upload .file-icon {
+  font-size: 24px;
+  color: var(--r-color-medium, #92949c);
+  flex-shrink: 0;
+}
+
+r-file-upload .file-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--r-spacing-1, 4px);
+  min-width: 0;
+}
+
+r-file-upload .file-name {
+  font-size: var(--r-typography-font-size-base, 1rem);
+  color: var(--r-color-text, #000);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+r-file-upload .file-size {
+  font-size: var(--r-typography-font-size-sm, 0.875rem);
+  color: var(--r-color-medium, #92949c);
+}
+
+/* Focus state */
+r-file-upload ion-item.item-has-focus {
+  --border-color: var(--r-internal-file-upload-border-focus);
+}
+
+r-file-upload ion-item.item-has-focus .drag-drop-area {
+  border-color: var(--r-internal-file-upload-border-focus);
+}
+
+/* Error state */
+r-file-upload ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
+}
+
+r-file-upload ion-item.item-has-error .drag-drop-area {
+  border-color: var(--r-color-danger);
+}
+
+/* Disabled state */
+r-file-upload ion-item[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+

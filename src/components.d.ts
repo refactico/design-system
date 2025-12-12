@@ -398,6 +398,70 @@ export namespace Components {
          */
         "value"?: string | number;
     }
+    interface RFileUpload {
+        /**
+          * Accepted file types (e.g., ".pdf,.png,.jpg")
+         */
+        "accept"?: string;
+        /**
+          * The file upload color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the file upload is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, shows drag and drop area
+          * @default true
+         */
+        "dragDrop": boolean;
+        /**
+          * If true, the file upload has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The file upload label
+         */
+        "label"?: string;
+        /**
+          * Maximum file size in bytes
+         */
+        "maxSize"?: number;
+        /**
+          * If true, allows multiple file selection
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * The file upload name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * If true, the file upload is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * If true, shows file preview
+          * @default true
+         */
+        "showPreview": boolean;
+    }
     interface RHeader {
         /**
           * If true, the header collapses on scroll
@@ -546,6 +610,86 @@ export namespace Components {
           * The selected value
          */
         "value"?: string;
+    }
+    interface RRange {
+        /**
+          * The range color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the range is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, shows two knobs for range selection
+          * @default false
+         */
+        "dualKnobs": boolean;
+        /**
+          * If true, the range has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The range label
+         */
+        "label"?: string;
+        /**
+          * Maximum value
+          * @default 100
+         */
+        "max": number;
+        /**
+          * Minimum value
+          * @default 0
+         */
+        "min": number;
+        /**
+          * The range name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * If true, shows value pin on drag
+          * @default false
+         */
+        "pin": boolean;
+        /**
+          * If true, the range is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * If true, snaps to step values
+          * @default false
+         */
+        "snaps": boolean;
+        /**
+          * Step value
+          * @default 1
+         */
+        "step": number;
+        /**
+          * If true, shows tick marks
+          * @default false
+         */
+        "ticks": boolean;
+        /**
+          * The range value (number for single knob, { lower: number, upper: number } for dual knobs)
+         */
+        "value"?: number | { lower: number; upper: number };
     }
     interface RTab {
         /**
@@ -839,6 +983,10 @@ export interface RDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRDropdownElement;
 }
+export interface RFileUploadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRFileUploadElement;
+}
 export interface RInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRInputElement;
@@ -846,6 +994,10 @@ export interface RInputCustomEvent<T> extends CustomEvent<T> {
 export interface RRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRRadioGroupElement;
+}
+export interface RRangeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRRangeElement;
 }
 export interface RTextareaCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1010,6 +1162,25 @@ declare global {
         prototype: HTMLRDropdownElement;
         new (): HTMLRDropdownElement;
     };
+    interface HTMLRFileUploadElementEventMap {
+        "rFileSelected": CustomEvent<File[]>;
+        "rFileRemoved": CustomEvent<File>;
+        "rFileError": CustomEvent<string>;
+    }
+    interface HTMLRFileUploadElement extends Components.RFileUpload, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRFileUploadElementEventMap>(type: K, listener: (this: HTMLRFileUploadElement, ev: RFileUploadCustomEvent<HTMLRFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRFileUploadElementEventMap>(type: K, listener: (this: HTMLRFileUploadElement, ev: RFileUploadCustomEvent<HTMLRFileUploadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRFileUploadElement: {
+        prototype: HTMLRFileUploadElement;
+        new (): HTMLRFileUploadElement;
+    };
     interface HTMLRHeaderElement extends Components.RHeader, HTMLStencilElement {
     }
     var HTMLRHeaderElement: {
@@ -1059,6 +1230,25 @@ declare global {
     var HTMLRRadioGroupElement: {
         prototype: HTMLRRadioGroupElement;
         new (): HTMLRRadioGroupElement;
+    };
+    interface HTMLRRangeElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRRangeElement extends Components.RRange, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRRangeElementEventMap>(type: K, listener: (this: HTMLRRangeElement, ev: RRangeCustomEvent<HTMLRRangeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRRangeElementEventMap>(type: K, listener: (this: HTMLRRangeElement, ev: RRangeCustomEvent<HTMLRRangeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRRangeElement: {
+        prototype: HTMLRRangeElement;
+        new (): HTMLRRangeElement;
     };
     interface HTMLRTabElement extends Components.RTab, HTMLStencilElement {
     }
@@ -1151,10 +1341,12 @@ declare global {
         "r-checkbox": HTMLRCheckboxElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
+        "r-file-upload": HTMLRFileUploadElement;
         "r-header": HTMLRHeaderElement;
         "r-heading": HTMLRHeadingElement;
         "r-input": HTMLRInputElement;
         "r-radio-group": HTMLRRadioGroupElement;
+        "r-range": HTMLRRangeElement;
         "r-tab": HTMLRTabElement;
         "r-tab-bar": HTMLRTabBarElement;
         "r-tab-button": HTMLRTabButtonElement;
@@ -1612,6 +1804,82 @@ declare namespace LocalJSX {
          */
         "value"?: string | number;
     }
+    interface RFileUpload {
+        /**
+          * Accepted file types (e.g., ".pdf,.png,.jpg")
+         */
+        "accept"?: string;
+        /**
+          * The file upload color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the file upload is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, shows drag and drop area
+          * @default true
+         */
+        "dragDrop"?: boolean;
+        /**
+          * If true, the file upload has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The file upload label
+         */
+        "label"?: string;
+        /**
+          * Maximum file size in bytes
+         */
+        "maxSize"?: number;
+        /**
+          * If true, allows multiple file selection
+          * @default false
+         */
+        "multiple"?: boolean;
+        /**
+          * The file upload name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when there's a file error
+         */
+        "onRFileError"?: (event: RFileUploadCustomEvent<CustomEvent<string>>) => void;
+        /**
+          * Emitted when a file is removed
+         */
+        "onRFileRemoved"?: (event: RFileUploadCustomEvent<CustomEvent<File>>) => void;
+        /**
+          * Emitted when files are selected
+         */
+        "onRFileSelected"?: (event: RFileUploadCustomEvent<CustomEvent<File[]>>) => void;
+        /**
+          * If true, the file upload is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * If true, shows file preview
+          * @default true
+         */
+        "showPreview"?: boolean;
+    }
     interface RHeader {
         /**
           * If true, the header collapses on scroll
@@ -1766,6 +2034,98 @@ declare namespace LocalJSX {
           * The selected value
          */
         "value"?: string;
+    }
+    interface RRange {
+        /**
+          * The range color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the range is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, shows two knobs for range selection
+          * @default false
+         */
+        "dualKnobs"?: boolean;
+        /**
+          * If true, the range has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: 'outline' | 'solid';
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The range label
+         */
+        "label"?: string;
+        /**
+          * Maximum value
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * Minimum value
+          * @default 0
+         */
+        "min"?: number;
+        /**
+          * The range name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when the range loses focus
+         */
+        "onRBlur"?: (event: RRangeCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the range value changes
+         */
+        "onRChange"?: (event: RRangeCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the range receives focus
+         */
+        "onRFocus"?: (event: RRangeCustomEvent<CustomEvent>) => void;
+        /**
+          * If true, shows value pin on drag
+          * @default false
+         */
+        "pin"?: boolean;
+        /**
+          * If true, the range is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * If true, snaps to step values
+          * @default false
+         */
+        "snaps"?: boolean;
+        /**
+          * Step value
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * If true, shows tick marks
+          * @default false
+         */
+        "ticks"?: boolean;
+        /**
+          * The range value (number for single knob, { lower: number, upper: number } for dual knobs)
+         */
+        "value"?: number | { lower: number; upper: number };
     }
     interface RTab {
         /**
@@ -2082,10 +2442,12 @@ declare namespace LocalJSX {
         "r-checkbox": RCheckbox;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
+        "r-file-upload": RFileUpload;
         "r-header": RHeader;
         "r-heading": RHeading;
         "r-input": RInput;
         "r-radio-group": RRadioGroup;
+        "r-range": RRange;
         "r-tab": RTab;
         "r-tab-bar": RTabBar;
         "r-tab-button": RTabButton;
@@ -2115,10 +2477,12 @@ declare module "@stencil/core" {
             "r-checkbox": LocalJSX.RCheckbox & JSXBase.HTMLAttributes<HTMLRCheckboxElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
+            "r-file-upload": LocalJSX.RFileUpload & JSXBase.HTMLAttributes<HTMLRFileUploadElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
             "r-heading": LocalJSX.RHeading & JSXBase.HTMLAttributes<HTMLRHeadingElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
             "r-radio-group": LocalJSX.RRadioGroup & JSXBase.HTMLAttributes<HTMLRRadioGroupElement>;
+            "r-range": LocalJSX.RRange & JSXBase.HTMLAttributes<HTMLRRangeElement>;
             "r-tab": LocalJSX.RTab & JSXBase.HTMLAttributes<HTMLRTabElement>;
             "r-tab-bar": LocalJSX.RTabBar & JSXBase.HTMLAttributes<HTMLRTabBarElement>;
             "r-tab-button": LocalJSX.RTabButton & JSXBase.HTMLAttributes<HTMLRTabButtonElement>;

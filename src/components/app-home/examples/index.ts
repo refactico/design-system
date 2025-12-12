@@ -9,6 +9,8 @@ export interface ExampleContext {
 export { renderButtonExamples } from './r-button-examples';
 export { renderInputExamples } from './r-input-examples';
 export { renderTextareaExamples } from './r-textarea-examples';
+export { renderRangeExamples } from './r-range-examples';
+export { renderFileUploadExamples } from './r-file-upload-examples';
 export { renderDropdownExamples } from './r-dropdown-examples';
 export { renderDatepickerExamples } from './r-datepicker-examples';
 export { renderAlertExamples } from './r-alert-examples';
@@ -31,6 +33,8 @@ export { renderHeadingExamples } from './r-heading-examples';
 import { renderButtonExamples } from './r-button-examples';
 import { renderInputExamples } from './r-input-examples';
 import { renderTextareaExamples } from './r-textarea-examples';
+import { renderRangeExamples } from './r-range-examples';
+import { renderFileUploadExamples } from './r-file-upload-examples';
 import { renderDropdownExamples } from './r-dropdown-examples';
 import { renderDatepickerExamples } from './r-datepicker-examples';
 import { renderAlertExamples } from './r-alert-examples';
@@ -53,6 +57,8 @@ export const componentExamples: Record<string, (context?: ExampleContext) => any
   'r-button': renderButtonExamples,
   'r-input': renderInputExamples,
   'r-textarea': renderTextareaExamples,
+  'r-range': renderRangeExamples,
+  'r-file-upload': renderFileUploadExamples,
   'r-dropdown': renderDropdownExamples,
   'r-datepicker': renderDatepickerExamples,
   'r-alert': renderAlertExamples,

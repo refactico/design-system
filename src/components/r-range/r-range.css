@@ -1,0 +1,80 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  --r-internal-range-padding-x: var(--r-spacing-4);
+  --r-internal-range-padding-y: var(--r-spacing-3);
+  --r-internal-range-border-radius: var(--r-border-radius-base);
+  --r-internal-range-font-size: var(--r-typography-font-size-base);
+  --r-internal-range-border-color: var(--r-border-color);
+  --r-internal-range-border-focus: var(--r-color-primary);
+}
+
+/* Map component tokens to Ionic range/item variables */
+r-range ion-item {
+  --padding-start: var(--r-internal-range-padding-x);
+  --padding-end: var(--r-internal-range-padding-x);
+  --padding-top: var(--r-internal-range-padding-y);
+  --padding-bottom: var(--r-internal-range-padding-y);
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-range ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
+r-range ion-range {
+  width: 100%;
+  margin-top: var(--r-spacing-2, 8px);
+  --bar-background: var(--r-color-medium, #92949c);
+  --bar-background-active: var(--r-color-primary, #3880ff);
+  --knob-background: var(--r-color-primary, #3880ff);
+  --knob-size: 20px;
+  --pin-background: var(--r-color-primary, #3880ff);
+  --pin-color: var(--r-color-light, #f4f5f8);
+}
+
+/* Focus state */
+r-range ion-item.item-has-focus {
+  --border-color: var(--r-internal-range-border-focus);
+}
+
+r-range ion-item.item-has-focus ion-range {
+  --knob-background: var(--r-internal-range-border-focus);
+}
+
+/* Error state */
+r-range ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
+}
+
+r-range ion-item.item-has-error ion-range {
+  --bar-background-active: var(--r-color-danger);
+  --knob-background: var(--r-color-danger);
+  --pin-background: var(--r-color-danger);
+}
+
+/* Disabled state */
+r-range ion-item[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+r-range ion-range[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Ticks styling */
+r-range ion-range[ticks] {
+  --tick-background: var(--r-color-medium, #92949c);
+}
+
+/* Snaps styling */
+r-range ion-range[snaps] {
+  --bar-background-active: var(--r-color-primary, #3880ff);
+}
+
