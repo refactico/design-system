@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  --r-internal-textarea-padding-x: var(--r-spacing-4);
+  --r-internal-textarea-padding-y: var(--r-spacing-3);
+  --r-internal-textarea-border-radius: var(--r-border-radius-base);
+  --r-internal-textarea-font-size: var(--r-typography-font-size-base);
+  --r-internal-textarea-border-color: var(--r-border-color);
+  --r-internal-textarea-border-focus: var(--r-color-primary);
+}
+
+/* Map component tokens to Ionic textarea/item variables */
+r-textarea ion-item {
+  --padding-start: var(--r-internal-textarea-padding-x);
+  --padding-end: var(--r-internal-textarea-padding-x);
+  --padding-top: var(--r-internal-textarea-padding-y);
+  --padding-bottom: var(--r-internal-textarea-padding-y);
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-textarea ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
+r-textarea ion-textarea {
+  width: 100%;
+  --padding-start: var(--r-spacing-3, 12px);
+  --padding-end: var(--r-spacing-3, 12px);
+  --padding-top: var(--r-spacing-3, 12px);
+  --padding-bottom: var(--r-spacing-3, 12px);
+  --border-radius: var(--r-internal-textarea-border-radius);
+  --border-color: var(--r-internal-textarea-border-color);
+  --border-width: 1px;
+  --border-style: solid;
+  font-size: var(--r-internal-textarea-font-size);
+}
+
+/* Focus state */
+r-textarea ion-item.item-has-focus {
+  --border-color: var(--r-internal-textarea-border-focus);
+}
+
+r-textarea ion-item.item-has-focus ion-textarea {
+  --border-color: var(--r-internal-textarea-border-focus);
+}
+
+/* Error state */
+r-textarea ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
+}
+
+r-textarea ion-item.item-has-error ion-textarea {
+  --border-color: var(--r-color-danger);
+}
+
+/* Disabled state */
+r-textarea ion-item[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Auto-grow styling */
+r-textarea ion-textarea[auto-grow] {
+  --min-height: auto;
+}
+

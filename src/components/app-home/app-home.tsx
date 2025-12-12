@@ -15,6 +15,7 @@ export class AppHome {
   private menuItems = [
     { id: 'r-button', name: 'Button', description: 'Button component that wraps Ionic button' },
     { id: 'r-input', name: 'Input', description: 'Input field component with password visibility toggle and validation support' },
+    { id: 'r-textarea', name: 'Textarea', description: 'Textarea component that wraps Ionic textarea with validation, error handling, and auto-grow support' },
     { id: 'r-dropdown', name: 'Dropdown', description: 'Dropdown component that wraps Ionic select with validation, error handling, and multiple selection support' },
     { id: 'r-datepicker', name: 'Datepicker', description: 'Datepicker component that wraps Ionic datetime with validation, error handling, and various presentation styles' },
     { id: 'r-alert', name: 'Alert', description: 'Alert component that wraps Ionic alert with inline usage support' },
@@ -31,6 +32,7 @@ export class AppHome {
     { id: 'r-tab', name: 'Tab', description: 'Individual tab component that wraps Ionic tab. Contains the content for a specific tab view. Used inside r-tabs container.' },
     { id: 'r-tab-bar', name: 'Tab Bar', description: 'Tab bar container component that wraps Ionic tab-bar. Contains r-tab-button components and positions them at the top or bottom of the tabs container.' },
     { id: 'r-tab-button', name: 'Tab Button', description: 'Tab button component that wraps Ionic tab-button. Used inside r-tab-bar to create clickable tab buttons with icons and labels.' },
+    { id: 'r-heading', name: 'Heading', description: 'Heading component for displaying headings with different levels (1-6) and colors' },
     // Add more components here as they are created
   ];
 

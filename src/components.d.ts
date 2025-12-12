@@ -426,6 +426,21 @@ export namespace Components {
          */
         "translucent": boolean;
     }
+    interface RHeading {
+        /**
+          * The heading color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The heading level (1-6, default: 2)
+          * @default 2
+         */
+        "level": number;
+        /**
+          * The heading text
+         */
+        "text"?: string;
+    }
     interface RInput {
         "autocomplete"?: string;
         "clearOnEdit"?: boolean;
@@ -629,6 +644,77 @@ export namespace Components {
          */
         "translucent": boolean;
     }
+    interface RTextarea {
+        /**
+          * If true, the textarea will auto-grow as the user types
+          * @default false
+         */
+        "autoGrow": boolean;
+        /**
+          * The textarea color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the textarea is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the textarea has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The textarea label
+         */
+        "label"?: string;
+        /**
+          * Maximum number of characters
+         */
+        "maxlength"?: number;
+        /**
+          * Minimum number of characters
+         */
+        "minlength"?: number;
+        /**
+          * The textarea name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the textarea is readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * If true, the textarea is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Number of visible rows
+         */
+        "rows"?: number;
+        /**
+          * The textarea value
+         */
+        "value"?: string;
+    }
     interface RTitle {
         "size"?: 'large' | 'small';
         /**
@@ -760,6 +846,10 @@ export interface RInputCustomEvent<T> extends CustomEvent<T> {
 export interface RRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRRadioGroupElement;
+}
+export interface RTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRTextareaElement;
 }
 export interface RToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -926,6 +1016,12 @@ declare global {
         prototype: HTMLRHeaderElement;
         new (): HTMLRHeaderElement;
     };
+    interface HTMLRHeadingElement extends Components.RHeading, HTMLStencilElement {
+    }
+    var HTMLRHeadingElement: {
+        prototype: HTMLRHeadingElement;
+        new (): HTMLRHeadingElement;
+    };
     interface HTMLRInputElementEventMap {
         "rInput": CustomEvent;
         "rFocus": FocusEvent;
@@ -988,6 +1084,26 @@ declare global {
         prototype: HTMLRTabsElement;
         new (): HTMLRTabsElement;
     };
+    interface HTMLRTextareaElementEventMap {
+        "rInput": CustomEvent;
+        "rFocus": FocusEvent;
+        "rBlur": FocusEvent;
+        "rChange": CustomEvent;
+    }
+    interface HTMLRTextareaElement extends Components.RTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRTextareaElementEventMap>(type: K, listener: (this: HTMLRTextareaElement, ev: RTextareaCustomEvent<HTMLRTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRTextareaElementEventMap>(type: K, listener: (this: HTMLRTextareaElement, ev: RTextareaCustomEvent<HTMLRTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRTextareaElement: {
+        prototype: HTMLRTextareaElement;
+        new (): HTMLRTextareaElement;
+    };
     interface HTMLRTitleElement extends Components.RTitle, HTMLStencilElement {
     }
     var HTMLRTitleElement: {
@@ -1036,12 +1152,14 @@ declare global {
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
+        "r-heading": HTMLRHeadingElement;
         "r-input": HTMLRInputElement;
         "r-radio-group": HTMLRRadioGroupElement;
         "r-tab": HTMLRTabElement;
         "r-tab-bar": HTMLRTabBarElement;
         "r-tab-button": HTMLRTabButtonElement;
         "r-tabs": HTMLRTabsElement;
+        "r-textarea": HTMLRTextareaElement;
         "r-title": HTMLRTitleElement;
         "r-toggle": HTMLRToggleElement;
         "r-toolbar": HTMLRToolbarElement;
@@ -1522,6 +1640,21 @@ declare namespace LocalJSX {
          */
         "translucent"?: boolean;
     }
+    interface RHeading {
+        /**
+          * The heading color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * The heading level (1-6, default: 2)
+          * @default 2
+         */
+        "level"?: number;
+        /**
+          * The heading text
+         */
+        "text"?: string;
+    }
     interface RInput {
         "autocomplete"?: string;
         "clearOnEdit"?: boolean;
@@ -1731,6 +1864,93 @@ declare namespace LocalJSX {
          */
         "translucent"?: boolean;
     }
+    interface RTextarea {
+        /**
+          * If true, the textarea will auto-grow as the user types
+          * @default false
+         */
+        "autoGrow"?: boolean;
+        /**
+          * The textarea color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the textarea is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the textarea has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The textarea label
+         */
+        "label"?: string;
+        /**
+          * Maximum number of characters
+         */
+        "maxlength"?: number;
+        /**
+          * Minimum number of characters
+         */
+        "minlength"?: number;
+        /**
+          * The textarea name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when the textarea loses focus
+         */
+        "onRBlur"?: (event: RTextareaCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the textarea value changes (alias for rInput)
+         */
+        "onRChange"?: (event: RTextareaCustomEvent<CustomEvent>) => void;
+        /**
+          * Emitted when the textarea receives focus
+         */
+        "onRFocus"?: (event: RTextareaCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the textarea value changes
+         */
+        "onRInput"?: (event: RTextareaCustomEvent<CustomEvent>) => void;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the textarea is readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * If true, the textarea is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Number of visible rows
+         */
+        "rows"?: number;
+        /**
+          * The textarea value
+         */
+        "value"?: string;
+    }
     interface RTitle {
         "size"?: 'large' | 'small';
         /**
@@ -1863,12 +2083,14 @@ declare namespace LocalJSX {
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-header": RHeader;
+        "r-heading": RHeading;
         "r-input": RInput;
         "r-radio-group": RRadioGroup;
         "r-tab": RTab;
         "r-tab-bar": RTabBar;
         "r-tab-button": RTabButton;
         "r-tabs": RTabs;
+        "r-textarea": RTextarea;
         "r-title": RTitle;
         "r-toggle": RToggle;
         "r-toolbar": RToolbar;
@@ -1894,12 +2116,14 @@ declare module "@stencil/core" {
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
+            "r-heading": LocalJSX.RHeading & JSXBase.HTMLAttributes<HTMLRHeadingElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
             "r-radio-group": LocalJSX.RRadioGroup & JSXBase.HTMLAttributes<HTMLRRadioGroupElement>;
             "r-tab": LocalJSX.RTab & JSXBase.HTMLAttributes<HTMLRTabElement>;
             "r-tab-bar": LocalJSX.RTabBar & JSXBase.HTMLAttributes<HTMLRTabBarElement>;
             "r-tab-button": LocalJSX.RTabButton & JSXBase.HTMLAttributes<HTMLRTabButtonElement>;
             "r-tabs": LocalJSX.RTabs & JSXBase.HTMLAttributes<HTMLRTabsElement>;
+            "r-textarea": LocalJSX.RTextarea & JSXBase.HTMLAttributes<HTMLRTextareaElement>;
             "r-title": LocalJSX.RTitle & JSXBase.HTMLAttributes<HTMLRTitleElement>;
             "r-toggle": LocalJSX.RToggle & JSXBase.HTMLAttributes<HTMLRToggleElement>;
             "r-toolbar": LocalJSX.RToolbar & JSXBase.HTMLAttributes<HTMLRToolbarElement>;

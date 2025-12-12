@@ -8,6 +8,7 @@ export interface ExampleContext {
 // Export all component examples
 export { renderButtonExamples } from './r-button-examples';
 export { renderInputExamples } from './r-input-examples';
+export { renderTextareaExamples } from './r-textarea-examples';
 export { renderDropdownExamples } from './r-dropdown-examples';
 export { renderDatepickerExamples } from './r-datepicker-examples';
 export { renderAlertExamples } from './r-alert-examples';
@@ -24,10 +25,12 @@ export { renderTabsExamples } from './r-tabs-examples';
 export { renderTabExamples } from './r-tab-examples';
 export { renderTabBarExamples } from './r-tab-bar-examples';
 export { renderTabButtonExamples } from './r-tab-button-examples';
+export { renderHeadingExamples } from './r-heading-examples';
 
 // Component example mapping
 import { renderButtonExamples } from './r-button-examples';
 import { renderInputExamples } from './r-input-examples';
+import { renderTextareaExamples } from './r-textarea-examples';
 import { renderDropdownExamples } from './r-dropdown-examples';
 import { renderDatepickerExamples } from './r-datepicker-examples';
 import { renderAlertExamples } from './r-alert-examples';
@@ -44,10 +47,12 @@ import { renderTabsExamples } from './r-tabs-examples';
 import { renderTabExamples } from './r-tab-examples';
 import { renderTabBarExamples } from './r-tab-bar-examples';
 import { renderTabButtonExamples } from './r-tab-button-examples';
+import { renderHeadingExamples } from './r-heading-examples';
 
 export const componentExamples: Record<string, (context?: ExampleContext) => any> = {
   'r-button': renderButtonExamples,
   'r-input': renderInputExamples,
+  'r-textarea': renderTextareaExamples,
   'r-dropdown': renderDropdownExamples,
   'r-datepicker': renderDatepickerExamples,
   'r-alert': renderAlertExamples,
@@ -64,5 +69,6 @@ export const componentExamples: Record<string, (context?: ExampleContext) => any
   'r-tab': renderTabExamples,
   'r-tab-bar': renderTabBarExamples,
   'r-tab-button': renderTabButtonExamples,
+  'r-heading': renderHeadingExamples,
 };
 
