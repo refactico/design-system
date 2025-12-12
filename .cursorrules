@@ -19,17 +19,17 @@
 
 **IMPORTANT:** When asked to create a new component (e.g., "create r-card component"), you MUST:
 1. **Read this file first** - `.cursorrules`
-2. **Read `PRODUCTION_READINESS_GUIDE.md`** - **CRITICAL: Production requirements**
-3. **Read `COMPONENT_CREATION_GUIDE.md`** - Detailed patterns and examples
-4. **Read `COMPONENT_CHECKLIST.md`** - Verification checklist
-5. **Read `SUB_COMPONENT_STRATEGY.md`** - Sub-component strategy
-6. **Check `COMPONENT_TEMPLATE.tsx`** - Component template
+2. **Read `architecture/PRODUCTION_READINESS_GUIDE.md`** - **CRITICAL: Production requirements**
+3. **Read `component-creation/COMPONENT_CREATION_GUIDE.md`** - Detailed patterns and examples
+4. **Read `component-creation/COMPONENT_CHECKLIST.md`** - Verification checklist
+5. **Read `component-creation/SUB_COMPONENT_STRATEGY.md`** - Sub-component strategy
+6. **Check `component-creation/COMPONENT_TEMPLATE.tsx`** - Component template
 7. **Look at existing components** (`r-badge`, `r-input`, etc.) for examples
 8. **Check if the Ionic component has sub-components that need wrapping**
-9. **Update `COMPONENT_CREATION_VERIFICATION.md`** - Add verification log entry
+9. **Update `component-creation/COMPONENT_CREATION_VERIFICATION.md`** - Add verification log entry
 10. Follow ALL rules below
 
-**VERIFICATION:** After reading all files, you MUST update `COMPONENT_CREATION_VERIFICATION.md` with a log entry showing you've read and verified all requirements.
+**VERIFICATION:** After reading all files, you MUST update `component-creation/COMPONENT_CREATION_VERIFICATION.md` with a log entry showing you've read and verified all requirements.
 
 When creating new components in this design system, you MUST follow these rules:
 
@@ -49,16 +49,16 @@ When creating new components in this design system, you MUST follow these rules:
 
 **STEP 0: VERIFICATION - Read All Guidelines First**
 - [ ] Read `.cursorrules` (this file)
-- [ ] Read `PRODUCTION_READINESS_GUIDE.md` - **CRITICAL**
-- [ ] Read `COMPONENT_CREATION_GUIDE.md`
-- [ ] Read `COMPONENT_CHECKLIST.md`
-- [ ] Read `SUB_COMPONENT_STRATEGY.md`
-- [ ] Check `COMPONENT_TEMPLATE.tsx`
+- [ ] Read `architecture/PRODUCTION_READINESS_GUIDE.md` - **CRITICAL**
+- [ ] Read `component-creation/COMPONENT_CREATION_GUIDE.md`
+- [ ] Read `component-creation/COMPONENT_CHECKLIST.md`
+- [ ] Read `component-creation/SUB_COMPONENT_STRATEGY.md`
+- [ ] Check `component-creation/COMPONENT_TEMPLATE.tsx`
 - [ ] Look at existing similar components
-- [ ] **Update `COMPONENT_CREATION_VERIFICATION.md`** - Add log entry
+- [ ] **Update `component-creation/COMPONENT_CREATION_VERIFICATION.md`** - Add log entry
 
-1. **FIRST:** Read `COMPONENT_TEMPLATE.tsx` - Copy it as your starting point
-2. **SECOND:** Check `COMPONENT_CREATION_GUIDE.md` for patterns and examples
+1. **FIRST:** Read `component-creation/COMPONENT_TEMPLATE.tsx` - Copy it as your starting point
+2. **SECOND:** Check `component-creation/COMPONENT_CREATION_GUIDE.md` for patterns and examples
 3. **THIRD:** **CRITICAL - Production Readiness & Use Cases Analysis:**
    - **Research ALL use cases** - Think about how 69+ apps and big clients will use this component
    - **Identify ALL props/features** - Review Ionic documentation thoroughly, don't miss any useful props
@@ -83,7 +83,7 @@ When creating new components in this design system, you MUST follow these rules:
    - Verify no console errors or warnings
    - Test accessibility
 9. **NINTH:** **VERIFICATION - Update Verification Log:**
-   - Update `COMPONENT_CREATION_VERIFICATION.md` with log entry
+   - Update `component-creation/COMPONENT_CREATION_VERIFICATION.md` with log entry
    - Verify all checklist items completed
    - Confirm production-ready status
 
@@ -91,7 +91,7 @@ When creating new components in this design system, you MUST follow these rules:
 
 **When creating multiple components in one prompt:**
 
-1. **Read `BATCH_COMPONENT_CREATION.md`** - Batch creation guide
+1. **Read `component-creation/BATCH_COMPONENT_CREATION.md`** - Batch creation guide
 2. **Recommended batch size:** 2-5 components (not more than 5)
 3. **Group by similarity:** Related components or similar complexity
 4. **Apply ALL rules to EACH component** - Don't skip steps for any component
@@ -184,17 +184,17 @@ After creating a component, you MUST:
 
 **MANDATORY READING ORDER:**
 1. `.cursorrules` (this file) - **START HERE**
-2. `PRODUCTION_READINESS_GUIDE.md` - **CRITICAL: Production requirements**
-3. `COMPONENT_CREATION_GUIDE.md` - Full guide with patterns
-4. `COMPONENT_CHECKLIST.md` - Verification checklist
-5. `SUB_COMPONENT_STRATEGY.md` - Sub-component strategy
-6. `COMPONENT_TEMPLATE.tsx` - Template file
-7. `COMPONENT_QUICK_REFERENCE.md` - Quick reference
-8. `COMPONENT_CREATION_VERIFICATION.md` - **VERIFICATION LOG (update this!)**
+2. `architecture/PRODUCTION_READINESS_GUIDE.md` - **CRITICAL: Production requirements**
+3. `component-creation/COMPONENT_CREATION_GUIDE.md` - Full guide with patterns
+4. `component-creation/COMPONENT_CHECKLIST.md` - Verification checklist
+5. `component-creation/SUB_COMPONENT_STRATEGY.md` - Sub-component strategy
+6. `component-creation/COMPONENT_TEMPLATE.tsx` - Template file
+7. `component-creation/COMPONENT_QUICK_REFERENCE.md` - Quick reference
+8. `component-creation/COMPONENT_CREATION_VERIFICATION.md` - **VERIFICATION LOG (update this!)**
 
-**VERIFICATION:** After reading, update `COMPONENT_CREATION_VERIFICATION.md` to prove you've read all files.
-- `PRODUCTION_READINESS_GUIDE.md` - **CRITICAL: Read this for production-ready requirements**
-- `SUB_COMPONENT_STRATEGY.md` - Strategy for sub-components
+**VERIFICATION:** After reading, update `component-creation/COMPONENT_CREATION_VERIFICATION.md` to prove you've read all files.
+- `architecture/PRODUCTION_READINESS_GUIDE.md` - **CRITICAL: Read this for production-ready requirements**
+- `component-creation/SUB_COMPONENT_STRATEGY.md` - Strategy for sub-components
 
 ## Examples
 

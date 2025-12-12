@@ -16,6 +16,17 @@ export class AppShell {
           </div>
         </header>
 
+        {/* Alert Banner */}
+        <div class="app-shell-alert">
+          <ion-alert-controller></ion-alert-controller>
+          <div class="alert-banner">
+            <ion-icon name="information-circle-outline" class="alert-icon"></ion-icon>
+            <div class="alert-content">
+              <strong>Alignment Fix Required:</strong> Need to fix the alignment of datepicker and other components properly. Please check each component.
+            </div>
+          </div>
+        </div>
+
         {/* Main Content Area */}
         <main class="app-shell-main">
           <app-home></app-home>

@@ -18,6 +18,7 @@ export { renderButtonsExamples } from './r-buttons-examples';
 export { renderBadgeExamples } from './r-badge-examples';
 export { renderCardExamples } from './r-card-examples';
 export { renderCheckboxExamples } from './r-checkbox-examples';
+export { renderRadioGroupExamples } from './r-radio-group-examples';
 export { renderToggleExamples } from './r-toggle-examples';
 export { renderTabsExamples } from './r-tabs-examples';
 export { renderTabExamples } from './r-tab-examples';
@@ -37,6 +38,7 @@ import { renderButtonsExamples } from './r-buttons-examples';
 import { renderBadgeExamples } from './r-badge-examples';
 import { renderCardExamples } from './r-card-examples';
 import { renderCheckboxExamples } from './r-checkbox-examples';
+import { renderRadioGroupExamples } from './r-radio-group-examples';
 import { renderToggleExamples } from './r-toggle-examples';
 import { renderTabsExamples } from './r-tabs-examples';
 import { renderTabExamples } from './r-tab-examples';
@@ -56,6 +58,7 @@ export const componentExamples: Record<string, (context?: ExampleContext) => any
   'r-badge': renderBadgeExamples,
   'r-card': renderCardExamples,
   'r-checkbox': renderCheckboxExamples,
+  'r-radio-group': renderRadioGroupExamples,
   'r-toggle': renderToggleExamples,
   'r-tabs': renderTabsExamples,
   'r-tab': renderTabExamples,

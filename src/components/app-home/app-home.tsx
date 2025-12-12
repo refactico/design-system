@@ -25,6 +25,7 @@ export class AppHome {
     { id: 'r-badge', name: 'Badge', description: 'Badge component that wraps Ionic badge for displaying notification counts, status indicators, or labels' },
     { id: 'r-card', name: 'Card', description: 'Card component that wraps Ionic card with design system styling and support for clickable cards' },
     { id: 'r-checkbox', name: 'Checkbox', description: 'Checkbox component that wraps Ionic checkbox with design system styling, supporting standalone and form field modes with comprehensive props' },
+    { id: 'r-radio-group', name: 'Radio Group', description: 'Radio group component for selecting a single option from a list, with form field styling, validation, and accessibility support' },
     { id: 'r-toggle', name: 'Toggle', description: 'Toggle switch component that wraps Ionic toggle with design system styling, supporting standalone and form field modes with comprehensive props' },
     { id: 'r-tabs', name: 'Tabs', description: 'Tabs navigation component family that wraps Ionic tabs, tab, tab-bar, and tab-button for complete tab-based navigation' },
     { id: 'r-tab', name: 'Tab', description: 'Individual tab component that wraps Ionic tab. Contains the content for a specific tab view. Used inside r-tabs container.' },

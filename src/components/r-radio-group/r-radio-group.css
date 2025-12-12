@@ -1,0 +1,164 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  --r-internal-radio-group-padding-x: var(--r-spacing-4);
+  --r-internal-radio-group-padding-y: var(--r-spacing-3);
+  --r-internal-radio-group-border-radius: var(--r-border-radius-base);
+  --r-internal-radio-group-font-size: var(--r-typography-font-size-base);
+  --r-internal-radio-group-border-color: var(--r-border-color);
+  --r-internal-radio-group-border-focus: var(--r-color-primary);
+}
+
+/* Map component tokens to Ionic radio-group/item variables */
+r-radio-group ion-item {
+  --padding-start: var(--r-internal-radio-group-padding-x);
+  --padding-end: var(--r-internal-radio-group-padding-x);
+  --padding-top: var(--r-internal-radio-group-padding-y);
+  --padding-bottom: var(--r-internal-radio-group-padding-y);
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-radio-group ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
+r-radio-group ion-radio-group {
+  width: 100%;
+  margin-top: var(--r-spacing-2, 8px);
+}
+
+r-radio-group ion-radio-group ion-item {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: var(--r-spacing-2, 8px);
+  --padding-bottom: var(--r-spacing-2, 8px);
+}
+
+r-radio-group ion-radio {
+  --size: 20px;
+  --color-checked: var(--r-color-primary);
+  --color: var(--r-color-medium);
+  margin-right: var(--r-spacing-3, 12px);
+  flex-shrink: 0;
+}
+
+/* Ensure the radio container is properly aligned */
+r-radio-group ion-radio-group ion-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  --min-height: auto;
+}
+
+/* Make the entire item clickable */
+r-radio-group ion-radio-group ion-item ion-radio {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+r-radio-group ion-radio-group ion-item ion-label {
+  cursor: pointer;
+  flex: 1;
+  margin: 0;
+}
+
+/* Fix inner circle centering - use CSS variables */
+r-radio-group ion-radio {
+  --border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Ensure the radio button container is properly aligned */
+r-radio-group ion-radio-group ion-item ion-radio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* Use CSS variables to control inner circle size and positioning */
+r-radio-group ion-radio {
+  --inner-width: 10px;
+  --inner-height: 10px;
+  --inner-border-radius: 50%;
+}
+
+/* Ensure proper alignment of radio icon */
+r-radio-group ion-radio-group ion-item {
+  --inner-padding-end: 0;
+  --inner-padding-start: 0;
+}
+
+/* Fix for radio inner circle centering using CSS custom properties */
+r-radio-group ion-radio {
+  --radio-icon-size: 20px;
+  --radio-icon-border-radius: 50%;
+  --radio-icon-inner-size: 10px;
+}
+
+/* Additional styling to ensure proper centering */
+r-radio-group ion-radio-group ion-item {
+  align-items: center;
+}
+
+r-radio-group ion-radio-group ion-item ion-radio {
+  align-self: center;
+}
+
+/* Focus state */
+r-radio-group ion-item.item-has-focus {
+  --border-color: var(--r-internal-radio-group-border-focus);
+}
+
+/* Error state */
+r-radio-group ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
+}
+
+/* When checked, ensure color is visible and inner circle stays centered */
+r-radio-group ion-radio.radio-checked,
+r-radio-group ion-radio[checked] {
+  --color-checked: var(--r-color-primary);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+/* Fix for when radio is clicked - maintain centering during state change */
+r-radio-group ion-radio-group ion-item ion-radio.radio-checked,
+r-radio-group ion-radio-group ion-item ion-radio[checked] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  vertical-align: middle !important;
+  position: relative !important;
+}
+
+/* Ensure the radio container maintains alignment when checked */
+r-radio-group ion-radio-group ion-item {
+  align-items: center !important;
+}
+
+/* Prevent any layout shifts when radio state changes */
+r-radio-group ion-radio {
+  transition: none;
+  will-change: auto;
+}
+
+/* Force centering of inner elements */
+r-radio-group ion-radio-group ion-item ion-radio {
+  line-height: 1;
+  vertical-align: middle;
+}
+
+

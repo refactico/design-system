@@ -462,6 +462,76 @@ export namespace Components {
         "type": string;
         "value"?: string;
     }
+    interface RRadioGroup {
+        /**
+          * Controls the alignment of the radio and label on the cross axis
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, allows deselecting the selected option
+          * @default false
+         */
+        "allowEmptySelection": boolean;
+        /**
+          * The radio group color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the radio group is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the radio group has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Determines how the label and radio are packed within a line
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The radio group label
+         */
+        "label"?: string;
+        /**
+          * Specifies the label's position relative to the radio
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * Chooses the platform styles to use
+         */
+        "mode"?: IonicMode;
+        /**
+          * The radio group name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Radio options (array of { value: string, label: string })
+         */
+        "options"?: string | Array<{ value: string; label: string }>;
+        /**
+          * If true, the radio group is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The selected value
+         */
+        "value"?: string;
+    }
     interface RTab {
         /**
           * The tab color (Ionic color)
@@ -687,6 +757,10 @@ export interface RInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRInputElement;
 }
+export interface RRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRRadioGroupElement;
+}
 export interface RToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRToggleElement;
@@ -871,6 +945,25 @@ declare global {
         prototype: HTMLRInputElement;
         new (): HTMLRInputElement;
     };
+    interface HTMLRRadioGroupElementEventMap {
+        "rChange": CustomEvent;
+        "rFocus": CustomEvent;
+        "rBlur": CustomEvent;
+    }
+    interface HTMLRRadioGroupElement extends Components.RRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRRadioGroupElementEventMap>(type: K, listener: (this: HTMLRRadioGroupElement, ev: RRadioGroupCustomEvent<HTMLRRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRRadioGroupElementEventMap>(type: K, listener: (this: HTMLRRadioGroupElement, ev: RRadioGroupCustomEvent<HTMLRRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRRadioGroupElement: {
+        prototype: HTMLRRadioGroupElement;
+        new (): HTMLRRadioGroupElement;
+    };
     interface HTMLRTabElement extends Components.RTab, HTMLStencilElement {
     }
     var HTMLRTabElement: {
@@ -944,6 +1037,7 @@ declare global {
         "r-dropdown": HTMLRDropdownElement;
         "r-header": HTMLRHeaderElement;
         "r-input": HTMLRInputElement;
+        "r-radio-group": HTMLRRadioGroupElement;
         "r-tab": HTMLRTabElement;
         "r-tab-bar": HTMLRTabBarElement;
         "r-tab-button": HTMLRTabButtonElement;
@@ -1467,6 +1561,79 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface RRadioGroup {
+        /**
+          * Controls the alignment of the radio and label on the cross axis
+         */
+        "alignment"?: 'start' | 'center';
+        /**
+          * If true, allows deselecting the selected option
+          * @default false
+         */
+        "allowEmptySelection"?: boolean;
+        /**
+          * The radio group color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * If true, the radio group is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the radio group has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * Determines how the label and radio are packed within a line
+         */
+        "justify"?: 'start' | 'end' | 'space-between';
+        /**
+          * The radio group label
+         */
+        "label"?: string;
+        /**
+          * Specifies the label's position relative to the radio
+         */
+        "labelPlacement"?: 'start' | 'end' | 'fixed' | 'stacked';
+        /**
+          * Chooses the platform styles to use
+         */
+        "mode"?: IonicMode;
+        /**
+          * The radio group name (for form submission)
+         */
+        "name"?: string;
+        "onRBlur"?: (event: RRadioGroupCustomEvent<CustomEvent>) => void;
+        "onRChange"?: (event: RRadioGroupCustomEvent<CustomEvent>) => void;
+        "onRFocus"?: (event: RRadioGroupCustomEvent<CustomEvent>) => void;
+        /**
+          * Radio options (array of { value: string, label: string })
+         */
+        "options"?: string | Array<{ value: string; label: string }>;
+        /**
+          * If true, the radio group is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The selected value
+         */
+        "value"?: string;
+    }
     interface RTab {
         /**
           * The tab color (Ionic color)
@@ -1697,6 +1864,7 @@ declare namespace LocalJSX {
         "r-dropdown": RDropdown;
         "r-header": RHeader;
         "r-input": RInput;
+        "r-radio-group": RRadioGroup;
         "r-tab": RTab;
         "r-tab-bar": RTabBar;
         "r-tab-button": RTabButton;
@@ -1727,6 +1895,7 @@ declare module "@stencil/core" {
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-header": LocalJSX.RHeader & JSXBase.HTMLAttributes<HTMLRHeaderElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
+            "r-radio-group": LocalJSX.RRadioGroup & JSXBase.HTMLAttributes<HTMLRRadioGroupElement>;
             "r-tab": LocalJSX.RTab & JSXBase.HTMLAttributes<HTMLRTabElement>;
             "r-tab-bar": LocalJSX.RTabBar & JSXBase.HTMLAttributes<HTMLRTabBarElement>;
             "r-tab-button": LocalJSX.RTabButton & JSXBase.HTMLAttributes<HTMLRTabButtonElement>;

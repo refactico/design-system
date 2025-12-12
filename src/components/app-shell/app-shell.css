@@ -35,6 +35,44 @@
   color: #ffffff;
 }
 
+/* Alert Banner */
+.app-shell-alert {
+  background-color: #dc3545;
+  border-bottom: 2px solid #c82333;
+  padding: 14px 24px;
+  z-index: 99;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+.alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.alert-icon {
+  font-size: 22px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.alert-content {
+  flex: 1;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.alert-content strong {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Main Content */
 .app-shell-main {
   flex: 1;
