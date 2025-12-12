@@ -258,6 +258,114 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface RCurrencyInput {
+        /**
+          * If true, allows decimal values (default: true)
+          * @default true
+         */
+        "allowDecimals": boolean;
+        /**
+          * If true, allows negative values (default: true)
+          * @default true
+         */
+        "allowNegativeValue": boolean;
+        /**
+          * The currency input color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * ISO currency code (e.g., "USD", "EUR", "GBP")
+          * @default 'USD'
+         */
+        "currencyCode": string;
+        /**
+          * Character used as decimal separator (default: based on locale)
+         */
+        "decimalSeparator"?: string;
+        /**
+          * If true, the currency input is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * If true, the currency input has error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * If true, ensures the value always has a fixed number of decimal places
+          * @default false
+         */
+        "fixedDecimalLength": boolean;
+        /**
+          * Character used as thousands/group separator (default: based on locale)
+         */
+        "groupSeparator"?: string;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The currency input label
+         */
+        "label"?: string;
+        /**
+          * Locale for formatting (e.g., "en-US", "en-GB")
+         */
+        "locale"?: string;
+        /**
+          * Maximum value
+         */
+        "max"?: number;
+        /**
+          * Minimum value
+         */
+        "min"?: number;
+        /**
+          * The currency input name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Number of decimal places (default: 2) Set to 0 for currencies without decimals (e.g., JPY) Set to higher values for more precision (e.g., 3 for some cryptocurrencies) The input will enforce this limit during typing
+          * @default 2
+         */
+        "precision": number;
+        /**
+          * If true, the currency input is readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * If true, the currency input is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * The shape
+         */
+        "shape"?: 'round';
+        /**
+          * If true, disables automatic insertion of group separators
+          * @default false
+         */
+        "turnOffSeparators": boolean;
+        /**
+          * The currency value (number)
+         */
+        "value"?: number;
+    }
     interface RDatepicker {
         /**
           * The datepicker color (Ionic color)
@@ -975,6 +1083,10 @@ export interface RCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRCheckboxElement;
 }
+export interface RCurrencyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRCurrencyInputElement;
+}
 export interface RDatepickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRDatepickerElement;
@@ -1123,6 +1235,26 @@ declare global {
     var HTMLRCheckboxElement: {
         prototype: HTMLRCheckboxElement;
         new (): HTMLRCheckboxElement;
+    };
+    interface HTMLRCurrencyInputElementEventMap {
+        "rInput": CustomEvent<number>;
+        "rFocus": FocusEvent;
+        "rBlur": FocusEvent;
+        "rChange": CustomEvent<number>;
+    }
+    interface HTMLRCurrencyInputElement extends Components.RCurrencyInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRCurrencyInputElementEventMap>(type: K, listener: (this: HTMLRCurrencyInputElement, ev: RCurrencyInputCustomEvent<HTMLRCurrencyInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRCurrencyInputElementEventMap>(type: K, listener: (this: HTMLRCurrencyInputElement, ev: RCurrencyInputCustomEvent<HTMLRCurrencyInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRCurrencyInputElement: {
+        prototype: HTMLRCurrencyInputElement;
+        new (): HTMLRCurrencyInputElement;
     };
     interface HTMLRDatepickerElementEventMap {
         "rChange": CustomEvent;
@@ -1339,6 +1471,7 @@ declare global {
         "r-card-subtitle": HTMLRCardSubtitleElement;
         "r-card-title": HTMLRCardTitleElement;
         "r-checkbox": HTMLRCheckboxElement;
+        "r-currency-input": HTMLRCurrencyInputElement;
         "r-datepicker": HTMLRDatepickerElement;
         "r-dropdown": HTMLRDropdownElement;
         "r-file-upload": HTMLRFileUploadElement;
@@ -1639,6 +1772,130 @@ declare namespace LocalJSX {
           * The checkbox value
          */
         "value"?: string;
+    }
+    interface RCurrencyInput {
+        /**
+          * If true, allows decimal values (default: true)
+          * @default true
+         */
+        "allowDecimals"?: boolean;
+        /**
+          * If true, allows negative values (default: true)
+          * @default true
+         */
+        "allowNegativeValue"?: boolean;
+        /**
+          * The currency input color (Ionic color)
+         */
+        "color"?: IonicColor;
+        /**
+          * ISO currency code (e.g., "USD", "EUR", "GBP")
+          * @default 'USD'
+         */
+        "currencyCode"?: string;
+        /**
+          * Character used as decimal separator (default: based on locale)
+         */
+        "decimalSeparator"?: string;
+        /**
+          * If true, the currency input is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the currency input has error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Error message to display
+         */
+        "errorText"?: string;
+        /**
+          * The fill style
+         */
+        "fill"?: FillStyle;
+        /**
+          * If true, ensures the value always has a fixed number of decimal places
+          * @default false
+         */
+        "fixedDecimalLength"?: boolean;
+        /**
+          * Character used as thousands/group separator (default: based on locale)
+         */
+        "groupSeparator"?: string;
+        /**
+          * Helper text to display
+         */
+        "helperText"?: string;
+        /**
+          * The currency input label
+         */
+        "label"?: string;
+        /**
+          * Locale for formatting (e.g., "en-US", "en-GB")
+         */
+        "locale"?: string;
+        /**
+          * Maximum value
+         */
+        "max"?: number;
+        /**
+          * Minimum value
+         */
+        "min"?: number;
+        /**
+          * The currency input name (for form submission)
+         */
+        "name"?: string;
+        /**
+          * Emitted when the currency input loses focus
+         */
+        "onRBlur"?: (event: RCurrencyInputCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the currency input value changes (alias for rInput)
+         */
+        "onRChange"?: (event: RCurrencyInputCustomEvent<CustomEvent<number>>) => void;
+        /**
+          * Emitted when the currency input receives focus
+         */
+        "onRFocus"?: (event: RCurrencyInputCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the currency input value changes
+         */
+        "onRInput"?: (event: RCurrencyInputCustomEvent<CustomEvent<number>>) => void;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Number of decimal places (default: 2) Set to 0 for currencies without decimals (e.g., JPY) Set to higher values for more precision (e.g., 3 for some cryptocurrencies) The input will enforce this limit during typing
+          * @default 2
+         */
+        "precision"?: number;
+        /**
+          * If true, the currency input is readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * If true, the currency input is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * The shape
+         */
+        "shape"?: 'round';
+        /**
+          * If true, disables automatic insertion of group separators
+          * @default false
+         */
+        "turnOffSeparators"?: boolean;
+        /**
+          * The currency value (number)
+         */
+        "value"?: number;
     }
     interface RDatepicker {
         /**
@@ -2440,6 +2697,7 @@ declare namespace LocalJSX {
         "r-card-subtitle": RCardSubtitle;
         "r-card-title": RCardTitle;
         "r-checkbox": RCheckbox;
+        "r-currency-input": RCurrencyInput;
         "r-datepicker": RDatepicker;
         "r-dropdown": RDropdown;
         "r-file-upload": RFileUpload;
@@ -2475,6 +2733,7 @@ declare module "@stencil/core" {
             "r-card-subtitle": LocalJSX.RCardSubtitle & JSXBase.HTMLAttributes<HTMLRCardSubtitleElement>;
             "r-card-title": LocalJSX.RCardTitle & JSXBase.HTMLAttributes<HTMLRCardTitleElement>;
             "r-checkbox": LocalJSX.RCheckbox & JSXBase.HTMLAttributes<HTMLRCheckboxElement>;
+            "r-currency-input": LocalJSX.RCurrencyInput & JSXBase.HTMLAttributes<HTMLRCurrencyInputElement>;
             "r-datepicker": LocalJSX.RDatepicker & JSXBase.HTMLAttributes<HTMLRDatepickerElement>;
             "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
             "r-file-upload": LocalJSX.RFileUpload & JSXBase.HTMLAttributes<HTMLRFileUploadElement>;

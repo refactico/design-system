@@ -11,6 +11,7 @@ export { renderInputExamples } from './r-input-examples';
 export { renderTextareaExamples } from './r-textarea-examples';
 export { renderRangeExamples } from './r-range-examples';
 export { renderFileUploadExamples } from './r-file-upload-examples';
+export { renderCurrencyInputExamples } from './r-currency-input-examples';
 export { renderDropdownExamples } from './r-dropdown-examples';
 export { renderDatepickerExamples } from './r-datepicker-examples';
 export { renderAlertExamples } from './r-alert-examples';
@@ -35,6 +36,7 @@ import { renderInputExamples } from './r-input-examples';
 import { renderTextareaExamples } from './r-textarea-examples';
 import { renderRangeExamples } from './r-range-examples';
 import { renderFileUploadExamples } from './r-file-upload-examples';
+import { renderCurrencyInputExamples } from './r-currency-input-examples';
 import { renderDropdownExamples } from './r-dropdown-examples';
 import { renderDatepickerExamples } from './r-datepicker-examples';
 import { renderAlertExamples } from './r-alert-examples';
@@ -59,6 +61,7 @@ export const componentExamples: Record<string, (context?: ExampleContext) => any
   'r-textarea': renderTextareaExamples,
   'r-range': renderRangeExamples,
   'r-file-upload': renderFileUploadExamples,
+  'r-currency-input': renderCurrencyInputExamples,
   'r-dropdown': renderDropdownExamples,
   'r-datepicker': renderDatepickerExamples,
   'r-alert': renderAlertExamples,

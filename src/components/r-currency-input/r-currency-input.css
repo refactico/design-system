@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+
+  /* Component tokens (PRIVATE - do not override directly) */
+  --r-internal-currency-input-padding-x: var(--r-spacing-4);
+  --r-internal-currency-input-padding-y: var(--r-spacing-3);
+  --r-internal-currency-input-border-radius: var(--r-border-radius-base);
+  --r-internal-currency-input-font-size: var(--r-typography-font-size-base);
+  --r-internal-currency-input-border-color: var(--r-border-color);
+  --r-internal-currency-input-border-focus: var(--r-color-primary);
+}
+
+/* Map component tokens to Ionic currency-input/item variables */
+r-currency-input ion-item {
+  --padding-start: var(--r-internal-currency-input-padding-x);
+  --padding-end: var(--r-internal-currency-input-padding-x);
+  --padding-top: var(--r-internal-currency-input-padding-y);
+  --padding-bottom: var(--r-internal-currency-input-padding-y);
+  --background: transparent;
+  --ion-item-background: transparent;
+  background: transparent;
+}
+
+r-currency-input ion-label {
+  margin-bottom: var(--r-spacing-2, 8px);
+}
+
+r-currency-input ion-input {
+  width: 100%;
+  font-size: var(--r-internal-currency-input-font-size);
+  margin-top: var(--r-spacing-2, 8px);
+}
+
+/* Focus state */
+r-currency-input ion-item.item-has-focus {
+  --border-color: var(--r-internal-currency-input-border-focus);
+}
+
+/* Error state */
+r-currency-input ion-item.item-has-error {
+  --border-color: var(--r-color-danger);
+}
+
+/* Disabled state */
+r-currency-input ion-item[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+

@@ -10,15 +10,22 @@ Our design system wraps Ionic components with `r-*` prefixes to:
 - Apply consistent design tokens and styling
 - Ensure all sub-components are wrapped when needed
 
-## ✅ Implemented Components (17 components + 5 sub-components = 22 total)
+## ✅ Implemented Components (22 components + 5 sub-components = 27 total)
+
+**Note**: Updated count includes r-textarea, r-heading, r-range, and r-file-upload created for generic questionnaire system.
 
 ### Form Components
 1. ✅ **r-button** - Wraps `ion-button`
 2. ✅ **r-input** - Wraps `ion-input` with password toggle and validation
-3. ✅ **r-checkbox** - Wraps `ion-checkbox` with form field support
-4. ✅ **r-toggle** - Wraps `ion-toggle` with form field support
-5. ✅ **r-dropdown** - Wraps `ion-select` with validation
-6. ✅ **r-datepicker** - Wraps `ion-datetime` with various presentation styles
+3. ✅ **r-textarea** - Wraps `ion-textarea` with validation, error handling, and auto-grow support
+4. ✅ **r-checkbox** - Wraps `ion-checkbox` with form field support
+5. ✅ **r-toggle** - Wraps `ion-toggle` with form field support
+6. ✅ **r-dropdown** - Wraps `ion-select` with validation
+7. ✅ **r-datepicker** - Wraps `ion-datetime` with various presentation styles
+8. ✅ **r-radio-group** - Wraps `ion-radio-group` with form field support
+9. ✅ **r-range** - Wraps `ion-range` with validation, dual knob support, and tick marks
+10. ✅ **r-file-upload** - File upload component with drag-drop, preview, and validation
+11. ✅ **r-currency-input** - Currency input component with automatic formatting, locale support, and validation
 
 ### Layout Components
 7. ✅ **r-header** - Wraps `ion-header` with toolbar and title support
@@ -39,6 +46,7 @@ Our design system wraps Ionic components with `r-*` prefixes to:
 ### UI Components
 21. ✅ **r-badge** - Wraps `ion-badge`
 22. ✅ **r-alert** - Wraps `ion-alert` with inline usage support
+23. ✅ **r-heading** - Heading component for displaying headings with different levels (1-6) and colors
 
 ---
 
@@ -54,17 +62,40 @@ These are critical for most applications and should be implemented first.
 - **Complexity**: Medium
 - **Dependencies**: Form field utilities (already available)
 
-#### 2. **r-textarea** - Text Area
+#### 2. ✅ **r-textarea** - Text Area (COMPLETED)
 - **Ionic Component**: `ion-textarea`
 - **Use cases**: Multi-line text input, comments, descriptions
 - **Complexity**: Low
 - **Dependencies**: Form field utilities (already available)
+- **Status**: ✅ All files created, tested, and integrated
 
-#### 3. **r-range** - Range Slider
+#### 3. ✅ **r-range** - Range Slider (COMPLETED)
 - **Ionic Component**: `ion-range`
 - **Use cases**: Volume control, price filters, rating sliders
 - **Complexity**: Medium
 - **Dependencies**: Form field utilities (already available)
+- **Status**: ✅ All files created, tested, and integrated
+
+#### 3.5. ✅ **r-file-upload** - File Upload (COMPLETED)
+- **Ionic Component**: `ion-input` (type="file") + custom UI
+- **Use cases**: File uploads with drag-drop, preview, validation
+- **Complexity**: Medium-High
+- **Dependencies**: Form field utilities, file handling
+- **Status**: ✅ All files created with drag-drop, preview, validation, tested, and integrated
+
+#### 3.6. ✅ **r-heading** - Heading (COMPLETED)
+- **Ionic Component**: Custom (h1-h6)
+- **Use cases**: Display headings with different levels and colors
+- **Complexity**: Low
+- **Dependencies**: None
+- **Status**: ✅ All files created, tested, and integrated
+
+#### 3.7. ✅ **r-currency-input** - Currency Input (COMPLETED)
+- **Ionic Component**: `ion-input` (type="text") + currency formatting
+- **Use cases**: Currency inputs with automatic formatting, multi-currency support
+- **Complexity**: Medium
+- **Dependencies**: Form field utilities, Intl.NumberFormat
+- **Status**: ✅ All files created with currency formatting, locale support, tested, and integrated
 
 #### 4. **r-searchbar** - Search Bar
 - **Ionic Component**: `ion-searchbar`
