@@ -1,9 +1,0 @@
-:host {
-  display: block;
-}
-
-r-buttons ion-buttons {
-  /* Apply design system spacing between buttons */
-  --gap: var(--r-spacing-2, 8px);
-}
-
