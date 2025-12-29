@@ -1,0 +1,133 @@
+@import './r-select-theme.css';
+
+/* ========== Host ========== */
+:host {
+  display: block;
+}
+
+/* ========== Container ========== */
+.select-container {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+/* ========== Label ========== */
+.select-label {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--select-label-font-size);
+  font-weight: var(--select-label-font-weight);
+  color: var(--select-label-color);
+}
+
+.required {
+  margin-left: var(--spacing-xs);
+  color: var(--color-danger);
+}
+
+/* ========== Wrapper ========== */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ========== Native Select ========== */
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: var(--select-padding-y, 0.5rem) calc(var(--select-padding-x, 1rem) + var(--select-chevron-space, 1.5rem)) var(--select-padding-y, 0.5rem) var(--select-padding-x, 1rem);
+
+  font-size: var(--select-font-size);
+  font-weight: var(--select-font-weight);
+  line-height: 1.4;
+
+  color: var(--select-color);
+  background-color: var(--select-bg);
+
+  border: var(--select-border-width) solid var(--select-border-color);
+  border-radius: var(--select-border-radius);
+
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+/* Hover */
+.select:hover:not(:disabled) {
+  border-color: var(--select-hover-border-color);
+}
+
+/* Focus */
+.select:focus {
+  outline: none;
+  border-color: var(--select-focus-border-color);
+  box-shadow: 0 0 0 var(--select-focus-ring-width)
+    var(--select-focus-ring-color);
+}
+
+/* Disabled */
+.select:disabled {
+  background-color: var(--select-disabled-bg);
+  color: var(--select-disabled-color);
+  cursor: not-allowed;
+  border-color: var(--select-disabled-border-color);
+}
+
+/* Error */
+.select-container.error .select {
+  border-color: var(--select-error-border-color);
+}
+
+/* ========== Chevron ========== */
+.chevron {
+  position: absolute;
+  top: 50%;
+  right: var(--select-chevron-offset, 0.75rem);
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--select-chevron-color, var(--text-tertiary));
+  font-size: var(--select-chevron-size, 1rem);
+  user-select: none;
+  line-height: 1;
+}
+
+/* ========== Helper Text ========== */
+.select-helper {
+  margin-top: var(--spacing-md);
+  font-size: var(--select-helper-font-size);
+  color: var(--select-helper-color);
+}
+
+.select-helper.error {
+  color: var(--select-error-color);
+}
+
+/* Size variants */
+:host(.size-sm) {
+  --select-height: 2.25rem;
+  --select-padding-x: 0.75rem;
+  --select-padding-y: 0.375rem;
+  --select-font-size: 0.875rem;
+}
+
+:host(.size-md) {
+  --select-height: 2.5rem;
+  --select-padding-x: 1rem;
+  --select-padding-y: 0.5rem;
+  --select-font-size: 1rem;
+}
+
+:host(.size-lg) {
+  --select-height: 3rem;
+  --select-padding-x: 1.25rem;
+  --select-padding-y: 0.625rem;
+  --select-font-size: 1.125rem;
+}

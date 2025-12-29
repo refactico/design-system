@@ -1,0 +1,41 @@
+/* r-badge theme tokens
+ * These tokens define the visual contract for r-badge.
+ * They depend on global palette tokens from theme.css.
+ */
+
+:host {
+  /* Typography */
+  --badge-font-size: 0.875rem;
+  --badge-font-weight: 600;
+  --badge-line-height: 1;
+
+  /* Layout */
+  --badge-padding-y: 0.25rem;
+  --badge-padding-x: 0.5rem;
+  --badge-border-radius: 0.375rem;
+  --badge-border-width: 0;
+  --badge-border-style: solid;
+  --badge-border-color: transparent;
+  --badge-gap: 0.25rem;
+
+  /* Colors - Primary (default) */
+  --badge-bg: var(--color-primary);
+  --badge-color: var(--color-primary-contrast);
+  --badge-border-color: var(--color-primary);
+  
+  /* Dot variant */
+  --badge-dot-size: 0.5rem;
+  
+  /* Size variants will override these */
+  --badge-size-sm-font-size: 0.75rem;
+  --badge-size-sm-padding-y: 0.125rem;
+  --badge-size-sm-padding-x: 0.375rem;
+  
+  --badge-size-md-font-size: 0.875rem;
+  --badge-size-md-padding-y: 0.25rem;
+  --badge-size-md-padding-x: 0.5rem;
+  
+  --badge-size-lg-font-size: 1rem;
+  --badge-size-lg-padding-y: 0.375rem;
+  --badge-size-lg-padding-x: 0.75rem;
+}

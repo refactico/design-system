@@ -1,0 +1,44 @@
+/* r-checkbox theme tokens
+ * These tokens define the visual contract for r-checkbox.
+ * They depend on global palette tokens from theme.css.
+ */
+
+:host {
+  /* Size */
+  --checkbox-size: 1.25rem;
+  --checkbox-border-width: 2px;
+  --checkbox-border-radius: 0.25rem;
+  --checkbox-gap: 0.75rem;
+
+  /* Colors */
+  --checkbox-bg: #ffffff;
+  --checkbox-border-color: #d1d5db;
+  --checkbox-checked-bg: var(--color-primary, #2563eb);
+  --checkbox-checked-border-color: var(--color-primary, #2563eb);
+  --checkbox-focus-color: var(--color-primary, #2563eb);
+  --checkbox-hover-border-color: #9ca3af;
+  --checkbox-disabled-bg: #f3f4f6;
+  --checkbox-disabled-border-color: #d1d5db;
+  --checkbox-disabled-checked-bg: #9ca3af;
+  --checkbox-disabled-checked-border-color: #9ca3af;
+  --checkbox-disabled-opacity: 0.5;
+
+  /* Check mark */
+  --checkbox-check-width: 0.375rem;
+  --checkbox-check-height: 0.75rem;
+  --checkbox-check-color: #ffffff;
+
+  /* Label */
+  --checkbox-label-font-size: 0.875rem;
+  --checkbox-label-font-weight: 500;
+  --checkbox-label-color: #374151;
+  --checkbox-label-line-height: 1.25rem;
+  --checkbox-label-margin-top: 0.125rem;
+  --checkbox-disabled-label-color: #9ca3af;
+  --checkbox-required-margin-left: 0.25rem;
+
+  /* Helper text */
+  --checkbox-helper-font-size: 0.75rem;
+  --checkbox-helper-color: #6b7280;
+  --checkbox-helper-gap: 0.25rem;
+}

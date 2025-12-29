@@ -1,0 +1,60 @@
+/* r-menu theme tokens
+ * These tokens define the visual contract for r-menu.
+ * They depend on global palette tokens from theme.css.
+ */
+
+:host {
+  /* Layout */
+  --menu-trigger-padding-x: 1rem;
+  --menu-trigger-padding-y: 0.5rem;
+  --menu-trigger-border-radius: 0.5rem;
+  --menu-trigger-gap: 0.5rem;
+
+  /* Typography */
+  --menu-trigger-font-size: 1rem;
+  --menu-trigger-font-weight: 500;
+  --menu-item-font-size: 1rem;
+
+  /* Colors – base */
+  --menu-trigger-bg: #ffffff;
+  --menu-trigger-color: #111827;
+
+  /* Border */
+  --menu-trigger-border-width: 1px;
+  --menu-trigger-border-color: #d1d5db;
+
+  /* Focus */
+  --menu-trigger-focus-border-color: var(--color-primary);
+  --menu-trigger-focus-ring-color: color-mix(
+    in srgb,
+    var(--color-primary) 15%,
+    transparent
+  );
+
+  /* Hover */
+  --menu-trigger-hover-border-color: #9ca3af;
+  --menu-trigger-hover-bg: #f9fafb;
+
+  /* Disabled */
+  --menu-trigger-disabled-bg: #f9fafb;
+  --menu-trigger-disabled-color: #9ca3af;
+  --menu-trigger-disabled-border-color: #e5e7eb;
+
+  /* List */
+  --menu-list-bg: #ffffff;
+  --menu-list-border-color: #e5e7eb;
+  --menu-list-border-width: 1px;
+  --menu-list-border-radius: 0.5rem;
+  --menu-list-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --menu-list-padding-y: 0.5rem;
+  --menu-list-min-width: 200px;
+
+  /* Items */
+  --menu-item-padding-x: 1rem;
+  --menu-item-padding-y: 0.5rem;
+  --menu-item-color: #111827;
+  --menu-item-bg: #ffffff;
+  --menu-item-hover-bg: #f3f4f6;
+  --menu-item-disabled-color: #9ca3af;
+  --menu-item-disabled-bg: #ffffff;
+}

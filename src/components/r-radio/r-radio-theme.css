@@ -1,0 +1,40 @@
+/* r-radio theme tokens
+ * These tokens define the visual contract for r-radio.
+ * They depend on global palette tokens from theme.css.
+ */
+
+:host {
+  /* Size */
+  --radio-size: 1.25rem;
+  --radio-border-width: 2px;
+  --radio-border-radius: 50%;
+  --radio-gap: 0.75rem;
+  --radio-dot-size: 0.5rem;
+
+  /* Colors */
+  --radio-bg: #ffffff;
+  --radio-border-color: #d1d5db;
+  --radio-checked-bg: var(--color-primary, #2563eb);
+  --radio-checked-border-color: var(--color-primary, #2563eb);
+  --radio-focus-color: var(--color-primary, #2563eb);
+  --radio-hover-border-color: #9ca3af;
+  --radio-disabled-bg: #f3f4f6;
+  --radio-disabled-border-color: #d1d5db;
+  --radio-disabled-checked-bg: #9ca3af;
+  --radio-disabled-checked-border-color: #9ca3af;
+  --radio-disabled-opacity: 0.5;
+
+  /* Label */
+  --radio-label-font-size: 0.875rem;
+  --radio-label-font-weight: 500;
+  --radio-label-color: #374151;
+  --radio-label-line-height: 1.25rem;
+  --radio-label-margin-top: 0.125rem;
+  --radio-disabled-label-color: #9ca3af;
+  --radio-required-margin-left: 0.25rem;
+
+  /* Helper text */
+  --radio-helper-font-size: 0.75rem;
+  --radio-helper-color: #6b7280;
+  --radio-helper-gap: 0.25rem;
+}

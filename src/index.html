@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Refactico Design System</title>
+    <link rel="stylesheet" href="/build/design-system.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: var(--font-family-base, system-ui, -apple-system, BlinkMacSystemFont, sans-serif);
+        background: var(--bg-secondary, #f8fafc);
+        color: var(--text-primary, #0f172a);
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-2xl, 32px) var(--spacing-xl, 20px) var(--spacing-3xl, 64px);
+      }
+
+      .header {
+        margin-bottom: var(--spacing-3xl, 48px);
+        text-align: center;
+      }
+
+      .header h1 {
+        margin: 0 0 var(--spacing-sm, 8px);
+        font-size: var(--font-size-3xl, 2rem);
+        font-weight: var(--font-weight-bold, 700);
+        color: var(--text-primary);
+      }
+
+      .header p {
+        margin: 0;
+        color: var(--text-secondary, #475569);
+        font-size: var(--font-size-lg, 1.125rem);
+      }
+
+      .section {
+        margin-bottom: var(--spacing-3xl, 48px);
+      }
+
+      .section h2 {
+        margin: 0 0 var(--spacing-lg, 16px);
+        font-size: var(--font-size-xl, 1.25rem);
+        font-weight: var(--font-weight-semibold, 600);
+        color: var(--text-primary);
+      }
+
+      .card {
+        background: var(--bg-primary, #ffffff);
+        border-radius: var(--radius-lg, 12px);
+        padding: var(--spacing-xl, 24px);
+        box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-lg, 16px);
+      }
+
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md, 12px);
+      }
+
+      .inline-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm, 8px);
+        align-items: center;
+      }
+
+      pre {
+        background: var(--text-primary, #0f172a);
+        color: var(--text-inverse, #e5e7eb);
+        padding: var(--spacing-lg, 16px);
+        border-radius: var(--radius-md, 10px);
+        overflow-x: auto;
+        font-size: var(--font-size-sm, 0.875rem);
+        line-height: var(--line-height-normal, 1.5);
+      }
+
+      code {
+        font-family: var(--font-family-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+      }
+
+      p {
+        margin: 0;
+        font-size: var(--font-size-base, 0.95rem);
+      }
+
+      .demo-label {
+        font-size: var(--font-size-sm, 0.875rem);
+        font-weight: var(--font-weight-medium, 500);
+        color: var(--text-secondary, #64748b);
+        margin-bottom: var(--spacing-xs, 4px);
+      }
+    </style>
+
+    <script type="module" src="/build/design-system.esm.js"></script>
+    <script nomodule src="/build/design-system.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Refactico Design System</h1>
+        <p>Production-ready, accessible, and beautifully designed web components</p>
+      </header>
+
+      <section class="section">
+        <h2>Buttons</h2>
+        <div class="card">
+          <div class="grid">
+            <!-- Variants -->
+            <div class="stack">
+              <div class="demo-label">Variants</div>
+              <r-button variant="solid">Solid</r-button>
+              <r-button variant="outline">Outline</r-button>
+              <r-button variant="ghost">Ghost</r-button>
+              <r-button variant="link">Link Button</r-button>
+            </div>
+
+            <!-- Sizes -->
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-button size="sm">Small</r-button>
+              <r-button size="md">Medium</r-button>
+              <r-button size="lg">Large</r-button>
+            </div>
+
+            <!-- Colors -->
+            <div class="stack">
+              <div class="demo-label">Colors</div>
+              <r-button color="primary">Primary</r-button>
+              <r-button color="success">Success</r-button>
+              <r-button color="danger">Danger</r-button>
+              <r-button color="warning">Warning</r-button>
+              <r-button color="info">Info</r-button>
+            </div>
+
+            <!-- States -->
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-button loading variant="solid">Loading</r-button>
+              <r-button disabled>Disabled</r-button>
+              <r-button block>Full Width</r-button>
+            </div>
+
+            <!-- Icon buttons -->
+            <div class="stack">
+              <div class="demo-label">With Icons</div>
+              <r-button>
+                <span slot="icon-left">🔍</span>
+                Search
+              </r-button>
+
+              <r-button>
+                Next
+                <span slot="icon-right">→</span>
+              </r-button>
+
+              <r-button icon-only label="Close">
+                ✕
+              </r-button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Inputs</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic</div>
+              <r-input label="Name" placeholder="Enter your name"></r-input>
+              <r-input
+                label="Email"
+                type="email"
+                placeholder="you@example.com"
+                helper-text="We never spam"
+              ></r-input>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-input label="Small" size="sm" placeholder="Small input"></r-input>
+              <r-input label="Medium" size="md" placeholder="Medium input"></r-input>
+              <r-input label="Large" size="lg" placeholder="Large input"></r-input>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Features</div>
+              <r-input
+                label="Password"
+                type="password"
+                clearable
+                placeholder="Enter password"
+              ></r-input>
+
+              <r-input
+                label="Character Count"
+                placeholder="Type something..."
+                show-counter
+                maxlength="50"
+              ></r-input>
+
+              <r-input
+                label="Error state"
+                error
+                error-message="This field is required"
+              ></r-input>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-input label="Disabled" disabled value="Cannot edit"></r-input>
+              <r-input label="Readonly" readonly value="Read-only content"></r-input>
+              <r-input label="Required" required placeholder="Required field"></r-input>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Select</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic</div>
+              <r-select
+                label="Choose option"
+                placeholder="Select an option"
+                options='[{"label":"Option 1","value":"1"},{"label":"Option 2","value":"2"},{"label":"Option 3","value":"3"}]'
+              ></r-select>
+
+              <r-select
+                label="Sizes"
+                size="sm"
+                placeholder="Small select"
+                options='[{"label":"Small","value":"sm"}]'
+              ></r-select>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">With Groups</div>
+              <r-select
+                label="Country"
+                placeholder="Select your country"
+                required
+                helper-text="This field is required"
+                options='[{"label":"North America","value":"na","group":"Region"},{"label":"United States","value":"us","group":"North America"},{"label":"Canada","value":"ca","group":"North America"},{"label":"Europe","value":"eu","group":"Region"},{"label":"United Kingdom","value":"uk","group":"Europe"}]'
+              ></r-select>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-select
+                label="Status"
+                error
+                error-message="Please select a valid option"
+                options='[{"label":"Active","value":"active"},{"label":"Inactive","value":"inactive"},{"label":"Pending","value":"pending"}]'
+              ></r-select>
+
+              <r-select
+                label="Disabled"
+                disabled
+                options='[{"label":"Option A","value":"a"},{"label":"Option B","value":"b"}]'
+              ></r-select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Menu</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic Menu</div>
+              <r-menu 
+                label="Actions"
+                items='[{"label":"Profile","value":"profile"},{"label":"Settings","value":"settings"},{"label":"Logout","value":"logout"}]'
+              >
+                <r-button slot="trigger">Actions Menu</r-button>
+              </r-menu>
+
+              <r-menu 
+                label="More options"
+                items='[{"label":"Edit","value":"edit"},{"label":"Duplicate","value":"duplicate"},{"label":"Delete","value":"delete","disabled":true}]'
+              >
+                <r-button slot="trigger" variant="outline">More Options</r-button>
+              </r-menu>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">With Dividers</div>
+              <r-menu 
+                label="File Menu"
+                items='[{"label":"New","value":"new"},{"label":"Open","value":"open"},{"label":"divider","value":"","divider":true},{"label":"Save","value":"save"},{"label":"Export","value":"export"}]'
+              >
+                <r-button slot="trigger" variant="ghost">File</r-button>
+              </r-menu>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Modal</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-button onclick="document.querySelector('r-modal').setAttribute('open', 'true')">Open Small Modal</r-button>
+              <r-button onclick="document.querySelectorAll('r-modal')[1].setAttribute('open', 'true')">Open Medium Modal</r-button>
+              <r-button onclick="document.querySelectorAll('r-modal')[2].setAttribute('open', 'true')">Open Large Modal</r-button>
+              <r-button onclick="document.querySelectorAll('r-modal')[3].setAttribute('open', 'true')">Open XL Modal</r-button>
+            </div>
+          </div>
+
+          <r-modal id="modal-sm" size="sm" modal-title="Small Modal">
+            <p>This is a small modal dialog.</p>
+            <div slot="footer">
+              <r-button variant="outline" onclick="document.querySelector('#modal-sm').removeAttribute('open')">Close</r-button>
+            </div>
+          </r-modal>
+
+          <r-modal id="modal-md" size="md" modal-title="Medium Modal">
+            <p>This is a medium-sized modal dialog with more content.</p>
+            <p>You can add any content here.</p>
+            <div slot="footer">
+              <r-button variant="outline" onclick="document.querySelector('#modal-md').removeAttribute('open')">Cancel</r-button>
+              <r-button onclick="document.querySelector('#modal-md').removeAttribute('open')">Confirm</r-button>
+            </div>
+          </r-modal>
+
+          <r-modal id="modal-lg" size="lg" modal-title="Large Modal" scrollable>
+            <p>This is a large modal with scrollable content.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div slot="footer">
+              <r-button variant="outline" onclick="document.querySelector('#modal-lg').removeAttribute('open')">Close</r-button>
+            </div>
+          </r-modal>
+
+          <r-modal id="modal-xl" size="xl" modal-title="Extra Large Modal">
+            <p>This is an extra large modal for displaying extensive content.</p>
+            <div slot="footer">
+              <r-button variant="outline" onclick="document.querySelector('#modal-xl').removeAttribute('open')">Close</r-button>
+            </div>
+          </r-modal>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Checkbox</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic</div>
+              <r-checkbox label="Accept terms" checked></r-checkbox>
+              <r-checkbox label="Subscribe to newsletter"></r-checkbox>
+              <r-checkbox
+                label="Agree to terms"
+                required
+                error
+                error-message="You must accept the terms"
+              ></r-checkbox>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-checkbox label="Small" size="sm"></r-checkbox>
+              <r-checkbox label="Medium" size="md" checked></r-checkbox>
+              <r-checkbox label="Large" size="lg"></r-checkbox>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-checkbox
+                label="Marketing emails"
+                helper-text="Get weekly updates"
+              ></r-checkbox>
+              <r-checkbox label="Disabled option" disabled></r-checkbox>
+              <r-checkbox label="Indeterminate" id="indeterminate-checkbox"></r-checkbox>
+            </div>
+          </div>
+        </div>
+        <script>
+          // Set indeterminate state
+          setTimeout(() => {
+            const checkbox = document.getElementById('indeterminate-checkbox');
+            if (checkbox) {
+              checkbox.indeterminate = true;
+            }
+          }, 100);
+        </script>
+      </section>
+
+      <section class="section">
+        <h2>Radio</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Radio Group</div>
+              <r-radio name="payment" value="card" label="Credit Card" checked></r-radio>
+              <r-radio name="payment" value="paypal" label="PayPal"></r-radio>
+              <r-radio name="payment" value="bank" label="Bank Transfer"></r-radio>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-radio name="size-sm" value="sm" label="Small" size="sm"></r-radio>
+              <r-radio name="size-md" value="md" label="Medium" size="md" checked></r-radio>
+              <r-radio name="size-lg" value="lg" label="Large" size="lg"></r-radio>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-radio
+                name="subscription"
+                value="monthly"
+                label="Monthly plan"
+                helper-text="$9.99/month"
+              ></r-radio>
+              <r-radio
+                name="subscription"
+                value="yearly"
+                label="Yearly plan"
+                error
+                error-message="This plan is not available"
+              ></r-radio>
+              <r-radio name="disabled" value="disabled" label="Disabled option" disabled></r-radio>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Textarea</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic</div>
+              <r-textarea label="Description" placeholder="Enter your description"></r-textarea>
+              <r-textarea
+                label="Comments"
+                rows="4"
+                maxlength="200"
+                helper-text="Maximum 200 characters"
+              ></r-textarea>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-textarea label="Small" size="sm" placeholder="Small textarea"></r-textarea>
+              <r-textarea label="Medium" size="md" placeholder="Medium textarea"></r-textarea>
+              <r-textarea label="Large" size="lg" placeholder="Large textarea"></r-textarea>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Features</div>
+              <r-textarea
+                label="Auto-resize"
+                auto-resize
+                placeholder="This textarea grows automatically..."
+              ></r-textarea>
+              <r-textarea
+                label="Character Counter"
+                show-counter
+                maxlength="100"
+                placeholder="Type to see counter..."
+              ></r-textarea>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-textarea
+                label="Error message"
+                error
+                error-message="This field is required"
+              ></r-textarea>
+              <r-textarea
+                label="Readonly content"
+                readonly
+                value="This content cannot be edited"
+              ></r-textarea>
+              <r-textarea label="Disabled" disabled value="Disabled textarea"></r-textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Switch</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Basic</div>
+              <r-switch label="Enable notifications" checked></r-switch>
+              <r-switch label="Dark mode"></r-switch>
+              <r-switch
+                label="Accept marketing emails"
+                error
+                error-message="You must make a selection"
+              ></r-switch>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Sizes</div>
+              <r-switch label="Small" size="sm" checked></r-switch>
+              <r-switch label="Medium" size="md" checked></r-switch>
+              <r-switch label="Large" size="lg" checked></r-switch>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Colors</div>
+              <r-switch label="Primary" color="primary" checked></r-switch>
+              <r-switch label="Success" color="success" checked></r-switch>
+              <r-switch label="Danger" color="danger" checked></r-switch>
+              <r-switch label="Warning" color="warning" checked></r-switch>
+              <r-switch label="Info" color="info" checked></r-switch>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-switch
+                label="Auto-save"
+                helper-text="Automatically save your work"
+              ></r-switch>
+              <r-switch label="Disabled option" disabled></r-switch>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Tooltip</h2>
+        <div class="card">
+          <div class="grid">
+            <div class="stack">
+              <div class="demo-label">Positions</div>
+              <r-tooltip content="This is a helpful tooltip" position="top" show-arrow>
+                <r-button>Top Tooltip</r-button>
+              </r-tooltip>
+
+              <r-tooltip content="Information about this field" position="right" show-arrow>
+                <r-button>Right Tooltip</r-button>
+              </r-tooltip>
+
+              <r-tooltip content="Save your changes" position="bottom" show-arrow>
+                <r-button>Bottom Tooltip</r-button>
+              </r-tooltip>
+
+              <r-tooltip content="Left side tooltip" position="left" show-arrow>
+                <r-button>Left Tooltip</r-button>
+              </r-tooltip>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">Triggers</div>
+              <r-tooltip content="Hover to see tooltip" trigger="hover" show-arrow>
+                <r-button variant="outline">Hover</r-button>
+              </r-tooltip>
+
+              <r-tooltip content="Focus to see tooltip" trigger="focus" show-arrow>
+                <r-button variant="outline">Focus</r-button>
+              </r-tooltip>
+
+              <r-tooltip content="Click to toggle" trigger="click" show-arrow>
+                <r-button variant="outline">Click</r-button>
+              </r-tooltip>
+            </div>
+
+            <div class="stack">
+              <div class="demo-label">States</div>
+              <r-tooltip content="This tooltip is disabled" disabled>
+                <r-button variant="ghost" disabled>Disabled</r-button>
+              </r-tooltip>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Badge</h2>
+        <div class="card">
+          <div class="stack">
+            <div class="demo-label">Variants</div>
+            <div class="inline-stack">
+              <r-badge>Solid</r-badge>
+              <r-badge variant="outline">Outline</r-badge>
+              <r-badge variant="ghost">Ghost</r-badge>
+              <r-badge variant="dot"></r-badge>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="demo-label">Colors</div>
+            <div class="inline-stack">
+              <r-badge color="primary">Primary</r-badge>
+              <r-badge color="success">Success</r-badge>
+              <r-badge color="danger">Danger</r-badge>
+              <r-badge color="warning">Warning</r-badge>
+              <r-badge color="info">Info</r-badge>
+              <r-badge color="neutral">Neutral</r-badge>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="demo-label">Sizes</div>
+            <div class="inline-stack">
+              <r-badge size="sm">Small</r-badge>
+              <r-badge size="md">Medium</r-badge>
+              <r-badge size="lg">Large</r-badge>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="demo-label">Pill Shape</div>
+            <div class="inline-stack">
+              <r-badge pill>Pill Badge</r-badge>
+              <r-badge variant="outline" color="success" pill>Active</r-badge>
+              <r-badge color="danger" pill>Urgent</r-badge>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="demo-label">With Icons</div>
+            <div class="inline-stack">
+              <r-badge>
+                <span slot="icon">✓</span>
+                Verified
+              </r-badge>
+              <r-badge color="success">
+                <span slot="icon">★</span>
+                Featured
+              </r-badge>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

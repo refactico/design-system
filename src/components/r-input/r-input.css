@@ -1,0 +1,198 @@
+@import './r-input-theme.css';
+
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Root */
+.input-root {
+  position: relative;
+  font-family: inherit;
+  width: 100%;
+}
+
+/* Label */
+.label {
+  display: block;
+  margin-bottom: var(--spacing-sm, 6px);
+  font-size: var(--input-label-font-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--input-label-color);
+  width: 100%;
+}
+
+/* Input wrapper */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  min-height: var(--input-height, 3rem);
+  padding-top: var(--input-padding-y, 0.5rem);
+  padding-bottom: var(--input-padding-y, 0.5rem);
+  padding-left: var(--input-padding-x, 1rem);
+  padding-right: var(--input-padding-x, 1rem);
+  font-size: var(--input-font-size, 1rem);
+  font-weight: var(--input-font-weight, 500);
+  border-radius: var(--input-border-radius, 0.5rem);
+  border: var(--input-border-width, 1px) solid var(--input-border-color);
+  background: var(--input-bg);
+  color: var(--input-text-color);
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+  line-height: 1.4;
+  display: block;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+/* Hover */
+:host(:not(.disabled):not(.error)) .input:hover {
+  border-color: var(--input-hover-border-color);
+}
+
+/* Focus */
+:host(.focused):not(.error) .input {
+  border-color: var(--input-focus-border-color);
+  box-shadow: 0 0 0 3px var(--input-focus-ring-color);
+}
+
+/* Disabled */
+:host(.disabled) .input {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text-color);
+  border-color: var(--input-disabled-border-color);
+  cursor: not-allowed;
+}
+
+:host(.disabled) .label {
+  color: var(--input-disabled-text-color);
+}
+
+/* Error */
+:host(.error) .input {
+  border-color: var(--input-error-border-color);
+  box-shadow: 0 0 0 3px color-mix(
+    in srgb,
+    var(--input-error-color) 30%,
+    transparent
+  );
+}
+
+:host(.error) .label {
+  color: var(--input-error-color);
+}
+
+/* Clear button */
+.clear-button {
+  position: absolute;
+  right: var(--input-padding-x);
+  background: transparent;
+  border: none;
+  color: var(--input-clear-color);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clear-button:hover {
+  color: var(--input-clear-hover-color);
+}
+
+/* Helper text */
+.helper {
+  margin-top: var(--spacing-xs);
+  font-size: var(--input-helper-font-size);
+  color: var(--input-helper-color);
+}
+
+.helper.error {
+  color: var(--input-error-helper-color);
+}
+
+/* Size variants */
+:host(.size-sm) {
+  --input-height: 2.25rem;
+  --input-padding-x: 0.75rem;
+  --input-padding-y: 0.375rem;
+  --input-font-size: 0.875rem;
+}
+
+:host(.size-md) {
+  --input-height: 3rem;
+  --input-padding-x: 1rem;
+  --input-padding-y: 0.5rem;
+  --input-font-size: 1rem;
+}
+
+:host(.size-lg) {
+  --input-height: 3.75rem;
+  --input-padding-x: 1.25rem;
+  --input-padding-y: 0.625rem;
+  --input-font-size: 1.125rem;
+}
+
+/* Prefix/Suffix slots */
+.input-wrapper slot[name="prefix"],
+.input-wrapper slot[name="suffix"] {
+  display: inline-flex;
+  align-items: center;
+  color: var(--input-placeholder-color);
+}
+
+.input-wrapper slot[name="prefix"] {
+  padding-left: var(--input-padding-x);
+}
+
+.input-wrapper slot[name="suffix"] {
+  padding-right: var(--input-padding-x);
+}
+
+.input-wrapper:has(slot[name="prefix"]) .input {
+  padding-left: 0;
+}
+
+.input-wrapper:has(slot[name="suffix"]) .input {
+  padding-right: calc(var(--input-padding-x) + var(--input-clear-space));
+}
+
+/* Input footer (helper + counter) */
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--spacing-xs);
+  gap: var(--spacing-sm);
+}
+
+.counter {
+  font-size: var(--input-helper-font-size);
+  color: var(--input-helper-color);
+  white-space: nowrap;
+}
+
+.counter-error {
+  color: var(--input-error-color);
+}

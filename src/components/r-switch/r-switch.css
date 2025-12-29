@@ -1,0 +1,161 @@
+@import './r-switch-theme.css';
+
+/* r-switch.css - Styles for r-switch component */
+:host {
+  display: inline-block;
+}
+
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-helper-gap, 0.25rem);
+}
+
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-gap, 0.75rem);
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch-wrapper:has(.switch-input:disabled) {
+  cursor: not-allowed;
+}
+
+.switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-track {
+  position: relative;
+  width: var(--switch-track-width, 2.75rem);
+  height: var(--switch-track-height, 1.5rem);
+  background: var(--switch-track-bg, var(--border-secondary));
+  border-radius: var(--switch-track-border-radius, var(--radius-full));
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--switch-thumb-offset, 0.125rem);
+  width: var(--switch-thumb-size, 1.25rem);
+  height: var(--switch-thumb-size, 1.25rem);
+  background: var(--switch-thumb-bg, var(--bg-primary));
+  border-radius: 50%;
+  transition: all var(--transition-base);
+  transform: translateY(-50%);
+  box-shadow: var(--switch-thumb-shadow, var(--shadow-sm));
+}
+
+.switch-input:checked + .switch-track {
+  background: var(--switch-checked-track-bg, var(--color-primary, #2563eb));
+}
+
+.switch-input:checked + .switch-track .switch-thumb {
+  left: calc(100% - var(--switch-thumb-size, 1.25rem) - var(--switch-thumb-offset, 0.125rem));
+}
+
+.switch-input:focus + .switch-track {
+  outline: 2px solid var(--switch-focus-color, var(--color-primary, #2563eb));
+  outline-offset: 2px;
+}
+
+.switch-input:hover:not(:disabled) + .switch-track {
+  background: var(--switch-hover-track-bg, var(--border-tertiary));
+}
+
+.switch-input:hover:not(:disabled):checked + .switch-track {
+  background: var(--switch-checked-hover-track-bg, #1d4ed8);
+}
+
+.switch-input:disabled + .switch-track {
+  background: var(--switch-disabled-track-bg, var(--bg-disabled));
+  opacity: var(--switch-disabled-opacity, 0.5);
+}
+
+.switch-input:disabled:checked + .switch-track {
+  background: var(--switch-disabled-checked-track-bg, #9ca3af);
+}
+
+.switch-label {
+  font-size: var(--switch-label-font-size, var(--font-size-sm));
+  font-weight: var(--switch-label-font-weight, var(--font-weight-medium));
+  color: var(--switch-label-color, var(--text-primary));
+  line-height: var(--switch-label-line-height, var(--line-height-tight));
+}
+
+.switch-wrapper:has(.switch-input:disabled) .switch-label {
+  color: var(--switch-disabled-label-color, var(--text-disabled));
+}
+
+.required {
+  color: var(--color-danger, #ef4444);
+  margin-left: var(--switch-required-margin-left, 0.25rem);
+}
+
+.switch-helper {
+  font-size: var(--switch-helper-font-size, var(--font-size-xs));
+  color: var(--switch-helper-color, var(--text-secondary));
+  margin-left: calc(var(--switch-track-width, 2.75rem) + var(--switch-gap, 0.75rem));
+}
+
+.switch-helper.error {
+  color: var(--color-danger, #ef4444);
+}
+
+/* Size variants */
+:host(.size-sm) {
+  --switch-track-width: 2rem;
+  --switch-track-height: 1.125rem;
+  --switch-thumb-size: 0.875rem;
+  --switch-gap: 0.5rem;
+  --switch-label-font-size: 0.75rem;
+}
+
+:host(.size-md) {
+  --switch-track-width: 2.75rem;
+  --switch-track-height: 1.5rem;
+  --switch-thumb-size: 1.25rem;
+  --switch-gap: 0.75rem;
+  --switch-label-font-size: 0.875rem;
+}
+
+:host(.size-lg) {
+  --switch-track-width: 3.5rem;
+  --switch-track-height: 1.875rem;
+  --switch-thumb-size: 1.625rem;
+  --switch-gap: 1rem;
+  --switch-label-font-size: 1rem;
+}
+
+/* Color variants */
+:host(.color-primary) {
+  --switch-checked-track-bg: var(--color-primary);
+  --switch-checked-hover-track-bg: var(--color-primary-hover);
+}
+
+:host(.color-success) {
+  --switch-checked-track-bg: var(--color-success);
+  --switch-checked-hover-track-bg: var(--color-success-hover);
+}
+
+:host(.color-danger) {
+  --switch-checked-track-bg: var(--color-danger);
+  --switch-checked-hover-track-bg: var(--color-danger-hover);
+}
+
+:host(.color-warning) {
+  --switch-checked-track-bg: var(--color-warning);
+  --switch-checked-hover-track-bg: var(--color-warning-hover);
+}
+
+:host(.color-info) {
+  --switch-checked-track-bg: var(--color-info);
+  --switch-checked-hover-track-bg: var(--color-info-hover);
+}
