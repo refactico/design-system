@@ -1,130 +1,141 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Element, State, Method } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, Element, State, Watch } from '@stencil/core';
 
-/**
- * r-switch
- * Accessible switch/toggle component
- */
+export type SwitchSize = 'large' | 'default' | 'small';
+
 @Component({
   tag: 'r-switch',
   styleUrl: 'r-switch.css',
-  shadow: true,
+  shadow: false,
 })
 export class RSwitch {
   @Element() el: HTMLElement;
 
+  /** Whether switch is on */
   @Prop({ mutable: true }) checked: boolean = false;
+
+  /** Whether switch is disabled */
   @Prop() disabled: boolean = false;
-  @Prop() required: boolean = false;
-  @Prop() label?: string;
-  @Prop() helperText?: string;
-  @Prop() error: boolean = false;
-  @Prop() name?: string;
-  @Prop() value?: string;
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
-  @Prop() color: 'primary' | 'success' | 'danger' | 'warning' | 'info' = 'primary';
-  @Prop() switchId?: string;
 
-  @State() isFocused: boolean = false;
+  /** Whether switch is loading */
+  @Prop() loading: boolean = false;
 
-  @Event() rChange: EventEmitter<boolean>;
-  @Event() rFocus: EventEmitter<FocusEvent>;
-  @Event() rBlur: EventEmitter<FocusEvent>;
+  /** Size of the switch */
+  @Prop() size: SwitchSize = 'default';
 
-  private inputElement?: HTMLInputElement;
+  /** Text displayed when on */
+  @Prop() activeText: string;
 
-  /**
-   * Programmatically focus the switch
-   */
-  @Method()
-  async setFocus() {
-    this.inputElement?.focus();
+  /** Text displayed when off */
+  @Prop() inactiveText: string;
+
+  /** Whether to show text inside switch */
+  @Prop() inlinePrompt: boolean = false;
+
+  /** Value when on */
+  @Prop() activeValue: any = true;
+
+  /** Value when off */
+  @Prop() inactiveValue: any = false;
+
+  /** Background color when on */
+  @Prop() activeColor: string;
+
+  /** Background color when off */
+  @Prop() inactiveColor: string;
+
+  /** Native name attribute */
+  @Prop({ attribute: 'name' }) inputName: string;
+
+  /** Aria label */
+  @Prop() ariaLabel: string;
+
+  @State() focused: boolean = false;
+
+  @Event({ bubbles: true, composed: true }) change: EventEmitter<boolean>;
+
+  @Watch('checked')
+  handleCheckedChange(newValue: boolean) {
+    this.change.emit(newValue);
   }
 
-  /**
-   * Programmatically toggle the switch
-   */
-  @Method()
-  async toggle() {
-    if (!this.disabled) {
-      this.checked = !this.checked;
-      this.rChange.emit(this.checked);
+  private handleClick = () => {
+    if (this.disabled || this.loading) return;
+    this.checked = !this.checked;
+  };
+
+  private handleFocus = () => {
+    this.focused = true;
+  };
+
+  private handleBlur = () => {
+    this.focused = false;
+  };
+
+  private handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      this.handleClick();
     }
-  }
-
-  private handleChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    this.checked = target.checked;
-    this.rChange.emit(this.checked);
-  };
-
-  private handleFocus = (event: FocusEvent) => {
-    this.isFocused = true;
-    this.rFocus.emit(event);
-  };
-
-  private handleBlur = (event: FocusEvent) => {
-    this.isFocused = false;
-    this.rBlur.emit(event);
   };
 
   render() {
-    const switchId = this.switchId || `r-switch-${Math.random().toString(36).substr(2, 9)}`;
-    const hasHelper = !!this.helperText;
-    const describedBy = hasHelper ? 'switch-helper' : undefined;
+    const customStyles: { [key: string]: string } = {};
+    if (this.activeColor) {
+      customStyles['--r-switch-active-color'] = this.activeColor;
+    }
+    if (this.inactiveColor) {
+      customStyles['--r-switch-inactive-color'] = this.inactiveColor;
+    }
 
     return (
-      <Host
+      <label
         class={{
-          'size-sm': this.size === 'sm',
-          'size-md': this.size === 'md',
-          'size-lg': this.size === 'lg',
-          [`color-${this.color}`]: true,
-          focused: this.isFocused,
-          disabled: this.disabled,
-          error: this.error,
+          'r-switch': true,
+          'r-switch--checked': this.checked,
+          'r-switch--disabled': this.disabled,
+          'r-switch--loading': this.loading,
+          'r-switch--focused': this.focused,
+          'r-switch--inline-prompt': this.inlinePrompt,
+          'r-switch--custom-active': !!this.activeColor,
+          'r-switch--custom-inactive': !!this.inactiveColor,
+          [`r-switch--${this.size}`]: this.size !== 'default',
         }}
+        style={Object.keys(customStyles).length > 0 ? customStyles : undefined}
+        onClick={this.handleClick}
       >
-        <div class="switch-container">
-          <label class="switch-wrapper" htmlFor={switchId}>
-            <input
-              ref={(el) => (this.inputElement = el)}
-              id={switchId}
-              type="checkbox"
-              class="switch-input"
-              checked={this.checked}
-              disabled={this.disabled}
-              required={this.required}
-              name={this.name}
-              value={this.value}
-              role="switch"
-              aria-checked={this.checked ? 'true' : 'false'}
-              aria-invalid={this.error ? 'true' : 'false'}
-              aria-describedby={describedBy}
-              aria-required={this.required ? 'true' : 'false'}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
-              onBlur={this.handleBlur}
-            />
-            <span class="switch-track">
-              <span class="switch-thumb"></span>
+        {!this.inlinePrompt && this.inactiveText && (
+          <span class="r-switch__label">{this.inactiveText}</span>
+        )}
+
+        <span class="r-switch__core">
+          {this.inlinePrompt && (
+            <span class="r-switch__inner r-switch__inner--active">
+              {this.activeText}
             </span>
-            {this.label && (
-              <span class="switch-label">
-                {this.label}
-                {this.required && <span class="required">*</span>}
-              </span>
-            )}
-          </label>
-          {hasHelper && (
-            <div
-              id="switch-helper"
-              class={`switch-helper ${this.error ? 'error' : ''}`}
-            >
-              {this.helperText}
-            </div>
           )}
-        </div>
-      </Host>
+          {this.inlinePrompt && (
+            <span class="r-switch__inner r-switch__inner--inactive">
+              {this.inactiveText}
+            </span>
+          )}
+          <span class="r-switch__thumb"></span>
+          <input
+            type="checkbox"
+            class="r-switch__input"
+            name={this.inputName}
+            checked={this.checked}
+            disabled={this.disabled || this.loading}
+            aria-label={this.ariaLabel}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onKeyDown={this.handleKeydown}
+          />
+        </span>
+
+        {!this.inlinePrompt && this.activeText && (
+          <span class="r-switch__label">{this.activeText}</span>
+        )}
+      </label>
     );
   }
 }

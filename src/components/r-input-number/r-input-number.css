@@ -1,0 +1,177 @@
+/* Input Number container */
+.r-input-number {
+  display: inline-flex;
+  align-items: stretch;
+  width: 180px;
+  position: relative;
+}
+
+/* Input wrapper */
+.r-input-number__input {
+  flex: 1;
+}
+
+.r-input-number__input .r-input__inner {
+  text-align: center;
+}
+
+.r-input-number__input .r-input__wrapper {
+  border-radius: 0;
+}
+
+/* Side control buttons (decrease/increase) */
+.r-input-number__decrease,
+.r-input-number__increase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  background-color: var(--r-color-fill);
+  border: 1px solid var(--r-color-border);
+  color: var(--r-color-text-regular);
+  cursor: pointer;
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  flex-shrink: 0;
+}
+
+.r-input-number__decrease {
+  border-radius: var(--r-radius-base) 0 0 var(--r-radius-base);
+  border-right: none;
+}
+
+.r-input-number__increase {
+  border-radius: 0 var(--r-radius-base) var(--r-radius-base) 0;
+  border-left: none;
+}
+
+.r-input-number__decrease:hover:not(:disabled),
+.r-input-number__increase:hover:not(:disabled) {
+  background-color: var(--r-color-fill-dark);
+  color: var(--r-color-primary);
+}
+
+.r-input-number__decrease:active:not(:disabled),
+.r-input-number__increase:active:not(:disabled) {
+  background-color: var(--r-color-border);
+}
+
+.r-input-number__decrease svg,
+.r-input-number__increase svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Disabled button state */
+.r-input-number__btn--disabled,
+.r-input-number__decrease:disabled,
+.r-input-number__increase:disabled {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+  background-color: var(--r-color-fill-light);
+}
+
+/* Controls right position */
+.r-input-number--controls-right {
+  position: relative;
+}
+
+.r-input-number--controls-right .r-input-number__input .r-input__wrapper {
+  border-radius: var(--r-radius-base) 0 0 var(--r-radius-base);
+  padding-right: var(--r-spacing-sm);
+}
+
+.r-input-number--controls-right .r-input-number__input .r-input__inner {
+  text-align: left;
+}
+
+.r-input-number__controls-right {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--r-color-border);
+  border-left: none;
+  border-radius: 0 var(--r-radius-base) var(--r-radius-base) 0;
+  overflow: hidden;
+}
+
+.r-input-number__controls-right .r-input-number__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 32px;
+  background-color: var(--r-color-fill);
+  border: none;
+  color: var(--r-color-text-regular);
+  cursor: pointer;
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-input-number__controls-right .r-input-number__btn--up {
+  border-bottom: 1px solid var(--r-color-border);
+}
+
+.r-input-number__controls-right .r-input-number__btn:hover:not(:disabled) {
+  background-color: var(--r-color-fill-dark);
+  color: var(--r-color-primary);
+}
+
+.r-input-number__controls-right .r-input-number__btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* No controls */
+.r-input-number--no-controls .r-input-number__input .r-input__wrapper {
+  border-radius: var(--r-radius-base);
+}
+
+/* Size variants */
+.r-input-number--small {
+  width: 150px;
+}
+
+.r-input-number--small .r-input-number__decrease,
+.r-input-number--small .r-input-number__increase {
+  width: 32px;
+}
+
+.r-input-number--small .r-input-number__decrease svg,
+.r-input-number--small .r-input-number__increase svg {
+  width: 14px;
+  height: 14px;
+}
+
+.r-input-number--small .r-input-number__controls-right {
+  width: 28px;
+}
+
+.r-input-number--large {
+  width: 200px;
+}
+
+.r-input-number--large .r-input-number__decrease,
+.r-input-number--large .r-input-number__increase {
+  width: 48px;
+}
+
+.r-input-number--large .r-input-number__decrease svg,
+.r-input-number--large .r-input-number__increase svg {
+  width: 18px;
+  height: 18px;
+}
+
+.r-input-number--large .r-input-number__controls-right {
+  width: 36px;
+}
+
+/* Disabled state */
+.r-input-number--disabled {
+  cursor: not-allowed;
+}
+
+.r-input-number--disabled .r-input-number__decrease,
+.r-input-number--disabled .r-input-number__increase {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+  background-color: var(--r-color-fill-light);
+}

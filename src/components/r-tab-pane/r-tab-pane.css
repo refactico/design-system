@@ -1,0 +1,8 @@
+/* Tab pane */
+.r-tab-pane {
+  display: none;
+}
+
+.r-tab-pane--active {
+  display: block;
+}

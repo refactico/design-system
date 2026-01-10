@@ -1,0 +1,7 @@
+/* Collapse container */
+.r-collapse {
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-large);
+  overflow: hidden;
+  background-color: var(--r-color-bg);
+}

@@ -1,102 +1,96 @@
-import { Component, Host, h, Prop, State, Element } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
-/**
- * r-badge
- * Flexible badge component with dot variant and icon support
- */
+export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+
 @Component({
   tag: 'r-badge',
   styleUrl: 'r-badge.css',
-  shadow: true,
+  shadow: false,
 })
 export class RBadge {
-  @Element() el!: HTMLElement;
+  /** Display value */
+  @Prop() value: string | number = '';
 
-  @Prop() variant: 'solid' | 'outline' | 'ghost' | 'dot' = 'solid';
-  @Prop() color: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral' = 'primary';
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
-  @Prop() pill: boolean = false;
+  /** Maximum value, shows {max}+ when exceeded (only works if value is a number) */
+  @Prop() max: number = 99;
 
-  @State() hasIcon = false;
-  @State() hasContent = false;
+  /** If a little dot is displayed instead of value */
+  @Prop() isDot: boolean = false;
 
-  componentDidLoad() {
-    this.checkSlots();
-  }
+  /** Hidden badge */
+  @Prop() hidden: boolean = false;
 
-  componentDidUpdate() {
-    this.checkSlots();
-  }
+  /** Badge type */
+  @Prop() type: BadgeType = 'danger';
 
-  private checkSlots() {
-    const defaultSlot = this.el.shadowRoot?.querySelector('slot:not([name])') as HTMLSlotElement | null;
-    const iconSlot = this.el.shadowRoot?.querySelector('slot[name="icon"]') as HTMLSlotElement | null;
-    
-    if (defaultSlot) {
-      const nodes = defaultSlot.assignedNodes();
-      this.hasContent = nodes.length > 0 && nodes.some(node => {
-        if (node.nodeType === Node.TEXT_NODE) {
-          return node.textContent?.trim() !== '';
-        }
-        return true;
-      });
+  /** Whether to show badge when value is zero */
+  @Prop() showZero: boolean = true;
+
+  /** Background color of the badge */
+  @Prop() color: string;
+
+  /** Offset of badge [x, y] */
+  @Prop() offset: [number, number];
+
+  private getDisplayValue(): string {
+    if (this.isDot) return '';
+
+    if (typeof this.value === 'number') {
+      if (this.value === 0 && !this.showZero) return '';
+      return this.value > this.max ? `${this.max}+` : String(this.value);
     }
-    
-    if (iconSlot) {
-      this.hasIcon = iconSlot.assignedElements().length > 0;
-    }
+
+    return String(this.value);
   }
 
-  private onSlotChange = (event: Event) => {
-    const slot = event.target as HTMLSlotElement;
-    const nodes = slot.assignedNodes();
-    this.hasContent = nodes.length > 0 && nodes.some(node => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        return node.textContent?.trim() !== '';
-      }
-      return true;
-    });
-  };
+  private shouldShowBadge(): boolean {
+    if (this.hidden) return false;
+    if (this.isDot) return true;
+    if (typeof this.value === 'number' && this.value === 0 && !this.showZero) return false;
+    if (this.value === '' || this.value === undefined || this.value === null) return false;
+    return true;
+  }
 
-  private onIconSlotChange = (event: Event) => {
-    const slot = event.target as HTMLSlotElement;
-    this.hasIcon = slot.assignedElements().length > 0;
-  };
+  private getBadgeStyle(): { [key: string]: string } | undefined {
+    const style: { [key: string]: string } = {};
+
+    if (this.color) {
+      style.backgroundColor = this.color;
+    }
+
+    if (this.offset && this.offset.length === 2) {
+      style.marginTop = `${this.offset[1]}px`;
+      style.marginRight = `${-this.offset[0]}px`;
+    }
+
+    return Object.keys(style).length > 0 ? style : undefined;
+  }
 
   render() {
-    const isDot = this.variant === 'dot';
-    // For non-dot variants, always show content slot (it will be empty if no content)
-    const showContent = !isDot;
+    const showBadge = this.shouldShowBadge();
+    const displayValue = this.getDisplayValue();
+
+    const badgeClasses = {
+      'r-badge__content': true,
+      [`r-badge__content--${this.type}`]: true,
+      'r-badge__content--dot': this.isDot,
+      'r-badge__content--fixed': true,
+    };
+
+    const badgeClassString = Object.entries(badgeClasses)
+      .filter(([, value]) => value)
+      .map(([key]) => key)
+      .join(' ');
 
     return (
-      <Host>
-        <span
-          class={{
-            badge: true,
-            [this.variant]: true,
-            [`color-${this.color}`]: true,
-            [`size-${this.size}`]: true,
-            pill: this.pill,
-            dot: isDot,
-            'has-icon': this.hasIcon,
-          }}
-          role={isDot ? 'status' : undefined}
-          aria-label={isDot ? 'Status indicator' : undefined}
-        >
-          {isDot ? (
-            <span class="badge-dot" aria-hidden="true"></span>
-          ) : (
-            <>
-              <span class="badge-icon" aria-hidden="true" hidden={!this.hasIcon}>
-                <slot name="icon" onSlotchange={this.onIconSlotChange} />
-              </span>
-              <span class="badge-content">
-                <slot onSlotchange={this.onSlotChange} />
-              </span>
-            </>
-          )}
-        </span>
-      </Host>
+      <div class="r-badge">
+        <slot></slot>
+        {showBadge && (
+          <sup class={badgeClassString} style={this.getBadgeStyle()}>
+            <slot name="content">{displayValue}</slot>
+          </sup>
+        )}
+      </div>
     );
   }
 }

@@ -1,151 +1,137 @@
+/**
+ * Refactico Design System - Theme Variables
+ * 
+ * Import this file in your root app to enable theming.
+ * Override these variables to customize the design system.
+ */
 
 :root {
-  /* ============================================
-   * Color Palette
-   * ============================================ */
-  
-  /* Primary */
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-primary-active: #1e40af;
-  --color-primary-light: #dbeafe;
-  --color-primary-contrast: #ffffff;
-  
-  /* Secondary */
-  --color-secondary: #64748b;
-  --color-secondary-hover: #475569;
-  --color-secondary-active: #334155;
-  --color-secondary-light: #f1f5f9;
-  --color-secondary-contrast: #ffffff;
-  
-  /* Semantic Colors */
-  --color-danger: #ef4444;
-  --color-danger-hover: #dc2626;
-  --color-danger-active: #b91c1c;
-  --color-danger-light: #fee2e2;
-  --color-danger-contrast: #ffffff;
-  
-  --color-success: #22c55e;
-  --color-success-hover: #16a34a;
-  --color-success-active: #15803d;
-  --color-success-light: #dcfce7;
-  --color-success-contrast: #ffffff;
-  
-  --color-warning: #f59e42;
-  --color-warning-hover: #d97706;
-  --color-warning-active: #b45309;
-  --color-warning-light: #fef3c7;
-  --color-warning-contrast: #ffffff;
-  
-  --color-info: #0ea5e9;
-  --color-info-hover: #0284c7;
-  --color-info-active: #0369a1;
-  --color-info-light: #e0f2fe;
-  --color-info-contrast: #ffffff;
-  
-  --color-neutral: #6b7280;
-  --color-neutral-hover: #4b5563;
-  --color-neutral-active: #374151;
-  --color-neutral-light: #f3f4f6;
-  --color-neutral-contrast: #ffffff;
-  
-  /* ============================================
-   * Text Colors
-   * ============================================ */
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --text-tertiary: #94a3b8;
-  --text-disabled: #cbd5e1;
-  --text-inverse: #ffffff;
-  
-  /* ============================================
-   * Background Colors
-   * ============================================ */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --bg-disabled: #f9fafb;
-  --bg-overlay: rgba(0, 0, 0, 0.5);
-  
-  /* ============================================
-   * Border Colors
-   * ============================================ */
-  --border-primary: #e2e8f0;
-  --border-secondary: #cbd5e1;
-  --border-tertiary: #94a3b8;
-  --border-focus: var(--color-primary);
-  --border-error: var(--color-danger);
-  --border-disabled: #e2e8f0;
-  
-  /* ============================================
-   * Spacing Scale
-   * ============================================ */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;    /* 8px */
-  --spacing-md: 0.75rem;   /* 12px */
-  --spacing-lg: 1rem;      /* 16px */
-  --spacing-xl: 1.5rem;    /* 24px */
-  --spacing-2xl: 2rem;     /* 32px */
-  --spacing-3xl: 3rem;    /* 48px */
-  
-  /* ============================================
-   * Typography Scale
-   * ============================================ */
-  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
-  
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-  
-  /* ============================================
-   * Border Radius
-   * ============================================ */
-  --radius-sm: 0.25rem;   /* 4px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
-  --radius-full: 9999px;
-  
-  /* ============================================
-   * Shadows
-   * ============================================ */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  
-  /* ============================================
-   * Transitions
-   * ============================================ */
-  --transition-fast: 150ms ease;
-  --transition-base: 200ms ease;
-  --transition-slow: 300ms ease;
-  
-  /* ============================================
-   * Z-Index Scale
-   * ============================================ */
-  --z-base: 0;
-  --z-dropdown: 1000;
-  --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
-  --z-tooltip: 1070;
+  /* Primary colors */
+  --r-color-primary: #6366f1;
+  --r-color-primary-light: #818cf8;
+  --r-color-primary-lighter: #a5b4fc;
+  --r-color-primary-dark: #4f46e5;
+
+  /* Success colors */
+  --r-color-success: #10b981;
+  --r-color-success-light: #34d399;
+  --r-color-success-dark: #059669;
+
+  /* Warning colors */
+  --r-color-warning: #f59e0b;
+  --r-color-warning-light: #fbbf24;
+  --r-color-warning-dark: #d97706;
+
+  /* Danger colors */
+  --r-color-danger: #ef4444;
+  --r-color-danger-light: #f87171;
+  --r-color-danger-dark: #dc2626;
+
+  /* Info colors */
+  --r-color-info: #3b82f6;
+  --r-color-info-light: #60a5fa;
+  --r-color-info-dark: #2563eb;
+
+  /* Neutral colors */
+  --r-color-text-primary: #111827;
+  --r-color-text-regular: #374151;
+  --r-color-text-secondary: #6b7280;
+  --r-color-text-placeholder: #9ca3af;
+  --r-color-text-disabled: #d1d5db;
+
+  /* Background colors */
+  --r-color-bg: #ffffff;
+  --r-color-bg-page: #f9fafb;
+  --r-color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Border colors */
+  --r-color-border: #e5e7eb;
+  --r-color-border-light: #f3f4f6;
+  --r-color-border-dark: #d1d5db;
+
+  /* Fill colors */
+  --r-color-fill: #f3f4f6;
+  --r-color-fill-light: #f9fafb;
+  --r-color-fill-dark: #e5e7eb;
+
+  /* Sizing */
+  --r-font-size-base: 14px;
+  --r-font-size-small: 12px;
+  --r-font-size-large: 16px;
+
+  /* Border radius */
+  --r-radius-base: 8px;
+  --r-radius-small: 6px;
+  --r-radius-large: 12px;
+  --r-radius-round: 9999px;
+
+  /* Spacing */
+  --r-spacing-xs: 4px;
+  --r-spacing-sm: 8px;
+  --r-spacing-md: 12px;
+  --r-spacing-lg: 16px;
+  --r-spacing-xl: 20px;
+
+  /* Transitions */
+  --r-transition-duration: 0.2s;
+  --r-transition-timing: ease-in-out;
+
+  /* Shadows */
+  --r-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Button specific */
+  --r-button-font-weight: 500;
+
+  /* Text on colored backgrounds */
+  --r-color-white: #ffffff;
+}
+
+/* Dark mode */
+.dark {
+  --r-color-primary: #818cf8;
+  --r-color-primary-light: #a5b4fc;
+  --r-color-primary-lighter: #c7d2fe;
+  --r-color-primary-dark: #6366f1;
+
+  --r-color-success: #34d399;
+  --r-color-success-light: #6ee7b7;
+  --r-color-success-dark: #10b981;
+
+  --r-color-warning: #fbbf24;
+  --r-color-warning-light: #fcd34d;
+  --r-color-warning-dark: #f59e0b;
+
+  --r-color-danger: #f87171;
+  --r-color-danger-light: #fca5a5;
+  --r-color-danger-dark: #ef4444;
+
+  --r-color-info: #60a5fa;
+  --r-color-info-light: #93c5fd;
+  --r-color-info-dark: #3b82f6;
+
+  --r-color-text-primary: #f9fafb;
+  --r-color-text-regular: #e5e7eb;
+  --r-color-text-secondary: #9ca3af;
+  --r-color-text-placeholder: #6b7280;
+  --r-color-text-disabled: #4b5563;
+
+  --r-color-bg: #1f2937;
+  --r-color-bg-page: #111827;
+  --r-color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  --r-color-border: #374151;
+  --r-color-border-light: #4b5563;
+  --r-color-border-dark: #6b7280;
+
+  --r-color-fill: #374151;
+  --r-color-fill-light: #1f2937;
+  --r-color-fill-dark: #4b5563;
+
+  --r-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
 }

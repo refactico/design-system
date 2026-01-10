@@ -5,580 +5,1682 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MenuItem } from "./components/r-menu/r-menu";
-import { SelectOption } from "./components/r-select/r-select";
-export { MenuItem } from "./components/r-menu/r-menu";
-export { SelectOption } from "./components/r-select/r-select";
+import { AlertEffect, AlertType } from "./components/r-alert/r-alert";
+import { AvatarFit, AvatarShape, AvatarSize } from "./components/r-avatar/r-avatar";
+import { Event } from "@stencil/core";
+import { AvatarShape as AvatarShape1, AvatarSize as AvatarSize1 } from "./components/r-avatar/r-avatar";
+import { TooltipEffect, TooltipPlacement } from "./components/r-avatar-group/r-avatar-group";
+import { BadgeType } from "./components/r-badge/r-badge";
+import { ButtonNativeType, ButtonSize, ButtonType } from "./components/r-button/r-button";
+import { ButtonSize as ButtonSize1, ButtonType as ButtonType1 } from "./components/r-button/r-button";
+import { ButtonGroupDirection } from "./components/r-button-group/r-button-group";
+import { CardShadow } from "./components/r-card/r-card";
+import { CheckboxSize } from "./components/r-checkbox/r-checkbox";
+import { CheckboxGroupSize, CheckboxOption } from "./components/r-checkbox-group/r-checkbox-group";
+import { ExpandIconPosition } from "./components/r-collapse/r-collapse";
+import { DropdownPlacement, DropdownTrigger } from "./components/r-dropdown/r-dropdown";
+import { FormRules, FormSize, LabelPosition, RequireAsteriskPosition } from "./components/r-form/r-form";
+import { FormRule, FormSize as FormSize1, LabelPosition as LabelPosition1 } from "./components/r-form/r-form";
+import { InputResize, InputSize, InputType } from "./components/r-input/r-input";
+import { ControlsPosition, InputNumberSize } from "./components/r-input-number/r-input-number";
+import { PaginationSize } from "./components/r-pagination/r-pagination";
+import { RadioSize } from "./components/r-radio/r-radio";
+import { RadioButtonSize } from "./components/r-radio-button/r-radio-button";
+import { RadioGroupSize, RadioOption } from "./components/r-radio-group/r-radio-group";
+import { SelectOption, SelectOptionGroup, SelectProps, SelectSize, TagType } from "./components/r-select/r-select";
+import { SpinnerColor, SpinnerSize } from "./components/r-spinner/r-spinner";
+import { SwitchSize } from "./components/r-switch/r-switch";
+import { TabItemType } from "./components/r-tab-item/r-tab-item";
+import { TableColumn, TableSize } from "./components/r-table/r-table";
+import { TabsPosition, TabsType } from "./components/r-tabs/r-tabs";
+import { TagEffect, TagSize, TagType as TagType1 } from "./components/r-tag/r-tag";
+import { TooltipEffect as TooltipEffect1, TooltipPlacement as TooltipPlacement1, TooltipTrigger } from "./components/r-tooltip/r-tooltip";
+export { AlertEffect, AlertType } from "./components/r-alert/r-alert";
+export { AvatarFit, AvatarShape, AvatarSize } from "./components/r-avatar/r-avatar";
+export { Event } from "@stencil/core";
+export { AvatarShape as AvatarShape1, AvatarSize as AvatarSize1 } from "./components/r-avatar/r-avatar";
+export { TooltipEffect, TooltipPlacement } from "./components/r-avatar-group/r-avatar-group";
+export { BadgeType } from "./components/r-badge/r-badge";
+export { ButtonNativeType, ButtonSize, ButtonType } from "./components/r-button/r-button";
+export { ButtonSize as ButtonSize1, ButtonType as ButtonType1 } from "./components/r-button/r-button";
+export { ButtonGroupDirection } from "./components/r-button-group/r-button-group";
+export { CardShadow } from "./components/r-card/r-card";
+export { CheckboxSize } from "./components/r-checkbox/r-checkbox";
+export { CheckboxGroupSize, CheckboxOption } from "./components/r-checkbox-group/r-checkbox-group";
+export { ExpandIconPosition } from "./components/r-collapse/r-collapse";
+export { DropdownPlacement, DropdownTrigger } from "./components/r-dropdown/r-dropdown";
+export { FormRules, FormSize, LabelPosition, RequireAsteriskPosition } from "./components/r-form/r-form";
+export { FormRule, FormSize as FormSize1, LabelPosition as LabelPosition1 } from "./components/r-form/r-form";
+export { InputResize, InputSize, InputType } from "./components/r-input/r-input";
+export { ControlsPosition, InputNumberSize } from "./components/r-input-number/r-input-number";
+export { PaginationSize } from "./components/r-pagination/r-pagination";
+export { RadioSize } from "./components/r-radio/r-radio";
+export { RadioButtonSize } from "./components/r-radio-button/r-radio-button";
+export { RadioGroupSize, RadioOption } from "./components/r-radio-group/r-radio-group";
+export { SelectOption, SelectOptionGroup, SelectProps, SelectSize, TagType } from "./components/r-select/r-select";
+export { SpinnerColor, SpinnerSize } from "./components/r-spinner/r-spinner";
+export { SwitchSize } from "./components/r-switch/r-switch";
+export { TabItemType } from "./components/r-tab-item/r-tab-item";
+export { TableColumn, TableSize } from "./components/r-table/r-table";
+export { TabsPosition, TabsType } from "./components/r-tabs/r-tabs";
+export { TagEffect, TagSize, TagType as TagType1 } from "./components/r-tag/r-tag";
+export { TooltipEffect as TooltipEffect1, TooltipPlacement as TooltipPlacement1, TooltipTrigger } from "./components/r-tooltip/r-tooltip";
 export namespace Components {
-    /**
-     * r-badge
-     * Flexible badge component with dot variant and icon support
-     */
+    interface RAlert {
+        /**
+          * Alert title
+         */
+        "alertTitle": string;
+        /**
+          * Whether to center content
+          * @default false
+         */
+        "center": boolean;
+        /**
+          * Whether alert can be closed
+          * @default true
+         */
+        "closable": boolean;
+        /**
+          * Custom close text
+         */
+        "closeText": string;
+        /**
+          * Alert description
+         */
+        "description": string;
+        /**
+          * Alert effect/theme
+          * @default 'light'
+         */
+        "effect": AlertEffect;
+        /**
+          * Whether to show icon
+          * @default true
+         */
+        "showIcon": boolean;
+        /**
+          * Alert type
+          * @default 'info'
+         */
+        "type": AlertType;
+    }
+    interface RAvatar {
+        /**
+          * Alt text for image
+          * @default ''
+         */
+        "alt": string;
+        /**
+          * How the image fits its container
+          * @default 'cover'
+         */
+        "fit": AvatarFit;
+        /**
+          * Icon to display (when no image or slot content)
+         */
+        "icon": string;
+        /**
+          * Avatar shape
+          * @default 'circle'
+         */
+        "shape": AvatarShape;
+        /**
+          * Avatar size - can be 'large', 'default', 'small' or a number (px)
+          * @default 'default'
+         */
+        "size": AvatarSize;
+        /**
+          * Image source URL
+         */
+        "src": string;
+        /**
+          * Native srcset attribute for responsive images
+         */
+        "srcSet": string;
+    }
+    interface RAvatarGroup {
+        /**
+          * Whether to collapse avatars
+          * @default false
+         */
+        "collapseAvatars": boolean;
+        /**
+          * Show tooltip with all collapsed avatars on hover
+          * @default false
+         */
+        "collapseAvatarsTooltip": boolean;
+        /**
+          * Custom class for collapse avatar
+          * @default ''
+         */
+        "collapseClass": string;
+        /**
+          * Tooltip theme
+          * @default 'light'
+         */
+        "effect": TooltipEffect;
+        /**
+          * Max avatars to show before collapsing
+          * @default 3
+         */
+        "maxCollapseAvatars": number;
+        /**
+          * Tooltip placement
+          * @default 'top'
+         */
+        "placement": TooltipPlacement;
+        /**
+          * Custom class for tooltip
+          * @default ''
+         */
+        "popperClass": string;
+        /**
+          * Control the shape of avatars in this group
+          * @default 'circle'
+         */
+        "shape": AvatarShape1;
+        /**
+          * Control the size of avatars in this group
+          * @default 'default'
+         */
+        "size": AvatarSize1;
+    }
     interface RBadge {
         /**
-          * @default 'primary'
+          * Background color of the badge
          */
-        "color": 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+        "color": string;
         /**
+          * Hidden badge
           * @default false
          */
-        "pill": boolean;
+        "hidden": boolean;
         /**
-          * @default 'md'
+          * If a little dot is displayed instead of value
+          * @default false
          */
-        "size": 'sm' | 'md' | 'lg';
+        "isDot": boolean;
         /**
-          * @default 'solid'
+          * Maximum value, shows {max}+ when exceeded (only works if value is a number)
+          * @default 99
          */
-        "variant": 'solid' | 'outline' | 'ghost' | 'dot';
+        "max": number;
+        /**
+          * Offset of badge [x, y]
+         */
+        "offset": [number, number];
+        /**
+          * Whether to show badge when value is zero
+          * @default true
+         */
+        "showZero": boolean;
+        /**
+          * Badge type
+          * @default 'danger'
+         */
+        "type": BadgeType;
+        /**
+          * Display value
+          * @default ''
+         */
+        "value": string | number;
     }
-    /**
-     * r-button
-     * Minimal, flexible, accessible button component with industry-standard features
-     */
     interface RButton {
         /**
-          * Full width button
+          * Auto insert space between two Chinese characters
           * @default false
          */
-        "block": boolean;
+        "autoInsertSpace": boolean;
         /**
-          * Color scheme
-          * @default 'primary'
+          * Native button autofocus
+          * @default false
          */
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
+        "autofocus": boolean;
+        /**
+          * Text button with background on hover
+          * @default false
+         */
+        "bg": boolean;
+        /**
+          * Circle button (for icon-only)
+          * @default false
+         */
+        "circle": boolean;
+        /**
+          * Custom button color
+         */
+        "color": string;
+        /**
+          * Dark mode (auto-adjusts custom color)
+          * @default false
+         */
+        "dark": boolean;
         /**
           * Disabled state
           * @default false
          */
         "disabled": boolean;
         /**
-          * Form ID to associate with
+          * Expose disabled state
          */
-        "form"?: string;
+        "getDisabled": () => Promise<boolean>;
         /**
-          * Icon-only button (square)
+          * Expose button element ref
+         */
+        "getRef": () => Promise<HTMLElement>;
+        /**
+          * Expose size
+         */
+        "getSize": () => Promise<ButtonSize>;
+        /**
+          * Expose type
+         */
+        "getType": () => Promise<ButtonType>;
+        /**
+          * Icon (renders before text)
+         */
+        "icon": string;
+        /**
+          * Link button style
           * @default false
          */
-        "iconOnly": boolean;
-        /**
-          * Button label for accessibility
-         */
-        "label"?: string;
+        "link": boolean;
         /**
           * Loading state
           * @default false
          */
         "loading": boolean;
         /**
-          * Programmatically focus the button
+          * Custom loading icon (slot name or icon name)
          */
-        "setFocus": () => Promise<void>;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
-        /**
-          * Programmatically trigger a click on the button
-         */
-        "triggerClick": () => Promise<void>;
+        "loadingIcon": string;
         /**
           * Native button type
           * @default 'button'
          */
-        "type": 'button' | 'submit' | 'reset';
+        "nativeType": ButtonNativeType;
         /**
-          * Visual variant
-          * @default 'solid'
+          * Plain style (lighter background)
+          * @default false
          */
-        "variant": 'solid' | 'outline' | 'ghost' | 'link';
+        "plain": boolean;
+        /**
+          * Round button
+          * @default false
+         */
+        "round": boolean;
+        /**
+          * Button size
+          * @default 'default'
+         */
+        "size": ButtonSize;
+        /**
+          * Custom HTML tag
+          * @default 'button'
+         */
+        "tag": string;
+        /**
+          * Text button (no background/border)
+          * @default false
+         */
+        "text": boolean;
+        /**
+          * Button type (color theme)
+          * @default 'default'
+         */
+        "type": ButtonType;
     }
-    /**
-     * r-checkbox
-     * Accessible checkbox component with indeterminate state support
-     */
+    interface RButtonGroup {
+        /**
+          * Display direction
+          * @default 'horizontal'
+         */
+        "direction": ButtonGroupDirection;
+        /**
+          * Control the size of buttons in this group
+         */
+        "size": ButtonSize1;
+        /**
+          * Control the type of buttons in this group
+         */
+        "type": ButtonType1;
+    }
+    interface RCard {
+        /**
+          * Custom class name of card body
+          * @default ''
+         */
+        "bodyClass": string;
+        /**
+          * Footer of the card
+         */
+        "footer": string;
+        /**
+          * Custom class name of card footer
+          * @default ''
+         */
+        "footerClass": string;
+        /**
+          * Title of the card
+         */
+        "header": string;
+        /**
+          * Custom class name of card header
+          * @default ''
+         */
+        "headerClass": string;
+        /**
+          * When to show card shadow
+          * @default 'always'
+         */
+        "shadow": CardShadow;
+    }
     interface RCheckbox {
         /**
+          * Whether to add a border around the checkbox
+          * @default false
+         */
+        "border": boolean;
+        /**
+          * Whether the checkbox is checked
           * @default false
          */
         "checked": boolean;
         /**
+          * Whether the checkbox is disabled
           * @default false
          */
         "disabled": boolean;
         /**
+          * False value for v-model
           * @default false
          */
-        "error": boolean;
-        "helperText"?: string;
+        "falseValue": any;
         /**
+          * Whether the checkbox is in indeterminate state
           * @default false
          */
         "indeterminate": boolean;
-        "inputId"?: string;
-        "label"?: string;
-        "name"?: string;
         /**
+          * Native name attribute
+         */
+        "inputName": string;
+        /**
+          * The label text
+         */
+        "label": string;
+        /**
+          * Size of the checkbox
+          * @default 'default'
+         */
+        "size": CheckboxSize;
+        /**
+          * True value for v-model
+          * @default true
+         */
+        "trueValue": any;
+        /**
+          * The value of the checkbox (used in checkbox-group)
+         */
+        "value": string | number | boolean;
+    }
+    interface RCheckboxGroup {
+        /**
+          * Whether all checkboxes are disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Maximum number of checkboxes that can be checked
+         */
+        "max": number;
+        /**
+          * Minimum number of checkboxes that must be checked
+         */
+        "min": number;
+        /**
+          * Options data for quick setup
+          * @default []
+         */
+        "options": CheckboxOption[];
+        /**
+          * Size of checkboxes
+          * @default 'default'
+         */
+        "size": CheckboxGroupSize;
+        /**
+          * Binding value (array of selected values)
+          * @default []
+         */
+        "value": (string | number)[];
+        /**
+          * Vertical layout
+          * @default false
+         */
+        "vertical": boolean;
+    }
+    interface RCollapse {
+        /**
+          * Whether to activate accordion mode (only one panel open at a time)
+          * @default false
+         */
+        "accordion": boolean;
+        /**
+          * Set expand icon position
+          * @default 'right'
+         */
+        "expandIconPosition": ExpandIconPosition;
+        /**
+          * Get currently active panel names
+         */
+        "getActiveNames": () => Promise<string[]>;
+        /**
+          * Set active panel names
+         */
+        "setActiveNames": (names: string | string[]) => Promise<void>;
+        /**
+          * Currently active panel names
+          * @default []
+         */
+        "value": string | string[];
+    }
+    interface RCollapseItem {
+        /**
+          * Disable the collapse item
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Check if the current collapse item is active
+         */
+        "getIsActive": () => Promise<boolean>;
+        /**
+          * Unique identification of the panel
+          * @default ''
+         */
+        "name": string;
+        /**
+          * Title of the panel
+          * @default ''
+         */
+        "panelTitle": string;
+        /**
+          * Set active state (called by parent)
+         */
+        "setActive": (active: boolean) => Promise<void>;
+    }
+    interface RDialog {
+        /**
+          * Whether to align header/footer center
+          * @default false
+         */
+        "alignCenter": boolean;
+        /**
+          * Whether to append to body
+          * @default false
+         */
+        "appendToBody": boolean;
+        /**
+          * Whether to center dialog vertically
+          * @default false
+         */
+        "center": boolean;
+        /**
+          * Close dialog
+         */
+        "close": () => Promise<void>;
+        /**
+          * Whether clicking overlay closes dialog
+          * @default true
+         */
+        "closeOnClickOverlay": boolean;
+        /**
+          * Whether pressing ESC closes dialog
+          * @default true
+         */
+        "closeOnPressEscape": boolean;
+        /**
+          * Custom class for dialog
+         */
+        "customClass": string;
+        /**
+          * Whether to destroy content on close
+          * @default false
+         */
+        "destroyOnClose": boolean;
+        /**
+          * Dialog title
+         */
+        "dialogTitle": string;
+        /**
+          * Whether dialog is fullscreen
+          * @default false
+         */
+        "fullscreen": boolean;
+        /**
+          * Whether dialog is draggable
+          * @default false
+         */
+        "isDraggable": boolean;
+        /**
+          * Whether to lock body scroll
+          * @default true
+         */
+        "lockScroll": boolean;
+        /**
+          * Open dialog
+         */
+        "open": () => Promise<void>;
+        /**
+          * Whether to show close button
+          * @default true
+         */
+        "showClose": boolean;
+        /**
+          * Whether dialog is visible
+          * @default false
+         */
+        "visible": boolean;
+        /**
+          * Dialog width
+          * @default '500px'
+         */
+        "width": string;
+    }
+    interface RDropdown {
+        /**
+          * Whether dropdown is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Hide dropdown
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Whether to hide on click
+          * @default true
+         */
+        "hideOnClick": boolean;
+        /**
+          * Hide timeout (ms)
+          * @default 150
+         */
+        "hideTimeout": number;
+        /**
+          * Max height of dropdown menu
+         */
+        "maxHeight": string;
+        /**
+          * Dropdown placement
+          * @default 'bottom'
+         */
+        "placement": DropdownPlacement;
+        /**
+          * Show dropdown
+         */
+        "show": () => Promise<void>;
+        /**
+          * Show timeout (ms)
+          * @default 150
+         */
+        "showTimeout": number;
+        /**
+          * Button size for split button
+          * @default 'default'
+         */
+        "size": 'large' | 'default' | 'small';
+        /**
+          * Split button mode
+          * @default false
+         */
+        "splitButton": boolean;
+        /**
+          * Trigger mode
+          * @default 'hover'
+         */
+        "trigger": DropdownTrigger;
+        /**
+          * Button type for split button
+          * @default 'default'
+         */
+        "type": 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+    }
+    interface RDropdownItem {
+        /**
+          * Command value
+         */
+        "command": string | number;
+        /**
+          * Whether item is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Whether to show divider above
+          * @default false
+         */
+        "divided": boolean;
+        /**
+          * Icon name or slot
+         */
+        "icon": string;
+    }
+    interface RDropdownMenu {
+    }
+    interface RForm {
+        /**
+          * Clear validation messages
+         */
+        "clearValidate": (props?: string | string[]) => Promise<void>;
+        /**
+          * Whether to disable all components
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Whether to hide required asterisk
+          * @default false
+         */
+        "hideRequiredAsterisk": boolean;
+        /**
+          * Whether the form is inline
+          * @default false
+         */
+        "inline": boolean;
+        /**
+          * Whether to display error message inline
+          * @default false
+         */
+        "inlineMessage": boolean;
+        /**
+          * Position of label
+          * @default 'right'
+         */
+        "labelPosition": LabelPosition;
+        /**
+          * Suffix of the label
+          * @default ''
+         */
+        "labelSuffix": string;
+        /**
+          * Width of label
+          * @default ''
+         */
+        "labelWidth": string;
+        /**
+          * Data of form component
+          * @default {}
+         */
+        "model": { [key: string]: any };
+        /**
+          * Position of asterisk
+          * @default 'left'
+         */
+        "requireAsteriskPosition": RequireAsteriskPosition;
+        /**
+          * Reset all fields
+         */
+        "resetFields": () => Promise<void>;
+        /**
+          * Validation rules
+          * @default {}
+         */
+        "rules": FormRules;
+        /**
+          * Whether to show error message
+          * @default true
+         */
+        "showMessage": boolean;
+        /**
+          * Control the size of components
+          * @default 'default'
+         */
+        "size": FormSize;
+        /**
+          * Whether to show status icon
+          * @default false
+         */
+        "statusIcon": boolean;
+        /**
+          * Validate specified fields
+         */
+        "validateField": (props: string | string[]) => Promise<boolean>;
+        /**
+          * Validate the whole form
+         */
+        "validateForm": () => Promise<boolean>;
+    }
+    interface RFormItem {
+        /**
+          * Clear validation
+         */
+        "clearValidate": () => Promise<void>;
+        /**
+          * Error message to display
+          * @default ''
+         */
+        "error": string;
+        /**
+          * Inline error message
+          * @default false
+         */
+        "inlineMessage": boolean;
+        /**
+          * Position of label (overrides form)
+          * @default ''
+         */
+        "labelPosition": LabelPosition1 | '';
+        /**
+          * Label text
+          * @default ''
+         */
+        "labelText": string;
+        /**
+          * Width of label
+          * @default ''
+         */
+        "labelWidth": string;
+        /**
+          * Property name in form model
+          * @default ''
+         */
+        "prop": string;
+        /**
+          * Whether field is required
           * @default false
          */
         "required": boolean;
         /**
-          * Programmatically focus the checkbox
+          * Reset this field
          */
-        "setFocus": () => Promise<void>;
+        "resetField": () => Promise<void>;
         /**
-          * @default 'md'
+          * Validation rules for this field
          */
-        "size": 'sm' | 'md' | 'lg';
+        "rules": FormRule | FormRule[];
         /**
-          * Programmatically toggle the checkbox
+          * Whether to show error message
+          * @default true
          */
-        "toggle": () => Promise<void>;
-        "value"?: string;
+        "showMessage": boolean;
+        /**
+          * Size of form item
+          * @default ''
+         */
+        "size": FormSize1 | '';
+        /**
+          * Validate this field
+         */
+        "validateField": () => Promise<boolean>;
     }
-    /**
-     * r-input
-     * A high-quality, accessible input component inspired by Material UI behavior.
-     */
     interface RInput {
         /**
-          * Autocomplete attribute
+          * Aria label
          */
-        "autocomplete"?: string;
+        "ariaLabel": string;
         /**
-          * Autofocus
+          * Native autocomplete
+          * @default 'off'
+         */
+        "autocomplete": string;
+        /**
+          * Native autofocus
           * @default false
          */
         "autofocus": boolean;
         /**
-          * Clearable input (shows clear icon when value exists)
+          * Autosize for textarea
+          * @default false
+         */
+        "autosize": boolean | { minRows?: number; maxRows?: number };
+        /**
+          * Clear the input
+         */
+        "clear": () => Promise<void>;
+        /**
+          * Whether to show clear button
           * @default false
          */
         "clearable": boolean;
         /**
-          * Disabled state
+          * Whether input is disabled
           * @default false
          */
         "disabled": boolean;
         /**
-          * Error state
-          * @default false
+          * Native name
          */
-        "error": boolean;
+        "inputName": string;
         /**
-          * Error message (overrides helperText when error is true)
+          * Tab index
          */
-        "errorMessage"?: string;
-        /**
-          * Helper / supporting text
-         */
-        "helperText"?: string;
-        /**
-          * Input ID
-         */
-        "inputId"?: string;
-        /**
-          * Input label
-         */
-        "label"?: string;
+        "inputTabindex": string | number;
         /**
           * Max length
          */
-        "maxlength"?: number;
+        "maxlength": number;
         /**
           * Min length
          */
-        "minlength"?: number;
-        /**
-          * Name attribute (for forms)
-         */
-        "name"?: string;
-        /**
-          * Pattern
-         */
-        "pattern"?: string;
+        "minlength": number;
         /**
           * Placeholder text
-         */
-        "placeholder"?: string;
-        /**
-          * Readonly state
-          * @default false
-         */
-        "readonly": boolean;
-        /**
-          * Required flag
-          * @default false
-         */
-        "required": boolean;
-        /**
-          * Show character counter
-          * @default false
-         */
-        "showCounter": boolean;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
-        /**
-          * Input type
-          * @default 'text'
-         */
-        "type": 'text' | 'email' | 'password' | 'number' | 'search' | 'tel' | 'url';
-        /**
-          * Input value (controlled or uncontrolled)
           * @default ''
          */
-        "value": string;
-    }
-    /**
-     * r-menu
-     * Accessible, flexible menu component with keyboard navigation
-     */
-    interface RMenu {
+        "placeholder": string;
         /**
-          * Programmatically close the menu
+          * Prefix icon (emoji or text)
          */
-        "close": () => Promise<void>;
+        "prefixIcon": string;
         /**
-          * Disabled state
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * Menu items (can be JSON string or array)
-          * @default []
-         */
-        "items": MenuItem[] | string;
-        /**
-          * Menu label for accessibility
-         */
-        "label"?: string;
-        /**
-          * Programmatically open the menu
-         */
-        "open": () => Promise<void>;
-        /**
-          * Placement relative to trigger
-          * @default 'bottom-start'
-         */
-        "placement": 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end';
-        /**
-          * Programmatically toggle the menu
-         */
-        "toggle": () => Promise<void>;
-    }
-    /**
-     * r-modal
-     * Accessible, flexible modal/dialog component with focus trap
-     */
-    interface RModal {
-        /**
-          * Close on backdrop click
-          * @default true
-         */
-        "backdropClosable": boolean;
-        /**
-          * Center modal vertically
-          * @default true
-         */
-        "centered": boolean;
-        /**
-          * Show close button
-          * @default true
-         */
-        "closable": boolean;
-        /**
-          * Close on escape key
-          * @default true
-         */
-        "escapeClosable": boolean;
-        /**
-          * Trap focus within modal
-          * @default true
-         */
-        "focusTrap": boolean;
-        /**
-          * Programmatically close the modal
-         */
-        "hide": () => Promise<void>;
-        /**
-          * Modal title
-         */
-        "modalTitle"?: string;
-        /**
-          * Open state
-          * @default false
-         */
-        "open": boolean;
-        /**
-          * Scrollable body content
-          * @default true
-         */
-        "scrollable": boolean;
-        /**
-          * Programmatically open the modal
-         */
-        "show": () => Promise<void>;
-        /**
-          * Modal size
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'fullscreen';
-    }
-    /**
-     * r-radio
-     * Accessible radio button component with group support
-     */
-    interface RRadio {
-        /**
-          * @default false
-         */
-        "checked": boolean;
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * @default false
-         */
-        "error": boolean;
-        "helperText"?: string;
-        "label"?: string;
-        "name"?: string;
-        "radioId"?: string;
-        /**
-          * @default false
-         */
-        "required": boolean;
-        /**
-          * Programmatically select the radio
-         */
-        "select": () => Promise<void>;
-        /**
-          * Programmatically focus the radio
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
-        "value"?: string;
-    }
-    /**
-     * r-select
-     * Accessible select component with enhanced features
-     */
-    interface RSelect {
-        /**
-          * Autofocus
-          * @default false
-         */
-        "autofocus": boolean;
-        /**
-          * Disabled state
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * Error state
-          * @default false
-         */
-        "error": boolean;
-        /**
-          * Error message (overrides helperText when error is true)
-         */
-        "errorMessage"?: string;
-        /**
-          * Helper text
-         */
-        "helperText"?: string;
-        /**
-          * Label text
-         */
-        "label"?: string;
-        /**
-          * Name (for form submission)
-         */
-        "name"?: string;
-        /**
-          * Options for the select (can be JSON string or array)
-          * @default []
-         */
-        "options": SelectOption[] | string;
-        /**
-          * Placeholder (renders as disabled option)
-         */
-        "placeholder"?: string;
-        /**
-          * Required
-          * @default false
-         */
-        "required": boolean;
-        /**
-          * Select ID
-         */
-        "selectId"?: string;
-        /**
-          * Programmatically focus the select
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
-        /**
-          * Selected value
-         */
-        "value"?: string;
-    }
-    /**
-     * r-switch
-     * Accessible switch/toggle component
-     */
-    interface RSwitch {
-        /**
-          * @default false
-         */
-        "checked": boolean;
-        /**
-          * @default 'primary'
-         */
-        "color": 'primary' | 'success' | 'danger' | 'warning' | 'info';
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * @default false
-         */
-        "error": boolean;
-        "helperText"?: string;
-        "label"?: string;
-        "name"?: string;
-        /**
-          * @default false
-         */
-        "required": boolean;
-        /**
-          * Programmatically focus the switch
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
-        "switchId"?: string;
-        /**
-          * Programmatically toggle the switch
-         */
-        "toggle": () => Promise<void>;
-        "value"?: string;
-    }
-    /**
-     * r-textarea
-     * Accessible textarea component with auto-resize and character counter
-     */
-    interface RTextarea {
-        /**
-          * @default false
-         */
-        "autoResize": boolean;
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * @default false
-         */
-        "error": boolean;
-        "errorMessage"?: string;
-        "helperText"?: string;
-        "label"?: string;
-        "maxlength"?: number;
-        "minlength"?: number;
-        "name"?: string;
-        "placeholder"?: string;
-        /**
+          * Whether input is readonly
           * @default false
          */
         "readonly": boolean;
         /**
-          * @default false
-         */
-        "required": boolean;
-        /**
+          * Textarea resize behavior
           * @default 'vertical'
          */
-        "resize": 'none' | 'vertical' | 'horizontal' | 'both';
+        "resize": InputResize;
         /**
-          * @default 4
+          * Number of rows for textarea
+          * @default 2
          */
         "rows": number;
         /**
-          * Programmatically focus the textarea
+          * Select text in input
+         */
+        "select": () => Promise<void>;
+        /**
+          * Blur the input
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Focus the input
          */
         "setFocus": () => Promise<void>;
         /**
+          * Whether to show password toggle
           * @default false
          */
-        "showCounter": boolean;
+        "showPassword": boolean;
         /**
-          * @default 'md'
+          * Show word count
+          * @default false
          */
-        "size": 'sm' | 'md' | 'lg';
-        "textareaId"?: string;
+        "showWordLimit": boolean;
         /**
+          * Size of input
+          * @default 'default'
+         */
+        "size": InputSize;
+        /**
+          * Suffix icon (emoji or text)
+         */
+        "suffixIcon": string;
+        /**
+          * Type of input
+          * @default 'text'
+         */
+        "type": InputType;
+        /**
+          * Binding value
           * @default ''
          */
-        "value": string;
+        "value": string | number;
     }
-    /**
-     * r-tooltip
-     * Accessible tooltip component with multiple trigger options
-     */
-    interface RTooltip {
-        "content"?: string;
+    interface RInputNumber {
         /**
-          * @default 300
+          * Aria label
          */
-        "delay": number;
+        "ariaLabel": string;
         /**
+          * Whether to enable control buttons
+          * @default true
+         */
+        "controls": boolean;
+        /**
+          * Position of control buttons
+          * @default ''
+         */
+        "controlsPosition": ControlsPosition;
+        /**
+          * Whether the component is disabled
           * @default false
          */
         "disabled": boolean;
         /**
-          * Programmatically hide the tooltip
+          * Name attribute
+         */
+        "inputName": string;
+        /**
+          * Maximum allowed value
+          * @default Number.MAX_SAFE_INTEGER
+         */
+        "max": number;
+        /**
+          * Minimum allowed value
+          * @default Number.MIN_SAFE_INTEGER
+         */
+        "min": number;
+        /**
+          * Placeholder text
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * Precision of input value
+         */
+        "precision": number;
+        /**
+          * Whether the component is readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Blur the input
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Focus the input
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Size of the component
+          * @default 'default'
+         */
+        "size": InputNumberSize;
+        /**
+          * Incremental step
+          * @default 1
+         */
+        "step": number;
+        /**
+          * Whether input value can only be multiple of step
+          * @default false
+         */
+        "stepStrictly": boolean;
+        /**
+          * Binding value
+          * @default null
+         */
+        "value": number | null;
+    }
+    interface RLoading {
+        /**
+          * Background style
+          * @default 'light'
+         */
+        "background": 'light' | 'dark';
+        /**
+          * Custom background color
+         */
+        "customBackground": string;
+        /**
+          * Whether to show fullscreen
+          * @default false
+         */
+        "fullscreen": boolean;
+        /**
+          * Whether loading is visible
+          * @default false
+         */
+        "loading": boolean;
+        /**
+          * Whether to lock body scroll
+          * @default true
+         */
+        "lock": boolean;
+        /**
+          * Spinner size
+          * @default 'default'
+         */
+        "spinnerSize": 'small' | 'default' | 'large';
+        /**
+          * Loading text
+         */
+        "text": string;
+    }
+    interface RPagination {
+        /**
+          * Whether buttons have background color
+          * @default false
+         */
+        "background": boolean;
+        /**
+          * Current page number
+          * @default 1
+         */
+        "currentPage": number;
+        /**
+          * Whether pagination is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Hide when only one page
+          * @default false
+         */
+        "hideOnSinglePage": boolean;
+        /**
+          * Layout of pagination elements
+          * @default 'prev, pager, next'
+         */
+        "layout": string;
+        /**
+          * Text for next button
+          * @default ''
+         */
+        "nextText": string;
+        /**
+          * Total page count (alternative to total)
+         */
+        "pageCount": number;
+        /**
+          * Item count of each page
+          * @default 10
+         */
+        "pageSize": number;
+        /**
+          * Options for page size selector
+          * @default [10, 20, 30, 40, 50, 100]
+         */
+        "pageSizes": number[];
+        /**
+          * Number of pagers before collapsing
+          * @default 7
+         */
+        "pagerCount": number;
+        /**
+          * Text for prev button
+          * @default ''
+         */
+        "prevText": string;
+        /**
+          * Pagination size
+          * @default 'default'
+         */
+        "size": PaginationSize;
+        /**
+          * Total item count
+          * @default 0
+         */
+        "total": number;
+    }
+    interface RRadio {
+        /**
+          * Whether to add a border around the radio
+          * @default false
+         */
+        "border": boolean;
+        /**
+          * Whether the radio is checked (controlled by radio-group)
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Whether the radio is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName": string;
+        /**
+          * The label text (display text)
+         */
+        "label": string;
+        /**
+          * Size of the radio
+          * @default 'default'
+         */
+        "size": RadioSize;
+        /**
+          * The value of the radio
+         */
+        "value": string | number | boolean;
+    }
+    interface RRadioButton {
+        /**
+          * Whether the radio button is checked (controlled by radio-group)
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Whether the radio button is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName": string;
+        /**
+          * The label text (display text)
+         */
+        "label": string;
+        /**
+          * Size of the radio button
+          * @default 'default'
+         */
+        "size": RadioButtonSize;
+        /**
+          * The value of the radio button
+         */
+        "value": string | number | boolean;
+    }
+    interface RRadioGroup {
+        /**
+          * Aria label
+         */
+        "ariaLabel": string;
+        /**
+          * Whether the nesting radios are disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Border and background color when button is active
+         */
+        "fill": string;
+        /**
+          * Native name attribute
+         */
+        "inputName": string;
+        /**
+          * Options data for quick setup
+          * @default []
+         */
+        "options": RadioOption[];
+        /**
+          * Size of radio buttons
+          * @default 'default'
+         */
+        "size": RadioGroupSize;
+        /**
+          * Font color when button is active
+          * @default '#ffffff'
+         */
+        "textColor": string;
+        /**
+          * Component type to render options ('radio' or 'button')
+          * @default 'radio'
+         */
+        "type": 'radio' | 'button';
+        /**
+          * Whether to trigger form validation
+          * @default true
+         */
+        "validateEvent": boolean;
+        /**
+          * Binding value
+         */
+        "value": string | number | boolean;
+        /**
+          * Vertical layout
+          * @default false
+         */
+        "vertical": boolean;
+    }
+    interface RSelect {
+        /**
+          * Whether creating new items is allowed
+          * @default false
+         */
+        "allowCreate": boolean;
+        /**
+          * Whether select can be cleared
+          * @default false
+         */
+        "clearable": boolean;
+        /**
+          * Whether to collapse tags when multiple
+          * @default false
+         */
+        "collapseTags": boolean;
+        /**
+          * Show all tags on hover when collapsed
+          * @default false
+         */
+        "collapseTagsTooltip": boolean;
+        /**
+          * Select first option on enter
+          * @default false
+         */
+        "defaultFirstOption": boolean;
+        /**
+          * Whether Select is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Whether Select is filterable
+          * @default false
+         */
+        "filterable": boolean;
+        /**
+          * Whether Select is loading data
+          * @default false
+         */
+        "loading": boolean;
+        /**
+          * Text while loading
+          * @default 'Loading...'
+         */
+        "loadingText": string;
+        /**
+          * Max tags to show when collapsed
+          * @default 1
+         */
+        "maxCollapseTags": number;
+        /**
+          * Whether multiple select is activated
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * Maximum options user can select (0 = no limit)
+          * @default 0
+         */
+        "multipleLimit": number;
+        /**
+          * Text when no data
+          * @default 'No data'
+         */
+        "noDataText": string;
+        /**
+          * Text when no match
+          * @default 'No matching data'
+         */
+        "noMatchText": string;
+        /**
+          * Data of the options
+          * @default []
+         */
+        "options": (SelectOption | SelectOptionGroup)[];
+        /**
+          * Placeholder text
+          * @default 'Select'
+         */
+        "placeholder": string;
+        /**
+          * Configuration for option keys
+          * @default {     value: 'value',     label: 'label',     disabled: 'disabled',     options: 'options',   }
+         */
+        "props": SelectProps;
+        /**
+          * Whether options are loaded from server
+          * @default false
+         */
+        "remote": boolean;
+        /**
+          * Blur the select
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Focus the select
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Size of input
+          * @default 'default'
+         */
+        "size": SelectSize;
+        /**
+          * Tag type for multiple select
+          * @default 'info'
+         */
+        "tagType": TagType;
+        /**
+          * Binding value (single or array for multiple)
+          * @default ''
+         */
+        "value": any;
+        /**
+          * Unique identity key name for value when value is an object
+          * @default 'value'
+         */
+        "valueKey": string;
+    }
+    interface RSpinner {
+        /**
+          * Spinner color
+          * @default 'primary'
+         */
+        "color": SpinnerColor;
+        /**
+          * Custom size in pixels
+         */
+        "customSize": number;
+        /**
+          * Spinner size
+          * @default 'default'
+         */
+        "size": SpinnerSize;
+        /**
+          * Stroke width
+          * @default 4
+         */
+        "strokeWidth": number;
+    }
+    interface RSwitch {
+        /**
+          * Background color when on
+         */
+        "activeColor": string;
+        /**
+          * Text displayed when on
+         */
+        "activeText": string;
+        /**
+          * Value when on
+          * @default true
+         */
+        "activeValue": any;
+        /**
+          * Aria label
+         */
+        "ariaLabel": string;
+        /**
+          * Whether switch is on
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Whether switch is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Background color when off
+         */
+        "inactiveColor": string;
+        /**
+          * Text displayed when off
+         */
+        "inactiveText": string;
+        /**
+          * Value when off
+          * @default false
+         */
+        "inactiveValue": any;
+        /**
+          * Whether to show text inside switch
+          * @default false
+         */
+        "inlinePrompt": boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName": string;
+        /**
+          * Whether switch is loading
+          * @default false
+         */
+        "loading": boolean;
+        /**
+          * Size of the switch
+          * @default 'default'
+         */
+        "size": SwitchSize;
+    }
+    interface RTabItem {
+        /**
+          * Whether tab is active
+          * @default false
+         */
+        "active": boolean;
+        /**
+          * Whether tab can be closed
+          * @default false
+         */
+        "closable": boolean;
+        /**
+          * Whether tab is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Tab label (display text)
+         */
+        "label": string;
+        /**
+          * Tab name (identifier)
+         */
+        "name": string;
+        /**
+          * Tab type (inherited from parent)
+          * @default 'line'
+         */
+        "type": TabItemType;
+    }
+    interface RTabPane {
+        /**
+          * Whether tab pane is active (set by parent)
+          * @default false
+         */
+        "active": boolean;
+        /**
+          * Whether tab pane can be closed
+          * @default false
+         */
+        "closable": boolean;
+        /**
+          * Whether tab pane is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Tab pane label (display text)
+         */
+        "label": string;
+        /**
+          * Whether tab pane is lazy loaded
+          * @default false
+         */
+        "lazy": boolean;
+        /**
+          * Tab pane name (identifier)
+         */
+        "name": string;
+    }
+    interface RTable {
+        /**
+          * Whether to show border
+          * @default false
+         */
+        "border": boolean;
+        /**
+          * Table columns
+          * @default []
+         */
+        "columns": TableColumn[];
+        /**
+          * Table data
+          * @default []
+         */
+        "data": any[];
+        /**
+          * Empty text
+          * @default 'No data'
+         */
+        "emptyText": string;
+        /**
+          * Whether to highlight current row
+          * @default false
+         */
+        "highlightCurrentRow": boolean;
+        /**
+          * Loading state
+          * @default false
+         */
+        "loading": boolean;
+        /**
+          * Max height for scrollable table
+         */
+        "maxHeight": string;
+        /**
+          * Row key for unique identification
+          * @default 'id'
+         */
+        "rowKey": string;
+        /**
+          * Whether to show header
+          * @default true
+         */
+        "showHeader": boolean;
+        /**
+          * Table size
+          * @default 'default'
+         */
+        "size": TableSize;
+        /**
+          * Whether to show stripe
+          * @default false
+         */
+        "stripe": boolean;
+    }
+    interface RTabs {
+        /**
+          * Whether tabs can be added
+          * @default false
+         */
+        "addable": boolean;
+        /**
+          * Whether tabs can be closed
+          * @default false
+         */
+        "closable": boolean;
+        /**
+          * Whether tabs stretch to fill container
+          * @default false
+         */
+        "stretch": boolean;
+        /**
+          * Tab position
+          * @default 'top'
+         */
+        "tabPosition": TabsPosition;
+        /**
+          * Tab type
+          * @default 'line'
+         */
+        "type": TabsType;
+        /**
+          * Currently active tab
+         */
+        "value": string;
+    }
+    interface RTag {
+        /**
+          * Whether tag can be closed
+          * @default false
+         */
+        "closable": boolean;
+        /**
+          * Custom background color
+         */
+        "color": string;
+        /**
+          * Disable transitions
+          * @default false
+         */
+        "disableTransitions": boolean;
+        /**
+          * Tag effect/theme
+          * @default 'light'
+         */
+        "effect": TagEffect;
+        /**
+          * Whether tag has rounded corners
+          * @default false
+         */
+        "round": boolean;
+        /**
+          * Tag size
+          * @default 'default'
+         */
+        "size": TagSize;
+        /**
+          * Tag type
+          * @default ''
+         */
+        "type": TagType1;
+    }
+    interface RTooltip {
+        /**
+          * Tooltip content
+         */
+        "content": string;
+        /**
+          * Whether tooltip is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Tooltip effect/theme
+          * @default 'dark'
+         */
+        "effect": TooltipEffect1;
+        /**
+          * Whether mouse can enter tooltip
+          * @default true
+         */
+        "enterable": boolean;
+        /**
+          * Hide tooltip programmatically
          */
         "hide": () => Promise<void>;
         /**
-          * @default '200px'
+          * Delay before hiding (ms)
+          * @default 200
          */
-        "maxWidth": string;
+        "hideDelay": number;
         /**
+          * Max width for wrapping
+         */
+        "maxWidth": number;
+        /**
+          * Tooltip placement
           * @default 'top'
          */
-        "position": 'top' | 'bottom' | 'left' | 'right';
+        "placement": TooltipPlacement1;
         /**
-          * Programmatically show the tooltip
+          * Raw content (allow HTML)
+          * @default false
+         */
+        "rawContent": boolean;
+        /**
+          * Show tooltip programmatically
          */
         "show": () => Promise<void>;
         /**
+          * Show arrow
           * @default true
          */
         "showArrow": boolean;
         /**
-          * Programmatically toggle the tooltip
+          * Delay before showing (ms)
+          * @default 0
          */
-        "toggle": () => Promise<void>;
+        "showDelay": number;
         /**
+          * Trigger mode
           * @default 'hover'
          */
-        "trigger": 'hover' | 'focus' | 'click' | 'manual';
+        "trigger": TooltipTrigger;
     }
+}
+export interface RAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRAlertElement;
+}
+export interface RAvatarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRAvatarElement;
 }
 export interface RButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -588,21 +1690,57 @@ export interface RCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRCheckboxElement;
 }
+export interface RCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRCheckboxGroupElement;
+}
+export interface RCollapseCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRCollapseElement;
+}
+export interface RCollapseItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRCollapseItemElement;
+}
+export interface RDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRDialogElement;
+}
+export interface RDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRDropdownElement;
+}
+export interface RDropdownItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRDropdownItemElement;
+}
+export interface RFormCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRFormElement;
+}
 export interface RInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRInputElement;
 }
-export interface RMenuCustomEvent<T> extends CustomEvent<T> {
+export interface RInputNumberCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLRMenuElement;
+    target: HTMLRInputNumberElement;
 }
-export interface RModalCustomEvent<T> extends CustomEvent<T> {
+export interface RPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLRModalElement;
+    target: HTMLRPaginationElement;
 }
 export interface RRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRRadioElement;
+}
+export interface RRadioButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRRadioButtonElement;
+}
+export interface RRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRRadioGroupElement;
 }
 export interface RSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -612,15 +1750,63 @@ export interface RSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLRSwitchElement;
 }
-export interface RTextareaCustomEvent<T> extends CustomEvent<T> {
+export interface RTabItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLRTextareaElement;
+    target: HTMLRTabItemElement;
+}
+export interface RTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRTableElement;
+}
+export interface RTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRTabsElement;
+}
+export interface RTagCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRTagElement;
 }
 declare global {
-    /**
-     * r-badge
-     * Flexible badge component with dot variant and icon support
-     */
+    interface HTMLRAlertElementEventMap {
+        "close": void;
+    }
+    interface HTMLRAlertElement extends Components.RAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRAlertElementEventMap>(type: K, listener: (this: HTMLRAlertElement, ev: RAlertCustomEvent<HTMLRAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRAlertElementEventMap>(type: K, listener: (this: HTMLRAlertElement, ev: RAlertCustomEvent<HTMLRAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRAlertElement: {
+        prototype: HTMLRAlertElement;
+        new (): HTMLRAlertElement;
+    };
+    interface HTMLRAvatarElementEventMap {
+        "error": Event;
+    }
+    interface HTMLRAvatarElement extends Components.RAvatar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRAvatarElementEventMap>(type: K, listener: (this: HTMLRAvatarElement, ev: RAvatarCustomEvent<HTMLRAvatarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRAvatarElementEventMap>(type: K, listener: (this: HTMLRAvatarElement, ev: RAvatarCustomEvent<HTMLRAvatarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRAvatarElement: {
+        prototype: HTMLRAvatarElement;
+        new (): HTMLRAvatarElement;
+    };
+    interface HTMLRAvatarGroupElement extends Components.RAvatarGroup, HTMLStencilElement {
+    }
+    var HTMLRAvatarGroupElement: {
+        prototype: HTMLRAvatarGroupElement;
+        new (): HTMLRAvatarGroupElement;
+    };
     interface HTMLRBadgeElement extends Components.RBadge, HTMLStencilElement {
     }
     var HTMLRBadgeElement: {
@@ -628,14 +1814,8 @@ declare global {
         new (): HTMLRBadgeElement;
     };
     interface HTMLRButtonElementEventMap {
-        "rClick": MouseEvent;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+        "clicked": MouseEvent;
     }
-    /**
-     * r-button
-     * Minimal, flexible, accessible button component with industry-standard features
-     */
     interface HTMLRButtonElement extends Components.RButton, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRButtonElementEventMap>(type: K, listener: (this: HTMLRButtonElement, ev: RButtonCustomEvent<HTMLRButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -650,15 +1830,21 @@ declare global {
         prototype: HTMLRButtonElement;
         new (): HTMLRButtonElement;
     };
-    interface HTMLRCheckboxElementEventMap {
-        "rChange": boolean;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+    interface HTMLRButtonGroupElement extends Components.RButtonGroup, HTMLStencilElement {
     }
-    /**
-     * r-checkbox
-     * Accessible checkbox component with indeterminate state support
-     */
+    var HTMLRButtonGroupElement: {
+        prototype: HTMLRButtonGroupElement;
+        new (): HTMLRButtonGroupElement;
+    };
+    interface HTMLRCardElement extends Components.RCard, HTMLStencilElement {
+    }
+    var HTMLRCardElement: {
+        prototype: HTMLRCardElement;
+        new (): HTMLRCardElement;
+    };
+    interface HTMLRCheckboxElementEventMap {
+        "change": boolean;
+    }
     interface HTMLRCheckboxElement extends Components.RCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRCheckboxElementEventMap>(type: K, listener: (this: HTMLRCheckboxElement, ev: RCheckboxCustomEvent<HTMLRCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -673,17 +1859,149 @@ declare global {
         prototype: HTMLRCheckboxElement;
         new (): HTMLRCheckboxElement;
     };
-    interface HTMLRInputElementEventMap {
-        "rInput": string;
-        "rBlur": void;
-        "rFocus": void;
-        "rClear": void;
-        "rKeyDown": KeyboardEvent;
+    interface HTMLRCheckboxGroupElementEventMap {
+        "change": (string | number)[];
     }
-    /**
-     * r-input
-     * A high-quality, accessible input component inspired by Material UI behavior.
-     */
+    interface HTMLRCheckboxGroupElement extends Components.RCheckboxGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLRCheckboxGroupElement, ev: RCheckboxGroupCustomEvent<HTMLRCheckboxGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLRCheckboxGroupElement, ev: RCheckboxGroupCustomEvent<HTMLRCheckboxGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRCheckboxGroupElement: {
+        prototype: HTMLRCheckboxGroupElement;
+        new (): HTMLRCheckboxGroupElement;
+    };
+    interface HTMLRCollapseElementEventMap {
+        "change": string | string[];
+    }
+    interface HTMLRCollapseElement extends Components.RCollapse, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRCollapseElementEventMap>(type: K, listener: (this: HTMLRCollapseElement, ev: RCollapseCustomEvent<HTMLRCollapseElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRCollapseElementEventMap>(type: K, listener: (this: HTMLRCollapseElement, ev: RCollapseCustomEvent<HTMLRCollapseElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRCollapseElement: {
+        prototype: HTMLRCollapseElement;
+        new (): HTMLRCollapseElement;
+    };
+    interface HTMLRCollapseItemElementEventMap {
+        "itemToggle": string;
+    }
+    interface HTMLRCollapseItemElement extends Components.RCollapseItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRCollapseItemElementEventMap>(type: K, listener: (this: HTMLRCollapseItemElement, ev: RCollapseItemCustomEvent<HTMLRCollapseItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRCollapseItemElementEventMap>(type: K, listener: (this: HTMLRCollapseItemElement, ev: RCollapseItemCustomEvent<HTMLRCollapseItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRCollapseItemElement: {
+        prototype: HTMLRCollapseItemElement;
+        new (): HTMLRCollapseItemElement;
+    };
+    interface HTMLRDialogElementEventMap {
+        "dialogOpen": void;
+        "dialogClose": void;
+        "dialogOpened": void;
+        "dialogClosed": void;
+    }
+    interface HTMLRDialogElement extends Components.RDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRDialogElementEventMap>(type: K, listener: (this: HTMLRDialogElement, ev: RDialogCustomEvent<HTMLRDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRDialogElementEventMap>(type: K, listener: (this: HTMLRDialogElement, ev: RDialogCustomEvent<HTMLRDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRDialogElement: {
+        prototype: HTMLRDialogElement;
+        new (): HTMLRDialogElement;
+    };
+    interface HTMLRDropdownElementEventMap {
+        "command": string | number;
+        "visibleChange": boolean;
+        "click": MouseEvent;
+    }
+    interface HTMLRDropdownElement extends Components.RDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRDropdownElementEventMap>(type: K, listener: (this: HTMLRDropdownElement, ev: RDropdownCustomEvent<HTMLRDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRDropdownElementEventMap>(type: K, listener: (this: HTMLRDropdownElement, ev: RDropdownCustomEvent<HTMLRDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRDropdownElement: {
+        prototype: HTMLRDropdownElement;
+        new (): HTMLRDropdownElement;
+    };
+    interface HTMLRDropdownItemElementEventMap {
+        "itemClick": string | number;
+    }
+    interface HTMLRDropdownItemElement extends Components.RDropdownItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRDropdownItemElementEventMap>(type: K, listener: (this: HTMLRDropdownItemElement, ev: RDropdownItemCustomEvent<HTMLRDropdownItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRDropdownItemElementEventMap>(type: K, listener: (this: HTMLRDropdownItemElement, ev: RDropdownItemCustomEvent<HTMLRDropdownItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRDropdownItemElement: {
+        prototype: HTMLRDropdownItemElement;
+        new (): HTMLRDropdownItemElement;
+    };
+    interface HTMLRDropdownMenuElement extends Components.RDropdownMenu, HTMLStencilElement {
+    }
+    var HTMLRDropdownMenuElement: {
+        prototype: HTMLRDropdownMenuElement;
+        new (): HTMLRDropdownMenuElement;
+    };
+    interface HTMLRFormElementEventMap {
+        "validate": {
+    prop: string;
+    valid: boolean;
+    message: string;
+  };
+    }
+    interface HTMLRFormElement extends Components.RForm, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRFormElementEventMap>(type: K, listener: (this: HTMLRFormElement, ev: RFormCustomEvent<HTMLRFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRFormElementEventMap>(type: K, listener: (this: HTMLRFormElement, ev: RFormCustomEvent<HTMLRFormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRFormElement: {
+        prototype: HTMLRFormElement;
+        new (): HTMLRFormElement;
+    };
+    interface HTMLRFormItemElement extends Components.RFormItem, HTMLStencilElement {
+    }
+    var HTMLRFormItemElement: {
+        prototype: HTMLRFormItemElement;
+        new (): HTMLRFormItemElement;
+    };
+    interface HTMLRInputElementEventMap {
+        "cleared": void;
+    }
     interface HTMLRInputElement extends Components.RInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRInputElementEventMap>(type: K, listener: (this: HTMLRInputElement, ev: RInputCustomEvent<HTMLRInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -698,60 +2016,53 @@ declare global {
         prototype: HTMLRInputElement;
         new (): HTMLRInputElement;
     };
-    interface HTMLRMenuElementEventMap {
-        "rSelect": string;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+    interface HTMLRInputNumberElementEventMap {
+        "change": number | null;
     }
-    /**
-     * r-menu
-     * Accessible, flexible menu component with keyboard navigation
-     */
-    interface HTMLRMenuElement extends Components.RMenu, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLRMenuElementEventMap>(type: K, listener: (this: HTMLRMenuElement, ev: RMenuCustomEvent<HTMLRMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLRInputNumberElement extends Components.RInputNumber, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRInputNumberElementEventMap>(type: K, listener: (this: HTMLRInputNumberElement, ev: RInputNumberCustomEvent<HTMLRInputNumberElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLRMenuElementEventMap>(type: K, listener: (this: HTMLRMenuElement, ev: RMenuCustomEvent<HTMLRMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRInputNumberElementEventMap>(type: K, listener: (this: HTMLRInputNumberElement, ev: RInputNumberCustomEvent<HTMLRInputNumberElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLRMenuElement: {
-        prototype: HTMLRMenuElement;
-        new (): HTMLRMenuElement;
+    var HTMLRInputNumberElement: {
+        prototype: HTMLRInputNumberElement;
+        new (): HTMLRInputNumberElement;
     };
-    interface HTMLRModalElementEventMap {
-        "rClose": void;
-        "rOpen": void;
+    interface HTMLRLoadingElement extends Components.RLoading, HTMLStencilElement {
     }
-    /**
-     * r-modal
-     * Accessible, flexible modal/dialog component with focus trap
-     */
-    interface HTMLRModalElement extends Components.RModal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLRModalElementEventMap>(type: K, listener: (this: HTMLRModalElement, ev: RModalCustomEvent<HTMLRModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    var HTMLRLoadingElement: {
+        prototype: HTMLRLoadingElement;
+        new (): HTMLRLoadingElement;
+    };
+    interface HTMLRPaginationElementEventMap {
+        "sizeChange": number;
+        "currentChange": number;
+        "change": { currentPage: number; pageSize: number };
+        "prevClick": number;
+        "nextClick": number;
+    }
+    interface HTMLRPaginationElement extends Components.RPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRPaginationElementEventMap>(type: K, listener: (this: HTMLRPaginationElement, ev: RPaginationCustomEvent<HTMLRPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLRModalElementEventMap>(type: K, listener: (this: HTMLRModalElement, ev: RModalCustomEvent<HTMLRModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRPaginationElementEventMap>(type: K, listener: (this: HTMLRPaginationElement, ev: RPaginationCustomEvent<HTMLRPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLRModalElement: {
-        prototype: HTMLRModalElement;
-        new (): HTMLRModalElement;
+    var HTMLRPaginationElement: {
+        prototype: HTMLRPaginationElement;
+        new (): HTMLRPaginationElement;
     };
     interface HTMLRRadioElementEventMap {
-        "rChange": string;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+        "change": string | number | boolean;
     }
-    /**
-     * r-radio
-     * Accessible radio button component with group support
-     */
     interface HTMLRRadioElement extends Components.RRadio, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRRadioElementEventMap>(type: K, listener: (this: HTMLRRadioElement, ev: RRadioCustomEvent<HTMLRRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -766,15 +2077,46 @@ declare global {
         prototype: HTMLRRadioElement;
         new (): HTMLRRadioElement;
     };
-    interface HTMLRSelectElementEventMap {
-        "rChange": string;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+    interface HTMLRRadioButtonElementEventMap {
+        "change": string | number | boolean;
     }
-    /**
-     * r-select
-     * Accessible select component with enhanced features
-     */
+    interface HTMLRRadioButtonElement extends Components.RRadioButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRRadioButtonElementEventMap>(type: K, listener: (this: HTMLRRadioButtonElement, ev: RRadioButtonCustomEvent<HTMLRRadioButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRRadioButtonElementEventMap>(type: K, listener: (this: HTMLRRadioButtonElement, ev: RRadioButtonCustomEvent<HTMLRRadioButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRRadioButtonElement: {
+        prototype: HTMLRRadioButtonElement;
+        new (): HTMLRRadioButtonElement;
+    };
+    interface HTMLRRadioGroupElementEventMap {
+        "change": string | number | boolean;
+    }
+    interface HTMLRRadioGroupElement extends Components.RRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRRadioGroupElementEventMap>(type: K, listener: (this: HTMLRRadioGroupElement, ev: RRadioGroupCustomEvent<HTMLRRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRRadioGroupElementEventMap>(type: K, listener: (this: HTMLRRadioGroupElement, ev: RRadioGroupCustomEvent<HTMLRRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRRadioGroupElement: {
+        prototype: HTMLRRadioGroupElement;
+        new (): HTMLRRadioGroupElement;
+    };
+    interface HTMLRSelectElementEventMap {
+        "change": any;
+        "visibleChange": boolean;
+        "removeTag": any;
+        "clear": void;
+    }
     interface HTMLRSelectElement extends Components.RSelect, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRSelectElementEventMap>(type: K, listener: (this: HTMLRSelectElement, ev: RSelectCustomEvent<HTMLRSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -789,15 +2131,15 @@ declare global {
         prototype: HTMLRSelectElement;
         new (): HTMLRSelectElement;
     };
-    interface HTMLRSwitchElementEventMap {
-        "rChange": boolean;
-        "rFocus": FocusEvent;
-        "rBlur": FocusEvent;
+    interface HTMLRSpinnerElement extends Components.RSpinner, HTMLStencilElement {
     }
-    /**
-     * r-switch
-     * Accessible switch/toggle component
-     */
+    var HTMLRSpinnerElement: {
+        prototype: HTMLRSpinnerElement;
+        new (): HTMLRSpinnerElement;
+    };
+    interface HTMLRSwitchElementEventMap {
+        "change": boolean;
+    }
     interface HTMLRSwitchElement extends Components.RSwitch, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRSwitchElementEventMap>(type: K, listener: (this: HTMLRSwitchElement, ev: RSwitchCustomEvent<HTMLRSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -812,34 +2154,86 @@ declare global {
         prototype: HTMLRSwitchElement;
         new (): HTMLRSwitchElement;
     };
-    interface HTMLRTextareaElementEventMap {
-        "rInput": string;
-        "rBlur": FocusEvent;
-        "rFocus": FocusEvent;
-        "rChange": string;
+    interface HTMLRTabItemElementEventMap {
+        "close": MouseEvent;
     }
-    /**
-     * r-textarea
-     * Accessible textarea component with auto-resize and character counter
-     */
-    interface HTMLRTextareaElement extends Components.RTextarea, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLRTextareaElementEventMap>(type: K, listener: (this: HTMLRTextareaElement, ev: RTextareaCustomEvent<HTMLRTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLRTabItemElement extends Components.RTabItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRTabItemElementEventMap>(type: K, listener: (this: HTMLRTabItemElement, ev: RTabItemCustomEvent<HTMLRTabItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLRTextareaElementEventMap>(type: K, listener: (this: HTMLRTextareaElement, ev: RTextareaCustomEvent<HTMLRTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRTabItemElementEventMap>(type: K, listener: (this: HTMLRTabItemElement, ev: RTabItemCustomEvent<HTMLRTabItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLRTextareaElement: {
-        prototype: HTMLRTextareaElement;
-        new (): HTMLRTextareaElement;
+    var HTMLRTabItemElement: {
+        prototype: HTMLRTabItemElement;
+        new (): HTMLRTabItemElement;
     };
-    /**
-     * r-tooltip
-     * Accessible tooltip component with multiple trigger options
-     */
+    interface HTMLRTabPaneElement extends Components.RTabPane, HTMLStencilElement {
+    }
+    var HTMLRTabPaneElement: {
+        prototype: HTMLRTabPaneElement;
+        new (): HTMLRTabPaneElement;
+    };
+    interface HTMLRTableElementEventMap {
+        "rowClick": { row: any; index: number };
+        "cellClick": { row: any; column: TableColumn; cellValue: any; index: number };
+        "sortChange": { prop: string; order: 'ascending' | 'descending' | null };
+        "currentChange": any;
+    }
+    interface HTMLRTableElement extends Components.RTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRTableElementEventMap>(type: K, listener: (this: HTMLRTableElement, ev: RTableCustomEvent<HTMLRTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRTableElementEventMap>(type: K, listener: (this: HTMLRTableElement, ev: RTableCustomEvent<HTMLRTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRTableElement: {
+        prototype: HTMLRTableElement;
+        new (): HTMLRTableElement;
+    };
+    interface HTMLRTabsElementEventMap {
+        "tabChange": string;
+        "tabRemove": string;
+        "tabAdd": void;
+    }
+    interface HTMLRTabsElement extends Components.RTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRTabsElementEventMap>(type: K, listener: (this: HTMLRTabsElement, ev: RTabsCustomEvent<HTMLRTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRTabsElementEventMap>(type: K, listener: (this: HTMLRTabsElement, ev: RTabsCustomEvent<HTMLRTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRTabsElement: {
+        prototype: HTMLRTabsElement;
+        new (): HTMLRTabsElement;
+    };
+    interface HTMLRTagElementEventMap {
+        "close": void;
+        "click": MouseEvent;
+    }
+    interface HTMLRTagElement extends Components.RTag, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRTagElementEventMap>(type: K, listener: (this: HTMLRTagElement, ev: RTagCustomEvent<HTMLRTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRTagElementEventMap>(type: K, listener: (this: HTMLRTagElement, ev: RTagCustomEvent<HTMLRTagElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRTagElement: {
+        prototype: HTMLRTagElement;
+        new (): HTMLRTagElement;
+    };
     interface HTMLRTooltipElement extends Components.RTooltip, HTMLStencilElement {
     }
     var HTMLRTooltipElement: {
@@ -847,191 +2241,788 @@ declare global {
         new (): HTMLRTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "r-alert": HTMLRAlertElement;
+        "r-avatar": HTMLRAvatarElement;
+        "r-avatar-group": HTMLRAvatarGroupElement;
         "r-badge": HTMLRBadgeElement;
         "r-button": HTMLRButtonElement;
+        "r-button-group": HTMLRButtonGroupElement;
+        "r-card": HTMLRCardElement;
         "r-checkbox": HTMLRCheckboxElement;
+        "r-checkbox-group": HTMLRCheckboxGroupElement;
+        "r-collapse": HTMLRCollapseElement;
+        "r-collapse-item": HTMLRCollapseItemElement;
+        "r-dialog": HTMLRDialogElement;
+        "r-dropdown": HTMLRDropdownElement;
+        "r-dropdown-item": HTMLRDropdownItemElement;
+        "r-dropdown-menu": HTMLRDropdownMenuElement;
+        "r-form": HTMLRFormElement;
+        "r-form-item": HTMLRFormItemElement;
         "r-input": HTMLRInputElement;
-        "r-menu": HTMLRMenuElement;
-        "r-modal": HTMLRModalElement;
+        "r-input-number": HTMLRInputNumberElement;
+        "r-loading": HTMLRLoadingElement;
+        "r-pagination": HTMLRPaginationElement;
         "r-radio": HTMLRRadioElement;
+        "r-radio-button": HTMLRRadioButtonElement;
+        "r-radio-group": HTMLRRadioGroupElement;
         "r-select": HTMLRSelectElement;
+        "r-spinner": HTMLRSpinnerElement;
         "r-switch": HTMLRSwitchElement;
-        "r-textarea": HTMLRTextareaElement;
+        "r-tab-item": HTMLRTabItemElement;
+        "r-tab-pane": HTMLRTabPaneElement;
+        "r-table": HTMLRTableElement;
+        "r-tabs": HTMLRTabsElement;
+        "r-tag": HTMLRTagElement;
         "r-tooltip": HTMLRTooltipElement;
     }
 }
 declare namespace LocalJSX {
-    /**
-     * r-badge
-     * Flexible badge component with dot variant and icon support
-     */
+    interface RAlert {
+        /**
+          * Alert title
+         */
+        "alertTitle"?: string;
+        /**
+          * Whether to center content
+          * @default false
+         */
+        "center"?: boolean;
+        /**
+          * Whether alert can be closed
+          * @default true
+         */
+        "closable"?: boolean;
+        /**
+          * Custom close text
+         */
+        "closeText"?: string;
+        /**
+          * Alert description
+         */
+        "description"?: string;
+        /**
+          * Alert effect/theme
+          * @default 'light'
+         */
+        "effect"?: AlertEffect;
+        "onClose"?: (event: RAlertCustomEvent<void>) => void;
+        /**
+          * Whether to show icon
+          * @default true
+         */
+        "showIcon"?: boolean;
+        /**
+          * Alert type
+          * @default 'info'
+         */
+        "type"?: AlertType;
+    }
+    interface RAvatar {
+        /**
+          * Alt text for image
+          * @default ''
+         */
+        "alt"?: string;
+        /**
+          * How the image fits its container
+          * @default 'cover'
+         */
+        "fit"?: AvatarFit;
+        /**
+          * Icon to display (when no image or slot content)
+         */
+        "icon"?: string;
+        /**
+          * Emitted when image fails to load
+         */
+        "onError"?: (event: RAvatarCustomEvent<Event>) => void;
+        /**
+          * Avatar shape
+          * @default 'circle'
+         */
+        "shape"?: AvatarShape;
+        /**
+          * Avatar size - can be 'large', 'default', 'small' or a number (px)
+          * @default 'default'
+         */
+        "size"?: AvatarSize;
+        /**
+          * Image source URL
+         */
+        "src"?: string;
+        /**
+          * Native srcset attribute for responsive images
+         */
+        "srcSet"?: string;
+    }
+    interface RAvatarGroup {
+        /**
+          * Whether to collapse avatars
+          * @default false
+         */
+        "collapseAvatars"?: boolean;
+        /**
+          * Show tooltip with all collapsed avatars on hover
+          * @default false
+         */
+        "collapseAvatarsTooltip"?: boolean;
+        /**
+          * Custom class for collapse avatar
+          * @default ''
+         */
+        "collapseClass"?: string;
+        /**
+          * Tooltip theme
+          * @default 'light'
+         */
+        "effect"?: TooltipEffect;
+        /**
+          * Max avatars to show before collapsing
+          * @default 3
+         */
+        "maxCollapseAvatars"?: number;
+        /**
+          * Tooltip placement
+          * @default 'top'
+         */
+        "placement"?: TooltipPlacement;
+        /**
+          * Custom class for tooltip
+          * @default ''
+         */
+        "popperClass"?: string;
+        /**
+          * Control the shape of avatars in this group
+          * @default 'circle'
+         */
+        "shape"?: AvatarShape1;
+        /**
+          * Control the size of avatars in this group
+          * @default 'default'
+         */
+        "size"?: AvatarSize1;
+    }
     interface RBadge {
         /**
-          * @default 'primary'
+          * Background color of the badge
          */
-        "color"?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+        "color"?: string;
         /**
+          * Hidden badge
           * @default false
          */
-        "pill"?: boolean;
+        "hidden"?: boolean;
         /**
-          * @default 'md'
+          * If a little dot is displayed instead of value
+          * @default false
          */
-        "size"?: 'sm' | 'md' | 'lg';
+        "isDot"?: boolean;
         /**
-          * @default 'solid'
+          * Maximum value, shows {max}+ when exceeded (only works if value is a number)
+          * @default 99
          */
-        "variant"?: 'solid' | 'outline' | 'ghost' | 'dot';
+        "max"?: number;
+        /**
+          * Offset of badge [x, y]
+         */
+        "offset"?: [number, number];
+        /**
+          * Whether to show badge when value is zero
+          * @default true
+         */
+        "showZero"?: boolean;
+        /**
+          * Badge type
+          * @default 'danger'
+         */
+        "type"?: BadgeType;
+        /**
+          * Display value
+          * @default ''
+         */
+        "value"?: string | number;
     }
-    /**
-     * r-button
-     * Minimal, flexible, accessible button component with industry-standard features
-     */
     interface RButton {
         /**
-          * Full width button
+          * Auto insert space between two Chinese characters
           * @default false
          */
-        "block"?: boolean;
+        "autoInsertSpace"?: boolean;
         /**
-          * Color scheme
-          * @default 'primary'
+          * Native button autofocus
+          * @default false
          */
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral';
+        "autofocus"?: boolean;
+        /**
+          * Text button with background on hover
+          * @default false
+         */
+        "bg"?: boolean;
+        /**
+          * Circle button (for icon-only)
+          * @default false
+         */
+        "circle"?: boolean;
+        /**
+          * Custom button color
+         */
+        "color"?: string;
+        /**
+          * Dark mode (auto-adjusts custom color)
+          * @default false
+         */
+        "dark"?: boolean;
         /**
           * Disabled state
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * Form ID to associate with
+          * Icon (renders before text)
          */
-        "form"?: string;
+        "icon"?: string;
         /**
-          * Icon-only button (square)
+          * Link button style
           * @default false
          */
-        "iconOnly"?: boolean;
-        /**
-          * Button label for accessibility
-         */
-        "label"?: string;
+        "link"?: boolean;
         /**
           * Loading state
           * @default false
          */
         "loading"?: boolean;
         /**
-          * Emit blur events
+          * Custom loading icon (slot name or icon name)
          */
-        "onRBlur"?: (event: RButtonCustomEvent<FocusEvent>) => void;
-        /**
-          * Emit click events
-         */
-        "onRClick"?: (event: RButtonCustomEvent<MouseEvent>) => void;
-        /**
-          * Emit focus events
-         */
-        "onRFocus"?: (event: RButtonCustomEvent<FocusEvent>) => void;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
+        "loadingIcon"?: string;
         /**
           * Native button type
           * @default 'button'
          */
-        "type"?: 'button' | 'submit' | 'reset';
+        "nativeType"?: ButtonNativeType;
         /**
-          * Visual variant
-          * @default 'solid'
+          * Click event
          */
-        "variant"?: 'solid' | 'outline' | 'ghost' | 'link';
+        "onClicked"?: (event: RButtonCustomEvent<MouseEvent>) => void;
+        /**
+          * Plain style (lighter background)
+          * @default false
+         */
+        "plain"?: boolean;
+        /**
+          * Round button
+          * @default false
+         */
+        "round"?: boolean;
+        /**
+          * Button size
+          * @default 'default'
+         */
+        "size"?: ButtonSize;
+        /**
+          * Custom HTML tag
+          * @default 'button'
+         */
+        "tag"?: string;
+        /**
+          * Text button (no background/border)
+          * @default false
+         */
+        "text"?: boolean;
+        /**
+          * Button type (color theme)
+          * @default 'default'
+         */
+        "type"?: ButtonType;
     }
-    /**
-     * r-checkbox
-     * Accessible checkbox component with indeterminate state support
-     */
+    interface RButtonGroup {
+        /**
+          * Display direction
+          * @default 'horizontal'
+         */
+        "direction"?: ButtonGroupDirection;
+        /**
+          * Control the size of buttons in this group
+         */
+        "size"?: ButtonSize1;
+        /**
+          * Control the type of buttons in this group
+         */
+        "type"?: ButtonType1;
+    }
+    interface RCard {
+        /**
+          * Custom class name of card body
+          * @default ''
+         */
+        "bodyClass"?: string;
+        /**
+          * Footer of the card
+         */
+        "footer"?: string;
+        /**
+          * Custom class name of card footer
+          * @default ''
+         */
+        "footerClass"?: string;
+        /**
+          * Title of the card
+         */
+        "header"?: string;
+        /**
+          * Custom class name of card header
+          * @default ''
+         */
+        "headerClass"?: string;
+        /**
+          * When to show card shadow
+          * @default 'always'
+         */
+        "shadow"?: CardShadow;
+    }
     interface RCheckbox {
         /**
+          * Whether to add a border around the checkbox
+          * @default false
+         */
+        "border"?: boolean;
+        /**
+          * Whether the checkbox is checked
           * @default false
          */
         "checked"?: boolean;
         /**
+          * Whether the checkbox is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
+          * False value for v-model
           * @default false
          */
-        "error"?: boolean;
-        "helperText"?: string;
+        "falseValue"?: any;
         /**
+          * Whether the checkbox is in indeterminate state
           * @default false
          */
         "indeterminate"?: boolean;
-        "inputId"?: string;
-        "label"?: string;
-        "name"?: string;
-        "onRBlur"?: (event: RCheckboxCustomEvent<FocusEvent>) => void;
-        "onRChange"?: (event: RCheckboxCustomEvent<boolean>) => void;
-        "onRFocus"?: (event: RCheckboxCustomEvent<FocusEvent>) => void;
         /**
+          * Native name attribute
+         */
+        "inputName"?: string;
+        /**
+          * The label text
+         */
+        "label"?: string;
+        "onChange"?: (event: RCheckboxCustomEvent<boolean>) => void;
+        /**
+          * Size of the checkbox
+          * @default 'default'
+         */
+        "size"?: CheckboxSize;
+        /**
+          * True value for v-model
+          * @default true
+         */
+        "trueValue"?: any;
+        /**
+          * The value of the checkbox (used in checkbox-group)
+         */
+        "value"?: string | number | boolean;
+    }
+    interface RCheckboxGroup {
+        /**
+          * Whether all checkboxes are disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Maximum number of checkboxes that can be checked
+         */
+        "max"?: number;
+        /**
+          * Minimum number of checkboxes that must be checked
+         */
+        "min"?: number;
+        "onChange"?: (event: RCheckboxGroupCustomEvent<(string | number)[]>) => void;
+        /**
+          * Options data for quick setup
+          * @default []
+         */
+        "options"?: CheckboxOption[];
+        /**
+          * Size of checkboxes
+          * @default 'default'
+         */
+        "size"?: CheckboxGroupSize;
+        /**
+          * Binding value (array of selected values)
+          * @default []
+         */
+        "value"?: (string | number)[];
+        /**
+          * Vertical layout
+          * @default false
+         */
+        "vertical"?: boolean;
+    }
+    interface RCollapse {
+        /**
+          * Whether to activate accordion mode (only one panel open at a time)
+          * @default false
+         */
+        "accordion"?: boolean;
+        /**
+          * Set expand icon position
+          * @default 'right'
+         */
+        "expandIconPosition"?: ExpandIconPosition;
+        /**
+          * Emitted when active panels change
+         */
+        "onChange"?: (event: RCollapseCustomEvent<string | string[]>) => void;
+        /**
+          * Currently active panel names
+          * @default []
+         */
+        "value"?: string | string[];
+    }
+    interface RCollapseItem {
+        /**
+          * Disable the collapse item
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Unique identification of the panel
+          * @default ''
+         */
+        "name"?: string;
+        /**
+          * Internal event to communicate with parent
+         */
+        "onItemToggle"?: (event: RCollapseItemCustomEvent<string>) => void;
+        /**
+          * Title of the panel
+          * @default ''
+         */
+        "panelTitle"?: string;
+    }
+    interface RDialog {
+        /**
+          * Whether to align header/footer center
+          * @default false
+         */
+        "alignCenter"?: boolean;
+        /**
+          * Whether to append to body
+          * @default false
+         */
+        "appendToBody"?: boolean;
+        /**
+          * Whether to center dialog vertically
+          * @default false
+         */
+        "center"?: boolean;
+        /**
+          * Whether clicking overlay closes dialog
+          * @default true
+         */
+        "closeOnClickOverlay"?: boolean;
+        /**
+          * Whether pressing ESC closes dialog
+          * @default true
+         */
+        "closeOnPressEscape"?: boolean;
+        /**
+          * Custom class for dialog
+         */
+        "customClass"?: string;
+        /**
+          * Whether to destroy content on close
+          * @default false
+         */
+        "destroyOnClose"?: boolean;
+        /**
+          * Dialog title
+         */
+        "dialogTitle"?: string;
+        /**
+          * Whether dialog is fullscreen
+          * @default false
+         */
+        "fullscreen"?: boolean;
+        /**
+          * Whether dialog is draggable
+          * @default false
+         */
+        "isDraggable"?: boolean;
+        /**
+          * Whether to lock body scroll
+          * @default true
+         */
+        "lockScroll"?: boolean;
+        "onDialogClose"?: (event: RDialogCustomEvent<void>) => void;
+        "onDialogClosed"?: (event: RDialogCustomEvent<void>) => void;
+        "onDialogOpen"?: (event: RDialogCustomEvent<void>) => void;
+        "onDialogOpened"?: (event: RDialogCustomEvent<void>) => void;
+        /**
+          * Whether to show close button
+          * @default true
+         */
+        "showClose"?: boolean;
+        /**
+          * Whether dialog is visible
+          * @default false
+         */
+        "visible"?: boolean;
+        /**
+          * Dialog width
+          * @default '500px'
+         */
+        "width"?: string;
+    }
+    interface RDropdown {
+        /**
+          * Whether dropdown is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether to hide on click
+          * @default true
+         */
+        "hideOnClick"?: boolean;
+        /**
+          * Hide timeout (ms)
+          * @default 150
+         */
+        "hideTimeout"?: number;
+        /**
+          * Max height of dropdown menu
+         */
+        "maxHeight"?: string;
+        "onClick"?: (event: RDropdownCustomEvent<MouseEvent>) => void;
+        "onCommand"?: (event: RDropdownCustomEvent<string | number>) => void;
+        "onVisibleChange"?: (event: RDropdownCustomEvent<boolean>) => void;
+        /**
+          * Dropdown placement
+          * @default 'bottom'
+         */
+        "placement"?: DropdownPlacement;
+        /**
+          * Show timeout (ms)
+          * @default 150
+         */
+        "showTimeout"?: number;
+        /**
+          * Button size for split button
+          * @default 'default'
+         */
+        "size"?: 'large' | 'default' | 'small';
+        /**
+          * Split button mode
+          * @default false
+         */
+        "splitButton"?: boolean;
+        /**
+          * Trigger mode
+          * @default 'hover'
+         */
+        "trigger"?: DropdownTrigger;
+        /**
+          * Button type for split button
+          * @default 'default'
+         */
+        "type"?: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+    }
+    interface RDropdownItem {
+        /**
+          * Command value
+         */
+        "command"?: string | number;
+        /**
+          * Whether item is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether to show divider above
+          * @default false
+         */
+        "divided"?: boolean;
+        /**
+          * Icon name or slot
+         */
+        "icon"?: string;
+        "onItemClick"?: (event: RDropdownItemCustomEvent<string | number>) => void;
+    }
+    interface RDropdownMenu {
+    }
+    interface RForm {
+        /**
+          * Whether to disable all components
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether to hide required asterisk
+          * @default false
+         */
+        "hideRequiredAsterisk"?: boolean;
+        /**
+          * Whether the form is inline
+          * @default false
+         */
+        "inline"?: boolean;
+        /**
+          * Whether to display error message inline
+          * @default false
+         */
+        "inlineMessage"?: boolean;
+        /**
+          * Position of label
+          * @default 'right'
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * Suffix of the label
+          * @default ''
+         */
+        "labelSuffix"?: string;
+        /**
+          * Width of label
+          * @default ''
+         */
+        "labelWidth"?: string;
+        /**
+          * Data of form component
+          * @default {}
+         */
+        "model"?: { [key: string]: any };
+        /**
+          * Emitted after a form item is validated
+         */
+        "onValidate"?: (event: RFormCustomEvent<{
+    prop: string;
+    valid: boolean;
+    message: string;
+  }>) => void;
+        /**
+          * Position of asterisk
+          * @default 'left'
+         */
+        "requireAsteriskPosition"?: RequireAsteriskPosition;
+        /**
+          * Validation rules
+          * @default {}
+         */
+        "rules"?: FormRules;
+        /**
+          * Whether to show error message
+          * @default true
+         */
+        "showMessage"?: boolean;
+        /**
+          * Control the size of components
+          * @default 'default'
+         */
+        "size"?: FormSize;
+        /**
+          * Whether to show status icon
+          * @default false
+         */
+        "statusIcon"?: boolean;
+    }
+    interface RFormItem {
+        /**
+          * Error message to display
+          * @default ''
+         */
+        "error"?: string;
+        /**
+          * Inline error message
+          * @default false
+         */
+        "inlineMessage"?: boolean;
+        /**
+          * Position of label (overrides form)
+          * @default ''
+         */
+        "labelPosition"?: LabelPosition1 | '';
+        /**
+          * Label text
+          * @default ''
+         */
+        "labelText"?: string;
+        /**
+          * Width of label
+          * @default ''
+         */
+        "labelWidth"?: string;
+        /**
+          * Property name in form model
+          * @default ''
+         */
+        "prop"?: string;
+        /**
+          * Whether field is required
           * @default false
          */
         "required"?: boolean;
         /**
-          * @default 'md'
+          * Validation rules for this field
          */
-        "size"?: 'sm' | 'md' | 'lg';
-        "value"?: string;
+        "rules"?: FormRule | FormRule[];
+        /**
+          * Whether to show error message
+          * @default true
+         */
+        "showMessage"?: boolean;
+        /**
+          * Size of form item
+          * @default ''
+         */
+        "size"?: FormSize1 | '';
     }
-    /**
-     * r-input
-     * A high-quality, accessible input component inspired by Material UI behavior.
-     */
     interface RInput {
         /**
-          * Autocomplete attribute
+          * Aria label
+         */
+        "ariaLabel"?: string;
+        /**
+          * Native autocomplete
+          * @default 'off'
          */
         "autocomplete"?: string;
         /**
-          * Autofocus
+          * Native autofocus
           * @default false
          */
         "autofocus"?: boolean;
         /**
-          * Clearable input (shows clear icon when value exists)
+          * Autosize for textarea
+          * @default false
+         */
+        "autosize"?: boolean | { minRows?: number; maxRows?: number };
+        /**
+          * Whether to show clear button
           * @default false
          */
         "clearable"?: boolean;
         /**
-          * Disabled state
+          * Whether input is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * Error state
-          * @default false
+          * Native name
          */
-        "error"?: boolean;
+        "inputName"?: string;
         /**
-          * Error message (overrides helperText when error is true)
+          * Tab index
          */
-        "errorMessage"?: string;
-        /**
-          * Helper / supporting text
-         */
-        "helperText"?: string;
-        /**
-          * Input ID
-         */
-        "inputId"?: string;
-        /**
-          * Input label
-         */
-        "label"?: string;
+        "inputTabindex"?: string | number;
         /**
           * Max length
          */
@@ -1040,412 +3031,836 @@ declare namespace LocalJSX {
           * Min length
          */
         "minlength"?: number;
-        /**
-          * Name attribute (for forms)
-         */
-        "name"?: string;
-        /**
-          * Fired on blur
-         */
-        "onRBlur"?: (event: RInputCustomEvent<void>) => void;
-        /**
-          * Fired when value is cleared
-         */
-        "onRClear"?: (event: RInputCustomEvent<void>) => void;
-        /**
-          * Fired on focus
-         */
-        "onRFocus"?: (event: RInputCustomEvent<void>) => void;
-        /**
-          * Fired on every input change
-         */
-        "onRInput"?: (event: RInputCustomEvent<string>) => void;
-        /**
-          * Fired on keydown
-         */
-        "onRKeyDown"?: (event: RInputCustomEvent<KeyboardEvent>) => void;
-        /**
-          * Pattern
-         */
-        "pattern"?: string;
+        "onCleared"?: (event: RInputCustomEvent<void>) => void;
         /**
           * Placeholder text
-         */
-        "placeholder"?: string;
-        /**
-          * Readonly state
-          * @default false
-         */
-        "readonly"?: boolean;
-        /**
-          * Required flag
-          * @default false
-         */
-        "required"?: boolean;
-        /**
-          * Show character counter
-          * @default false
-         */
-        "showCounter"?: boolean;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
-        /**
-          * Input type
-          * @default 'text'
-         */
-        "type"?: 'text' | 'email' | 'password' | 'number' | 'search' | 'tel' | 'url';
-        /**
-          * Input value (controlled or uncontrolled)
           * @default ''
          */
-        "value"?: string;
-    }
-    /**
-     * r-menu
-     * Accessible, flexible menu component with keyboard navigation
-     */
-    interface RMenu {
-        /**
-          * Disabled state
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * Menu items (can be JSON string or array)
-          * @default []
-         */
-        "items"?: MenuItem[] | string;
-        /**
-          * Menu label for accessibility
-         */
-        "label"?: string;
-        /**
-          * Fired on blur
-         */
-        "onRBlur"?: (event: RMenuCustomEvent<FocusEvent>) => void;
-        /**
-          * Fired on focus
-         */
-        "onRFocus"?: (event: RMenuCustomEvent<FocusEvent>) => void;
-        /**
-          * Emit select events
-         */
-        "onRSelect"?: (event: RMenuCustomEvent<string>) => void;
-        /**
-          * Placement relative to trigger
-          * @default 'bottom-start'
-         */
-        "placement"?: 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end';
-    }
-    /**
-     * r-modal
-     * Accessible, flexible modal/dialog component with focus trap
-     */
-    interface RModal {
-        /**
-          * Close on backdrop click
-          * @default true
-         */
-        "backdropClosable"?: boolean;
-        /**
-          * Center modal vertically
-          * @default true
-         */
-        "centered"?: boolean;
-        /**
-          * Show close button
-          * @default true
-         */
-        "closable"?: boolean;
-        /**
-          * Close on escape key
-          * @default true
-         */
-        "escapeClosable"?: boolean;
-        /**
-          * Trap focus within modal
-          * @default true
-         */
-        "focusTrap"?: boolean;
-        /**
-          * Modal title
-         */
-        "modalTitle"?: string;
-        /**
-          * Emit close events
-         */
-        "onRClose"?: (event: RModalCustomEvent<void>) => void;
-        /**
-          * Fired when modal opens
-         */
-        "onROpen"?: (event: RModalCustomEvent<void>) => void;
-        /**
-          * Open state
-          * @default false
-         */
-        "open"?: boolean;
-        /**
-          * Scrollable body content
-          * @default true
-         */
-        "scrollable"?: boolean;
-        /**
-          * Modal size
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'fullscreen';
-    }
-    /**
-     * r-radio
-     * Accessible radio button component with group support
-     */
-    interface RRadio {
-        /**
-          * @default false
-         */
-        "checked"?: boolean;
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * @default false
-         */
-        "error"?: boolean;
-        "helperText"?: string;
-        "label"?: string;
-        "name"?: string;
-        "onRBlur"?: (event: RRadioCustomEvent<FocusEvent>) => void;
-        "onRChange"?: (event: RRadioCustomEvent<string>) => void;
-        "onRFocus"?: (event: RRadioCustomEvent<FocusEvent>) => void;
-        "radioId"?: string;
-        /**
-          * @default false
-         */
-        "required"?: boolean;
-        /**
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
-        "value"?: string;
-    }
-    /**
-     * r-select
-     * Accessible select component with enhanced features
-     */
-    interface RSelect {
-        /**
-          * Autofocus
-          * @default false
-         */
-        "autofocus"?: boolean;
-        /**
-          * Disabled state
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * Error state
-          * @default false
-         */
-        "error"?: boolean;
-        /**
-          * Error message (overrides helperText when error is true)
-         */
-        "errorMessage"?: string;
-        /**
-          * Helper text
-         */
-        "helperText"?: string;
-        /**
-          * Label text
-         */
-        "label"?: string;
-        /**
-          * Name (for form submission)
-         */
-        "name"?: string;
-        /**
-          * Emit blur event
-         */
-        "onRBlur"?: (event: RSelectCustomEvent<FocusEvent>) => void;
-        /**
-          * Emit change event
-         */
-        "onRChange"?: (event: RSelectCustomEvent<string>) => void;
-        /**
-          * Emit focus event
-         */
-        "onRFocus"?: (event: RSelectCustomEvent<FocusEvent>) => void;
-        /**
-          * Options for the select (can be JSON string or array)
-          * @default []
-         */
-        "options"?: SelectOption[] | string;
-        /**
-          * Placeholder (renders as disabled option)
-         */
         "placeholder"?: string;
         /**
-          * Required
-          * @default false
+          * Prefix icon (emoji or text)
          */
-        "required"?: boolean;
+        "prefixIcon"?: string;
         /**
-          * Select ID
-         */
-        "selectId"?: string;
-        /**
-          * Size variant
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
-        /**
-          * Selected value
-         */
-        "value"?: string;
-    }
-    /**
-     * r-switch
-     * Accessible switch/toggle component
-     */
-    interface RSwitch {
-        /**
-          * @default false
-         */
-        "checked"?: boolean;
-        /**
-          * @default 'primary'
-         */
-        "color"?: 'primary' | 'success' | 'danger' | 'warning' | 'info';
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * @default false
-         */
-        "error"?: boolean;
-        "helperText"?: string;
-        "label"?: string;
-        "name"?: string;
-        "onRBlur"?: (event: RSwitchCustomEvent<FocusEvent>) => void;
-        "onRChange"?: (event: RSwitchCustomEvent<boolean>) => void;
-        "onRFocus"?: (event: RSwitchCustomEvent<FocusEvent>) => void;
-        /**
-          * @default false
-         */
-        "required"?: boolean;
-        /**
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
-        "switchId"?: string;
-        "value"?: string;
-    }
-    /**
-     * r-textarea
-     * Accessible textarea component with auto-resize and character counter
-     */
-    interface RTextarea {
-        /**
-          * @default false
-         */
-        "autoResize"?: boolean;
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * @default false
-         */
-        "error"?: boolean;
-        "errorMessage"?: string;
-        "helperText"?: string;
-        "label"?: string;
-        "maxlength"?: number;
-        "minlength"?: number;
-        "name"?: string;
-        "onRBlur"?: (event: RTextareaCustomEvent<FocusEvent>) => void;
-        "onRChange"?: (event: RTextareaCustomEvent<string>) => void;
-        "onRFocus"?: (event: RTextareaCustomEvent<FocusEvent>) => void;
-        "onRInput"?: (event: RTextareaCustomEvent<string>) => void;
-        "placeholder"?: string;
-        /**
+          * Whether input is readonly
           * @default false
          */
         "readonly"?: boolean;
         /**
-          * @default false
-         */
-        "required"?: boolean;
-        /**
+          * Textarea resize behavior
           * @default 'vertical'
          */
-        "resize"?: 'none' | 'vertical' | 'horizontal' | 'both';
+        "resize"?: InputResize;
         /**
-          * @default 4
+          * Number of rows for textarea
+          * @default 2
          */
         "rows"?: number;
         /**
+          * Whether to show password toggle
           * @default false
          */
-        "showCounter"?: boolean;
+        "showPassword"?: boolean;
         /**
-          * @default 'md'
+          * Show word count
+          * @default false
          */
-        "size"?: 'sm' | 'md' | 'lg';
-        "textareaId"?: string;
+        "showWordLimit"?: boolean;
         /**
+          * Size of input
+          * @default 'default'
+         */
+        "size"?: InputSize;
+        /**
+          * Suffix icon (emoji or text)
+         */
+        "suffixIcon"?: string;
+        /**
+          * Type of input
+          * @default 'text'
+         */
+        "type"?: InputType;
+        /**
+          * Binding value
           * @default ''
          */
-        "value"?: string;
+        "value"?: string | number;
     }
-    /**
-     * r-tooltip
-     * Accessible tooltip component with multiple trigger options
-     */
-    interface RTooltip {
-        "content"?: string;
+    interface RInputNumber {
         /**
-          * @default 300
+          * Aria label
          */
-        "delay"?: number;
+        "ariaLabel"?: string;
         /**
+          * Whether to enable control buttons
+          * @default true
+         */
+        "controls"?: boolean;
+        /**
+          * Position of control buttons
+          * @default ''
+         */
+        "controlsPosition"?: ControlsPosition;
+        /**
+          * Whether the component is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * @default '200px'
+          * Name attribute
          */
-        "maxWidth"?: string;
+        "inputName"?: string;
         /**
+          * Maximum allowed value
+          * @default Number.MAX_SAFE_INTEGER
+         */
+        "max"?: number;
+        /**
+          * Minimum allowed value
+          * @default Number.MIN_SAFE_INTEGER
+         */
+        "min"?: number;
+        "onChange"?: (event: RInputNumberCustomEvent<number | null>) => void;
+        /**
+          * Placeholder text
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * Precision of input value
+         */
+        "precision"?: number;
+        /**
+          * Whether the component is readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Size of the component
+          * @default 'default'
+         */
+        "size"?: InputNumberSize;
+        /**
+          * Incremental step
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * Whether input value can only be multiple of step
+          * @default false
+         */
+        "stepStrictly"?: boolean;
+        /**
+          * Binding value
+          * @default null
+         */
+        "value"?: number | null;
+    }
+    interface RLoading {
+        /**
+          * Background style
+          * @default 'light'
+         */
+        "background"?: 'light' | 'dark';
+        /**
+          * Custom background color
+         */
+        "customBackground"?: string;
+        /**
+          * Whether to show fullscreen
+          * @default false
+         */
+        "fullscreen"?: boolean;
+        /**
+          * Whether loading is visible
+          * @default false
+         */
+        "loading"?: boolean;
+        /**
+          * Whether to lock body scroll
+          * @default true
+         */
+        "lock"?: boolean;
+        /**
+          * Spinner size
+          * @default 'default'
+         */
+        "spinnerSize"?: 'small' | 'default' | 'large';
+        /**
+          * Loading text
+         */
+        "text"?: string;
+    }
+    interface RPagination {
+        /**
+          * Whether buttons have background color
+          * @default false
+         */
+        "background"?: boolean;
+        /**
+          * Current page number
+          * @default 1
+         */
+        "currentPage"?: number;
+        /**
+          * Whether pagination is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Hide when only one page
+          * @default false
+         */
+        "hideOnSinglePage"?: boolean;
+        /**
+          * Layout of pagination elements
+          * @default 'prev, pager, next'
+         */
+        "layout"?: string;
+        /**
+          * Text for next button
+          * @default ''
+         */
+        "nextText"?: string;
+        "onChange"?: (event: RPaginationCustomEvent<{ currentPage: number; pageSize: number }>) => void;
+        "onCurrentChange"?: (event: RPaginationCustomEvent<number>) => void;
+        "onNextClick"?: (event: RPaginationCustomEvent<number>) => void;
+        "onPrevClick"?: (event: RPaginationCustomEvent<number>) => void;
+        "onSizeChange"?: (event: RPaginationCustomEvent<number>) => void;
+        /**
+          * Total page count (alternative to total)
+         */
+        "pageCount"?: number;
+        /**
+          * Item count of each page
+          * @default 10
+         */
+        "pageSize"?: number;
+        /**
+          * Options for page size selector
+          * @default [10, 20, 30, 40, 50, 100]
+         */
+        "pageSizes"?: number[];
+        /**
+          * Number of pagers before collapsing
+          * @default 7
+         */
+        "pagerCount"?: number;
+        /**
+          * Text for prev button
+          * @default ''
+         */
+        "prevText"?: string;
+        /**
+          * Pagination size
+          * @default 'default'
+         */
+        "size"?: PaginationSize;
+        /**
+          * Total item count
+          * @default 0
+         */
+        "total"?: number;
+    }
+    interface RRadio {
+        /**
+          * Whether to add a border around the radio
+          * @default false
+         */
+        "border"?: boolean;
+        /**
+          * Whether the radio is checked (controlled by radio-group)
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Whether the radio is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName"?: string;
+        /**
+          * The label text (display text)
+         */
+        "label"?: string;
+        "onChange"?: (event: RRadioCustomEvent<string | number | boolean>) => void;
+        /**
+          * Size of the radio
+          * @default 'default'
+         */
+        "size"?: RadioSize;
+        /**
+          * The value of the radio
+         */
+        "value"?: string | number | boolean;
+    }
+    interface RRadioButton {
+        /**
+          * Whether the radio button is checked (controlled by radio-group)
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Whether the radio button is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName"?: string;
+        /**
+          * The label text (display text)
+         */
+        "label"?: string;
+        "onChange"?: (event: RRadioButtonCustomEvent<string | number | boolean>) => void;
+        /**
+          * Size of the radio button
+          * @default 'default'
+         */
+        "size"?: RadioButtonSize;
+        /**
+          * The value of the radio button
+         */
+        "value"?: string | number | boolean;
+    }
+    interface RRadioGroup {
+        /**
+          * Aria label
+         */
+        "ariaLabel"?: string;
+        /**
+          * Whether the nesting radios are disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Border and background color when button is active
+         */
+        "fill"?: string;
+        /**
+          * Native name attribute
+         */
+        "inputName"?: string;
+        "onChange"?: (event: RRadioGroupCustomEvent<string | number | boolean>) => void;
+        /**
+          * Options data for quick setup
+          * @default []
+         */
+        "options"?: RadioOption[];
+        /**
+          * Size of radio buttons
+          * @default 'default'
+         */
+        "size"?: RadioGroupSize;
+        /**
+          * Font color when button is active
+          * @default '#ffffff'
+         */
+        "textColor"?: string;
+        /**
+          * Component type to render options ('radio' or 'button')
+          * @default 'radio'
+         */
+        "type"?: 'radio' | 'button';
+        /**
+          * Whether to trigger form validation
+          * @default true
+         */
+        "validateEvent"?: boolean;
+        /**
+          * Binding value
+         */
+        "value"?: string | number | boolean;
+        /**
+          * Vertical layout
+          * @default false
+         */
+        "vertical"?: boolean;
+    }
+    interface RSelect {
+        /**
+          * Whether creating new items is allowed
+          * @default false
+         */
+        "allowCreate"?: boolean;
+        /**
+          * Whether select can be cleared
+          * @default false
+         */
+        "clearable"?: boolean;
+        /**
+          * Whether to collapse tags when multiple
+          * @default false
+         */
+        "collapseTags"?: boolean;
+        /**
+          * Show all tags on hover when collapsed
+          * @default false
+         */
+        "collapseTagsTooltip"?: boolean;
+        /**
+          * Select first option on enter
+          * @default false
+         */
+        "defaultFirstOption"?: boolean;
+        /**
+          * Whether Select is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether Select is filterable
+          * @default false
+         */
+        "filterable"?: boolean;
+        /**
+          * Whether Select is loading data
+          * @default false
+         */
+        "loading"?: boolean;
+        /**
+          * Text while loading
+          * @default 'Loading...'
+         */
+        "loadingText"?: string;
+        /**
+          * Max tags to show when collapsed
+          * @default 1
+         */
+        "maxCollapseTags"?: number;
+        /**
+          * Whether multiple select is activated
+          * @default false
+         */
+        "multiple"?: boolean;
+        /**
+          * Maximum options user can select (0 = no limit)
+          * @default 0
+         */
+        "multipleLimit"?: number;
+        /**
+          * Text when no data
+          * @default 'No data'
+         */
+        "noDataText"?: string;
+        /**
+          * Text when no match
+          * @default 'No matching data'
+         */
+        "noMatchText"?: string;
+        "onChange"?: (event: RSelectCustomEvent<any>) => void;
+        "onClear"?: (event: RSelectCustomEvent<void>) => void;
+        "onRemoveTag"?: (event: RSelectCustomEvent<any>) => void;
+        "onVisibleChange"?: (event: RSelectCustomEvent<boolean>) => void;
+        /**
+          * Data of the options
+          * @default []
+         */
+        "options"?: (SelectOption | SelectOptionGroup)[];
+        /**
+          * Placeholder text
+          * @default 'Select'
+         */
+        "placeholder"?: string;
+        /**
+          * Configuration for option keys
+          * @default {     value: 'value',     label: 'label',     disabled: 'disabled',     options: 'options',   }
+         */
+        "props"?: SelectProps;
+        /**
+          * Whether options are loaded from server
+          * @default false
+         */
+        "remote"?: boolean;
+        /**
+          * Size of input
+          * @default 'default'
+         */
+        "size"?: SelectSize;
+        /**
+          * Tag type for multiple select
+          * @default 'info'
+         */
+        "tagType"?: TagType;
+        /**
+          * Binding value (single or array for multiple)
+          * @default ''
+         */
+        "value"?: any;
+        /**
+          * Unique identity key name for value when value is an object
+          * @default 'value'
+         */
+        "valueKey"?: string;
+    }
+    interface RSpinner {
+        /**
+          * Spinner color
+          * @default 'primary'
+         */
+        "color"?: SpinnerColor;
+        /**
+          * Custom size in pixels
+         */
+        "customSize"?: number;
+        /**
+          * Spinner size
+          * @default 'default'
+         */
+        "size"?: SpinnerSize;
+        /**
+          * Stroke width
+          * @default 4
+         */
+        "strokeWidth"?: number;
+    }
+    interface RSwitch {
+        /**
+          * Background color when on
+         */
+        "activeColor"?: string;
+        /**
+          * Text displayed when on
+         */
+        "activeText"?: string;
+        /**
+          * Value when on
+          * @default true
+         */
+        "activeValue"?: any;
+        /**
+          * Aria label
+         */
+        "ariaLabel"?: string;
+        /**
+          * Whether switch is on
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Whether switch is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Background color when off
+         */
+        "inactiveColor"?: string;
+        /**
+          * Text displayed when off
+         */
+        "inactiveText"?: string;
+        /**
+          * Value when off
+          * @default false
+         */
+        "inactiveValue"?: any;
+        /**
+          * Whether to show text inside switch
+          * @default false
+         */
+        "inlinePrompt"?: boolean;
+        /**
+          * Native name attribute
+         */
+        "inputName"?: string;
+        /**
+          * Whether switch is loading
+          * @default false
+         */
+        "loading"?: boolean;
+        "onChange"?: (event: RSwitchCustomEvent<boolean>) => void;
+        /**
+          * Size of the switch
+          * @default 'default'
+         */
+        "size"?: SwitchSize;
+    }
+    interface RTabItem {
+        /**
+          * Whether tab is active
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Whether tab can be closed
+          * @default false
+         */
+        "closable"?: boolean;
+        /**
+          * Whether tab is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Tab label (display text)
+         */
+        "label"?: string;
+        /**
+          * Tab name (identifier)
+         */
+        "name"?: string;
+        "onClose"?: (event: RTabItemCustomEvent<MouseEvent>) => void;
+        /**
+          * Tab type (inherited from parent)
+          * @default 'line'
+         */
+        "type"?: TabItemType;
+    }
+    interface RTabPane {
+        /**
+          * Whether tab pane is active (set by parent)
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Whether tab pane can be closed
+          * @default false
+         */
+        "closable"?: boolean;
+        /**
+          * Whether tab pane is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Tab pane label (display text)
+         */
+        "label"?: string;
+        /**
+          * Whether tab pane is lazy loaded
+          * @default false
+         */
+        "lazy"?: boolean;
+        /**
+          * Tab pane name (identifier)
+         */
+        "name"?: string;
+    }
+    interface RTable {
+        /**
+          * Whether to show border
+          * @default false
+         */
+        "border"?: boolean;
+        /**
+          * Table columns
+          * @default []
+         */
+        "columns"?: TableColumn[];
+        /**
+          * Table data
+          * @default []
+         */
+        "data"?: any[];
+        /**
+          * Empty text
+          * @default 'No data'
+         */
+        "emptyText"?: string;
+        /**
+          * Whether to highlight current row
+          * @default false
+         */
+        "highlightCurrentRow"?: boolean;
+        /**
+          * Loading state
+          * @default false
+         */
+        "loading"?: boolean;
+        /**
+          * Max height for scrollable table
+         */
+        "maxHeight"?: string;
+        "onCellClick"?: (event: RTableCustomEvent<{ row: any; column: TableColumn; cellValue: any; index: number }>) => void;
+        "onCurrentChange"?: (event: RTableCustomEvent<any>) => void;
+        "onRowClick"?: (event: RTableCustomEvent<{ row: any; index: number }>) => void;
+        "onSortChange"?: (event: RTableCustomEvent<{ prop: string; order: 'ascending' | 'descending' | null }>) => void;
+        /**
+          * Row key for unique identification
+          * @default 'id'
+         */
+        "rowKey"?: string;
+        /**
+          * Whether to show header
+          * @default true
+         */
+        "showHeader"?: boolean;
+        /**
+          * Table size
+          * @default 'default'
+         */
+        "size"?: TableSize;
+        /**
+          * Whether to show stripe
+          * @default false
+         */
+        "stripe"?: boolean;
+    }
+    interface RTabs {
+        /**
+          * Whether tabs can be added
+          * @default false
+         */
+        "addable"?: boolean;
+        /**
+          * Whether tabs can be closed
+          * @default false
+         */
+        "closable"?: boolean;
+        "onTabAdd"?: (event: RTabsCustomEvent<void>) => void;
+        "onTabChange"?: (event: RTabsCustomEvent<string>) => void;
+        "onTabRemove"?: (event: RTabsCustomEvent<string>) => void;
+        /**
+          * Whether tabs stretch to fill container
+          * @default false
+         */
+        "stretch"?: boolean;
+        /**
+          * Tab position
           * @default 'top'
          */
-        "position"?: 'top' | 'bottom' | 'left' | 'right';
+        "tabPosition"?: TabsPosition;
         /**
+          * Tab type
+          * @default 'line'
+         */
+        "type"?: TabsType;
+        /**
+          * Currently active tab
+         */
+        "value"?: string;
+    }
+    interface RTag {
+        /**
+          * Whether tag can be closed
+          * @default false
+         */
+        "closable"?: boolean;
+        /**
+          * Custom background color
+         */
+        "color"?: string;
+        /**
+          * Disable transitions
+          * @default false
+         */
+        "disableTransitions"?: boolean;
+        /**
+          * Tag effect/theme
+          * @default 'light'
+         */
+        "effect"?: TagEffect;
+        "onClick"?: (event: RTagCustomEvent<MouseEvent>) => void;
+        "onClose"?: (event: RTagCustomEvent<void>) => void;
+        /**
+          * Whether tag has rounded corners
+          * @default false
+         */
+        "round"?: boolean;
+        /**
+          * Tag size
+          * @default 'default'
+         */
+        "size"?: TagSize;
+        /**
+          * Tag type
+          * @default ''
+         */
+        "type"?: TagType1;
+    }
+    interface RTooltip {
+        /**
+          * Tooltip content
+         */
+        "content"?: string;
+        /**
+          * Whether tooltip is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Tooltip effect/theme
+          * @default 'dark'
+         */
+        "effect"?: TooltipEffect1;
+        /**
+          * Whether mouse can enter tooltip
+          * @default true
+         */
+        "enterable"?: boolean;
+        /**
+          * Delay before hiding (ms)
+          * @default 200
+         */
+        "hideDelay"?: number;
+        /**
+          * Max width for wrapping
+         */
+        "maxWidth"?: number;
+        /**
+          * Tooltip placement
+          * @default 'top'
+         */
+        "placement"?: TooltipPlacement1;
+        /**
+          * Raw content (allow HTML)
+          * @default false
+         */
+        "rawContent"?: boolean;
+        /**
+          * Show arrow
           * @default true
          */
         "showArrow"?: boolean;
         /**
+          * Delay before showing (ms)
+          * @default 0
+         */
+        "showDelay"?: number;
+        /**
+          * Trigger mode
           * @default 'hover'
          */
-        "trigger"?: 'hover' | 'focus' | 'click' | 'manual';
+        "trigger"?: TooltipTrigger;
     }
     interface IntrinsicElements {
+        "r-alert": RAlert;
+        "r-avatar": RAvatar;
+        "r-avatar-group": RAvatarGroup;
         "r-badge": RBadge;
         "r-button": RButton;
+        "r-button-group": RButtonGroup;
+        "r-card": RCard;
         "r-checkbox": RCheckbox;
+        "r-checkbox-group": RCheckboxGroup;
+        "r-collapse": RCollapse;
+        "r-collapse-item": RCollapseItem;
+        "r-dialog": RDialog;
+        "r-dropdown": RDropdown;
+        "r-dropdown-item": RDropdownItem;
+        "r-dropdown-menu": RDropdownMenu;
+        "r-form": RForm;
+        "r-form-item": RFormItem;
         "r-input": RInput;
-        "r-menu": RMenu;
-        "r-modal": RModal;
+        "r-input-number": RInputNumber;
+        "r-loading": RLoading;
+        "r-pagination": RPagination;
         "r-radio": RRadio;
+        "r-radio-button": RRadioButton;
+        "r-radio-group": RRadioGroup;
         "r-select": RSelect;
+        "r-spinner": RSpinner;
         "r-switch": RSwitch;
-        "r-textarea": RTextarea;
+        "r-tab-item": RTabItem;
+        "r-tab-pane": RTabPane;
+        "r-table": RTable;
+        "r-tabs": RTabs;
+        "r-tag": RTag;
         "r-tooltip": RTooltip;
     }
 }
@@ -1453,60 +3868,38 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            /**
-             * r-badge
-             * Flexible badge component with dot variant and icon support
-             */
+            "r-alert": LocalJSX.RAlert & JSXBase.HTMLAttributes<HTMLRAlertElement>;
+            "r-avatar": LocalJSX.RAvatar & JSXBase.HTMLAttributes<HTMLRAvatarElement>;
+            "r-avatar-group": LocalJSX.RAvatarGroup & JSXBase.HTMLAttributes<HTMLRAvatarGroupElement>;
             "r-badge": LocalJSX.RBadge & JSXBase.HTMLAttributes<HTMLRBadgeElement>;
-            /**
-             * r-button
-             * Minimal, flexible, accessible button component with industry-standard features
-             */
             "r-button": LocalJSX.RButton & JSXBase.HTMLAttributes<HTMLRButtonElement>;
-            /**
-             * r-checkbox
-             * Accessible checkbox component with indeterminate state support
-             */
+            "r-button-group": LocalJSX.RButtonGroup & JSXBase.HTMLAttributes<HTMLRButtonGroupElement>;
+            "r-card": LocalJSX.RCard & JSXBase.HTMLAttributes<HTMLRCardElement>;
             "r-checkbox": LocalJSX.RCheckbox & JSXBase.HTMLAttributes<HTMLRCheckboxElement>;
-            /**
-             * r-input
-             * A high-quality, accessible input component inspired by Material UI behavior.
-             */
+            "r-checkbox-group": LocalJSX.RCheckboxGroup & JSXBase.HTMLAttributes<HTMLRCheckboxGroupElement>;
+            "r-collapse": LocalJSX.RCollapse & JSXBase.HTMLAttributes<HTMLRCollapseElement>;
+            "r-collapse-item": LocalJSX.RCollapseItem & JSXBase.HTMLAttributes<HTMLRCollapseItemElement>;
+            "r-dialog": LocalJSX.RDialog & JSXBase.HTMLAttributes<HTMLRDialogElement>;
+            "r-dropdown": LocalJSX.RDropdown & JSXBase.HTMLAttributes<HTMLRDropdownElement>;
+            "r-dropdown-item": LocalJSX.RDropdownItem & JSXBase.HTMLAttributes<HTMLRDropdownItemElement>;
+            "r-dropdown-menu": LocalJSX.RDropdownMenu & JSXBase.HTMLAttributes<HTMLRDropdownMenuElement>;
+            "r-form": LocalJSX.RForm & JSXBase.HTMLAttributes<HTMLRFormElement>;
+            "r-form-item": LocalJSX.RFormItem & JSXBase.HTMLAttributes<HTMLRFormItemElement>;
             "r-input": LocalJSX.RInput & JSXBase.HTMLAttributes<HTMLRInputElement>;
-            /**
-             * r-menu
-             * Accessible, flexible menu component with keyboard navigation
-             */
-            "r-menu": LocalJSX.RMenu & JSXBase.HTMLAttributes<HTMLRMenuElement>;
-            /**
-             * r-modal
-             * Accessible, flexible modal/dialog component with focus trap
-             */
-            "r-modal": LocalJSX.RModal & JSXBase.HTMLAttributes<HTMLRModalElement>;
-            /**
-             * r-radio
-             * Accessible radio button component with group support
-             */
+            "r-input-number": LocalJSX.RInputNumber & JSXBase.HTMLAttributes<HTMLRInputNumberElement>;
+            "r-loading": LocalJSX.RLoading & JSXBase.HTMLAttributes<HTMLRLoadingElement>;
+            "r-pagination": LocalJSX.RPagination & JSXBase.HTMLAttributes<HTMLRPaginationElement>;
             "r-radio": LocalJSX.RRadio & JSXBase.HTMLAttributes<HTMLRRadioElement>;
-            /**
-             * r-select
-             * Accessible select component with enhanced features
-             */
+            "r-radio-button": LocalJSX.RRadioButton & JSXBase.HTMLAttributes<HTMLRRadioButtonElement>;
+            "r-radio-group": LocalJSX.RRadioGroup & JSXBase.HTMLAttributes<HTMLRRadioGroupElement>;
             "r-select": LocalJSX.RSelect & JSXBase.HTMLAttributes<HTMLRSelectElement>;
-            /**
-             * r-switch
-             * Accessible switch/toggle component
-             */
+            "r-spinner": LocalJSX.RSpinner & JSXBase.HTMLAttributes<HTMLRSpinnerElement>;
             "r-switch": LocalJSX.RSwitch & JSXBase.HTMLAttributes<HTMLRSwitchElement>;
-            /**
-             * r-textarea
-             * Accessible textarea component with auto-resize and character counter
-             */
-            "r-textarea": LocalJSX.RTextarea & JSXBase.HTMLAttributes<HTMLRTextareaElement>;
-            /**
-             * r-tooltip
-             * Accessible tooltip component with multiple trigger options
-             */
+            "r-tab-item": LocalJSX.RTabItem & JSXBase.HTMLAttributes<HTMLRTabItemElement>;
+            "r-tab-pane": LocalJSX.RTabPane & JSXBase.HTMLAttributes<HTMLRTabPaneElement>;
+            "r-table": LocalJSX.RTable & JSXBase.HTMLAttributes<HTMLRTableElement>;
+            "r-tabs": LocalJSX.RTabs & JSXBase.HTMLAttributes<HTMLRTabsElement>;
+            "r-tag": LocalJSX.RTag & JSXBase.HTMLAttributes<HTMLRTagElement>;
             "r-tooltip": LocalJSX.RTooltip & JSXBase.HTMLAttributes<HTMLRTooltipElement>;
         }
     }

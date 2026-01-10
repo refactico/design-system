@@ -1,158 +1,248 @@
-import { Component, Prop, Event, EventEmitter, h, Host, State, Element, Method } from '@stencil/core';
+import { Component, Prop, h, Element, Event, EventEmitter, Method, State } from '@stencil/core';
 
-/**
- * r-button
- * Minimal, flexible, accessible button component with industry-standard features
- */
+export type ButtonType = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+export type ButtonSize = 'large' | 'default' | 'small';
+export type ButtonNativeType = 'button' | 'submit' | 'reset';
+
 @Component({
   tag: 'r-button',
   styleUrl: 'r-button.css',
-  shadow: true,
+  shadow: false,
 })
 export class RButton {
-  @Element() el!: HTMLElement;
+  @Element() el: HTMLElement;
 
-  @State() hasLeftIcon = false;
-  @State() hasRightIcon = false;
+  /** Button size */
+  @Prop() size: ButtonSize = 'default';
 
-  /** Native button type */
-  @Prop() type: 'button' | 'submit' | 'reset' = 'button';
+  /** Button type (color theme) */
+  @Prop() type: ButtonType = 'default';
 
-  /** Visual variant */
-  @Prop() variant: 'solid' | 'outline' | 'ghost' | 'link' = 'solid';
+  /** Plain style (lighter background) */
+  @Prop() plain: boolean = false;
 
-  /** Size variant */
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
+  /** Text button (no background/border) */
+  @Prop() text: boolean = false;
 
-  /** Color scheme */
-  @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'neutral' = 'primary';
+  /** Text button with background on hover */
+  @Prop() bg: boolean = false;
 
-  /** Disabled state */
-  @Prop() disabled = false;
+  /** Link button style */
+  @Prop() link: boolean = false;
 
-  /** Full width button */
-  @Prop() block = false;
+  /** Round button */
+  @Prop() round: boolean = false;
+
+  /** Circle button (for icon-only) */
+  @Prop() circle: boolean = false;
 
   /** Loading state */
-  @Prop() loading = false;
+  @Prop() loading: boolean = false;
 
-  /** Icon-only button (square) */
-  @Prop() iconOnly = false;
+  /** Custom loading icon (slot name or icon name) */
+  @Prop() loadingIcon: string;
 
-  /** Button label for accessibility */
-  @Prop() label?: string;
+  /** Disabled state */
+  @Prop() disabled: boolean = false;
 
-  /** Form ID to associate with */
-  @Prop() form?: string;
+  /** Icon (renders before text) */
+  @Prop() icon: string;
 
-  /** Emit click events */
-  @Event() rClick!: EventEmitter<MouseEvent>;
+  /** Native button autofocus */
+  @Prop() autofocus: boolean = false;
 
-  /** Emit focus events */
-  @Event() rFocus!: EventEmitter<FocusEvent>;
+  /** Native button type */
+  @Prop() nativeType: ButtonNativeType = 'button';
 
-  /** Emit blur events */
-  @Event() rBlur!: EventEmitter<FocusEvent>;
+  /** Auto insert space between two Chinese characters */
+  @Prop() autoInsertSpace: boolean = false;
 
-  private buttonElement?: HTMLButtonElement;
+  /** Custom button color */
+  @Prop() color: string;
 
-  /**
-   * Programmatically focus the button
-   */
+  /** Dark mode (auto-adjusts custom color) */
+  @Prop() dark: boolean = false;
+
+  /** Custom HTML tag */
+  @Prop() tag: string = 'button';
+
+  /** Internal state for space insertion */
+  @State() shouldAddSpace: boolean = false;
+
+  private buttonRef: HTMLElement;
+
+  /** Expose button element ref */
   @Method()
-  async setFocus() {
-    this.buttonElement?.focus();
+  async getRef(): Promise<HTMLElement> {
+    return this.buttonRef;
   }
 
-  /**
-   * Programmatically trigger a click on the button
-   */
+  /** Expose size */
   @Method()
-  async triggerClick() {
-    this.buttonElement?.click();
+  async getSize(): Promise<ButtonSize> {
+    return this.size;
   }
 
-  private onClick = (event: MouseEvent) => {
-    if (this.disabled || this.loading) {
-      event.preventDefault();
-      event.stopPropagation();
+  /** Expose type */
+  @Method()
+  async getType(): Promise<ButtonType> {
+    return this.type;
+  }
+
+  /** Expose disabled state */
+  @Method()
+  async getDisabled(): Promise<boolean> {
+    return this.disabled;
+  }
+
+  /** Click event */
+  @Event({ bubbles: true, composed: true }) clicked: EventEmitter<MouseEvent>;
+
+  componentWillLoad() {
+    this.checkAutoInsertSpace();
+  }
+
+  componentDidUpdate() {
+    this.checkAutoInsertSpace();
+  }
+
+  private checkAutoInsertSpace() {
+    if (!this.autoInsertSpace) {
+      this.shouldAddSpace = false;
       return;
     }
-    this.rClick.emit(event);
-  };
-
-  private onFocus = (event: FocusEvent) => {
-    this.rFocus.emit(event);
-  };
-
-  private onBlur = (event: FocusEvent) => {
-    this.rBlur.emit(event);
-  };
-
-  private get isDisabled() {
-    return this.disabled || this.loading;
+    const defaultSlot = this.el.textContent?.trim() || '';
+    // Check if exactly 2 Chinese characters
+    const isTwoChineseChars = /^[\u4e00-\u9fa5]{2}$/.test(defaultSlot);
+    this.shouldAddSpace = isTwoChineseChars;
   }
 
-  private onLeftIconSlotChange = (event: Event) => {
-    const slot = event.target as HTMLSlotElement;
-    this.hasLeftIcon = slot.assignedElements().length > 0;
+  private handleClick = (e: MouseEvent) => {
+    if (this.disabled || this.loading) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    this.clicked.emit(e);
   };
 
-  private onRightIconSlotChange = (event: Event) => {
-    const slot = event.target as HTMLSlotElement;
-    this.hasRightIcon = slot.assignedElements().length > 0;
-  };
+  private getCustomColorStyles(): { [key: string]: string } | undefined {
+    if (!this.color) return undefined;
 
-  componentDidLoad() {
-    // Check for icon-only button - slots will be detected via slotchange events
+    const color = this.color;
+    
+    // Calculate hover and active colors
+    const hoverColor = this.adjustColor(color, this.dark ? 0.2 : -0.1);
+    const activeColor = this.adjustColor(color, this.dark ? 0.3 : -0.2);
+    const disabledColor = this.adjustColor(color, 0.4);
+
+    if (this.plain) {
+      return {
+        '--r-button-custom-bg': this.adjustColor(color, 0.9),
+        '--r-button-custom-text': color,
+        '--r-button-custom-border': this.adjustColor(color, 0.5),
+        '--r-button-custom-hover-bg': this.adjustColor(color, 0.8),
+        '--r-button-custom-hover-text': color,
+        '--r-button-custom-hover-border': color,
+        '--r-button-custom-active-bg': this.adjustColor(color, 0.7),
+      };
+    }
+
+    return {
+      '--r-button-custom-bg': color,
+      '--r-button-custom-text': '#ffffff',
+      '--r-button-custom-border': color,
+      '--r-button-custom-hover-bg': hoverColor,
+      '--r-button-custom-hover-text': '#ffffff',
+      '--r-button-custom-hover-border': hoverColor,
+      '--r-button-custom-active-bg': activeColor,
+      '--r-button-custom-disabled-bg': disabledColor,
+      '--r-button-custom-disabled-border': disabledColor,
+    };
+  }
+
+  private adjustColor(hex: string, amount: number): string {
+    // Simple color adjustment - lighten (positive) or darken (negative)
+    let color = hex.replace('#', '');
+    if (color.length === 3) {
+      color = color.split('').map(c => c + c).join('');
+    }
+    
+    const num = parseInt(color, 16);
+    let r = (num >> 16) + Math.round(255 * amount);
+    let g = ((num >> 8) & 0x00ff) + Math.round(255 * amount);
+    let b = (num & 0x0000ff) + Math.round(255 * amount);
+    
+    r = Math.min(255, Math.max(0, r));
+    g = Math.min(255, Math.max(0, g));
+    b = Math.min(255, Math.max(0, b));
+    
+    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+  }
+
+  private renderLoadingIcon() {
+    return (
+      <span class="r-button__loading-icon">
+        <svg class="r-button__loading-spinner" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.25" />
+          <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </span>
+    );
   }
 
   render() {
-    const hasAnyIcon = this.hasLeftIcon || this.hasRightIcon;
-    const hasTextContent = this.el.textContent?.trim() !== '';
-    const isIconOnly = this.iconOnly || (hasAnyIcon && !hasTextContent);
+    const Tag = this.tag as any;
+    
+    const classes = {
+      'r-button': true,
+      [`r-button--${this.type}`]: this.type !== 'default',
+      [`r-button--${this.size}`]: this.size !== 'default',
+      'r-button--plain': this.plain,
+      'r-button--text': this.text,
+      'r-button--text-bg': this.text && this.bg,
+      'r-button--link': this.link,
+      'r-button--round': this.round,
+      'r-button--circle': this.circle,
+      'r-button--loading': this.loading,
+      'r-button--disabled': this.disabled,
+      'r-button--custom-color': !!this.color,
+      'r-button--has-space': this.shouldAddSpace,
+    };
+
+    const classString = Object.entries(classes)
+      .filter(([, value]) => value)
+      .map(([key]) => key)
+      .join(' ');
+
+    const customStyles = this.getCustomColorStyles();
+
+    const buttonProps: any = {
+      class: classString,
+      style: customStyles,
+      disabled: this.disabled || this.loading,
+      autofocus: this.autofocus,
+      onClick: this.handleClick,
+      ref: (el: HTMLElement) => (this.buttonRef = el),
+    };
+
+    // Add native type only for button tag
+    if (this.tag === 'button') {
+      buttonProps.type = this.nativeType;
+    }
 
     return (
-      <Host>
-        <button
-          ref={(el) => (this.buttonElement = el)}
-          type={this.type}
-          form={this.form}
-          class={{
-            'btn': true,
-            [`variant-${this.variant}`]: true,
-            [`size-${this.size}`]: true,
-            [`color-${this.color}`]: true,
-            'block': this.block,
-            'loading': this.loading,
-            'icon-only': isIconOnly,
-          }}
-          disabled={this.isDisabled}
-          aria-busy={this.loading ? 'true' : 'false'}
-          aria-label={this.label}
-          aria-disabled={this.isDisabled ? 'true' : 'false'}
-          onClick={this.onClick}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-        >
-          {/* Left icon */}
-          <span class={this.hasLeftIcon ? 'icon left' : ''} aria-hidden="true" hidden={!this.hasLeftIcon}>
-            <slot name="icon-left" onSlotchange={this.onLeftIconSlotChange} />
+      <Tag {...buttonProps}>
+        {this.loading && this.renderLoadingIcon()}
+        {this.icon && !this.loading && (
+          <span class="r-button__icon">
+            <slot name="icon">{this.icon}</slot>
           </span>
-
-          {/* Content */}
-          <span class="content">
-            <slot />
-          </span>
-          {/* Right icon */}
-          <span class={this.hasRightIcon ? 'icon right' : ''} aria-hidden="true" hidden={!this.hasRightIcon}>
-            <slot name="icon-right" onSlotchange={this.onRightIconSlotChange} />
-          </span>
-
-          {/* Loading spinner */}
-          {this.loading && <span class="spinner" aria-hidden="true" />}
-        </button>
-      </Host>
+        )}
+        <span class="r-button__content">
+          <slot></slot>
+        </span>
+      </Tag>
     );
   }
 }

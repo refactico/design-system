@@ -1,155 +1,62 @@
-@import './r-badge-theme.css';
-
-/* r-badge.css - Styles for r-badge component */
-:host {
-  display: inline-block;
+/* Badge container */
+.r-badge {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
 }
 
-.badge {
+/* Badge content (the actual badge) */
+.r-badge__content {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--badge-font-size);
-  font-weight: var(--badge-font-weight, 600);
-  line-height: var(--badge-line-height, 1);
-  padding: var(--badge-padding-y) var(--badge-padding-x);
-  border-radius: var(--badge-border-radius);
-  border: var(--badge-border-width) var(--badge-border-style) var(--badge-border-color);
-  background: var(--badge-bg);
-  color: var(--badge-color);
+  height: 18px;
+  min-width: 18px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--r-color-white, #fff);
   white-space: nowrap;
-  transition: all var(--transition-base);
+  border-radius: 9px;
+  box-sizing: border-box;
 }
 
-/* Variants */
-.badge.solid {
-  --badge-border-width: 0;
-  --badge-border-style: solid;
+/* Fixed positioning (when wrapping content) */
+.r-badge__content--fixed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%) translateX(50%);
+  z-index: 10;
 }
 
-.badge.outline {
-  --badge-border-width: 1px;
-  --badge-border-style: solid;
-  --badge-bg: transparent;
-}
-
-.badge.ghost {
-  --badge-border-width: 0;
-  --badge-border-style: solid;
-  --badge-bg: transparent;
-}
-
-/* Colors */
-.badge.primary {
-  --badge-bg: var(--color-primary, #2563eb);
-  --badge-color: var(--color-primary-contrast, #ffffff);
-  --badge-border-color: var(--color-primary, #2563eb);
-}
-
-.badge.success {
-  --badge-bg: var(--color-success);
-  --badge-color: var(--color-success-contrast);
-  --badge-border-color: var(--color-success);
-}
-
-.badge.warning {
-  --badge-bg: var(--color-warning);
-  --badge-color: var(--color-warning-contrast);
-  --badge-border-color: var(--color-warning);
-}
-
-.badge.danger {
-  --badge-bg: var(--color-danger);
-  --badge-color: var(--color-danger-contrast);
-  --badge-border-color: var(--color-danger);
-}
-
-.badge.info {
-  --badge-bg: var(--color-info);
-  --badge-color: var(--color-info-contrast);
-  --badge-border-color: var(--color-info);
-}
-
-.badge.neutral {
-  --badge-bg: var(--color-neutral);
-  --badge-color: var(--color-neutral-contrast);
-  --badge-border-color: var(--color-neutral);
-}
-
-/* Sizes */
-.badge.sm {
-  --badge-font-size: 0.75rem;
-  --badge-padding-y: 0.125rem;
-  --badge-padding-x: 0.375rem;
-  --badge-border-radius: 0.25rem;
-}
-
-.badge.md {
-  --badge-font-size: 0.875rem;
-  --badge-padding-y: 0.25rem;
-  --badge-padding-x: 0.5rem;
-  --badge-border-radius: 0.375rem;
-}
-
-.badge.lg {
-  --badge-font-size: 1rem;
-  --badge-padding-y: 0.375rem;
-  --badge-padding-x: 0.75rem;
-  --badge-border-radius: 0.5rem;
-}
-
-/* Pill shape */
-.badge.pill {
-  --badge-border-radius: 9999px;
-}
-
-/* Dot variant */
-.badge.dot {
+/* Dot style */
+.r-badge__content--dot {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
   padding: 0;
-  width: var(--badge-dot-size, 0.5rem);
-  height: var(--badge-dot-size, 0.5rem);
-  min-width: var(--badge-dot-size, 0.5rem);
   border-radius: 50%;
-  display: inline-block;
 }
 
-.badge-dot {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: currentColor;
+/* Badge types */
+.r-badge__content--primary {
+  background-color: var(--r-color-primary);
 }
 
-.badge.dot.size-sm {
-  --badge-dot-size: 0.375rem;
+.r-badge__content--success {
+  background-color: var(--r-color-success);
 }
 
-.badge.dot.size-md {
-  --badge-dot-size: 0.5rem;
+.r-badge__content--warning {
+  background-color: var(--r-color-warning);
 }
 
-.badge.dot.size-lg {
-  --badge-dot-size: 0.625rem;
+.r-badge__content--danger {
+  background-color: var(--r-color-danger);
 }
 
-/* Icon support */
-.badge.has-icon {
-  gap: 0.25rem;
-}
-
-.badge-icon {
-  display: inline-flex;
-  align-items: center;
-  line-height: 0;
-}
-
-.badge-content {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-/* Ensure content is always visible unless it's a dot */
-.badge:not(.dot) .badge-content {
-  display: inline-flex;
+.r-badge__content--info {
+  background-color: var(--r-color-info);
 }

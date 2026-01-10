@@ -1,202 +1,102 @@
-
-
 # r-input
 
-A high-quality, accessible input web component built with **Stencil**, inspired by **Material UI** behavior but designed for a clean, scalable design system.
 
-`r-input` focuses on excellent UX, predictable state handling, and full theme control via CSS variables.
 
----
+<!-- Auto Generated Below -->
 
-## Features
 
-- Floating label (Material-style)
-- Controlled & uncontrolled value support
-- Clearable input
-- Disabled, readonly, required states
-- Error state with helper text
-- Keyboard accessible
-- Fully themeable via CSS variables
-- Shadow DOM safe
-- Framework-agnostic
+## Properties
 
----
+| Property        | Attribute         | Description                     | Type                                                                          | Default      |
+| --------------- | ----------------- | ------------------------------- | ----------------------------------------------------------------------------- | ------------ |
+| `ariaLabel`     | `aria-label`      | Aria label                      | `string`                                                                      | `undefined`  |
+| `autocomplete`  | `autocomplete`    | Native autocomplete             | `string`                                                                      | `'off'`      |
+| `autofocus`     | `autofocus`       | Native autofocus                | `boolean`                                                                     | `false`      |
+| `autosize`      | `autosize`        | Autosize for textarea           | `boolean \| { minRows?: number; maxRows?: number; }`                          | `false`      |
+| `clearable`     | `clearable`       | Whether to show clear button    | `boolean`                                                                     | `false`      |
+| `disabled`      | `disabled`        | Whether input is disabled       | `boolean`                                                                     | `false`      |
+| `inputName`     | `name`            | Native name                     | `string`                                                                      | `undefined`  |
+| `inputTabindex` | `input-tabindex`  | Tab index                       | `number \| string`                                                            | `undefined`  |
+| `maxlength`     | `maxlength`       | Max length                      | `number`                                                                      | `undefined`  |
+| `minlength`     | `minlength`       | Min length                      | `number`                                                                      | `undefined`  |
+| `placeholder`   | `placeholder`     | Placeholder text                | `string`                                                                      | `''`         |
+| `prefixIcon`    | `prefix-icon`     | Prefix icon (emoji or text)     | `string`                                                                      | `undefined`  |
+| `readonly`      | `readonly`        | Whether input is readonly       | `boolean`                                                                     | `false`      |
+| `resize`        | `resize`          | Textarea resize behavior        | `"both" \| "horizontal" \| "none" \| "vertical"`                              | `'vertical'` |
+| `rows`          | `rows`            | Number of rows for textarea     | `number`                                                                      | `2`          |
+| `showPassword`  | `show-password`   | Whether to show password toggle | `boolean`                                                                     | `false`      |
+| `showWordLimit` | `show-word-limit` | Show word count                 | `boolean`                                                                     | `false`      |
+| `size`          | `size`            | Size of input                   | `"default" \| "large" \| "small"`                                             | `'default'`  |
+| `suffixIcon`    | `suffix-icon`     | Suffix icon (emoji or text)     | `string`                                                                      | `undefined`  |
+| `type`          | `type`            | Type of input                   | `"email" \| "number" \| "password" \| "tel" \| "text" \| "textarea" \| "url"` | `'text'`     |
+| `value`         | `value`           | Binding value                   | `number \| string`                                                            | `''`         |
 
-## Installation & Required Theme
-
-`r-input` **requires the design system theme to be loaded once**.  
-This is a deliberate and enforced contract.
-
-### Consumer App Import
-
-```ts
-import 'design-system/theme.css'; // required
-import 'design-system/r-input';
-```
-
-> ⚠️ If `theme.css` is not loaded, color and focus tokens will not resolve.
-
----
-
-## Basic Usage
-
-```html
-<r-input label="Name"></r-input>
-
-<r-input
-  label="Email"
-  type="email"
-  helper-text="We never spam"
-></r-input>
-
-<r-input
-  label="Password"
-  type="password"
-  clearable
-></r-input>
-```
-
----
-
-## Props
-
-| Prop | Type | Default | Description |
-|-----|-----|--------|-------------|
-| `value` | `string` | `''` | Input value (controlled or uncontrolled) |
-| `type` | `'text' \| 'email' \| 'password' \| 'number' \| 'search'` | `text` | Input type |
-| `label` | `string` | — | Floating label text |
-| `placeholder` | `string` | — | Placeholder text |
-| `disabled` | `boolean` | `false` | Disables the input |
-| `readonly` | `boolean` | `false` | Makes input read-only |
-| `required` | `boolean` | `false` | Marks input as required |
-| `error` | `boolean` | `false` | Shows error state |
-| `helperText` | `string` | — | Supporting / helper text |
-| `name` | `string` | — | Native input name |
-| `autocomplete` | `string` | — | Browser autocomplete |
-| `autofocus` | `boolean` | `false` | Autofocus on mount |
-| `maxlength` | `number` | — | Max length |
-| `minlength` | `number` | — | Min length |
-| `pattern` | `string` | — | Validation pattern |
-| `clearable` | `boolean` | `false` | Shows clear button |
-
----
 
 ## Events
 
-### `rInput`
+| Event     | Description | Type                |
+| --------- | ----------- | ------------------- |
+| `cleared` |             | `CustomEvent<void>` |
 
-Emitted on every value change.
 
-```js
-document
-  .querySelector('r-input')
-  .addEventListener('rInput', (e) => {
-    console.log(e.detail); // current value
-  });
+## Methods
+
+### `clear() => Promise<void>`
+
+Clear the input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `select() => Promise<void>`
+
+Select text in input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setBlur() => Promise<void>`
+
+Blur the input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFocus() => Promise<void>`
+
+Focus the input
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
+## Dependencies
+
+### Used by
+
+ - [r-input-number](../r-input-number)
+ - [r-select](../r-select)
+
+### Graph
+```mermaid
+graph TD;
+  r-input-number --> r-input
+  r-select --> r-input
+  style r-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-### `rFocus`
+----------------------------------------------
 
-Emitted when the input receives focus.
-
-### `rBlur`
-
-Emitted when the input loses focus.
-
-### `rClear`
-
-Emitted when the value is cleared via the clear button.
-
----
-
-## Theming & Design Tokens
-
-`r-input` is fully styled via CSS variables.
-
-### Token Layers
-
-1. **Global palette tokens**  
-   `src/theme/theme.css`
-
-2. **Input-specific tokens**  
-   `src/components/r-input/r-input-theme.css`
-
-3. **Component styles**  
-   `src/components/r-input/r-input.css`
-
----
-
-## Common Tokens
-
-```css
-r-input {
-  --input-border-radius: 0.5rem;
-  --input-focus-border-color: var(--color-primary);
-  --input-error-color: var(--color-danger);
-}
-```
-
----
-
-## Overriding Tokens
-
-### Global override (recommended)
-
-```css
-:root {
-  --color-primary: #4f46e5;
-}
-```
-
-### Per-input override
-
-```html
-<r-input
-  label="Rounded"
-  style="--input-border-radius: 999px"
-></r-input>
-```
-
----
-
-## Accessibility
-
-- Uses native `<input>` element
-- Supports keyboard navigation
-- `aria-invalid` applied automatically
-- Helper text linked via `aria-describedby`
-- Focus-visible behavior respected
-
----
-
-## Development Notes
-
-- `theme.css` is **not injected** in `dist-custom-elements`
-- Consumer apps **must import it explicitly**
-- Inside the design-system repo, use:
-  ```html
-  <script type="module" src="/build/design-system.esm.js"></script>
-  ```
-
----
-
-## Known Limitations
-
-- No prefix/suffix slots yet
-- No password visibility toggle (planned)
-- No size variants yet
-
----
-
-## Roadmap
-
-- Prefix / suffix slots
-- Password visibility toggle
-- Size variants (`sm`, `md`, `lg`)
-- Character counter & validation helpers
-
----
-
-## License
-
-MIT
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -1,209 +1,159 @@
-import { Component, Host, h, Prop, Element, State, Method, Listen } from '@stencil/core';
+import { Component, Prop, h, Element, State, Method } from '@stencil/core';
 
-/**
- * r-tooltip
- * Accessible tooltip component with multiple trigger options
- */
+export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
+export type TooltipEffect = 'dark' | 'light';
+export type TooltipTrigger = 'hover' | 'click' | 'focus' | 'manual';
+
 @Component({
   tag: 'r-tooltip',
   styleUrl: 'r-tooltip.css',
-  shadow: true,
+  shadow: false,
 })
 export class RTooltip {
   @Element() el: HTMLElement;
 
-  @Prop() content?: string;
-  @Prop() position: 'top' | 'bottom' | 'left' | 'right' = 'top';
-  @Prop() delay: number = 300;
+  /** Tooltip content */
+  @Prop() content: string;
+
+  /** Tooltip placement */
+  @Prop() placement: TooltipPlacement = 'top';
+
+  /** Tooltip effect/theme */
+  @Prop() effect: TooltipEffect = 'dark';
+
+  /** Whether tooltip is disabled */
   @Prop() disabled: boolean = false;
-  @Prop() trigger: 'hover' | 'focus' | 'click' | 'manual' = 'hover';
+
+  /** Trigger mode */
+  @Prop() trigger: TooltipTrigger = 'hover';
+
+  /** Delay before showing (ms) */
+  @Prop() showDelay: number = 0;
+
+  /** Delay before hiding (ms) */
+  @Prop() hideDelay: number = 200;
+
+  /** Whether mouse can enter tooltip */
+  @Prop() enterable: boolean = true;
+
+  /** Show arrow */
   @Prop() showArrow: boolean = true;
-  @Prop() maxWidth: string = '200px';
 
-  @State() isVisible: boolean = false;
+  /** Raw content (allow HTML) */
+  @Prop() rawContent: boolean = false;
 
-  private showTimeout: number;
-  private hideTimeout: number;
-  private tooltipElement?: HTMLElement;
+  /** Max width for wrapping */
+  @Prop() maxWidth: number;
 
-  /**
-   * Programmatically show the tooltip
-   */
+  @State() visible: boolean = false;
+
+  private showTimeout: ReturnType<typeof setTimeout>;
+  private hideTimeout: ReturnType<typeof setTimeout>;
+
+  /** Show tooltip programmatically */
   @Method()
   async show() {
-    if (!this.disabled && this.content) {
-      clearTimeout(this.hideTimeout);
-      this.showTimeout = window.setTimeout(() => {
-        this.isVisible = true;
-        this.updatePosition();
-      }, this.delay);
-    }
+    if (this.disabled) return;
+    clearTimeout(this.hideTimeout);
+    this.showTimeout = setTimeout(() => {
+      this.visible = true;
+    }, this.showDelay);
   }
 
-  /**
-   * Programmatically hide the tooltip
-   */
+  /** Hide tooltip programmatically */
   @Method()
   async hide() {
     clearTimeout(this.showTimeout);
-    this.hideTimeout = window.setTimeout(() => {
-      this.isVisible = false;
-    }, 150);
-  }
-
-  /**
-   * Programmatically toggle the tooltip
-   */
-  @Method()
-  async toggle() {
-    if (this.isVisible) {
-      await this.hide();
-    } else {
-      await this.show();
-    }
-  }
-
-  private updatePosition() {
-    if (!this.tooltipElement || !this.isVisible) return;
-
-    // Use requestAnimationFrame to ensure DOM is updated
-    requestAnimationFrame(() => {
-      const triggerSlot = this.el.querySelector('[slot="trigger"]');
-      const trigger = triggerSlot ? triggerSlot.parentElement : this.el.firstElementChild as HTMLElement;
-      if (!trigger) return;
-
-      const triggerRect = trigger.getBoundingClientRect();
-      const tooltipRect = this.tooltipElement.getBoundingClientRect();
-      const gap = 8;
-      const scrollX = window.scrollX || window.pageXOffset;
-      const scrollY = window.scrollY || window.pageYOffset;
-
-      let top = 0;
-      let left = 0;
-
-      switch (this.position) {
-        case 'top':
-          top = triggerRect.top + scrollY - tooltipRect.height - gap;
-          left = triggerRect.left + scrollX + (triggerRect.width / 2);
-          this.tooltipElement.style.transform = 'translateX(-50%) translateY(calc(-100% - 8px))';
-          break;
-        case 'bottom':
-          top = triggerRect.bottom + scrollY + gap;
-          left = triggerRect.left + scrollX + (triggerRect.width / 2);
-          this.tooltipElement.style.transform = 'translateX(-50%) translateY(8px)';
-          break;
-        case 'left':
-          top = triggerRect.top + scrollY + (triggerRect.height / 2);
-          left = triggerRect.left + scrollX - tooltipRect.width - gap;
-          this.tooltipElement.style.transform = 'translateX(calc(-100% - 8px)) translateY(-50%)';
-          break;
-        case 'right':
-          top = triggerRect.top + scrollY + (triggerRect.height / 2);
-          left = triggerRect.right + scrollX + gap;
-          this.tooltipElement.style.transform = 'translateX(8px) translateY(-50%)';
-          break;
-      }
-
-      // Keep tooltip within viewport
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      if (left < scrollX + gap) left = scrollX + gap;
-      if (left + tooltipRect.width > scrollX + viewportWidth) left = scrollX + viewportWidth - tooltipRect.width - gap;
-      if (top < scrollY + gap) top = scrollY + gap;
-      if (top + tooltipRect.height > scrollY + viewportHeight) top = scrollY + viewportHeight - tooltipRect.height - gap;
-
-      this.tooltipElement.style.top = `${top}px`;
-      this.tooltipElement.style.left = `${left}px`;
-      this.tooltipElement.style.opacity = '1';
-    });
+    this.hideTimeout = setTimeout(() => {
+      this.visible = false;
+    }, this.hideDelay);
   }
 
   private handleMouseEnter = () => {
-    if (this.disabled || this.trigger !== 'hover') return;
-    this.show();
+    if (this.trigger === 'hover') {
+      this.show();
+    }
   };
 
   private handleMouseLeave = () => {
-    if (this.trigger !== 'hover') return;
-    this.hide();
+    if (this.trigger === 'hover') {
+      this.hide();
+    }
+  };
+
+  private handleClick = () => {
+    if (this.trigger === 'click') {
+      this.visible = !this.visible;
+    }
   };
 
   private handleFocus = () => {
-    if (this.disabled || (this.trigger !== 'focus' && this.trigger !== 'hover')) return;
-    this.show();
+    if (this.trigger === 'focus') {
+      this.show();
+    }
   };
 
   private handleBlur = () => {
-    if (this.trigger === 'focus' || this.trigger === 'hover') {
+    if (this.trigger === 'focus') {
       this.hide();
     }
   };
 
-  private handleClick = (event: MouseEvent) => {
-    if (this.disabled || this.trigger !== 'click') return;
-    event.stopPropagation();
-    this.toggle();
+  private handleContentMouseEnter = () => {
+    if (this.enterable && this.trigger === 'hover') {
+      clearTimeout(this.hideTimeout);
+    }
   };
 
-  @Listen('click', { target: 'window' })
-  handleOutsideClick(event: MouseEvent) {
-    if (this.trigger === 'click' && this.isVisible && !this.el.contains(event.target as Node)) {
+  private handleContentMouseLeave = () => {
+    if (this.trigger === 'hover') {
       this.hide();
     }
-  }
-
-  componentDidUpdate() {
-    if (this.isVisible && this.tooltipElement) {
-      this.updatePosition();
-    }
-  }
-
-  componentDidLoad() {
-    if (this.isVisible) {
-      this.updatePosition();
-    }
-  }
+  };
 
   render() {
-    const tooltipId = `r-tooltip-${Math.random().toString(36).substr(2, 9)}`;
+    const contentStyles: { [key: string]: string } = {};
+    if (this.maxWidth) {
+      contentStyles['max-width'] = `${this.maxWidth}px`;
+    }
 
     return (
-      <Host>
-        <div
-          class="tooltip-trigger"
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
+      <div
+        class={{
+          'r-tooltip': true,
+          'r-tooltip--disabled': this.disabled,
+        }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
+        <span
+          class="r-tooltip__trigger"
+          onClick={this.handleClick}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          onClick={this.handleClick}
-          tabindex={this.disabled ? -1 : (this.trigger === 'focus' || this.trigger === 'click' ? 0 : -1)}
-          aria-describedby={this.isVisible ? tooltipId : undefined}
         >
-          <slot name="trigger">
-            <slot></slot>
-          </slot>
-        </div>
+          <slot></slot>
+        </span>
 
-        {this.isVisible && this.content && (
-          <div
-            ref={(el) => (this.tooltipElement = el)}
-            id={tooltipId}
-            class={{
-              'tooltip-content': true,
-              [`position-${this.position}`]: true,
-              'has-arrow': this.showArrow,
-            }}
-            role="tooltip"
-            style={{
-              maxWidth: this.maxWidth,
-            }}
-          >
-            {this.showArrow && <span class="tooltip-arrow" aria-hidden="true"></span>}
-            <span class="tooltip-text">{this.content}</span>
-          </div>
-        )}
-      </Host>
+        <div
+          class={{
+            'r-tooltip__content': true,
+            'r-tooltip__content--visible': this.visible,
+            [`r-tooltip__content--${this.placement}`]: true,
+            [`r-tooltip__content--${this.effect}`]: true,
+            'r-tooltip__content--enterable': this.enterable,
+            'r-tooltip__content--wrap': !!this.maxWidth,
+          }}
+          style={Object.keys(contentStyles).length > 0 ? contentStyles : undefined}
+          onMouseEnter={this.handleContentMouseEnter}
+          onMouseLeave={this.handleContentMouseLeave}
+          role="tooltip"
+        >
+          {this.showArrow && <span class="r-tooltip__arrow"></span>}
+          {this.rawContent ? <span innerHTML={this.content}></span> : this.content}
+          <slot name="content"></slot>
+        </div>
+      </div>
     );
   }
 }

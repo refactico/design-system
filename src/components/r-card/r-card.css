@@ -1,0 +1,53 @@
+/* Card container */
+.r-card {
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-large);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Shadow variants */
+.r-card--shadow-always {
+  box-shadow: var(--r-shadow-base);
+}
+
+.r-card--shadow-hover {
+  box-shadow: none;
+}
+
+.r-card--shadow-hover:hover {
+  box-shadow: var(--r-shadow-md);
+  transform: translateY(-2px);
+}
+
+.r-card--shadow-never {
+  box-shadow: none;
+}
+
+/* Header */
+.r-card__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--r-color-border-light);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--r-color-text-primary);
+  background-color: var(--r-color-fill-light);
+}
+
+/* Body */
+.r-card__body {
+  padding: 24px;
+  color: var(--r-color-text-regular);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Footer */
+.r-card__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--r-color-border-light);
+  color: var(--r-color-text-secondary);
+  font-size: 14px;
+  background-color: var(--r-color-fill-light);
+}

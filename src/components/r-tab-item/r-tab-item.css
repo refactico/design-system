@@ -1,0 +1,106 @@
+/* Tab item */
+.r-tab-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-spacing-xs);
+  padding: var(--r-spacing-md) 0;
+  font-size: var(--r-font-size-base);
+  font-weight: 500;
+  color: var(--r-color-text-secondary);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  outline: none;
+}
+
+.r-tab-item:hover {
+  color: var(--r-color-primary);
+}
+
+.r-tab-item:focus-visible {
+  color: var(--r-color-primary);
+}
+
+/* Active */
+.r-tab-item--active {
+  color: var(--r-color-primary);
+}
+
+/* Disabled */
+.r-tab-item--disabled {
+  color: var(--r-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.r-tab-item--disabled:hover {
+  color: var(--r-color-text-disabled);
+}
+
+/* Label */
+.r-tab-item__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Close button */
+.r-tab-item__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: var(--r-spacing-xs);
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-tab-item__close svg {
+  width: 12px;
+  height: 12px;
+}
+
+.r-tab-item__close:hover {
+  background-color: var(--r-color-fill-dark);
+  color: var(--r-color-text-primary);
+}
+
+/* ==================== CARD TYPE ==================== */
+.r-tab-item--card {
+  padding: var(--r-spacing-sm) var(--r-spacing-lg);
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--r-radius-base) var(--r-radius-base) 0 0;
+  margin-bottom: -1px;
+  background-color: transparent;
+}
+
+.r-tab-item--card:hover {
+  background-color: var(--r-color-fill-light);
+}
+
+.r-tab-item--card.r-tab-item--active {
+  background-color: var(--r-color-bg);
+  border-color: var(--r-color-border);
+  border-bottom-color: var(--r-color-bg);
+}
+
+/* ==================== BORDER CARD TYPE ==================== */
+.r-tab-item--border-card {
+  padding: var(--r-spacing-sm) var(--r-spacing-lg);
+  border-right: 1px solid var(--r-color-border);
+  margin-bottom: -1px;
+  background-color: transparent;
+}
+
+.r-tab-item--border-card:first-child {
+  border-radius: var(--r-radius-base) 0 0 0;
+}
+
+.r-tab-item--border-card:hover {
+  background-color: var(--r-color-fill);
+}
+
+.r-tab-item--border-card.r-tab-item--active {
+  background-color: var(--r-color-bg);
+  border-bottom: 2px solid var(--r-color-primary);
+}

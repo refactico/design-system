@@ -7,26 +7,36 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type      | Default     |
-| ------------ | ------------- | ----------- | --------- | ----------- |
-| `checked`    | `checked`     |             | `boolean` | `false`     |
-| `disabled`   | `disabled`    |             | `boolean` | `false`     |
-| `error`      | `error`       |             | `boolean` | `false`     |
-| `helperText` | `helper-text` |             | `string`  | `undefined` |
-| `label`      | `label`       |             | `string`  | `undefined` |
-| `name`       | `name`        |             | `string`  | `undefined` |
-| `required`   | `required`    |             | `boolean` | `false`     |
-| `value`      | `value`       |             | `string`  | `undefined` |
+| Property    | Attribute  | Description                                              | Type                              | Default     |
+| ----------- | ---------- | -------------------------------------------------------- | --------------------------------- | ----------- |
+| `border`    | `border`   | Whether to add a border around the radio                 | `boolean`                         | `false`     |
+| `checked`   | `checked`  | Whether the radio is checked (controlled by radio-group) | `boolean`                         | `false`     |
+| `disabled`  | `disabled` | Whether the radio is disabled                            | `boolean`                         | `false`     |
+| `inputName` | `name`     | Native name attribute                                    | `string`                          | `undefined` |
+| `label`     | `label`    | The label text (display text)                            | `string`                          | `undefined` |
+| `size`      | `size`     | Size of the radio                                        | `"default" \| "large" \| "small"` | `'default'` |
+| `value`     | `value`    | The value of the radio                                   | `boolean \| number \| string`     | `undefined` |
 
 
 ## Events
 
-| Event     | Description | Type                  |
-| --------- | ----------- | --------------------- |
-| `rBlur`   |             | `CustomEvent<void>`   |
-| `rChange` |             | `CustomEvent<string>` |
-| `rFocus`  |             | `CustomEvent<void>`   |
+| Event    | Description | Type                                       |
+| -------- | ----------- | ------------------------------------------ |
+| `change` |             | `CustomEvent<boolean \| number \| string>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [r-radio-group](../r-radio-group)
+
+### Graph
+```mermaid
+graph TD;
+  r-radio-group --> r-radio
+  style r-radio fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

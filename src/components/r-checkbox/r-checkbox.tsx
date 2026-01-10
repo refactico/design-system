@@ -1,140 +1,111 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Element, State, Watch, Method } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, Element, State, Watch } from '@stencil/core';
 
-/**
- * r-checkbox
- * Accessible checkbox component with indeterminate state support
- */
+export type CheckboxSize = 'large' | 'default' | 'small';
+
 @Component({
   tag: 'r-checkbox',
   styleUrl: 'r-checkbox.css',
-  shadow: true,
+  shadow: false,
 })
 export class RCheckbox {
   @Element() el: HTMLElement;
 
+  /** The value of the checkbox (used in checkbox-group) */
+  @Prop() value: string | number | boolean;
+
+  /** The label text */
+  @Prop() label: string;
+
+  /** Whether the checkbox is checked */
   @Prop({ mutable: true }) checked: boolean = false;
-  @Prop() disabled: boolean = false;
-  @Prop() required: boolean = false;
-  @Prop() label?: string;
-  @Prop() helperText?: string;
-  @Prop() error: boolean = false;
-  @Prop() name?: string;
-  @Prop() value?: string;
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
+
+  /** Whether the checkbox is in indeterminate state */
   @Prop({ mutable: true }) indeterminate: boolean = false;
-  @Prop() inputId?: string;
 
-  @State() isFocused: boolean = false;
+  /** Whether the checkbox is disabled */
+  @Prop() disabled: boolean = false;
 
-  @Event() rChange: EventEmitter<boolean>;
-  @Event() rFocus: EventEmitter<FocusEvent>;
-  @Event() rBlur: EventEmitter<FocusEvent>;
+  /** Whether to add a border around the checkbox */
+  @Prop() border: boolean = false;
 
-  private inputElement?: HTMLInputElement;
+  /** Size of the checkbox */
+  @Prop() size: CheckboxSize = 'default';
 
-  @Watch('indeterminate')
-  handleIndeterminateChange(newValue: boolean) {
-    if (this.inputElement) {
-      this.inputElement.indeterminate = newValue;
-    }
+  /** Native name attribute */
+  @Prop({ attribute: 'name' }) inputName: string;
+
+  /** True value for v-model */
+  @Prop() trueValue: any = true;
+
+  /** False value for v-model */
+  @Prop() falseValue: any = false;
+
+  @State() focused: boolean = false;
+
+  @Event({ bubbles: true, composed: true }) change: EventEmitter<boolean>;
+
+  @Watch('checked')
+  handleCheckedChange(newValue: boolean) {
+    this.change.emit(newValue);
   }
 
-  componentDidLoad() {
-    if (this.inputElement) {
-      this.inputElement.indeterminate = this.indeterminate;
-    }
-  }
-
-  /**
-   * Programmatically focus the checkbox
-   */
-  @Method()
-  async setFocus() {
-    this.inputElement?.focus();
-  }
-
-  /**
-   * Programmatically toggle the checkbox
-   */
-  @Method()
-  async toggle() {
-    if (!this.disabled) {
-      this.checked = !this.checked;
-      this.indeterminate = false;
-      this.rChange.emit(this.checked);
-    }
-  }
-
-  private handleChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    this.checked = target.checked;
-    this.indeterminate = false; // Clear indeterminate when user interacts
-    this.rChange.emit(this.checked);
+  private handleClick = () => {
+    if (this.disabled) return;
+    this.indeterminate = false;
+    this.checked = !this.checked;
   };
 
-  private handleFocus = (event: FocusEvent) => {
-    this.isFocused = true;
-    this.rFocus.emit(event);
+  private handleFocus = () => {
+    this.focused = true;
   };
 
-  private handleBlur = (event: FocusEvent) => {
-    this.isFocused = false;
-    this.rBlur.emit(event);
+  private handleBlur = () => {
+    this.focused = false;
+  };
+
+  private handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      this.handleClick();
+    }
   };
 
   render() {
-    const checkboxId = this.inputId || `r-checkbox-${Math.random().toString(36).substr(2, 9)}`;
-    const hasHelper = !!this.helperText;
-    const describedBy = hasHelper ? 'checkbox-helper' : undefined;
-
     return (
-      <Host
+      <label
         class={{
-          'size-sm': this.size === 'sm',
-          'size-md': this.size === 'md',
-          'size-lg': this.size === 'lg',
-          focused: this.isFocused,
-          disabled: this.disabled,
-          error: this.error,
+          'r-checkbox': true,
+          'r-checkbox--checked': this.checked,
+          'r-checkbox--indeterminate': this.indeterminate,
+          'r-checkbox--disabled': this.disabled,
+          'r-checkbox--border': this.border,
+          'r-checkbox--focused': this.focused,
+          [`r-checkbox--${this.size}`]: this.size !== 'default',
         }}
+        onClick={this.handleClick}
       >
-        <div class="checkbox-container">
-          <label class="checkbox-wrapper" htmlFor={checkboxId}>
-            <input
-              ref={(el) => (this.inputElement = el)}
-              id={checkboxId}
-              type="checkbox"
-              class="checkbox-input"
-              checked={this.checked}
-              disabled={this.disabled}
-              required={this.required}
-              name={this.name}
-              value={this.value}
-              aria-invalid={this.error ? 'true' : 'false'}
-              aria-describedby={describedBy}
-              aria-required={this.required ? 'true' : 'false'}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
-              onBlur={this.handleBlur}
-            />
-            <span class="checkbox-checkmark"></span>
-            {this.label && (
-              <span class="checkbox-label">
-                {this.label}
-                {this.required && <span class="required">*</span>}
-              </span>
-            )}
-          </label>
-          {hasHelper && (
-            <div
-              id="checkbox-helper"
-              class={`checkbox-helper ${this.error ? 'error' : ''}`}
-            >
-              {this.helperText}
-            </div>
-          )}
-        </div>
-      </Host>
+        <span class="r-checkbox__input">
+          <span class="r-checkbox__inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <input
+            type="checkbox"
+            class="r-checkbox__original"
+            name={this.inputName}
+            value={String(this.value)}
+            checked={this.checked}
+            disabled={this.disabled}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onKeyDown={this.handleKeydown}
+          />
+        </span>
+        <span class="r-checkbox__label">
+          <slot>{this.label}</slot>
+        </span>
+      </label>
     );
   }
 }

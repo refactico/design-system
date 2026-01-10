@@ -1,12 +1,14 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'design-system',
-  globalStyle: 'src/theme/theme.css',
+  namespace: 'refactico-ds',
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [
+        { src: 'theme', dest: 'theme' },
+      ],
     },
     {
       type: 'dist-custom-elements',
@@ -18,10 +20,14 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
+      serviceWorker: null,
+      copy: [
+        { src: 'theme', dest: 'build/theme' },
+      ],
     },
   ],
   testing: {
     browserHeadless: "shell",
   },
+  globalStyle: 'src/theme/theme.css',
 };

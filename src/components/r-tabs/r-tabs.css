@@ -1,0 +1,185 @@
+/* Tabs - Modern tab navigation */
+.r-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tab header */
+.r-tabs__header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Tab nav wrapper */
+.r-tabs__nav-wrap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.r-tabs__nav {
+  display: flex;
+  position: relative;
+  white-space: nowrap;
+  transition: transform var(--r-transition-duration) var(--r-transition-timing);
+}
+
+/* Active bar indicator */
+.r-tabs__active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--r-color-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+}
+
+/* Tab content */
+.r-tabs__content {
+  padding: var(--r-spacing-lg) 0;
+}
+
+/* ==================== TAB TYPES ==================== */
+
+/* Line (default) */
+.r-tabs--line .r-tabs__header {
+  border-bottom: 1px solid var(--r-color-border);
+}
+
+.r-tabs--line .r-tabs__nav {
+  gap: var(--r-spacing-xl);
+}
+
+/* Card */
+.r-tabs--card .r-tabs__header {
+  border-bottom: 1px solid var(--r-color-border);
+}
+
+.r-tabs--card .r-tabs__nav {
+  gap: 0;
+}
+
+.r-tabs--card .r-tabs__active-bar {
+  display: none;
+}
+
+/* Border card */
+.r-tabs--border-card {
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  background-color: var(--r-color-bg);
+  box-shadow: var(--r-shadow-sm);
+}
+
+.r-tabs--border-card .r-tabs__header {
+  background-color: var(--r-color-fill-light);
+  border-bottom: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base) var(--r-radius-base) 0 0;
+}
+
+.r-tabs--border-card .r-tabs__nav {
+  gap: 0;
+}
+
+.r-tabs--border-card .r-tabs__active-bar {
+  display: none;
+}
+
+.r-tabs--border-card .r-tabs__content {
+  padding: var(--r-spacing-lg);
+}
+
+/* ==================== TAB POSITIONS ==================== */
+
+/* Top (default) - already styled above */
+
+/* Bottom */
+.r-tabs--bottom {
+  flex-direction: column-reverse;
+}
+
+.r-tabs--bottom .r-tabs__header {
+  border-bottom: none;
+  border-top: 1px solid var(--r-color-border);
+}
+
+.r-tabs--bottom .r-tabs__active-bar {
+  bottom: auto;
+  top: 0;
+}
+
+/* Left */
+.r-tabs--left {
+  flex-direction: row;
+}
+
+.r-tabs--left .r-tabs__header {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--r-color-border);
+}
+
+.r-tabs--left .r-tabs__nav {
+  flex-direction: column;
+  gap: 0;
+}
+
+.r-tabs--left .r-tabs__active-bar {
+  width: 2px;
+  height: auto;
+  bottom: auto;
+  right: 0;
+  left: auto;
+}
+
+.r-tabs--left .r-tabs__content {
+  flex: 1;
+  padding: 0 var(--r-spacing-lg);
+}
+
+/* Right */
+.r-tabs--right {
+  flex-direction: row-reverse;
+}
+
+.r-tabs--right .r-tabs__header {
+  flex-direction: column;
+  border-bottom: none;
+  border-left: 1px solid var(--r-color-border);
+}
+
+.r-tabs--right .r-tabs__nav {
+  flex-direction: column;
+  gap: 0;
+}
+
+.r-tabs--right .r-tabs__active-bar {
+  width: 2px;
+  height: auto;
+  bottom: auto;
+  left: 0;
+}
+
+.r-tabs--right .r-tabs__content {
+  flex: 1;
+  padding: 0 var(--r-spacing-lg);
+}
+
+/* ==================== EXTRA CONTENT ==================== */
+.r-tabs__extra {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-left: var(--r-spacing-md);
+}
+
+/* ==================== STRETCH ==================== */
+.r-tabs--stretch .r-tabs__nav {
+  width: 100%;
+}
+
+.r-tabs--stretch r-tab-pane {
+  flex: 1;
+}
