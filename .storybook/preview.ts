@@ -1,15 +1,6 @@
 import type { Preview } from '@storybook/web-components-vite';
-import { defineCustomElements } from '../loader';
+import '../dist/components';
 import '../src/theme/theme.css';
-
-// Set resource URL for Stencil lazy loading
-const isProduction = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
-const resourcesUrl = isProduction 
-  ? `${window.location.origin}/design-system/build/`
-  : '/build/';
-
-// Register Stencil components
-defineCustomElements(window, { resourcesUrl });
 
 const preview: Preview = {
   parameters: {
