@@ -1,4 +1,4 @@
-/* Input container */
+/* Input container - Professional Design */
 .r-input {
   display: inline-flex;
   width: 100%;
@@ -20,14 +20,22 @@
   box-sizing: border-box;
 }
 
+.r-input__wrapper:hover {
+  border-color: var(--r-color-border-dark);
+}
+
 .r-input__wrapper--focused {
   border-color: var(--r-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
 }
 
 .r-input__wrapper--disabled {
   background-color: var(--r-color-fill-light);
   cursor: not-allowed;
+}
+
+.r-input__wrapper--disabled:hover {
+  border-color: var(--r-color-border);
 }
 
 /* Inner input */
@@ -190,9 +198,13 @@
   box-sizing: border-box;
 }
 
+.r-textarea__wrapper:hover {
+  border-color: var(--r-color-border-dark);
+}
+
 .r-textarea__wrapper--focused {
   border-color: var(--r-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
 }
 
 .r-textarea__wrapper--disabled {
@@ -213,6 +225,7 @@
   line-height: 1.6;
   outline: none;
   box-sizing: border-box;
+  resize: vertical;
 }
 
 .r-textarea__inner::placeholder {

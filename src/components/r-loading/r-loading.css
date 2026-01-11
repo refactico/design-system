@@ -1,4 +1,4 @@
-/* Loading - Overlay loading state */
+/* Loading - Professional Design */
 .r-loading {
   position: relative;
 }
@@ -18,7 +18,8 @@
   z-index: 100;
   opacity: 0;
   visibility: hidden;
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-loading__mask--visible {
@@ -35,7 +36,7 @@
 .r-loading__text {
   font-size: var(--r-font-size-base);
   color: var(--r-color-primary);
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
 }
 
 /* Background variants */

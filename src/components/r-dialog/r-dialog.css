@@ -1,4 +1,4 @@
-/* Dialog - Modern modal overlay */
+/* Dialog - Professional Design */
 .r-dialog-wrapper {
   position: fixed;
   top: 0;
@@ -13,7 +13,8 @@
   overflow: auto;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-dialog-wrapper--visible {
@@ -44,13 +45,7 @@
   background-color: var(--r-color-bg);
   border-radius: var(--r-radius-large);
   box-shadow: var(--r-shadow-lg);
-  transform: scale(0.95) translateY(-20px);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: auto;
-}
-
-.r-dialog-wrapper--visible .r-dialog {
-  transform: scale(1) translateY(0);
 }
 
 /* Header */
@@ -64,7 +59,7 @@
 
 .r-dialog__title {
   font-size: var(--r-font-size-large);
-  font-weight: 600;
+  font-weight: var(--r-font-weight-semibold);
   color: var(--r-color-text-primary);
   line-height: 1.4;
   margin: 0;

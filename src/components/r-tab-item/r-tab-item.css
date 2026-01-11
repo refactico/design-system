@@ -1,15 +1,15 @@
-/* Tab item */
+/* Tab item - Professional Design */
 .r-tab-item {
   display: inline-flex;
   align-items: center;
   gap: var(--r-spacing-xs);
   padding: var(--r-spacing-md) 0;
   font-size: var(--r-font-size-base);
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
   color: var(--r-color-text-secondary);
   cursor: pointer;
   position: relative;
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
   outline: none;
 }
 
@@ -51,7 +51,7 @@
   height: 16px;
   border-radius: 50%;
   margin-left: var(--r-spacing-xs);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-tab-item__close svg {

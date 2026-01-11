@@ -1,4 +1,4 @@
-/* Dropdown item */
+/* Dropdown item - Professional Design */
 .r-dropdown-item {
   display: flex;
   align-items: center;
@@ -8,7 +8,7 @@
   color: var(--r-color-text-regular);
   cursor: pointer;
   white-space: nowrap;
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
   list-style: none;
 }
 

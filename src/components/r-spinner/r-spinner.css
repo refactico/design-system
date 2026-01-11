@@ -1,4 +1,4 @@
-/* Spinner - Modern loading indicator */
+/* Spinner - Professional Design */
 .r-spinner {
   display: inline-flex;
   align-items: center;
@@ -6,13 +6,13 @@
 }
 
 .r-spinner__circle {
-  animation: r-spinner-rotate 1.4s linear infinite;
+  animation: r-spinner-rotate 1s linear infinite;
 }
 
 .r-spinner__path {
   stroke: currentColor;
   stroke-linecap: round;
-  animation: r-spinner-dash 1.4s ease-in-out infinite;
+  animation: r-spinner-dash 1s ease-in-out infinite;
 }
 
 @keyframes r-spinner-rotate {

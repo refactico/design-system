@@ -1,5 +1,6 @@
 /**
  * Refactico Design System - Theme Variables
+ * Professional Design Language
  * 
  * Import this file in your root app to enable theming.
  * Override these variables to customize the design system.
@@ -59,10 +60,15 @@
   --r-font-size-small: 12px;
   --r-font-size-large: 16px;
 
+  /* Font weights */
+  --r-font-weight-normal: 400;
+  --r-font-weight-medium: 500;
+  --r-font-weight-semibold: 600;
+
   /* Border radius */
-  --r-radius-base: 8px;
-  --r-radius-small: 6px;
-  --r-radius-large: 12px;
+  --r-radius-base: 6px;
+  --r-radius-small: 4px;
+  --r-radius-large: 8px;
   --r-radius-round: 9999px;
 
   /* Spacing */
@@ -71,13 +77,15 @@
   --r-spacing-md: 12px;
   --r-spacing-lg: 16px;
   --r-spacing-xl: 20px;
+  --r-spacing-2xl: 24px;
 
   /* Transitions */
-  --r-transition-duration: 0.2s;
-  --r-transition-timing: ease-in-out;
+  --r-transition-duration: 0.15s;
+  --r-transition-timing: ease-out;
 
   /* Shadows */
-  --r-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --r-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --r-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
@@ -130,7 +138,8 @@
   --r-color-fill-light: #1f2937;
   --r-color-fill-dark: #4b5563;
 
-  --r-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --r-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --r-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
   --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
   --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
   --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);

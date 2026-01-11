@@ -1,4 +1,4 @@
-/* Base radio styles */
+/* Radio - Professional Design */
 .r-radio {
   display: inline-flex;
   align-items: center;
@@ -81,7 +81,7 @@
 
 /* Focus */
 .r-radio--focused .r-radio__inner {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 25%, transparent);
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
 }
 
 /* Checked */
@@ -125,7 +125,7 @@
   border: 1px solid var(--r-color-border);
   border-radius: var(--r-radius-base);
   margin-right: var(--r-spacing-sm);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: border-color var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-radio--border:hover {
@@ -134,10 +134,12 @@
 
 .r-radio--border.r-radio--checked {
   border-color: var(--r-color-primary);
+  background-color: color-mix(in srgb, var(--r-color-primary) 5%, var(--r-color-bg));
 }
 
 .r-radio--border.r-radio--disabled {
   border-color: var(--r-color-border);
+  background-color: var(--r-color-fill-light);
 }
 
 /* ==================== SIZES ==================== */

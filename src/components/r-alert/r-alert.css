@@ -1,4 +1,4 @@
-/* Alert - Modern notification banner */
+/* Alert - Professional Design */
 .r-alert {
   display: flex;
   align-items: flex-start;
@@ -9,8 +9,7 @@
   border: 1px solid var(--r-color-border);
   position: relative;
   overflow: hidden;
-  transition: opacity var(--r-transition-duration) var(--r-transition-timing),
-              transform var(--r-transition-duration) var(--r-transition-timing);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
 }
 
 /* Icon */
@@ -37,7 +36,7 @@
 /* Title */
 .r-alert__title {
   font-size: var(--r-font-size-base);
-  font-weight: 600;
+  font-weight: var(--r-font-weight-semibold);
   line-height: 1.5;
   color: var(--r-color-text-primary);
   margin: 0;
@@ -66,12 +65,11 @@
   cursor: pointer;
   color: var(--r-color-text-placeholder);
   border-radius: var(--r-radius-small);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-alert__close:hover {
   color: var(--r-color-text-secondary);
-  background-color: var(--r-color-fill-dark);
 }
 
 .r-alert__close svg {
@@ -83,8 +81,8 @@
 
 /* Success */
 .r-alert--success {
-  background-color: color-mix(in srgb, var(--r-color-success) 8%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-success) 25%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-success) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-success) 25%, var(--r-color-border));
 }
 
 .r-alert--success .r-alert__icon {
@@ -97,8 +95,8 @@
 
 /* Warning */
 .r-alert--warning {
-  background-color: color-mix(in srgb, var(--r-color-warning) 8%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-warning) 25%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-warning) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-warning) 25%, var(--r-color-border));
 }
 
 .r-alert--warning .r-alert__icon {
@@ -111,8 +109,8 @@
 
 /* Error/Danger */
 .r-alert--error {
-  background-color: color-mix(in srgb, var(--r-color-danger) 8%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-danger) 25%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-danger) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-danger) 25%, var(--r-color-border));
 }
 
 .r-alert--error .r-alert__icon {
@@ -125,8 +123,8 @@
 
 /* Info */
 .r-alert--info {
-  background-color: color-mix(in srgb, var(--r-color-info) 8%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-info) 25%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-info) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-info) 25%, var(--r-color-border));
 }
 
 .r-alert--info .r-alert__icon {
@@ -153,7 +151,6 @@
 
 .r-alert--dark .r-alert__close:hover {
   color: var(--r-color-white);
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .r-alert--dark.r-alert--success {
@@ -193,7 +190,6 @@
 /* ==================== CLOSING ANIMATION ==================== */
 .r-alert--closing {
   opacity: 0;
-  transform: translateY(-10px);
 }
 
 /* ==================== BIG ICON ==================== */

@@ -1,4 +1,4 @@
-/* Badge container */
+/* Badge container - Professional Design */
 .r-badge {
   position: relative;
   display: inline-flex;
@@ -14,9 +14,9 @@
   min-width: 18px;
   padding: 0 6px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
   line-height: 18px;
-  color: var(--r-color-white, #fff);
+  color: var(--r-color-white);
   white-space: nowrap;
   border-radius: 9px;
   box-sizing: border-box;

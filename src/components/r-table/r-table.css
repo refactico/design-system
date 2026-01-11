@@ -1,4 +1,4 @@
-/* Table - Modern data table */
+/* Table - Professional Design */
 .r-table {
   width: 100%;
   overflow: auto;
@@ -19,7 +19,7 @@
 }
 
 .r-table__header th {
-  font-weight: 600;
+  font-weight: var(--r-font-weight-semibold);
   color: var(--r-color-text-primary);
   border-bottom: 1px solid var(--r-color-border);
 }
@@ -100,7 +100,7 @@
 
 /* Current row */
 .r-table__row--current {
-  background-color: color-mix(in srgb, var(--r-color-primary) 8%, transparent) !important;
+  background-color: color-mix(in srgb, var(--r-color-primary) 8%, var(--r-color-bg)) !important;
 }
 
 /* Empty */

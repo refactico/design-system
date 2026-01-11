@@ -1,4 +1,4 @@
-/* Tabs - Modern tab navigation */
+/* Tabs - Professional Design */
 .r-tabs {
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
   left: 0;
   height: 2px;
   background-color: var(--r-color-primary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s var(--r-transition-timing);
   border-radius: 1px;
 }
 
@@ -70,7 +70,6 @@
   border: 1px solid var(--r-color-border);
   border-radius: var(--r-radius-base);
   background-color: var(--r-color-bg);
-  box-shadow: var(--r-shadow-sm);
 }
 
 .r-tabs--border-card .r-tabs__header {
@@ -92,8 +91,6 @@
 }
 
 /* ==================== TAB POSITIONS ==================== */
-
-/* Top (default) - already styled above */
 
 /* Bottom */
 .r-tabs--bottom {

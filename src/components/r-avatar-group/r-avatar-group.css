@@ -1,4 +1,4 @@
-/* Avatar Group */
+/* Avatar Group - Professional Design */
 .r-avatar-group {
   display: inline-flex;
   align-items: center;
@@ -8,18 +8,11 @@
 .r-avatar-group > .r-avatar {
   margin-left: -8px;
   border: 2px solid var(--r-color-bg);
-  transition: transform 0.2s ease;
 }
 
 .r-avatar-group > r-avatar:first-child,
 .r-avatar-group > .r-avatar:first-child {
   margin-left: 0;
-}
-
-.r-avatar-group > r-avatar:hover,
-.r-avatar-group > .r-avatar:hover {
-  transform: translateY(-2px);
-  z-index: 1;
 }
 
 /* Collapse avatar container */
@@ -33,14 +26,14 @@
   background-color: var(--r-color-fill-dark);
   color: var(--r-color-text-regular);
   border: 2px solid var(--r-color-bg);
-  font-weight: 600;
+  font-weight: var(--r-font-weight-semibold);
 }
 
 /* Tooltip */
 .r-avatar-group__tooltip {
   position: absolute;
   z-index: 1000;
-  padding: 8px 12px;
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
   border-radius: var(--r-radius-base);
   box-shadow: var(--r-shadow-base);
   white-space: nowrap;

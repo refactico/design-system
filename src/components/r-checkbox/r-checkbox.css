@@ -1,4 +1,4 @@
-/* Checkbox - Modern styling with smooth animations */
+/* Checkbox - Professional Design */
 .r-checkbox {
   display: inline-flex;
   align-items: center;
@@ -39,9 +39,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid var(--r-color-border-dark);
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--r-color-border-dark);
   border-radius: var(--r-radius-small);
   background-color: var(--r-color-bg);
   transition: all var(--r-transition-duration) var(--r-transition-timing);
@@ -54,21 +54,19 @@
   stroke: var(--r-color-white);
   stroke-width: 2.5;
   opacity: 0;
-  transform: scale(0.5);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
 }
 
 /* Indeterminate line */
 .r-checkbox__inner::after {
   content: '';
   position: absolute;
-  width: 10px;
+  width: 8px;
   height: 2px;
   background-color: var(--r-color-white);
   border-radius: 1px;
   opacity: 0;
-  transform: scale(0);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
 }
 
 /* Label text */
@@ -87,7 +85,7 @@
 /* Focus */
 .r-checkbox--focused .r-checkbox__inner {
   border-color: var(--r-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
 }
 
 /* Checked */
@@ -98,7 +96,6 @@
 
 .r-checkbox--checked .r-checkbox__inner svg {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* Indeterminate */
@@ -113,7 +110,6 @@
 
 .r-checkbox--indeterminate .r-checkbox__inner::after {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* Disabled */
@@ -146,7 +142,7 @@
   padding: var(--r-spacing-sm) var(--r-spacing-md);
   border: 1px solid var(--r-color-border);
   border-radius: var(--r-radius-base);
-  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  transition: border-color var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-checkbox--border:hover {
@@ -155,7 +151,7 @@
 
 .r-checkbox--border.r-checkbox--checked {
   border-color: var(--r-color-primary);
-  background-color: color-mix(in srgb, var(--r-color-primary) 5%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-primary) 5%, var(--r-color-bg));
 }
 
 .r-checkbox--border.r-checkbox--disabled {
@@ -171,8 +167,8 @@
 }
 
 .r-checkbox--large .r-checkbox__inner {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .r-checkbox--large .r-checkbox__inner svg {
@@ -191,8 +187,8 @@
 }
 
 .r-checkbox--small .r-checkbox__inner {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .r-checkbox--small .r-checkbox__inner svg {

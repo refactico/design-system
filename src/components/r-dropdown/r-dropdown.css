@@ -1,4 +1,4 @@
-/* Dropdown - Modern menu trigger */
+/* Dropdown - Professional Design */
 .r-dropdown {
   display: inline-block;
   position: relative;
@@ -22,15 +22,13 @@
   box-shadow: var(--r-shadow-md);
   opacity: 0;
   visibility: hidden;
-  transform: scaleY(0.9);
-  transform-origin: top center;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-dropdown__menu--visible {
   opacity: 1;
   visibility: visible;
-  transform: scaleY(1);
 }
 
 /* ==================== PLACEMENTS ==================== */
@@ -45,11 +43,7 @@
 
 .r-dropdown__menu--bottom {
   left: 50%;
-  transform: translateX(-50%) scaleY(0.9);
-}
-
-.r-dropdown__menu--bottom.r-dropdown__menu--visible {
-  transform: translateX(-50%) scaleY(1);
+  transform: translateX(-50%);
 }
 
 .r-dropdown__menu--bottom-start {
@@ -66,16 +60,11 @@
 .r-dropdown__menu--top-end {
   bottom: 100%;
   margin-bottom: var(--r-spacing-xs);
-  transform-origin: bottom center;
 }
 
 .r-dropdown__menu--top {
   left: 50%;
-  transform: translateX(-50%) scaleY(0.9);
-}
-
-.r-dropdown__menu--top.r-dropdown__menu--visible {
-  transform: translateX(-50%) scaleY(1);
+  transform: translateX(-50%);
 }
 
 .r-dropdown__menu--top-start {

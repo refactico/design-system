@@ -1,15 +1,15 @@
-/* Card container */
+/* Card container - Professional Design */
 .r-card {
   background-color: var(--r-color-bg);
   border: 1px solid var(--r-color-border);
   border-radius: var(--r-radius-large);
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transition: box-shadow var(--r-transition-duration) var(--r-transition-timing);
 }
 
 /* Shadow variants */
 .r-card--shadow-always {
-  box-shadow: var(--r-shadow-base);
+  box-shadow: var(--r-shadow-sm);
 }
 
 .r-card--shadow-hover {
@@ -17,8 +17,7 @@
 }
 
 .r-card--shadow-hover:hover {
-  box-shadow: var(--r-shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--r-shadow-base);
 }
 
 .r-card--shadow-never {
@@ -27,27 +26,27 @@
 
 /* Header */
 .r-card__header {
-  padding: 20px 24px;
+  padding: var(--r-spacing-lg) var(--r-spacing-xl);
   border-bottom: 1px solid var(--r-color-border-light);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--r-font-weight-semibold);
+  font-size: var(--r-font-size-base);
   color: var(--r-color-text-primary);
   background-color: var(--r-color-fill-light);
 }
 
 /* Body */
 .r-card__body {
-  padding: 24px;
+  padding: var(--r-spacing-xl);
   color: var(--r-color-text-regular);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--r-font-size-base);
+  line-height: 1.6;
 }
 
 /* Footer */
 .r-card__footer {
-  padding: 16px 24px;
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
   border-top: 1px solid var(--r-color-border-light);
   color: var(--r-color-text-secondary);
-  font-size: 14px;
+  font-size: var(--r-font-size-base);
   background-color: var(--r-color-fill-light);
 }

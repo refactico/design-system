@@ -1,13 +1,13 @@
-/* Base button styles */
+/* Base button styles - Professional Design */
 .r-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--r-spacing-xs);
-  padding: var(--r-spacing-sm) var(--r-spacing-lg);
+  gap: var(--r-spacing-sm);
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
   font-size: var(--r-font-size-base);
   font-weight: var(--r-button-font-weight);
-  line-height: 1;
+  line-height: 1.25;
   white-space: nowrap;
   cursor: pointer;
   border: 1px solid var(--r-color-border);
@@ -23,12 +23,10 @@
   appearance: none;
 }
 
-.r-button:hover,
-.r-button:focus-visible {
+.r-button:hover {
   border-color: var(--r-color-primary);
   color: var(--r-color-primary);
-  background-color: var(--r-color-primary-light);
-  background-color: color-mix(in srgb, var(--r-color-primary) 10%, var(--r-color-bg));
+  background-color: color-mix(in srgb, var(--r-color-primary) 6%, var(--r-color-bg));
 }
 
 .r-button:active {
@@ -38,18 +36,19 @@
 
 /* Focus ring */
 .r-button:focus-visible {
+  border-color: var(--r-color-primary);
   box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
 }
 
 /* ==================== SIZES ==================== */
 .r-button--large {
-  padding: var(--r-spacing-md) var(--r-spacing-xl);
+  padding: var(--r-spacing-lg) var(--r-spacing-2xl);
   font-size: var(--r-font-size-large);
   border-radius: var(--r-radius-large);
 }
 
 .r-button--small {
-  padding: var(--r-spacing-xs) var(--r-spacing-sm);
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
   font-size: var(--r-font-size-small);
   border-radius: var(--r-radius-small);
 }
@@ -60,95 +59,120 @@
 .r-button--primary {
   background-color: var(--r-color-primary);
   border-color: var(--r-color-primary);
-  color: #ffffff;
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
 }
 
-.r-button--primary:hover,
-.r-button--primary:focus-visible {
+.r-button--primary:hover {
   background-color: var(--r-color-primary-light);
   border-color: var(--r-color-primary-light);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--primary:active {
   background-color: var(--r-color-primary-dark);
   border-color: var(--r-color-primary-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--primary:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
 }
 
 /* Success */
 .r-button--success {
   background-color: var(--r-color-success);
   border-color: var(--r-color-success);
-  color: #ffffff;
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
 }
 
-.r-button--success:hover,
-.r-button--success:focus-visible {
+.r-button--success:hover {
   background-color: var(--r-color-success-light);
   border-color: var(--r-color-success-light);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--success:active {
   background-color: var(--r-color-success-dark);
   border-color: var(--r-color-success-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--success:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-success);
 }
 
 /* Warning */
 .r-button--warning {
   background-color: var(--r-color-warning);
   border-color: var(--r-color-warning);
-  color: #ffffff;
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
 }
 
-.r-button--warning:hover,
-.r-button--warning:focus-visible {
+.r-button--warning:hover {
   background-color: var(--r-color-warning-light);
   border-color: var(--r-color-warning-light);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--warning:active {
   background-color: var(--r-color-warning-dark);
   border-color: var(--r-color-warning-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--warning:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-warning);
 }
 
 /* Danger */
 .r-button--danger {
   background-color: var(--r-color-danger);
   border-color: var(--r-color-danger);
-  color: #ffffff;
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
 }
 
-.r-button--danger:hover,
-.r-button--danger:focus-visible {
+.r-button--danger:hover {
   background-color: var(--r-color-danger-light);
   border-color: var(--r-color-danger-light);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--danger:active {
   background-color: var(--r-color-danger-dark);
   border-color: var(--r-color-danger-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--danger:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-danger);
 }
 
 /* Info */
 .r-button--info {
   background-color: var(--r-color-info);
   border-color: var(--r-color-info);
-  color: #ffffff;
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
 }
 
-.r-button--info:hover,
-.r-button--info:focus-visible {
+.r-button--info:hover {
   background-color: var(--r-color-info-light);
   border-color: var(--r-color-info-light);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--info:active {
   background-color: var(--r-color-info-dark);
   border-color: var(--r-color-info-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--info:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-info);
 }
 
 /* ==================== PLAIN VARIANTS ==================== */
@@ -157,84 +181,88 @@
 }
 
 .r-button--plain.r-button--primary {
-  background-color: color-mix(in srgb, var(--r-color-primary) 10%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-primary) 50%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-primary) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-primary) 30%, var(--r-color-border));
   color: var(--r-color-primary);
+  box-shadow: none;
 }
 
-.r-button--plain.r-button--primary:hover,
-.r-button--plain.r-button--primary:focus-visible {
+.r-button--plain.r-button--primary:hover {
   background-color: var(--r-color-primary);
   border-color: var(--r-color-primary);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--plain.r-button--success {
-  background-color: color-mix(in srgb, var(--r-color-success) 10%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-success) 50%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-success) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-success) 30%, var(--r-color-border));
   color: var(--r-color-success);
+  box-shadow: none;
 }
 
-.r-button--plain.r-button--success:hover,
-.r-button--plain.r-button--success:focus-visible {
+.r-button--plain.r-button--success:hover {
   background-color: var(--r-color-success);
   border-color: var(--r-color-success);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--plain.r-button--warning {
-  background-color: color-mix(in srgb, var(--r-color-warning) 10%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-warning) 50%, transparent);
-  color: var(--r-color-warning);
+  background-color: color-mix(in srgb, var(--r-color-warning) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-warning) 30%, var(--r-color-border));
+  color: var(--r-color-warning-dark);
+  box-shadow: none;
 }
 
-.r-button--plain.r-button--warning:hover,
-.r-button--plain.r-button--warning:focus-visible {
+.r-button--plain.r-button--warning:hover {
   background-color: var(--r-color-warning);
   border-color: var(--r-color-warning);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--plain.r-button--danger {
-  background-color: color-mix(in srgb, var(--r-color-danger) 10%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-danger) 50%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-danger) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-danger) 30%, var(--r-color-border));
   color: var(--r-color-danger);
+  box-shadow: none;
 }
 
-.r-button--plain.r-button--danger:hover,
-.r-button--plain.r-button--danger:focus-visible {
+.r-button--plain.r-button--danger:hover {
   background-color: var(--r-color-danger);
   border-color: var(--r-color-danger);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--plain.r-button--info {
-  background-color: color-mix(in srgb, var(--r-color-info) 10%, var(--r-color-bg));
-  border-color: color-mix(in srgb, var(--r-color-info) 50%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-info) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-info) 30%, var(--r-color-border));
   color: var(--r-color-info);
+  box-shadow: none;
 }
 
-.r-button--plain.r-button--info:hover,
-.r-button--plain.r-button--info:focus-visible {
+.r-button--plain.r-button--info:hover {
   background-color: var(--r-color-info);
   border-color: var(--r-color-info);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 /* ==================== TEXT BUTTON ==================== */
 .r-button--text {
   background-color: transparent;
   border-color: transparent;
-  color: var(--r-color-text-regular);
-  padding-left: var(--r-spacing-sm);
-  padding-right: var(--r-spacing-sm);
+  color: var(--r-color-text-primary);
+  padding-left: var(--r-spacing-md);
+  padding-right: var(--r-spacing-md);
+  box-shadow: none;
 }
 
-.r-button--text:hover,
-.r-button--text:focus-visible {
-  background-color: transparent;
+.r-button--text:hover {
+  background-color: var(--r-color-fill);
   border-color: transparent;
-  color: var(--r-color-primary);
+  color: var(--r-color-text-primary);
+}
+
+.r-button--text:active {
+  background-color: var(--r-color-fill-dark);
 }
 
 .r-button--text.r-button--primary {
@@ -242,7 +270,8 @@
 }
 
 .r-button--text.r-button--primary:hover {
-  color: var(--r-color-primary-light);
+  background-color: color-mix(in srgb, var(--r-color-primary) 10%, transparent);
+  color: var(--r-color-primary);
 }
 
 .r-button--text.r-button--success {
@@ -250,15 +279,17 @@
 }
 
 .r-button--text.r-button--success:hover {
-  color: var(--r-color-success-light);
+  background-color: color-mix(in srgb, var(--r-color-success) 10%, transparent);
+  color: var(--r-color-success);
 }
 
 .r-button--text.r-button--warning {
-  color: var(--r-color-warning);
+  color: var(--r-color-warning-dark);
 }
 
 .r-button--text.r-button--warning:hover {
-  color: var(--r-color-warning-light);
+  background-color: color-mix(in srgb, var(--r-color-warning) 10%, transparent);
+  color: var(--r-color-warning-dark);
 }
 
 .r-button--text.r-button--danger {
@@ -266,7 +297,8 @@
 }
 
 .r-button--text.r-button--danger:hover {
-  color: var(--r-color-danger-light);
+  background-color: color-mix(in srgb, var(--r-color-danger) 10%, transparent);
+  color: var(--r-color-danger);
 }
 
 .r-button--text.r-button--info {
@@ -274,13 +306,17 @@
 }
 
 .r-button--text.r-button--info:hover {
-  color: var(--r-color-info-light);
+  background-color: color-mix(in srgb, var(--r-color-info) 10%, transparent);
+  color: var(--r-color-info);
 }
 
 /* Text button with background */
-.r-button--text-bg:hover,
-.r-button--text-bg:focus-visible {
+.r-button--text-bg {
   background-color: var(--r-color-fill);
+}
+
+.r-button--text-bg:hover {
+  background-color: var(--r-color-fill-dark);
 }
 
 /* ==================== LINK BUTTON ==================== */
@@ -290,13 +326,18 @@
   color: var(--r-color-primary);
   padding-left: var(--r-spacing-xs);
   padding-right: var(--r-spacing-xs);
+  box-shadow: none;
 }
 
-.r-button--link:hover,
-.r-button--link:focus-visible {
+.r-button--link:hover {
   background-color: transparent;
   border-color: transparent;
   color: var(--r-color-primary-light);
+  text-decoration: underline;
+}
+
+.r-button--link:active {
+  color: var(--r-color-primary-dark);
 }
 
 .r-button--link.r-button--success {
@@ -308,11 +349,11 @@
 }
 
 .r-button--link.r-button--warning {
-  color: var(--r-color-warning);
+  color: var(--r-color-warning-dark);
 }
 
 .r-button--link.r-button--warning:hover {
-  color: var(--r-color-warning-light);
+  color: var(--r-color-warning);
 }
 
 .r-button--link.r-button--danger {
@@ -338,28 +379,28 @@
 
 .r-button--circle {
   border-radius: 50%;
-  padding: var(--r-spacing-sm);
-  width: 32px;
-  height: 32px;
+  padding: var(--r-spacing-md);
+  width: 40px;
+  height: 40px;
 }
 
 .r-button--circle.r-button--large {
-  width: 40px;
-  height: 40px;
-  padding: var(--r-spacing-md);
+  width: 48px;
+  height: 48px;
+  padding: var(--r-spacing-lg);
 }
 
 .r-button--circle.r-button--small {
-  width: 24px;
-  height: 24px;
-  padding: var(--r-spacing-xs);
+  width: 32px;
+  height: 32px;
+  padding: var(--r-spacing-sm);
 }
 
 /* ==================== DISABLED ==================== */
 .r-button--disabled,
 .r-button:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -375,35 +416,35 @@
 .r-button:disabled.r-button--primary {
   background-color: var(--r-color-primary);
   border-color: var(--r-color-primary);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--disabled.r-button--success,
 .r-button:disabled.r-button--success {
   background-color: var(--r-color-success);
   border-color: var(--r-color-success);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--disabled.r-button--warning,
 .r-button:disabled.r-button--warning {
   background-color: var(--r-color-warning);
   border-color: var(--r-color-warning);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--disabled.r-button--danger,
 .r-button:disabled.r-button--danger {
   background-color: var(--r-color-danger);
   border-color: var(--r-color-danger);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 .r-button--disabled.r-button--info,
 .r-button:disabled.r-button--info {
   background-color: var(--r-color-info);
   border-color: var(--r-color-info);
-  color: #ffffff;
+  color: var(--r-color-white);
 }
 
 /* Disabled text/link buttons */
@@ -432,12 +473,8 @@
 }
 
 @keyframes r-button-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* ==================== ICON ==================== */
@@ -471,8 +508,7 @@
   color: var(--r-button-custom-text);
 }
 
-.r-button--custom-color:hover,
-.r-button--custom-color:focus-visible {
+.r-button--custom-color:hover {
   background-color: var(--r-button-custom-hover-bg);
   border-color: var(--r-button-custom-hover-border);
   color: var(--r-button-custom-hover-text);

@@ -1,4 +1,4 @@
-/* Select container */
+/* Select container - Professional Design */
 .r-select {
   position: relative;
   display: block;
@@ -37,7 +37,7 @@
 
 .r-select--open .r-input__wrapper {
   border-color: var(--r-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
 }
 
 /* Suffix icons */
@@ -107,17 +107,17 @@
 }
 
 .r-select__tag--success {
-  background-color: color-mix(in srgb, var(--r-color-success) 15%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-success) 15%, var(--r-color-bg));
   color: var(--r-color-success);
 }
 
 .r-select__tag--warning {
-  background-color: color-mix(in srgb, var(--r-color-warning) 15%, transparent);
-  color: var(--r-color-warning);
+  background-color: color-mix(in srgb, var(--r-color-warning) 15%, var(--r-color-bg));
+  color: var(--r-color-warning-dark);
 }
 
 .r-select__tag--danger {
-  background-color: color-mix(in srgb, var(--r-color-danger) 15%, transparent);
+  background-color: color-mix(in srgb, var(--r-color-danger) 15%, var(--r-color-bg));
   color: var(--r-color-danger);
 }
 
@@ -160,20 +160,8 @@
   background-color: var(--r-color-bg);
   border: 1px solid var(--r-color-border);
   border-radius: var(--r-radius-base);
-  box-shadow: var(--r-shadow-lg);
-  animation: r-select-dropdown-in 0.15s ease-out;
+  box-shadow: var(--r-shadow-md);
   box-sizing: border-box;
-}
-
-@keyframes r-select-dropdown-in {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .r-select__options {
@@ -201,7 +189,7 @@
 
 .r-select__option--selected {
   color: var(--r-color-primary);
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
 }
 
 .r-select__option--disabled {
@@ -233,7 +221,7 @@
   padding: var(--r-spacing-xs) var(--r-spacing-md);
   font-size: var(--r-font-size-small);
   color: var(--r-color-text-secondary);
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
 }
 
 /* Empty & Loading states */
@@ -277,7 +265,7 @@
 
 .r-select--multiple.r-select--open .r-select__trigger {
   border-color: var(--r-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
 }
 
 .r-select--multiple .r-select__input {

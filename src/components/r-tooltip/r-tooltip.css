@@ -1,4 +1,4 @@
-/* Tooltip - Modern floating hint */
+/* Tooltip - Professional Design */
 .r-tooltip {
   display: inline-block;
   position: relative;
@@ -14,21 +14,20 @@
   z-index: 2000;
   padding: var(--r-spacing-sm) var(--r-spacing-md);
   font-size: var(--r-font-size-small);
-  font-weight: 400;
+  font-weight: var(--r-font-weight-normal);
   line-height: 1.5;
   border-radius: var(--r-radius-base);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.95);
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
 }
 
 .r-tooltip__content--visible {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
   pointer-events: auto;
 }
 
@@ -46,7 +45,7 @@
 .r-tooltip__content--dark {
   background-color: var(--r-color-text-primary);
   color: var(--r-color-white);
-  box-shadow: var(--r-shadow-md);
+  box-shadow: var(--r-shadow-sm);
 }
 
 .r-tooltip__content--dark .r-tooltip__arrow {
@@ -58,7 +57,7 @@
   background-color: var(--r-color-bg);
   color: var(--r-color-text-regular);
   border: 1px solid var(--r-color-border);
-  box-shadow: var(--r-shadow-md);
+  box-shadow: var(--r-shadow-sm);
 }
 
 .r-tooltip__content--light .r-tooltip__arrow {
@@ -74,12 +73,8 @@
 .r-tooltip__content--top {
   bottom: 100%;
   left: 50%;
-  transform: translateX(-50%) scale(0.95);
+  transform: translateX(-50%);
   margin-bottom: 10px;
-}
-
-.r-tooltip__content--top.r-tooltip__content--visible {
-  transform: translateX(-50%) scale(1);
 }
 
 .r-tooltip__content--top .r-tooltip__arrow {
@@ -97,12 +92,8 @@
 .r-tooltip__content--bottom {
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) scale(0.95);
+  transform: translateX(-50%);
   margin-top: 10px;
-}
-
-.r-tooltip__content--bottom.r-tooltip__content--visible {
-  transform: translateX(-50%) scale(1);
 }
 
 .r-tooltip__content--bottom .r-tooltip__arrow {
@@ -120,12 +111,8 @@
 .r-tooltip__content--left {
   right: 100%;
   top: 50%;
-  transform: translateY(-50%) scale(0.95);
+  transform: translateY(-50%);
   margin-right: 10px;
-}
-
-.r-tooltip__content--left.r-tooltip__content--visible {
-  transform: translateY(-50%) scale(1);
 }
 
 .r-tooltip__content--left .r-tooltip__arrow {
@@ -143,12 +130,8 @@
 .r-tooltip__content--right {
   left: 100%;
   top: 50%;
-  transform: translateY(-50%) scale(0.95);
+  transform: translateY(-50%);
   margin-left: 10px;
-}
-
-.r-tooltip__content--right.r-tooltip__content--visible {
-  transform: translateY(-50%) scale(1);
 }
 
 .r-tooltip__content--right .r-tooltip__arrow {

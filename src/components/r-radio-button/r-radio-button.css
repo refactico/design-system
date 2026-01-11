@@ -1,4 +1,4 @@
-/* Radio button styles */
+/* Radio button - Professional Design */
 .r-radio-button {
   position: relative;
   display: inline-block;
@@ -67,7 +67,7 @@
 
 /* Focus */
 .r-radio-button--focused .r-radio-button__inner {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 25%, transparent);
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
   z-index: 1;
 }
 

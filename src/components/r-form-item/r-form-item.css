@@ -1,4 +1,4 @@
-/* Form Item */
+/* Form Item - Professional Design */
 .r-form-item {
   display: flex;
   margin-bottom: var(--r-spacing-lg);
@@ -22,7 +22,7 @@
   gap: 2px;
   font-size: var(--r-font-size-base);
   color: var(--r-color-text-regular);
-  font-weight: 500;
+  font-weight: var(--r-font-weight-medium);
   line-height: 40px;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -47,7 +47,7 @@
 /* Asterisk */
 .r-form-item__asterisk {
   color: var(--r-color-danger);
-  font-weight: 600;
+  font-weight: var(--r-font-weight-semibold);
 }
 
 /* Content */
@@ -75,7 +75,7 @@
 .r-form-item--error .r-input__wrapper:focus-within,
 .r-form-item--error .r-select--open .r-input__wrapper {
   border-color: var(--r-color-danger);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--r-color-danger) 15%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-danger) 15%, transparent);
 }
 
 /* Success state */
