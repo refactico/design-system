@@ -1,111 +1,321 @@
-[![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)](https://stenciljs.com)
+# Refactico Design System
 
-# Stencil Component Starter
+A comprehensive web component library built with [Stencil](https://stenciljs.com), providing accessible, customizable UI components for modern web applications.
 
-> This is a starter project for building a standalone Web Components using Stencil.
+**[View Component Documentation (Storybook)](https://refactico.github.io/design-system/)**
 
-Stencil is a compiler for building fast web apps using Web Components.
+## Features
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than runtime tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements specification.
+- Themeable with CSS custom properties
+- Accessibility-first design (WCAG compliant)
+- Tree-shakeable (individual component imports)
+- Framework-agnostic (works with React, Vue, Angular, or vanilla JS)
+- Dark mode support
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
-
-## Getting Started
-
-To start building a new web component using Stencil, clone this repo to a new directory:
-
-```bash
-git clone https://github.com/stenciljs/component-starter.git my-component
-cd my-component
-git remote rm origin
-```
-
-and run:
+## Installation
 
 ```bash
-npm install
-npm start
+pnpm add @refactico/design-system
 ```
 
-To build the component for production, run:
+## Usage
 
-```bash
-npm run build
+### Load All Components (Not Tree-Shakeable)
+
+Use this when you need most components or don't care about bundle size:
+
+```tsx
+import { defineCustomElements } from '@refactico/design-system/loader';
+import '@refactico/design-system/theme.css';
+
+defineCustomElements();
 ```
 
-To run the unit tests for the components, run:
+### Load Single Component (Tree-Shakeable)
 
-```bash
-npm test
+Import only what you need. Each component auto-registers when imported:
+
+```tsx
+// Only r-button is bundled
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/theme.css';
 ```
 
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
+```tsx
+// Multiple specific components
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/dist/components/r-input.js';
+import '@refactico/design-system/dist/components/r-select.js';
+import '@refactico/design-system/theme.css';
+```
 
-## Naming Components
+This works with all modern bundlers (Vite, Webpack, Rollup, esbuild) - unused components are excluded from the final bundle.
 
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the [Ionic-generated](https://ionicframework.com/) web components use the prefix `ion`.
-
-## Using this component
-
-There are two strategies we recommend for using web components built with Stencil.
-
-The first step for all two of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-You can read more about these different approaches in the [Stencil docs](https://stenciljs.com/docs/publishing).
-
-### Lazy Loading
-
-If your Stencil project is built with the [`dist`](https://stenciljs.com/docs/distribution) output target, you can import a small bootstrap script that registers all components and allows you to load individual component scripts lazily.
-
-For example, given your Stencil project namespace is called `my-design-system`, to use `my-component` on any website, inject this into your HTML:
+### Script Tag (CDN)
 
 ```html
-<script type="module" src="https://unpkg.com/my-design-system"></script>
-<!--
-To avoid unpkg.com redirects to the actual file, you can also directly import:
-https://unpkg.com/foobar-design-system@0.0.1/dist/foobar-design-system/foobar-design-system.esm.js
--->
-<my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+<script type="module" src="https://unpkg.com/@refactico/design-system"></script>
+<link rel="stylesheet" href="https://unpkg.com/@refactico/design-system/dist/refactico-ds/theme/theme.css" />
+
+<r-button variant="primary">Click me</r-button>
 ```
 
-This will only load the necessary scripts needed to render `<my-component />`. Once more components of this package are used, they will automatically be loaded lazily.
+## Framework Integration
 
-You can also import the script as part of your `node_modules` in your applications entry file:
-
-```tsx
-import 'foobar-design-system/dist/foobar-design-system/foobar-design-system.esm.js';
-```
-
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-y6v26a?file=src%2Fmain.tsx).
-
-### Standalone
-
-If you are using a Stencil component library with `dist-custom-elements`, we recommend importing Stencil components individually in those files where they are needed.
-
-To export Stencil components as standalone components make sure you have the [`dist-custom-elements`](https://stenciljs.com/docs/custom-elements) output target defined in your `stencil.config.ts`.
-
-For example, given you'd like to use `<my-component />` as part of a React component, you can import the component directly via:
+### React
 
 ```tsx
-import 'foobar-design-system/my-component';
+// main.tsx - Tree-shakeable: import only what you use
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/dist/components/r-input.js';
+import '@refactico/design-system/dist/components/r-alert.js';
+import '@refactico/design-system/theme.css';
+
+// Or load all (not tree-shakeable):
+// import { defineCustomElements } from '@refactico/design-system/loader';
+// defineCustomElements();
 
 function App() {
+  const handleClick = () => console.log('clicked');
+  
   return (
-    <>
-      <div>
-        <my-component
-          first="Stencil"
-          middle="'Don't call me a framework'"
-          last="JS"
-        ></my-component>
-      </div>
-    </>
+    <div>
+      <r-button variant="primary" onClick={handleClick}>
+        Submit
+      </r-button>
+      <r-input placeholder="Enter your name" />
+      <r-alert type="success" alert-title="Success">
+        Operation completed successfully.
+      </r-alert>
+    </div>
   );
 }
-
-export default App;
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-b6zuds?file=src%2FApp.tsx).
+For TypeScript support, add type declarations:
+
+```tsx
+// global.d.ts
+declare namespace JSX {
+  interface IntrinsicElements {
+    'r-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+      variant?: 'primary' | 'secondary' | 'text' | 'outline';
+      size?: 'small' | 'medium' | 'large';
+      disabled?: boolean;
+    }, HTMLElement>;
+    'r-input': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+      value?: string;
+      placeholder?: string;
+      type?: string;
+      disabled?: boolean;
+    }, HTMLElement>;
+    // Add other components as needed
+  }
+}
+```
+
+### Angular
+
+```typescript
+// app.module.ts
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+
+// Tree-shakeable: import only what you use
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/dist/components/r-input.js';
+import '@refactico/design-system/dist/components/r-select.js';
+
+// Or load all (not tree-shakeable):
+// import { defineCustomElements } from '@refactico/design-system/loader';
+// defineCustomElements();
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+```css
+/* styles.css */
+@import '@refactico/design-system/theme.css';
+```
+
+```html
+<!-- app.component.html -->
+<r-button variant="primary" (click)="handleClick()">
+  Submit
+</r-button>
+
+<r-input [placeholder]="'Enter your name'" (rInput)="onInput($event)"></r-input>
+
+<r-select [options]="options" (rChange)="onSelect($event)"></r-select>
+```
+
+### Vue 3
+
+```typescript
+// main.ts
+import { createApp } from 'vue';
+import App from './App.vue';
+
+// Tree-shakeable: import only what you use
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/dist/components/r-input.js';
+import '@refactico/design-system/dist/components/r-dialog.js';
+import '@refactico/design-system/theme.css';
+
+// Or load all (not tree-shakeable):
+// import { defineCustomElements } from '@refactico/design-system/loader';
+// defineCustomElements();
+
+const app = createApp(App);
+
+// Tell Vue to ignore custom elements with 'r-' prefix
+app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('r-');
+
+app.mount('#app');
+```
+
+```vue
+<!-- App.vue -->
+<template>
+  <div>
+    <r-button variant="primary" @click="handleClick">
+      Submit
+    </r-button>
+    
+    <r-input 
+      :placeholder="'Enter your name'" 
+      @rInput="onInput"
+    />
+    
+    <r-dialog :visible="showDialog" @rClose="showDialog = false">
+      <span slot="title">Confirm Action</span>
+      <p>Are you sure you want to proceed?</p>
+      <span slot="footer">
+        <r-button @click="showDialog = false">Cancel</r-button>
+        <r-button variant="primary" @click="confirm">Confirm</r-button>
+      </span>
+    </r-dialog>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const showDialog = ref(false);
+
+const handleClick = () => {
+  showDialog.value = true;
+};
+
+const onInput = (event: CustomEvent) => {
+  console.log(event.detail);
+};
+
+const confirm = () => {
+  console.log('Confirmed');
+  showDialog.value = false;
+};
+</script>
+```
+
+### Vue 2
+
+```javascript
+// main.js
+import Vue from 'vue';
+import App from './App.vue';
+
+// Tree-shakeable: import only what you use
+import '@refactico/design-system/dist/components/r-button.js';
+import '@refactico/design-system/dist/components/r-input.js';
+import '@refactico/design-system/theme.css';
+
+// Or load all (not tree-shakeable):
+// import { defineCustomElements } from '@refactico/design-system/loader';
+// defineCustomElements();
+
+Vue.config.ignoredElements = [/^r-/];
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app');
+```
+
+## Available Components
+
+| Component | Description |
+|-----------|-------------|
+| `r-alert` | Notification messages |
+| `r-avatar` | User avatars with fallback |
+| `r-avatar-group` | Grouped avatar display |
+| `r-badge` | Status indicators |
+| `r-breadcrumb` | Navigation breadcrumbs |
+| `r-button` | Buttons with variants |
+| `r-card` | Content containers |
+| `r-checkbox` | Checkbox inputs |
+| `r-collapse` | Collapsible panels |
+| `r-dialog` | Modal dialogs |
+| `r-divider` | Content separators |
+| `r-dropdown` | Dropdown menus |
+| `r-form` | Form validation |
+| `r-icon` | Icon display |
+| `r-input` | Text inputs |
+| `r-link` | Styled links |
+| `r-pagination` | Page navigation |
+| `r-progress` | Progress indicators |
+| `r-radio` | Radio inputs |
+| `r-select` | Select dropdowns |
+| `r-skeleton` | Loading placeholders |
+| `r-switch` | Toggle switches |
+| `r-table` | Data tables |
+| `r-tabs` | Tabbed interfaces |
+| `r-tag` | Labels and tags |
+| `r-textarea` | Multi-line inputs |
+| `r-tooltip` | Hover tooltips |
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm start
+
+# Run tests
+pnpm test
+
+# Build for production
+pnpm run build
+
+# Run Storybook locally
+pnpm run storybook
+
+# Build Storybook
+pnpm run build-storybook
+```
+
+## Theming
+
+Customize the design system using CSS custom properties:
+
+```css
+:root {
+  --r-color-primary: #3b82f6;
+  --r-color-success: #22c55e;
+  --r-color-warning: #f59e0b;
+  --r-color-error: #ef4444;
+  --r-border-radius: 0.375rem;
+}
+```
+
+## License
+
+MIT
