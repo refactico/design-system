@@ -2,13 +2,13 @@ import type { Preview } from '@storybook/web-components-vite';
 import { defineCustomElements } from '../loader';
 import '../src/theme/theme.css';
 
-// Set asset path for GitHub Pages deployment
-const isProduction = window.location.hostname !== 'localhost';
+// Set resource URL for Stencil lazy loading
+const isProduction = typeof window !== 'undefined' && window.location.hostname !== 'localhost';
 const resourcesUrl = isProduction 
-  ? `${window.location.origin}/design-system/refactico-ds/`
-  : '/refactico-ds/';
+  ? `${window.location.origin}/design-system/build/`
+  : '/build/';
 
-// Register Stencil components with correct resource path
+// Register Stencil components
 defineCustomElements(window, { resourcesUrl });
 
 const preview: Preview = {
