@@ -2,8 +2,14 @@ import type { Preview } from '@storybook/web-components-vite';
 import { defineCustomElements } from '../loader';
 import '../src/theme/theme.css';
 
-// Register Stencil components
-defineCustomElements();
+// Set asset path for GitHub Pages deployment
+const isProduction = window.location.hostname !== 'localhost';
+const resourcesUrl = isProduction 
+  ? `${window.location.origin}/design-system/refactico-ds/`
+  : '/refactico-ds/';
+
+// Register Stencil components with correct resource path
+defineCustomElements(window, { resourcesUrl });
 
 const preview: Preview = {
   parameters: {
