@@ -1,6 +1,19 @@
 import type { Preview } from '@storybook/web-components-vite';
-import '../dist/components';
 import '../src/theme/theme.css';
+
+// Dynamically set the asset path before loading components
+const script = document.createElement('script');
+script.type = 'module';
+
+const basePath = window.location.hostname === 'localhost' 
+  ? '/build/' 
+  : '/design-system/build/';
+
+script.textContent = `
+  import { defineCustomElements } from '${basePath}refactico-ds.esm.js';
+  defineCustomElements();
+`;
+document.head.appendChild(script);
 
 const preview: Preview = {
   parameters: {
