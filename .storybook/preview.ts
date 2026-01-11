@@ -1,18 +1,14 @@
 import type { Preview } from '@storybook/web-components-vite';
 import '../src/theme/theme.css';
 
-// Dynamically set the asset path before loading components
-const script = document.createElement('script');
-script.type = 'module';
-
+// Load Stencil components via script tag with correct base path
 const basePath = window.location.hostname === 'localhost' 
   ? '/build/' 
   : '/design-system/build/';
 
-script.textContent = `
-  import { defineCustomElements } from '${basePath}refactico-ds.esm.js';
-  defineCustomElements();
-`;
+const script = document.createElement('script');
+script.type = 'module';
+script.src = `${basePath}refactico-ds.esm.js`;
 document.head.appendChild(script);
 
 const preview: Preview = {
