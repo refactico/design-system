@@ -14,7 +14,14 @@ export class RAvatar {
   @Prop() icon: string;
 
   /** Avatar size - can be 'large', 'default', 'small' or a number (px) */
-  @Prop() size: AvatarSize = 'default';
+  @Prop({ mutable: true }) size: AvatarSize = 'default';
+
+  componentWillLoad() {
+    // Convert string numeric size to number
+    if (typeof this.size === 'string' && !isNaN(Number(this.size)) && this.size !== 'large' && this.size !== 'default' && this.size !== 'small') {
+      this.size = Number(this.size);
+    }
+  }
 
   /** Avatar shape */
   @Prop() shape: AvatarShape = 'circle';

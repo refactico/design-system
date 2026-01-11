@@ -56,10 +56,13 @@ export class RDialog {
   @Event({ bubbles: true, composed: true }) dialogClosed: EventEmitter<void>;
 
   private hasRendered: boolean = false;
+  private previouslyFocusedElement: HTMLElement | null = null;
 
   @Watch('visible')
   handleVisibleChange(newValue: boolean) {
     if (newValue) {
+      // Store the currently focused element for restoration
+      this.previouslyFocusedElement = document.activeElement as HTMLElement;
       this.hasRendered = true;
       this.dialogOpen.emit();
       if (this.lockScroll) {
@@ -68,14 +71,31 @@ export class RDialog {
       if (this.closeOnPressEscape) {
         document.addEventListener('keydown', this.handleKeydown);
       }
-      setTimeout(() => this.dialogOpened.emit(), 300);
+      // Focus the dialog after it opens
+      setTimeout(() => {
+        this.dialogOpened.emit();
+        const closeButton = this.el.querySelector('.r-dialog__close') as HTMLElement;
+        const firstFocusable = this.el.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])') as HTMLElement;
+        if (closeButton) {
+          closeButton.focus();
+        } else if (firstFocusable) {
+          firstFocusable.focus();
+        }
+      }, 300);
     } else {
       this.dialogClose.emit();
       if (this.lockScroll) {
         document.body.style.overflow = '';
       }
       document.removeEventListener('keydown', this.handleKeydown);
-      setTimeout(() => this.dialogClosed.emit(), 300);
+      setTimeout(() => {
+        this.dialogClosed.emit();
+        // Restore focus to the previously focused element
+        if (this.previouslyFocusedElement && typeof this.previouslyFocusedElement.focus === 'function') {
+          this.previouslyFocusedElement.focus();
+          this.previouslyFocusedElement = null;
+        }
+      }, 300);
     }
   }
 

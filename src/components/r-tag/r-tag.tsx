@@ -34,15 +34,10 @@ export class RTag {
   @Prop() disableTransitions: boolean = false;
 
   @Event({ bubbles: true, composed: true }) close: EventEmitter<void>;
-  @Event({ bubbles: true, composed: true }) click: EventEmitter<MouseEvent>;
 
   private handleClose = (e: MouseEvent) => {
     e.stopPropagation();
     this.close.emit();
-  };
-
-  private handleClick = (e: MouseEvent) => {
-    this.click.emit(e);
   };
 
   render() {
@@ -64,7 +59,6 @@ export class RTag {
           'r-tag--no-transition': this.disableTransitions,
         }}
         style={Object.keys(customStyles).length > 0 ? customStyles : undefined}
-        onClick={this.handleClick}
       >
         <span class="r-tag__content">
           <slot></slot>

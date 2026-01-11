@@ -152,12 +152,12 @@ export namespace Components {
         "collapseAvatarsTooltip": boolean;
         /**
           * Custom class for collapse avatar
-          * @default ''
+          * @default ""
          */
         "collapseClass": string;
         /**
           * Tooltip theme
-          * @default 'light'
+          * @default "light"
          */
         "effect": TooltipEffect;
         /**
@@ -167,22 +167,22 @@ export namespace Components {
         "maxCollapseAvatars": number;
         /**
           * Tooltip placement
-          * @default 'top'
+          * @default "top"
          */
         "placement": TooltipPlacement;
         /**
           * Custom class for tooltip
-          * @default ''
+          * @default ""
          */
         "popperClass": string;
         /**
           * Control the shape of avatars in this group
-          * @default 'circle'
+          * @default "circle"
          */
         "shape": AvatarShape1;
         /**
           * Control the size of avatars in this group
-          * @default 'default'
+          * @default "default"
          */
         "size": AvatarSize1;
     }
@@ -227,6 +227,10 @@ export namespace Components {
         "value": string | number;
     }
     interface RButton {
+        /**
+          * Aria label for accessibility - renamed from ariaLabel to avoid collision with Element.ariaLabel
+         */
+        "accessibleName": string;
         /**
           * Auto insert space between two Chinese characters
           * @default false
@@ -297,7 +301,7 @@ export namespace Components {
         "loadingIcon": string;
         /**
           * Native button type
-          * @default 'button'
+          * @default "button"
          */
         "nativeType": ButtonNativeType;
         /**
@@ -312,12 +316,12 @@ export namespace Components {
         "round": boolean;
         /**
           * Button size
-          * @default 'default'
+          * @default "default"
          */
         "size": ButtonSize;
         /**
           * Custom HTML tag
-          * @default 'button'
+          * @default "button"
          */
         "tag": string;
         /**
@@ -327,7 +331,7 @@ export namespace Components {
         "text": boolean;
         /**
           * Button type (color theme)
-          * @default 'default'
+          * @default "default"
          */
         "type": ButtonType;
     }
@@ -819,10 +823,10 @@ export namespace Components {
         /**
           * Aria label
          */
-        "ariaLabel": string;
+        "accessibleName": string;
         /**
           * Native autocomplete
-          * @default 'off'
+          * @default "off"
          */
         "autocomplete": string;
         /**
@@ -867,7 +871,7 @@ export namespace Components {
         "minlength": number;
         /**
           * Placeholder text
-          * @default ''
+          * @default ""
          */
         "placeholder": string;
         /**
@@ -881,7 +885,7 @@ export namespace Components {
         "readonly": boolean;
         /**
           * Textarea resize behavior
-          * @default 'vertical'
+          * @default "vertical"
          */
         "resize": InputResize;
         /**
@@ -913,7 +917,7 @@ export namespace Components {
         "showWordLimit": boolean;
         /**
           * Size of input
-          * @default 'default'
+          * @default "default"
          */
         "size": InputSize;
         /**
@@ -922,12 +926,12 @@ export namespace Components {
         "suffixIcon": string;
         /**
           * Type of input
-          * @default 'text'
+          * @default "text"
          */
         "type": InputType;
         /**
           * Binding value
-          * @default ''
+          * @default ""
          */
         "value": string | number;
     }
@@ -1561,12 +1565,12 @@ export namespace Components {
         "stretch": boolean;
         /**
           * Tab position
-          * @default 'top'
+          * @default "top"
          */
         "tabPosition": TabsPosition;
         /**
           * Tab type
-          * @default 'line'
+          * @default "line"
          */
         "type": TabsType;
         /**
@@ -1649,7 +1653,7 @@ export namespace Components {
          */
         "placement": TooltipPlacement1;
         /**
-          * Raw content (allow HTML)
+          * Raw content (allow HTML) - WARNING: Use with caution, may expose XSS vulnerabilities
           * @default false
          */
         "rawContent": boolean;
@@ -2218,7 +2222,6 @@ declare global {
     };
     interface HTMLRTagElementEventMap {
         "close": void;
-        "click": MouseEvent;
     }
     interface HTMLRTagElement extends Components.RTag, HTMLStencilElement {
         addEventListener<K extends keyof HTMLRTagElementEventMap>(type: K, listener: (this: HTMLRTagElement, ev: RTagCustomEvent<HTMLRTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2368,12 +2371,12 @@ declare namespace LocalJSX {
         "collapseAvatarsTooltip"?: boolean;
         /**
           * Custom class for collapse avatar
-          * @default ''
+          * @default ""
          */
         "collapseClass"?: string;
         /**
           * Tooltip theme
-          * @default 'light'
+          * @default "light"
          */
         "effect"?: TooltipEffect;
         /**
@@ -2383,22 +2386,22 @@ declare namespace LocalJSX {
         "maxCollapseAvatars"?: number;
         /**
           * Tooltip placement
-          * @default 'top'
+          * @default "top"
          */
         "placement"?: TooltipPlacement;
         /**
           * Custom class for tooltip
-          * @default ''
+          * @default ""
          */
         "popperClass"?: string;
         /**
           * Control the shape of avatars in this group
-          * @default 'circle'
+          * @default "circle"
          */
         "shape"?: AvatarShape1;
         /**
           * Control the size of avatars in this group
-          * @default 'default'
+          * @default "default"
          */
         "size"?: AvatarSize1;
     }
@@ -2443,6 +2446,10 @@ declare namespace LocalJSX {
         "value"?: string | number;
     }
     interface RButton {
+        /**
+          * Aria label for accessibility - renamed from ariaLabel to avoid collision with Element.ariaLabel
+         */
+        "accessibleName"?: string;
         /**
           * Auto insert space between two Chinese characters
           * @default false
@@ -2497,7 +2504,7 @@ declare namespace LocalJSX {
         "loadingIcon"?: string;
         /**
           * Native button type
-          * @default 'button'
+          * @default "button"
          */
         "nativeType"?: ButtonNativeType;
         /**
@@ -2516,12 +2523,12 @@ declare namespace LocalJSX {
         "round"?: boolean;
         /**
           * Button size
-          * @default 'default'
+          * @default "default"
          */
         "size"?: ButtonSize;
         /**
           * Custom HTML tag
-          * @default 'button'
+          * @default "button"
          */
         "tag"?: string;
         /**
@@ -2531,7 +2538,7 @@ declare namespace LocalJSX {
         "text"?: boolean;
         /**
           * Button type (color theme)
-          * @default 'default'
+          * @default "default"
          */
         "type"?: ButtonType;
     }
@@ -2989,10 +2996,10 @@ declare namespace LocalJSX {
         /**
           * Aria label
          */
-        "ariaLabel"?: string;
+        "accessibleName"?: string;
         /**
           * Native autocomplete
-          * @default 'off'
+          * @default "off"
          */
         "autocomplete"?: string;
         /**
@@ -3034,7 +3041,7 @@ declare namespace LocalJSX {
         "onCleared"?: (event: RInputCustomEvent<void>) => void;
         /**
           * Placeholder text
-          * @default ''
+          * @default ""
          */
         "placeholder"?: string;
         /**
@@ -3048,7 +3055,7 @@ declare namespace LocalJSX {
         "readonly"?: boolean;
         /**
           * Textarea resize behavior
-          * @default 'vertical'
+          * @default "vertical"
          */
         "resize"?: InputResize;
         /**
@@ -3068,7 +3075,7 @@ declare namespace LocalJSX {
         "showWordLimit"?: boolean;
         /**
           * Size of input
-          * @default 'default'
+          * @default "default"
          */
         "size"?: InputSize;
         /**
@@ -3077,12 +3084,12 @@ declare namespace LocalJSX {
         "suffixIcon"?: string;
         /**
           * Type of input
-          * @default 'text'
+          * @default "text"
          */
         "type"?: InputType;
         /**
           * Binding value
-          * @default ''
+          * @default ""
          */
         "value"?: string | number;
     }
@@ -3722,12 +3729,12 @@ declare namespace LocalJSX {
         "stretch"?: boolean;
         /**
           * Tab position
-          * @default 'top'
+          * @default "top"
          */
         "tabPosition"?: TabsPosition;
         /**
           * Tab type
-          * @default 'line'
+          * @default "line"
          */
         "type"?: TabsType;
         /**
@@ -3755,7 +3762,6 @@ declare namespace LocalJSX {
           * @default 'light'
          */
         "effect"?: TagEffect;
-        "onClick"?: (event: RTagCustomEvent<MouseEvent>) => void;
         "onClose"?: (event: RTagCustomEvent<void>) => void;
         /**
           * Whether tag has rounded corners
@@ -3808,7 +3814,7 @@ declare namespace LocalJSX {
          */
         "placement"?: TooltipPlacement1;
         /**
-          * Raw content (allow HTML)
+          * Raw content (allow HTML) - WARNING: Use with caution, may expose XSS vulnerabilities
           * @default false
          */
         "rawContent"?: boolean;

@@ -45,7 +45,7 @@ export class RTabPane {
           'r-tab-pane--active': this.active,
         }}
         role="tabpanel"
-        aria-hidden={!this.active}
+        aria-hidden={this.active ? 'false' : 'true'}
       >
         <slot></slot>
       </div>

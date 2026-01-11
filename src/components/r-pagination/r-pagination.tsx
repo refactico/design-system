@@ -53,6 +53,9 @@ export class RPagination {
   /** Show size dropdown */
   @State() showSizeDropdown: boolean = false;
 
+  /** Cached pager numbers for performance */
+  @State() cachedPagerNumbers: (number | string)[] = [];
+
   @Event({ bubbles: true, composed: true }) sizeChange: EventEmitter<number>;
   @Event({ bubbles: true, composed: true }) currentChange: EventEmitter<number>;
   @Event({ bubbles: true, composed: true }) change: EventEmitter<{ currentPage: number; pageSize: number }>;
@@ -62,10 +65,20 @@ export class RPagination {
   @Watch('currentPage')
   currentPageChanged(newVal: number) {
     this.jumperValue = String(newVal);
+    this.updatePagerNumbers();
+  }
+
+  @Watch('total')
+  @Watch('pageSize')
+  @Watch('pageCount')
+  @Watch('pagerCount')
+  updatePagerNumbers() {
+    this.cachedPagerNumbers = this.computePagerNumbers();
   }
 
   componentWillLoad() {
     this.jumperValue = String(this.currentPage);
+    this.updatePagerNumbers();
   }
 
   private get totalPages(): number {
@@ -134,7 +147,7 @@ export class RPagination {
     this.jumperValue = String(this.currentPage);
   };
 
-  private getPagerNumbers(): (number | string)[] {
+  private computePagerNumbers(): (number | string)[] {
     const total = this.totalPages;
     const current = this.currentPage;
     const count = this.pagerCount;
@@ -231,9 +244,9 @@ export class RPagination {
   }
 
   private renderPager() {
-    const pages = this.getPagerNumbers();
+    const pages = this.cachedPagerNumbers;
     return (
-      <ul class="r-pagination__pager">
+      <ul class="r-pagination__pager" role="list">
         {pages.map((page) => {
           if (page === 'prev-ellipsis') {
             return (
@@ -275,6 +288,7 @@ export class RPagination {
                 'r-pagination__number': true,
                 'r-pagination__number--active': page === this.currentPage,
               }}
+              aria-current={page === this.currentPage ? 'page' : undefined}
               onClick={() => this.handlePageClick(page as number)}
             >
               {page}

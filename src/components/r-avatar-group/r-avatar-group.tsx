@@ -1,34 +1,34 @@
-import { Component, Prop, h, Element, State } from '@stencil/core';
-import { AvatarSize, AvatarShape } from '../r-avatar/r-avatar';
+import { Component, Prop, h, Element, State } from "@stencil/core";
+import { AvatarSize, AvatarShape } from "../r-avatar/r-avatar";
 
-export type TooltipEffect = 'dark' | 'light';
+export type TooltipEffect = "dark" | "light";
 export type TooltipPlacement =
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end'
-  | 'left'
-  | 'left-start'
-  | 'left-end'
-  | 'right'
-  | 'right-start'
-  | 'right-end';
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "right"
+  | "right-start"
+  | "right-end";
 
 @Component({
-  tag: 'r-avatar-group',
-  styleUrl: 'r-avatar-group.css',
+  tag: "r-avatar-group",
+  styleUrl: "r-avatar-group.css",
   shadow: false,
 })
 export class RAvatarGroup {
   @Element() el: HTMLElement;
 
   /** Control the size of avatars in this group */
-  @Prop() size: AvatarSize = 'default';
+  @Prop({ mutable: true }) size: AvatarSize = "default";
 
   /** Control the shape of avatars in this group */
-  @Prop() shape: AvatarShape = 'circle';
+  @Prop() shape: AvatarShape = "circle";
 
   /** Whether to collapse avatars */
   @Prop() collapseAvatars: boolean = false;
@@ -40,16 +40,16 @@ export class RAvatarGroup {
   @Prop() maxCollapseAvatars: number = 3;
 
   /** Tooltip theme */
-  @Prop() effect: TooltipEffect = 'light';
+  @Prop() effect: TooltipEffect = "light";
 
   /** Tooltip placement */
-  @Prop() placement: TooltipPlacement = 'top';
+  @Prop() placement: TooltipPlacement = "top";
 
   /** Custom class for tooltip */
-  @Prop() popperClass: string = '';
+  @Prop() popperClass: string = "";
 
   /** Custom class for collapse avatar */
-  @Prop() collapseClass: string = '';
+  @Prop() collapseClass: string = "";
 
   /** Track hover state for tooltip */
   @State() showTooltip: boolean = false;
@@ -57,14 +57,31 @@ export class RAvatarGroup {
   /** Store collapsed avatar info */
   @State() collapsedAvatars: Array<{ src?: string; text?: string }> = [];
 
-  componentDidLoad() {
+  componentWillLoad() {
+    // Convert string numeric size to number
+    if (
+      typeof this.size === "string" &&
+      !isNaN(Number(this.size)) &&
+      this.size !== "large" &&
+      this.size !== "default" &&
+      this.size !== "small"
+    ) {
+      this.size = Number(this.size) as AvatarSize;
+    }
     this.processAvatars();
+  }
+
+  componentDidLoad() {
+    // Re-process in case DOM wasn't ready
+    // this.processAvatars();
   }
 
   private processAvatars() {
     if (!this.collapseAvatars) return;
 
-    const avatars = this.el.querySelectorAll('r-avatar') as NodeListOf<HTMLElement>;
+    const avatars = this.el.querySelectorAll(
+      "r-avatar"
+    ) as NodeListOf<HTMLElement>;
     const total = avatars.length;
 
     if (total <= this.maxCollapseAvatars) return;
@@ -74,16 +91,16 @@ export class RAvatarGroup {
     avatars.forEach((avatar, index) => {
       if (index >= this.maxCollapseAvatars) {
         this.collapsedAvatars.push({
-          src: avatar.getAttribute('src') || undefined,
+          src: avatar.getAttribute("src") || undefined,
           text: avatar.textContent?.trim() || undefined,
         });
-        avatar.style.display = 'none';
+        avatar.style.display = "none";
       }
     });
   }
 
   private getSizeStyle(): { [key: string]: string } | undefined {
-    if (typeof this.size === 'number') {
+    if (typeof this.size === "number") {
       return {
         width: `${this.size}px`,
         height: `${this.size}px`,
@@ -93,7 +110,8 @@ export class RAvatarGroup {
   }
 
   private renderCollapseAvatar() {
-    if (!this.collapseAvatars || this.collapsedAvatars.length === 0) return null;
+    if (!this.collapseAvatars || this.collapsedAvatars.length === 0)
+      return null;
 
     const count = this.collapsedAvatars.length;
     const sizeStyle = this.getSizeStyle();
@@ -106,7 +124,9 @@ export class RAvatarGroup {
         onMouseLeave={() => (this.showTooltip = false)}
       >
         <span
-          class={`r-avatar r-avatar--${this.shape} r-avatar--${typeof this.size === 'string' ? this.size : 'default'} r-avatar-group__collapse-avatar`}
+          class={`r-avatar r-avatar--${this.shape} r-avatar--${
+            typeof this.size === "string" ? this.size : "default"
+          } r-avatar-group__collapse-avatar`}
           style={sizeStyle}
         >
           +{count}
@@ -123,9 +143,15 @@ export class RAvatarGroup {
                   title={avatar.text}
                 >
                   {avatar.src ? (
-                    <img src={avatar.src} class="r-avatar__image" style={{ objectFit: 'cover' }} />
+                    <img
+                      src={avatar.src}
+                      class="r-avatar__image"
+                      style={{ objectFit: "cover" }}
+                    />
                   ) : (
-                    <span class="r-avatar__text">{avatar.text?.charAt(0) || '?'}</span>
+                    <span class="r-avatar__text">
+                      {avatar.text?.charAt(0) || "?"}
+                    </span>
                   )}
                 </span>
               ))}
@@ -138,14 +164,14 @@ export class RAvatarGroup {
 
   render() {
     const classes = {
-      'r-avatar-group': true,
-      [`r-avatar-group--${this.size}`]: typeof this.size === 'string',
+      "r-avatar-group": true,
+      [`r-avatar-group--${this.size}`]: typeof this.size === "string",
     };
 
     const classString = Object.entries(classes)
       .filter(([, value]) => value)
       .map(([key]) => key)
-      .join(' ');
+      .join(" ");
 
     return (
       <div class={classString}>

@@ -12,8 +12,8 @@
 | `addable`     | `addable`      | Whether tabs can be added              | `boolean`                                | `false`     |
 | `closable`    | `closable`     | Whether tabs can be closed             | `boolean`                                | `false`     |
 | `stretch`     | `stretch`      | Whether tabs stretch to fill container | `boolean`                                | `false`     |
-| `tabPosition` | `tab-position` | Tab position                           | `"bottom" \| "left" \| "right" \| "top"` | `'top'`     |
-| `type`        | `type`         | Tab type                               | `"border-card" \| "card" \| "line"`      | `'line'`    |
+| `tabPosition` | `tab-position` | Tab position                           | `"bottom" \| "left" \| "right" \| "top"` | `"top"`     |
+| `type`        | `type`         | Tab type                               | `"border-card" \| "card" \| "line"`      | `"line"`    |
 | `value`       | `value`        | Currently active tab                   | `string`                                 | `undefined` |
 
 

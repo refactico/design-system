@@ -41,7 +41,7 @@ export class RRadioGroup {
   @Prop() ariaLabel: string;
 
   /** Options data for quick setup */
-  @Prop() options: RadioOption[] = [];
+  @Prop({ mutable: true }) options: RadioOption[] = [];
 
   /** Component type to render options ('radio' or 'button') */
   @Prop() type: 'radio' | 'button' = 'radio';

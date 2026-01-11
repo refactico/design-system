@@ -49,7 +49,7 @@ export class RSelect {
   @Prop() multiple: boolean = false;
 
   /** Data of the options */
-  @Prop() options: (SelectOption | SelectOptionGroup)[] = [];
+  @Prop({ mutable: true }) options: (SelectOption | SelectOptionGroup)[] = [];
 
   /** Configuration for option keys */
   @Prop() props: SelectProps = {
@@ -128,6 +128,12 @@ export class RSelect {
   /** Created options (for allow-create) */
   @State() createdOptions: SelectOption[] = [];
 
+  /** Cached flat filtered options for performance */
+  @State() cachedFlatFilteredOptions: SelectOption[] = [];
+
+  /** Unique ID for accessibility */
+  private selectId = `r-select-${Math.random().toString(36).substr(2, 9)}`;
+
   private inputRef: HTMLRInputElement;
 
   @Event({ bubbles: true, composed: true }) change: EventEmitter<any>;
@@ -141,7 +147,17 @@ export class RSelect {
     if (!newVal) {
       this.query = '';
       this.focusedIndex = -1;
+    } else {
+      // Update cached options when dropdown opens
+      this.updateCachedFilteredOptions();
     }
+  }
+
+  @Watch('query')
+  @Watch('options')
+  @Watch('createdOptions')
+  updateCachedFilteredOptions() {
+    this.cachedFlatFilteredOptions = this.computeFlatFilteredOptions();
   }
 
   @Listen('click', { target: 'document' })
@@ -355,7 +371,7 @@ export class RSelect {
   };
 
   private handleKeydown = (e: KeyboardEvent) => {
-    const flatFiltered = this.getFlatFilteredOptions();
+    const flatFiltered = this.cachedFlatFilteredOptions;
 
     switch (e.key) {
       case 'ArrowDown':
@@ -390,7 +406,20 @@ export class RSelect {
     }
   };
 
-  private getFlatFilteredOptions(): SelectOption[] {
+  /** Get the ID for a specific option */
+  private getOptionId(index: number): string {
+    return `${this.selectId}-option-${index}`;
+  }
+
+  /** Get the currently focused option ID for aria-activedescendant */
+  private get focusedOptionId(): string | undefined {
+    if (this.focusedIndex >= 0) {
+      return this.getOptionId(this.focusedIndex);
+    }
+    return undefined;
+  }
+
+  private computeFlatFilteredOptions(): SelectOption[] {
     const flat: SelectOption[] = [];
     const optionsKey = this.props.options || 'options';
     const valueKey = this.props.value || 'value';
@@ -417,6 +446,10 @@ export class RSelect {
       }
     }
     return flat;
+  }
+
+  componentWillLoad() {
+    this.updateCachedFilteredOptions();
   }
 
   private createOption(label: string) {
@@ -479,7 +512,7 @@ export class RSelect {
     const labelKey = this.props.label || 'label';
     const valueKey = this.props.value || 'value';
     const disabledKey = this.props.disabled || 'disabled';
-    const flatFiltered = this.getFlatFilteredOptions();
+    const flatFiltered = this.cachedFlatFilteredOptions;
 
     if (this.loading) {
       return <div class="r-select__loading">{this.loadingText}</div>;
@@ -502,12 +535,17 @@ export class RSelect {
       if ((opt as SelectOptionGroup)[optionsKey]) {
         const group = opt as SelectOptionGroup;
         return (
-          <div class="r-select__group">
+          <div class="r-select__group" role="group" aria-label={group[labelKey] || group.label}>
             <div class="r-select__group-label">{group[labelKey] || group.label}</div>
             {(group[optionsKey] as any[]).map((child) => {
               const idx = optionIndex++;
+              const optionId = this.getOptionId(idx);
               return (
                 <div
+                  id={optionId}
+                  role="option"
+                  aria-selected={this.isSelected(child[valueKey]) ? 'true' : 'false'}
+                  aria-disabled={child[disabledKey] ? 'true' : undefined}
                   class={{
                     'r-select__option': true,
                     'r-select__option--selected': this.isSelected(child[valueKey]),
@@ -532,8 +570,13 @@ export class RSelect {
       } else {
         const option = opt as any;
         const idx = optionIndex++;
+        const optionId = this.getOptionId(idx);
         return (
           <div
+            id={optionId}
+            role="option"
+            aria-selected={this.isSelected(option[valueKey]) ? 'true' : 'false'}
+            aria-disabled={option[disabledKey] ? 'true' : undefined}
             class={{
               'r-select__option': true,
               'r-select__option--selected': this.isSelected(option[valueKey]),
@@ -591,7 +634,15 @@ export class RSelect {
         onMouseLeave={() => (this.hovering = false)}
         onKeyDown={this.handleKeydown}
       >
-        <div class="r-select__trigger" onClick={this.handleTriggerClick}>
+        <div
+          class="r-select__trigger"
+          role="combobox"
+          aria-expanded={this.visible ? 'true' : 'false'}
+          aria-haspopup="listbox"
+          aria-controls={`${this.selectId}-listbox`}
+          aria-activedescendant={this.visible ? this.focusedOptionId : undefined}
+          onClick={this.handleTriggerClick}
+        >
           {this.multiple && this.renderTags()}
 
           <r-input
@@ -615,7 +666,14 @@ export class RSelect {
         {this.visible && (
           <div class="r-select__dropdown">
             <slot name="header"></slot>
-            <div class="r-select__options">{this.renderOptions()}</div>
+            <div
+              id={`${this.selectId}-listbox`}
+              class="r-select__options"
+              role="listbox"
+              aria-multiselectable={this.multiple ? 'true' : undefined}
+            >
+              {this.renderOptions()}
+            </div>
             <slot name="footer"></slot>
           </div>
         )}

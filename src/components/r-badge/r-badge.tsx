@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Watch, State } from '@stencil/core';
 
 export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 
@@ -9,7 +9,7 @@ export type BadgeType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 })
 export class RBadge {
   /** Display value */
-  @Prop() value: string | number = '';
+  @Prop({ mutable: true }) value: string | number = '';
 
   /** Maximum value, shows {max}+ when exceeded (only works if value is a number) */
   @Prop() max: number = 99;
@@ -30,14 +30,36 @@ export class RBadge {
   @Prop() color: string;
 
   /** Offset of badge [x, y] */
-  @Prop() offset: [number, number];
+  @Prop({ mutable: true }) offset: [number, number];
+
+  @State() numericValue: number | null = null;
+
+  componentWillLoad() {
+    this.parseValue();
+  }
+
+  @Watch('value')
+  handleValueChange() {
+    this.parseValue();
+  }
+
+  private parseValue() {
+    // Convert string numeric values to numbers for comparison
+    if (typeof this.value === 'string' && this.value !== '' && !isNaN(Number(this.value))) {
+      this.numericValue = Number(this.value);
+    } else if (typeof this.value === 'number') {
+      this.numericValue = this.value;
+    } else {
+      this.numericValue = null;
+    }
+  }
 
   private getDisplayValue(): string {
     if (this.isDot) return '';
 
-    if (typeof this.value === 'number') {
-      if (this.value === 0 && !this.showZero) return '';
-      return this.value > this.max ? `${this.max}+` : String(this.value);
+    if (this.numericValue !== null) {
+      if (this.numericValue === 0 && !this.showZero) return '';
+      return this.numericValue > this.max ? `${this.max}+` : String(this.numericValue);
     }
 
     return String(this.value);
@@ -46,7 +68,7 @@ export class RBadge {
   private shouldShowBadge(): boolean {
     if (this.hidden) return false;
     if (this.isDot) return true;
-    if (typeof this.value === 'number' && this.value === 0 && !this.showZero) return false;
+    if (this.numericValue !== null && this.numericValue === 0 && !this.showZero) return false;
     if (this.value === '' || this.value === undefined || this.value === null) return false;
     return true;
   }

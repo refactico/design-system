@@ -20,10 +20,9 @@
 
 ## Events
 
-| Event   | Description | Type                      |
-| ------- | ----------- | ------------------------- |
-| `click` |             | `CustomEvent<MouseEvent>` |
-| `close` |             | `CustomEvent<void>`       |
+| Event   | Description | Type                |
+| ------- | ----------- | ------------------- |
+| `close` |             | `CustomEvent<void>` |
 
 
 ----------------------------------------------

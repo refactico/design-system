@@ -22,10 +22,10 @@ export class RTable {
   @Element() el: HTMLElement;
 
   /** Table data */
-  @Prop() data: any[] = [];
+  @Prop({ mutable: true }) data: any[] = [];
 
   /** Table columns */
-  @Prop() columns: TableColumn[] = [];
+  @Prop({ mutable: true }) columns: TableColumn[] = [];
 
   /** Table size */
   @Prop() size: TableSize = 'default';
@@ -57,15 +57,42 @@ export class RTable {
   @State() currentRowKey: string | number | null = null;
   @State() sortProp: string = '';
   @State() sortOrder: 'ascending' | 'descending' | null = null;
+  @State() cachedSortedData: any[] = [];
 
   @Event({ bubbles: true, composed: true }) rowClick: EventEmitter<{ row: any; index: number }>;
   @Event({ bubbles: true, composed: true }) cellClick: EventEmitter<{ row: any; column: TableColumn; cellValue: any; index: number }>;
   @Event({ bubbles: true, composed: true }) sortChange: EventEmitter<{ prop: string; order: 'ascending' | 'descending' | null }>;
   @Event({ bubbles: true, composed: true }) currentChange: EventEmitter<any>;
 
+  componentWillLoad() {
+    this.updateSortedData();
+  }
+
   @Watch('data')
   handleDataChange() {
     this.currentRowKey = null;
+    this.updateSortedData();
+  }
+
+  @Watch('sortProp')
+  @Watch('sortOrder')
+  updateSortedData() {
+    if (!this.sortProp || !this.sortOrder) {
+      this.cachedSortedData = this.data;
+      return;
+    }
+
+    this.cachedSortedData = [...this.data].sort((a, b) => {
+      const aVal = a[this.sortProp];
+      const bVal = b[this.sortProp];
+
+      if (aVal === bVal) return 0;
+      if (aVal === null || aVal === undefined) return 1;
+      if (bVal === null || bVal === undefined) return -1;
+
+      const result = aVal < bVal ? -1 : 1;
+      return this.sortOrder === 'ascending' ? result : -result;
+    });
   }
 
   private handleRowClick = (row: any, index: number) => {
@@ -99,24 +126,6 @@ export class RTable {
     this.sortChange.emit({ prop: this.sortProp, order: this.sortOrder });
   };
 
-  private getSortedData(): any[] {
-    if (!this.sortProp || !this.sortOrder) {
-      return this.data;
-    }
-
-    return [...this.data].sort((a, b) => {
-      const aVal = a[this.sortProp];
-      const bVal = b[this.sortProp];
-
-      if (aVal === bVal) return 0;
-      if (aVal === null || aVal === undefined) return 1;
-      if (bVal === null || bVal === undefined) return -1;
-
-      const result = aVal < bVal ? -1 : 1;
-      return this.sortOrder === 'ascending' ? result : -result;
-    });
-  }
-
   private getCellValue(row: any, column: TableColumn, index: number): any {
     const value = row[column.prop];
     if (column.formatter) {
@@ -126,7 +135,7 @@ export class RTable {
   }
 
   render() {
-    const sortedData = this.getSortedData();
+    const sortedData = this.cachedSortedData;
     const tableStyles: { [key: string]: string } = {};
     if (this.maxHeight) {
       tableStyles['max-height'] = this.maxHeight;
@@ -149,6 +158,7 @@ export class RTable {
                 <tr>
                   {this.columns.map((column) => (
                     <th
+                      scope="col"
                       class={{
                         'r-table__cell': true,
                         'r-table__cell--sortable': column.sortable,

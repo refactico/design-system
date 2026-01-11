@@ -9,7 +9,7 @@ export class RLoading {
   @Element() el: HTMLElement;
 
   /** Whether loading is visible */
-  @Prop() loading: boolean = false;
+  @Prop({ mutable: true }) loading: boolean = false;
 
   /** Loading text */
   @Prop() text: string;

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter, State, Method, Element } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, State, Method, Element, Watch } from '@stencil/core';
 
 export type InputNumberSize = 'large' | 'default' | 'small';
 export type ControlsPosition = '' | 'right';
@@ -64,6 +64,15 @@ export class RInputNumber {
   @Event({ bubbles: true, composed: true }) change: EventEmitter<number | null>;
 
   componentWillLoad() {
+    // Clamp initial value if provided
+    if (this.value !== null && this.value !== undefined && !isNaN(this.value)) {
+      this.value = this.clampValue(this.value);
+    }
+    this.updateDisplayValue();
+  }
+
+  @Watch('value')
+  handleValueChange() {
     this.updateDisplayValue();
   }
 

@@ -1,25 +1,41 @@
-import { Component, Prop, h, Event, EventEmitter, State, Method, Element } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Event,
+  EventEmitter,
+  State,
+  Method,
+  Element,
+} from "@stencil/core";
 
-export type InputType = 'text' | 'password' | 'email' | 'number' | 'tel' | 'url' | 'textarea';
-export type InputSize = 'large' | 'default' | 'small';
-export type InputResize = 'none' | 'both' | 'horizontal' | 'vertical';
+export type InputType =
+  | "text"
+  | "password"
+  | "email"
+  | "number"
+  | "tel"
+  | "url"
+  | "textarea";
+export type InputSize = "large" | "default" | "small";
+export type InputResize = "none" | "both" | "horizontal" | "vertical";
 
 @Component({
-  tag: 'r-input',
-  styleUrl: 'r-input.css',
+  tag: "r-input",
+  styleUrl: "r-input.css",
   shadow: false,
 })
 export class RInput {
   @Element() el: HTMLElement;
 
   /** Type of input */
-  @Prop() type: InputType = 'text';
+  @Prop() type: InputType = "text";
 
   /** Binding value */
-  @Prop({ mutable: true }) value: string | number = '';
+  @Prop({ mutable: true }) value: string | number = "";
 
   /** Placeholder text */
-  @Prop() placeholder: string = '';
+  @Prop() placeholder: string = "";
 
   /** Whether input is disabled */
   @Prop() disabled: boolean = false;
@@ -34,7 +50,7 @@ export class RInput {
   @Prop() showPassword: boolean = false;
 
   /** Size of input */
-  @Prop() size: InputSize = 'default';
+  @Prop() size: InputSize = "default";
 
   /** Prefix icon (emoji or text) */
   @Prop() prefixIcon: string;
@@ -55,22 +71,22 @@ export class RInput {
   @Prop() rows: number = 2;
 
   /** Textarea resize behavior */
-  @Prop() resize: InputResize = 'vertical';
+  @Prop() resize: InputResize = "vertical";
 
   /** Autosize for textarea */
   @Prop() autosize: boolean | { minRows?: number; maxRows?: number } = false;
 
   /** Native autocomplete */
-  @Prop() autocomplete: string = 'off';
+  @Prop() autocomplete: string = "off";
 
   /** Native name */
-  @Prop({ attribute: 'name' }) inputName: string;
+  @Prop({ attribute: "name" }) inputName: string;
 
   /** Native autofocus */
   @Prop() autofocus: boolean = false;
 
   /** Aria label */
-  @Prop() ariaLabel: string;
+  @Prop({ attribute: "aria-label" }) accessibleName: string;
 
   /** Tab index */
   @Prop() inputTabindex: string | number;
@@ -100,7 +116,7 @@ export class RInput {
   /** Clear the input */
   @Method()
   async clear(): Promise<void> {
-    this.value = '';
+    this.value = "";
     this.cleared.emit();
   }
 
@@ -146,11 +162,21 @@ export class RInput {
   };
 
   private get showClear(): boolean {
-    return this.clearable && !this.disabled && !this.readonly && String(this.value).length > 0;
+    return (
+      this.clearable &&
+      !this.disabled &&
+      !this.readonly &&
+      String(this.value).length > 0
+    );
   }
 
   private get showPasswordToggle(): boolean {
-    return this.showPassword && !this.disabled && !this.readonly && String(this.value).length > 0;
+    return (
+      this.showPassword &&
+      !this.disabled &&
+      !this.readonly &&
+      String(this.value).length > 0
+    );
   }
 
   private get currentLength(): number {
@@ -162,19 +188,26 @@ export class RInput {
   }
 
   private renderInput() {
-    const inputType = this.showPassword ? (this.passwordVisible ? 'text' : 'password') : this.type;
-    const hasPrefixSlot = this.hasSlot('prefix');
-    const hasSuffixSlot = this.hasSlot('suffix');
+    const inputType = this.showPassword
+      ? this.passwordVisible
+        ? "text"
+        : "password"
+      : this.type;
+    const hasPrefixSlot = this.hasSlot("prefix");
+    const hasSuffixSlot = this.hasSlot("suffix");
     const showPrefix = this.prefixIcon || hasPrefixSlot;
     const showSuffix =
-      this.suffixIcon || hasSuffixSlot || this.showClear || this.showPasswordToggle;
+      this.suffixIcon ||
+      hasSuffixSlot ||
+      this.showClear ||
+      this.showPasswordToggle;
 
     return (
       <div
         class={{
-          'r-input__wrapper': true,
-          'r-input__wrapper--focused': this.isFocused,
-          'r-input__wrapper--disabled': this.disabled,
+          "r-input__wrapper": true,
+          "r-input__wrapper--focused": this.isFocused,
+          "r-input__wrapper--disabled": this.disabled,
         }}
       >
         {showPrefix && (
@@ -195,8 +228,8 @@ export class RInput {
           autocomplete={this.autocomplete}
           name={this.inputName}
           autofocus={this.autofocus}
-          aria-label={this.ariaLabel}
-          tabindex={this.inputTabindex}
+          aria-label={this.accessibleName}
+          tabindex={this.disabled ? -1 : this.inputTabindex ?? 0}
           onInput={this.handleInput}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
@@ -206,8 +239,17 @@ export class RInput {
         {showSuffix && (
           <span class="r-input__suffix">
             {this.showClear && (
-              <span class="r-input__clear" onClick={this.handleClear} title="Clear">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <span
+                class="r-input__clear"
+                onClick={this.handleClear}
+                title="Clear"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="15" y1="9" x2="9" y2="15"></line>
                   <line x1="9" y1="9" x2="15" y2="15"></line>
@@ -215,21 +257,41 @@ export class RInput {
               </span>
             )}
             {this.showPasswordToggle && (
-              <span class="r-input__password" onClick={this.togglePassword} title="Toggle password">
+              <span
+                class="r-input__password"
+                onClick={this.togglePassword}
+                title="Toggle password"
+              >
                 {this.passwordVisible ? (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                     <circle cx="12" cy="12" r="3"></circle>
                   </svg>
                 ) : (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
                     <line x1="1" y1="1" x2="23" y2="23"></line>
                   </svg>
                 )}
               </span>
             )}
-            {hasSuffixSlot ? <slot name="suffix"></slot> : this.suffixIcon && !this.showClear && !this.showPasswordToggle ? this.suffixIcon : null}
+            {hasSuffixSlot ? (
+              <slot name="suffix"></slot>
+            ) : this.suffixIcon &&
+              !this.showClear &&
+              !this.showPasswordToggle ? (
+              this.suffixIcon
+            ) : null}
           </span>
         )}
       </div>
@@ -238,7 +300,11 @@ export class RInput {
 
   private renderTextarea() {
     const autosizeStyle: { [key: string]: string } = {};
-    if (typeof this.autosize === 'object') {
+    if (this.autosize === true) {
+      // Default autosize behavior
+      autosizeStyle.minHeight = `${this.rows * 24}px`;
+      autosizeStyle.maxHeight = `${Math.max(this.rows * 3, 6) * 24}px`;
+    } else if (typeof this.autosize === "object") {
       if (this.autosize.minRows) {
         autosizeStyle.minHeight = `${this.autosize.minRows * 24}px`;
       }
@@ -250,9 +316,9 @@ export class RInput {
     return (
       <div
         class={{
-          'r-textarea__wrapper': true,
-          'r-textarea__wrapper--focused': this.isFocused,
-          'r-textarea__wrapper--disabled': this.disabled,
+          "r-textarea__wrapper": true,
+          "r-textarea__wrapper--focused": this.isFocused,
+          "r-textarea__wrapper--disabled": this.disabled,
         }}
       >
         <textarea
@@ -268,7 +334,7 @@ export class RInput {
           autocomplete={this.autocomplete}
           name={this.inputName}
           autofocus={this.autofocus}
-          aria-label={this.ariaLabel}
+          aria-label={this.accessibleName}
           tabindex={this.inputTabindex}
           style={{ resize: this.resize, ...autosizeStyle }}
           onInput={this.handleInput}
@@ -287,16 +353,16 @@ export class RInput {
   }
 
   render() {
-    const hasPrepend = this.hasSlot('prepend');
-    const hasAppend = this.hasSlot('append');
-    const isTextarea = this.type === 'textarea';
+    const hasPrepend = this.hasSlot("prepend");
+    const hasAppend = this.hasSlot("append");
+    const isTextarea = this.type === "textarea";
 
     if (isTextarea) {
       return (
         <div
           class={{
-            'r-textarea': true,
-            'r-textarea--disabled': this.disabled,
+            "r-textarea": true,
+            "r-textarea--disabled": this.disabled,
           }}
         >
           {this.renderTextarea()}
@@ -307,11 +373,11 @@ export class RInput {
     return (
       <div
         class={{
-          'r-input': true,
+          "r-input": true,
           [`r-input--${this.size}`]: true,
-          'r-input--disabled': this.disabled,
-          'r-input--prepend': hasPrepend,
-          'r-input--append': hasAppend,
+          "r-input--disabled": this.disabled,
+          "r-input--prepend": hasPrepend,
+          "r-input--append": hasAppend,
         }}
       >
         {hasPrepend && (
@@ -325,7 +391,7 @@ export class RInput {
             <slot name="append"></slot>
           </div>
         )}
-        {this.showWordLimit && this.maxlength && this.type === 'text' && (
+        {this.showWordLimit && this.maxlength && this.type === "text" && (
           <span class="r-input__count">
             {this.currentLength} / {this.maxlength}
           </span>

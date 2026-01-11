@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, State, Method, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Element, State, Method, Event, EventEmitter, Host } from '@stencil/core';
 
 @Component({
   tag: 'r-collapse-item',
@@ -59,7 +59,7 @@ export class RCollapseItem {
     const hasTitleSlot = this.hasSlot('title');
 
     return (
-      <div
+      <Host
         class={{
           'r-collapse-item': true,
           'r-collapse-item--active': this.isActive,
@@ -102,7 +102,7 @@ export class RCollapseItem {
             <slot></slot>
           </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

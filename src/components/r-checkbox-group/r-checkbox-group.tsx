@@ -32,7 +32,7 @@ export class RCheckboxGroup {
   @Prop() max: number;
 
   /** Options data for quick setup */
-  @Prop() options: CheckboxOption[] = [];
+  @Prop({ mutable: true }) options: CheckboxOption[] = [];
 
   /** Vertical layout */
   @Prop() vertical: boolean = false;

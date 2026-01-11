@@ -149,14 +149,25 @@ export class RDropdown {
             <r-button type={this.type} size={this.size} onClick={this.handleClick}>
               <slot></slot>
             </r-button>
-            <r-button type={this.type} size={this.size} onClick={this.handleArrowClick}>
+            <r-button
+              type={this.type}
+              size={this.size}
+              onClick={this.handleArrowClick}
+              aria-haspopup="menu"
+              aria-expanded={this.visible ? 'true' : 'false'}
+            >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </r-button>
           </r-button-group>
         ) : (
-          <div class="r-dropdown__trigger" onClick={this.handleClick}>
+          <div
+            class="r-dropdown__trigger"
+            onClick={this.handleClick}
+            aria-haspopup="menu"
+            aria-expanded={this.visible ? 'true' : 'false'}
+          >
             <slot></slot>
           </div>
         )}
@@ -167,6 +178,7 @@ export class RDropdown {
             'r-dropdown__menu--visible': this.visible,
             [`r-dropdown__menu--${this.placement}`]: true,
           }}
+          role="menu"
           style={Object.keys(menuStyles).length > 0 ? menuStyles : undefined}
         >
           <slot name="dropdown"></slot>

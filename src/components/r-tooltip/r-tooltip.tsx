@@ -39,7 +39,7 @@ export class RTooltip {
   /** Show arrow */
   @Prop() showArrow: boolean = true;
 
-  /** Raw content (allow HTML) */
+  /** Raw content (allow HTML) - WARNING: Use with caution, may expose XSS vulnerabilities */
   @Prop() rawContent: boolean = false;
 
   /** Max width for wrapping */
@@ -49,6 +49,7 @@ export class RTooltip {
 
   private showTimeout: ReturnType<typeof setTimeout>;
   private hideTimeout: ReturnType<typeof setTimeout>;
+  private tooltipId = `r-tooltip-${Math.random().toString(36).substr(2, 9)}`;
 
   /** Show tooltip programmatically */
   @Method()
@@ -131,11 +132,13 @@ export class RTooltip {
           onClick={this.handleClick}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
+          aria-describedby={this.visible ? this.tooltipId : undefined}
         >
           <slot></slot>
         </span>
 
         <div
+          id={this.tooltipId}
           class={{
             'r-tooltip__content': true,
             'r-tooltip__content--visible': this.visible,
@@ -148,6 +151,7 @@ export class RTooltip {
           onMouseEnter={this.handleContentMouseEnter}
           onMouseLeave={this.handleContentMouseLeave}
           role="tooltip"
+          aria-hidden={!this.visible}
         >
           {this.showArrow && <span class="r-tooltip__arrow"></span>}
           {this.rawContent ? <span innerHTML={this.content}></span> : this.content}

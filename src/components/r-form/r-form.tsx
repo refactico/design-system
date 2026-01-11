@@ -28,10 +28,10 @@ export class RForm {
   @Element() el: HTMLElement;
 
   /** Data of form component */
-  @Prop() model: { [key: string]: any } = {};
+  @Prop({ mutable: true }) model: { [key: string]: any } = {};
 
   /** Validation rules */
-  @Prop() rules: FormRules = {};
+  @Prop({ mutable: true }) rules: FormRules = {};
 
   /** Whether the form is inline */
   @Prop() inline: boolean = false;
