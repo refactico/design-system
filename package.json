@@ -13,28 +13,16 @@
       "import": "./dist/refactico-ds/refactico-ds.esm.js",
       "require": "./dist/refactico-ds/refactico-ds.cjs.js"
     },
-    "./r-button": {
-      "import": "./dist/components/r-button.js",
-      "types": "./dist/components/r-button.d.ts"
-    },
-    "./r-button-group": {
-      "import": "./dist/components/r-button-group.js",
-      "types": "./dist/components/r-button-group.d.ts"
-    },
-    "./theme": {
-      "import": "./dist/refactico-ds/theme/theme.css",
-      "require": "./dist/refactico-ds/theme/theme.css"
-    },
-    "./theme.css": "./dist/refactico-ds/theme/theme.css",
     "./loader": {
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
-    }
+    },
+    "./theme.css": "./dist/refactico-ds/theme/theme.css"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
+    "url": "https://github.com/refactico/design-system.git"
   },
   "files": [
     "dist/",
