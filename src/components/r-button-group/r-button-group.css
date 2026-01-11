@@ -1,0 +1,68 @@
+/* Button Group - Professional Design */
+.r-button-group {
+  display: inline-flex;
+}
+
+.r-button-group--horizontal {
+  flex-direction: row;
+}
+
+.r-button-group--vertical {
+  flex-direction: column;
+}
+
+/* Horizontal grouping - remove inner borders and adjust radius */
+.r-button-group--horizontal > .r-button,
+.r-button-group--horizontal > r-button > .r-button {
+  border-radius: 0;
+  margin-left: -1px;
+}
+
+.r-button-group--horizontal > .r-button:first-child,
+.r-button-group--horizontal > r-button:first-child > .r-button {
+  border-top-left-radius: var(--r-radius-base);
+  border-bottom-left-radius: var(--r-radius-base);
+  margin-left: 0;
+}
+
+.r-button-group--horizontal > .r-button:last-child,
+.r-button-group--horizontal > r-button:last-child > .r-button {
+  border-top-right-radius: var(--r-radius-base);
+  border-bottom-right-radius: var(--r-radius-base);
+}
+
+/* Vertical grouping */
+.r-button-group--vertical > .r-button,
+.r-button-group--vertical > r-button > .r-button {
+  border-radius: 0;
+  margin-top: -1px;
+  width: 100%;
+}
+
+.r-button-group--vertical > .r-button:first-child,
+.r-button-group--vertical > r-button:first-child > .r-button {
+  border-top-left-radius: var(--r-radius-base);
+  border-top-right-radius: var(--r-radius-base);
+  margin-top: 0;
+}
+
+.r-button-group--vertical > .r-button:last-child,
+.r-button-group--vertical > r-button:last-child > .r-button {
+  border-bottom-left-radius: var(--r-radius-base);
+  border-bottom-right-radius: var(--r-radius-base);
+}
+
+/* Hover state - bring to front */
+.r-button-group > .r-button:hover,
+.r-button-group > .r-button:focus-visible,
+.r-button-group > r-button > .r-button:hover,
+.r-button-group > r-button > .r-button:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+/* Active state */
+.r-button-group > .r-button:active,
+.r-button-group > r-button > .r-button:active {
+  z-index: 2;
+}

@@ -1,0 +1,146 @@
+/**
+ * Refactico Design System - Theme Variables
+ * Professional Design Language
+ * 
+ * Import this file in your root app to enable theming.
+ * Override these variables to customize the design system.
+ */
+
+:root {
+  /* Primary colors */
+  --r-color-primary: #6366f1;
+  --r-color-primary-light: #818cf8;
+  --r-color-primary-lighter: #a5b4fc;
+  --r-color-primary-dark: #4f46e5;
+
+  /* Success colors */
+  --r-color-success: #10b981;
+  --r-color-success-light: #34d399;
+  --r-color-success-dark: #059669;
+
+  /* Warning colors */
+  --r-color-warning: #f59e0b;
+  --r-color-warning-light: #fbbf24;
+  --r-color-warning-dark: #d97706;
+
+  /* Danger colors */
+  --r-color-danger: #ef4444;
+  --r-color-danger-light: #f87171;
+  --r-color-danger-dark: #dc2626;
+
+  /* Info colors */
+  --r-color-info: #3b82f6;
+  --r-color-info-light: #60a5fa;
+  --r-color-info-dark: #2563eb;
+
+  /* Neutral colors */
+  --r-color-text-primary: #111827;
+  --r-color-text-regular: #374151;
+  --r-color-text-secondary: #6b7280;
+  --r-color-text-placeholder: #9ca3af;
+  --r-color-text-disabled: #d1d5db;
+
+  /* Background colors */
+  --r-color-bg: #ffffff;
+  --r-color-bg-page: #f9fafb;
+  --r-color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Border colors */
+  --r-color-border: #e5e7eb;
+  --r-color-border-light: #f3f4f6;
+  --r-color-border-dark: #d1d5db;
+
+  /* Fill colors */
+  --r-color-fill: #f3f4f6;
+  --r-color-fill-light: #f9fafb;
+  --r-color-fill-dark: #e5e7eb;
+
+  /* Sizing */
+  --r-font-size-base: 14px;
+  --r-font-size-small: 12px;
+  --r-font-size-large: 16px;
+
+  /* Font weights */
+  --r-font-weight-normal: 400;
+  --r-font-weight-medium: 500;
+  --r-font-weight-semibold: 600;
+
+  /* Border radius */
+  --r-radius-base: 6px;
+  --r-radius-small: 4px;
+  --r-radius-large: 8px;
+  --r-radius-round: 9999px;
+
+  /* Spacing */
+  --r-spacing-xs: 4px;
+  --r-spacing-sm: 8px;
+  --r-spacing-md: 12px;
+  --r-spacing-lg: 16px;
+  --r-spacing-xl: 20px;
+  --r-spacing-2xl: 24px;
+
+  /* Transitions */
+  --r-transition-duration: 0.15s;
+  --r-transition-timing: ease-out;
+
+  /* Shadows */
+  --r-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --r-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Button specific */
+  --r-button-font-weight: 500;
+
+  /* Text on colored backgrounds */
+  --r-color-white: #ffffff;
+}
+
+/* Dark mode */
+.dark {
+  --r-color-primary: #818cf8;
+  --r-color-primary-light: #a5b4fc;
+  --r-color-primary-lighter: #c7d2fe;
+  --r-color-primary-dark: #6366f1;
+
+  --r-color-success: #34d399;
+  --r-color-success-light: #6ee7b7;
+  --r-color-success-dark: #10b981;
+
+  --r-color-warning: #fbbf24;
+  --r-color-warning-light: #fcd34d;
+  --r-color-warning-dark: #f59e0b;
+
+  --r-color-danger: #f87171;
+  --r-color-danger-light: #fca5a5;
+  --r-color-danger-dark: #ef4444;
+
+  --r-color-info: #60a5fa;
+  --r-color-info-light: #93c5fd;
+  --r-color-info-dark: #3b82f6;
+
+  --r-color-text-primary: #f9fafb;
+  --r-color-text-regular: #e5e7eb;
+  --r-color-text-secondary: #9ca3af;
+  --r-color-text-placeholder: #6b7280;
+  --r-color-text-disabled: #4b5563;
+
+  --r-color-bg: #1f2937;
+  --r-color-bg-page: #111827;
+  --r-color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  --r-color-border: #374151;
+  --r-color-border-light: #4b5563;
+  --r-color-border-dark: #6b7280;
+
+  --r-color-fill: #374151;
+  --r-color-fill-light: #1f2937;
+  --r-color-fill-dark: #4b5563;
+
+  --r-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --r-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --r-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --r-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --r-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}

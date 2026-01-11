@@ -1,0 +1,14 @@
+/* Checkbox group container - Professional Design */
+.r-checkbox-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--r-spacing-lg);
+}
+
+/* Vertical layout */
+.r-checkbox-group--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--r-spacing-md);
+}

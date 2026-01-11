@@ -1,63 +1,202 @@
-:host {
-  display: block;
-  width: 100%;
-
-  /* Component tokens (PRIVATE - do not override directly) */
-  /* These reference semantic tokens (--r-*) which CAN be customized */
-  --r-internal-checkbox-padding-x: var(--r-spacing-4);
-  --r-internal-checkbox-padding-y: var(--r-spacing-3);
-  --r-internal-checkbox-border-radius: var(--r-border-radius-base);
-  --r-internal-checkbox-font-size: var(--r-typography-font-size-base);
-  --r-internal-checkbox-border-color: var(--r-border-color);
-  --r-internal-checkbox-border-focus: var(--r-color-primary);
+/* Checkbox - Professional Design */
+.r-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-spacing-sm);
+  cursor: pointer;
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-regular);
+  user-select: none;
+  position: relative;
+  line-height: 1.5;
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* Map component tokens to Ionic checkbox/item variables when formField is true */
-r-checkbox ion-item {
-  --padding-start: var(--r-internal-checkbox-padding-x);
-  --padding-end: var(--r-internal-checkbox-padding-x);
-  --padding-top: var(--r-internal-checkbox-padding-y);
-  --padding-bottom: var(--r-internal-checkbox-padding-y);
-  /* Make background transparent to inherit from parent */
-  --background: transparent;
-  --ion-item-background: transparent;
-  background: transparent;
+.r-checkbox:hover {
+  color: var(--r-color-text-primary);
 }
 
-r-checkbox ion-label {
-  margin-bottom: var(--r-spacing-2, 8px);
+/* Checkbox input wrapper */
+.r-checkbox__input {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
 }
 
-r-checkbox ion-checkbox {
-  font-size: var(--r-internal-checkbox-font-size);
-  margin-top: var(--r-spacing-2, 8px);
-  --size: 20px;
-  --background-checked: var(--r-color-primary);
-  --border-color-checked: var(--r-color-primary);
-  --checkmark-color: var(--r-color-primary-contrast, #fff);
-  --checkmark-width: 2px;
+/* Hidden native input */
+.r-checkbox__original {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
 }
 
-/* Standalone checkbox styling */
-r-checkbox:not([form-field]) ion-checkbox {
-  margin: var(--r-spacing-2, 8px) 0;
+/* Custom checkbox box */
+.r-checkbox__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--r-color-border-dark);
+  border-radius: var(--r-radius-small);
+  background-color: var(--r-color-bg);
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* Focus state uses our border focus color */
-r-checkbox ion-item.item-has-focus {
-  --border-color: var(--r-internal-checkbox-border-focus);
+/* Checkmark icon */
+.r-checkbox__inner svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--r-color-white);
+  stroke-width: 2.5;
+  opacity: 0;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* Error state uses our error color */
-r-checkbox ion-item.item-has-error {
-  --border-color: var(--r-color-danger);
+/* Indeterminate line */
+.r-checkbox__inner::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background-color: var(--r-color-white);
+  border-radius: 1px;
+  opacity: 0;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* When checked, ensure background and checkmark are visible */
-r-checkbox ion-checkbox.checkbox-checked,
-r-checkbox ion-checkbox[checked] {
-  --background-checked: var(--r-color-primary);
-  --border-color-checked: var(--r-color-primary);
-  --checkmark-color: var(--r-color-primary-contrast, #fff);
+/* Label text */
+.r-checkbox__label {
+  font-size: inherit;
+  line-height: inherit;
 }
 
+/* ==================== STATES ==================== */
+
+/* Hover */
+.r-checkbox:hover .r-checkbox__inner {
+  border-color: var(--r-color-primary);
+}
+
+/* Focus */
+.r-checkbox--focused .r-checkbox__inner {
+  border-color: var(--r-color-primary);
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
+}
+
+/* Checked */
+.r-checkbox--checked .r-checkbox__inner {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+}
+
+.r-checkbox--checked .r-checkbox__inner svg {
+  opacity: 1;
+}
+
+/* Indeterminate */
+.r-checkbox--indeterminate .r-checkbox__inner {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+}
+
+.r-checkbox--indeterminate .r-checkbox__inner svg {
+  opacity: 0;
+}
+
+.r-checkbox--indeterminate .r-checkbox__inner::after {
+  opacity: 1;
+}
+
+/* Disabled */
+.r-checkbox--disabled {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+}
+
+.r-checkbox--disabled .r-checkbox__inner {
+  background-color: var(--r-color-fill);
+  border-color: var(--r-color-border);
+  cursor: not-allowed;
+}
+
+.r-checkbox--disabled:hover .r-checkbox__inner {
+  border-color: var(--r-color-border);
+}
+
+.r-checkbox--disabled.r-checkbox--checked .r-checkbox__inner {
+  background-color: var(--r-color-fill-dark);
+  border-color: var(--r-color-border);
+}
+
+.r-checkbox--disabled.r-checkbox--checked .r-checkbox__inner svg {
+  stroke: var(--r-color-text-placeholder);
+}
+
+/* ==================== BORDER VARIANT ==================== */
+.r-checkbox--border {
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  transition: border-color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-checkbox--border:hover {
+  border-color: var(--r-color-primary);
+}
+
+.r-checkbox--border.r-checkbox--checked {
+  border-color: var(--r-color-primary);
+  background-color: color-mix(in srgb, var(--r-color-primary) 5%, var(--r-color-bg));
+}
+
+.r-checkbox--border.r-checkbox--disabled {
+  border-color: var(--r-color-border);
+  background-color: var(--r-color-fill-light);
+}
+
+/* ==================== SIZES ==================== */
+
+/* Large */
+.r-checkbox--large {
+  font-size: var(--r-font-size-large);
+}
+
+.r-checkbox--large .r-checkbox__inner {
+  width: 18px;
+  height: 18px;
+}
+
+.r-checkbox--large .r-checkbox__inner svg {
+  width: 14px;
+  height: 14px;
+}
+
+.r-checkbox--large.r-checkbox--border {
+  padding: var(--r-spacing-md) var(--r-spacing-lg);
+  border-radius: var(--r-radius-large);
+}
+
+/* Small */
+.r-checkbox--small {
+  font-size: var(--r-font-size-small);
+}
+
+.r-checkbox--small .r-checkbox__inner {
+  width: 14px;
+  height: 14px;
+}
+
+.r-checkbox--small .r-checkbox__inner svg {
+  width: 10px;
+  height: 10px;
+}
+
+.r-checkbox--small.r-checkbox--border {
+  padding: var(--r-spacing-xs) var(--r-spacing-sm);
+  border-radius: var(--r-radius-small);
+}

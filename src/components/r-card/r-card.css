@@ -1,31 +1,52 @@
-:host {
-  display: block;
-  width: 100%;
-
-  /* Component tokens (PRIVATE - do not override directly) */
-  /* These reference semantic tokens (--r-*) which CAN be customized */
-  --r-internal-card-padding-x: var(--r-spacing-4);
-  --r-internal-card-padding-y: var(--r-spacing-4);
-  --r-internal-card-border-radius: var(--r-border-radius-base);
-  --r-internal-card-background: var(--r-color-background);
-  --r-internal-card-border-color: var(--r-border-color);
-  --r-internal-card-shadow: var(--r-shadow-sm);
+/* Card container - Professional Design */
+.r-card {
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-large);
+  overflow: hidden;
+  transition: box-shadow var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* Map component tokens to Ionic card variables */
-r-card ion-card {
-  --padding-start: var(--r-internal-card-padding-x);
-  --padding-end: var(--r-internal-card-padding-x);
-  --padding-top: var(--r-internal-card-padding-y);
-  --padding-bottom: var(--r-internal-card-padding-y);
-  --background: var(--r-internal-card-background);
-  --border-radius: var(--r-internal-card-border-radius);
-  --border-color: var(--r-internal-card-border-color);
-  --box-shadow: var(--r-internal-card-shadow);
+/* Shadow variants */
+.r-card--shadow-always {
+  box-shadow: var(--r-shadow-sm);
 }
 
-/* Ensure proper spacing and layout */
-r-card ion-card {
-  margin: var(--r-spacing-2, 8px) 0;
+.r-card--shadow-hover {
+  box-shadow: none;
 }
 
+.r-card--shadow-hover:hover {
+  box-shadow: var(--r-shadow-base);
+}
+
+.r-card--shadow-never {
+  box-shadow: none;
+}
+
+/* Header */
+.r-card__header {
+  padding: var(--r-spacing-lg) var(--r-spacing-xl);
+  border-bottom: 1px solid var(--r-color-border-light);
+  font-weight: var(--r-font-weight-semibold);
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-primary);
+  background-color: var(--r-color-fill-light);
+}
+
+/* Body */
+.r-card__body {
+  padding: var(--r-spacing-xl);
+  color: var(--r-color-text-regular);
+  font-size: var(--r-font-size-base);
+  line-height: 1.6;
+}
+
+/* Footer */
+.r-card__footer {
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
+  border-top: 1px solid var(--r-color-border-light);
+  color: var(--r-color-text-secondary);
+  font-size: var(--r-font-size-base);
+  background-color: var(--r-color-fill-light);
+}

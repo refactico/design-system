@@ -1,20 +1,14 @@
 import { Config } from '@stencil/core';
 
-// Disable source maps in dev mode to avoid Windows path length issues with long filenames
-// Stencil config files run in Node.js, so process is available at runtime
-declare const process: { argv: string[] };
-
-const isDev = process.argv.includes('--dev') || process.argv.includes('--watch');
-const enableSourceMaps = !isDev; // Only enable source maps in production builds
-
 export const config: Config = {
-  namespace: 'refactico',
-  globalStyle: 'src/global/theme.css',
-  sourceMap: enableSourceMaps,
+  namespace: 'refactico-ds',
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [
+        { src: 'theme', dest: 'theme' },
+      ],
     },
     {
       type: 'dist-custom-elements',
@@ -26,14 +20,14 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
-    },
-    {
-      type: 'docs-json',
-      file: './custom-elements.json',
+      serviceWorker: null,
+      copy: [
+        { src: 'theme', dest: 'build/theme' },
+      ],
     },
   ],
   testing: {
     browserHeadless: "shell",
   },
+  globalStyle: 'src/theme/theme.css',
 };

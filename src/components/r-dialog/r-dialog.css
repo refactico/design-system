@@ -1,0 +1,172 @@
+/* Dialog - Professional Design */
+.r-dialog-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--r-spacing-xl);
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-dialog-wrapper--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.r-dialog-wrapper--center {
+  align-items: center;
+}
+
+/* Overlay */
+.r-dialog__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--r-color-bg-overlay);
+  z-index: -1;
+}
+
+/* Dialog box */
+.r-dialog {
+  position: relative;
+  width: var(--r-dialog-width, 500px);
+  max-width: calc(100vw - 32px);
+  background-color: var(--r-color-bg);
+  border-radius: var(--r-radius-large);
+  box-shadow: var(--r-shadow-lg);
+  margin: auto;
+}
+
+/* Header */
+.r-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--r-spacing-lg) var(--r-spacing-xl);
+  border-bottom: 1px solid var(--r-color-border-light);
+}
+
+.r-dialog__title {
+  font-size: var(--r-font-size-large);
+  font-weight: var(--r-font-weight-semibold);
+  color: var(--r-color-text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Close button */
+.r-dialog__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: var(--r-radius-base);
+  color: var(--r-color-text-placeholder);
+  cursor: pointer;
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-dialog__close:hover {
+  color: var(--r-color-text-secondary);
+  background-color: var(--r-color-fill);
+}
+
+.r-dialog__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Body */
+.r-dialog__body {
+  padding: var(--r-spacing-xl);
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-regular);
+  line-height: 1.6;
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+/* Footer */
+.r-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--r-spacing-sm);
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
+  border-top: 1px solid var(--r-color-border-light);
+}
+
+.r-dialog__footer:empty {
+  display: none;
+}
+
+/* ==================== FULLSCREEN ==================== */
+.r-dialog--fullscreen {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+}
+
+.r-dialog--fullscreen .r-dialog__body {
+  max-height: calc(100vh - 130px);
+}
+
+/* ==================== CENTER CONTENT ==================== */
+.r-dialog--center .r-dialog__header {
+  justify-content: center;
+  text-align: center;
+}
+
+.r-dialog--center .r-dialog__close {
+  position: absolute;
+  right: var(--r-spacing-lg);
+  top: var(--r-spacing-lg);
+}
+
+.r-dialog--center .r-dialog__body {
+  text-align: center;
+}
+
+.r-dialog--center .r-dialog__footer {
+  justify-content: center;
+}
+
+/* ==================== DRAGGABLE ==================== */
+.r-dialog--draggable .r-dialog__header {
+  cursor: move;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .r-dialog-wrapper {
+    padding: var(--r-spacing-md);
+  }
+
+  .r-dialog {
+    width: 100%;
+  }
+
+  .r-dialog__header,
+  .r-dialog__body,
+  .r-dialog__footer {
+    padding-left: var(--r-spacing-lg);
+    padding-right: var(--r-spacing-lg);
+  }
+}

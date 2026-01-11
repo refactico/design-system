@@ -1,0 +1,78 @@
+/* Spinner - Professional Design */
+.r-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r-spinner__circle {
+  animation: r-spinner-rotate 1s linear infinite;
+}
+
+.r-spinner__path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: r-spinner-dash 1s ease-in-out infinite;
+}
+
+@keyframes r-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes r-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* ==================== SIZES ==================== */
+.r-spinner--small {
+  width: 16px;
+  height: 16px;
+}
+
+.r-spinner--default {
+  width: 24px;
+  height: 24px;
+}
+
+.r-spinner--large {
+  width: 32px;
+  height: 32px;
+}
+
+/* ==================== COLORS ==================== */
+.r-spinner--primary {
+  color: var(--r-color-primary);
+}
+
+.r-spinner--success {
+  color: var(--r-color-success);
+}
+
+.r-spinner--warning {
+  color: var(--r-color-warning);
+}
+
+.r-spinner--danger {
+  color: var(--r-color-danger);
+}
+
+.r-spinner--info {
+  color: var(--r-color-info);
+}
+
+.r-spinner--white {
+  color: var(--r-color-white);
+}

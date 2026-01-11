@@ -1,0 +1,86 @@
+/* Form Item - Professional Design */
+.r-form-item {
+  display: flex;
+  margin-bottom: var(--r-spacing-lg);
+}
+
+/* Label positions */
+.r-form-item--top {
+  flex-direction: column;
+}
+
+.r-form-item--left,
+.r-form-item--right {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Label */
+.r-form-item__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-regular);
+  font-weight: var(--r-font-weight-medium);
+  line-height: 40px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.r-form-item--top .r-form-item__label {
+  line-height: 1.5;
+  margin-bottom: var(--r-spacing-sm);
+  padding: 0;
+}
+
+.r-form-item--left .r-form-item__label {
+  justify-content: flex-start;
+  padding-right: var(--r-spacing-md);
+}
+
+.r-form-item--right .r-form-item__label {
+  justify-content: flex-end;
+  padding-right: var(--r-spacing-md);
+}
+
+/* Asterisk */
+.r-form-item__asterisk {
+  color: var(--r-color-danger);
+  font-weight: var(--r-font-weight-semibold);
+}
+
+/* Content */
+.r-form-item__content {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+/* Error message */
+.r-form-item__error {
+  color: var(--r-color-danger);
+  font-size: var(--r-font-size-small);
+  margin-top: var(--r-spacing-xs);
+  line-height: 1.4;
+}
+
+/* Error state - highlight input */
+.r-form-item--error .r-input__wrapper,
+.r-form-item--error .r-select .r-input__wrapper,
+.r-form-item--error .r-textarea__wrapper {
+  border-color: var(--r-color-danger);
+}
+
+.r-form-item--error .r-input__wrapper:focus-within,
+.r-form-item--error .r-select--open .r-input__wrapper {
+  border-color: var(--r-color-danger);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-danger) 15%, transparent);
+}
+
+/* Success state */
+.r-form-item--success .r-input__wrapper,
+.r-form-item--success .r-select .r-input__wrapper,
+.r-form-item--success .r-textarea__wrapper {
+  border-color: var(--r-color-success);
+}

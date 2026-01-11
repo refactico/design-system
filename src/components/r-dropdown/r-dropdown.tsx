@@ -1,160 +1,189 @@
-import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
-// Auto-initialize Ionic (lazy loads components on demand)
-import '../../utils/ionic-init';
-import { removeUndefinedProps, IonicColor, FillStyle } from '../../utils';
-import { buildFormFieldProps, getLabelPosition, getItemLines } from '../../utils/form-field-props';
+import { Component, Prop, h, Event, EventEmitter, Element, State, Method, Listen } from '@stencil/core';
+
+export type DropdownTrigger = 'hover' | 'click' | 'contextmenu';
+export type DropdownPlacement = 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end';
 
 @Component({
   tag: 'r-dropdown',
   styleUrl: 'r-dropdown.css',
-  shadow: false, // No shadow DOM to allow Ionic styles to work
+  shadow: false,
 })
 export class RDropdown {
-  /**
-   * The dropdown value
-   */
-  @Prop({ mutable: true }) value?: string | number;
+  @Element() el: HTMLElement;
 
-  /**
-   * The dropdown label
-   */
-  @Prop() label?: string;
+  /** Trigger mode */
+  @Prop() trigger: DropdownTrigger = 'hover';
 
-  /**
-   * The dropdown placeholder
-   */
-  @Prop() placeholder?: string;
+  /** Dropdown placement */
+  @Prop() placement: DropdownPlacement = 'bottom';
 
-  /**
-   * If true, the dropdown is disabled
-   */
+  /** Whether dropdown is disabled */
   @Prop() disabled: boolean = false;
 
-  /**
-   * If true, the dropdown is required
-   */
-  @Prop() required: boolean = false;
+  /** Whether to hide on click */
+  @Prop() hideOnClick: boolean = true;
 
-  /**
-   * The dropdown name
-   */
-  @Prop() name?: string;
+  /** Show timeout (ms) */
+  @Prop() showTimeout: number = 150;
 
-  /**
-   * The dropdown color (Ionic color)
-   */
-  @Prop() color?: IonicColor;
+  /** Hide timeout (ms) */
+  @Prop() hideTimeout: number = 150;
 
-  /**
-   * The dropdown fill style
-   */
-  @Prop() fill?: FillStyle;
+  /** Max height of dropdown menu */
+  @Prop() maxHeight: string;
 
-  /**
-   * The dropdown shape
-   */
-  @Prop() shape?: 'round';
+  /** Split button mode */
+  @Prop() splitButton: boolean = false;
 
-  /**
-   * If true, allows multiple selections
-   */
-  @Prop() multiple: boolean = false;
+  /** Button type for split button */
+  @Prop() type: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'default';
 
-  /**
-   * If true, the dropdown has error state
-   */
-  @Prop() error: boolean = false;
+  /** Button size for split button */
+  @Prop() size: 'large' | 'default' | 'small' = 'default';
 
-  /**
-   * Error message to display
-   */
-  @Prop() errorText?: string;
+  @State() visible: boolean = false;
 
-  /**
-   * Helper text to display
-   */
-  @Prop() helperText?: string;
+  private showTimer: ReturnType<typeof setTimeout>;
+  private hideTimer: ReturnType<typeof setTimeout>;
 
-  /**
-   * Interface style (action-sheet, popover, alert)
-   */
-  @Prop() interface?: 'action-sheet' | 'popover' | 'alert';
+  @Event({ bubbles: true, composed: true }) command: EventEmitter<string | number>;
+  @Event({ bubbles: true, composed: true }) visibleChange: EventEmitter<boolean>;
+  @Event({ bubbles: true, composed: true }) click: EventEmitter<MouseEvent>;
 
-  /**
-   * If true, the interface is cancelable
-   */
-  @Prop() cancelable: boolean = true;
+  @Listen('click', { target: 'document' })
+  handleDocumentClick(e: MouseEvent) {
+    if (!this.el.contains(e.target as Node)) {
+      this.hide();
+    }
+  }
 
-  /**
-   * Emitted when the dropdown value changes
-   */
-  @Event() rChange: EventEmitter<CustomEvent>;
+  @Listen('itemClick')
+  handleItemClick(e: CustomEvent<string | number>) {
+    this.command.emit(e.detail);
+    if (this.hideOnClick) {
+      this.hide();
+    }
+  }
 
-  /**
-   * Emitted when the dropdown is focused
-   */
-  @Event() rFocus: EventEmitter<CustomEvent>;
+  /** Show dropdown */
+  @Method()
+  async show() {
+    if (this.disabled) return;
+    clearTimeout(this.hideTimer);
+    this.showTimer = setTimeout(() => {
+      this.visible = true;
+      this.visibleChange.emit(true);
+    }, this.showTimeout);
+  }
 
-  /**
-   * Emitted when the dropdown is blurred
-   */
-  @Event() rBlur: EventEmitter<CustomEvent>;
+  /** Hide dropdown */
+  @Method()
+  async hide() {
+    clearTimeout(this.showTimer);
+    this.hideTimer = setTimeout(() => {
+      this.visible = false;
+      this.visibleChange.emit(false);
+    }, this.hideTimeout);
+  }
 
-  private handleChange = (event: CustomEvent) => {
-    this.value = event.detail.value as string | number;
-    this.rChange.emit(event);
+  private handleMouseEnter = () => {
+    if (this.trigger === 'hover') {
+      this.show();
+    }
   };
 
-  private handleFocus = (event: CustomEvent) => {
-    this.rFocus.emit(event);
+  private handleMouseLeave = () => {
+    if (this.trigger === 'hover') {
+      this.hide();
+    }
   };
 
-  private handleBlur = (event: CustomEvent) => {
-    this.rBlur.emit(event);
+  private handleClick = (e: MouseEvent) => {
+    if (this.trigger === 'click') {
+      if (this.visible) {
+        this.hide();
+      } else {
+        this.show();
+      }
+    }
+    if (this.splitButton) {
+      this.click.emit(e);
+    }
+  };
+
+  private handleContextMenu = (e: MouseEvent) => {
+    if (this.trigger === 'contextmenu') {
+      e.preventDefault();
+      this.show();
+    }
+  };
+
+  private handleArrowClick = () => {
+    if (this.visible) {
+      this.hide();
+    } else {
+      this.show();
+    }
   };
 
   render() {
-    const selectProps = removeUndefinedProps({
-      ...buildFormFieldProps({
-        placeholder: this.placeholder,
-        disabled: this.disabled,
-        required: this.required,
-        name: this.name,
-        color: this.color,
-        fill: this.fill,
-        shape: this.shape,
-      }),
-      value: this.value,
-      multiple: this.multiple,
-      interface: this.interface,
-      cancelable: this.cancelable,
-      onIonChange: this.handleChange,
-      onIonFocus: this.handleFocus,
-      onIonBlur: this.handleBlur,
-    });
+    const menuStyles: { [key: string]: string } = {};
+    if (this.maxHeight) {
+      menuStyles['max-height'] = this.maxHeight;
+      menuStyles['overflow-y'] = 'auto';
+    }
 
     return (
-      <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
-        {this.label && (
-          <ion-label position={getLabelPosition(this.fill, 'floating')}>
-            {this.label}
-          </ion-label>
+      <div
+        class={{
+          'r-dropdown': true,
+          'r-dropdown--disabled': this.disabled,
+          'r-dropdown--split': this.splitButton,
+        }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onContextMenu={this.handleContextMenu}
+      >
+        {this.splitButton ? (
+          <r-button-group>
+            <r-button type={this.type} size={this.size} onClick={this.handleClick}>
+              <slot></slot>
+            </r-button>
+            <r-button
+              type={this.type}
+              size={this.size}
+              onClick={this.handleArrowClick}
+              aria-haspopup="menu"
+              aria-expanded={this.visible ? 'true' : 'false'}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </r-button>
+          </r-button-group>
+        ) : (
+          <div
+            class="r-dropdown__trigger"
+            onClick={this.handleClick}
+            aria-haspopup="menu"
+            aria-expanded={this.visible ? 'true' : 'false'}
+          >
+            <slot></slot>
+          </div>
         )}
-        <ion-select {...selectProps}>
-          <slot></slot>
-        </ion-select>
-        {this.error && this.errorText && (
-          <ion-note slot="error" color="danger">
-            {this.errorText}
-          </ion-note>
-        )}
-        {!this.error && this.helperText && (
-          <ion-note slot="helper">
-            {this.helperText}
-          </ion-note>
-        )}
-      </ion-item>
+
+        <div
+          class={{
+            'r-dropdown__menu': true,
+            'r-dropdown__menu--visible': this.visible,
+            [`r-dropdown__menu--${this.placement}`]: true,
+          }}
+          role="menu"
+          style={Object.keys(menuStyles).length > 0 ? menuStyles : undefined}
+        >
+          <slot name="dropdown"></slot>
+        </div>
+      </div>
     );
   }
 }
-

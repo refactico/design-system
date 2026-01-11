@@ -1,0 +1,101 @@
+/* Collapse Item - Professional Design */
+.r-collapse-item {
+  border-bottom: 1px solid var(--r-color-border-light);
+}
+
+.r-collapse-item:last-child {
+  border-bottom: none;
+}
+
+/* Header */
+.r-collapse-item__header {
+  display: flex;
+  align-items: center;
+  gap: var(--r-spacing-md);
+  padding: var(--r-spacing-md) var(--r-spacing-lg);
+  background-color: var(--r-color-bg);
+  color: var(--r-color-text-primary);
+  font-size: var(--r-font-size-base);
+  font-weight: var(--r-font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
+  outline: none;
+  user-select: none;
+}
+
+.r-collapse-item__header:hover {
+  background-color: var(--r-color-fill-light);
+}
+
+.r-collapse-item__header:focus-visible {
+  background-color: var(--r-color-fill-light);
+  box-shadow: inset 0 0 0 2px var(--r-color-primary);
+}
+
+/* Icon position - right (default) */
+.r-collapse--icon-right .r-collapse-item__header {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+/* Icon position - left */
+.r-collapse--icon-left .r-collapse-item__header {
+  flex-direction: row;
+}
+
+/* Arrow icon */
+.r-collapse-item__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--r-color-text-secondary);
+  transition: transform var(--r-transition-duration) var(--r-transition-timing);
+  flex-shrink: 0;
+}
+
+.r-collapse-item__arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.r-collapse-item--active .r-collapse-item__arrow {
+  transform: rotate(90deg);
+}
+
+/* Title */
+.r-collapse-item__title {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Content wrapper */
+.r-collapse-item__wrap {
+  overflow: hidden;
+  transition: max-height var(--r-transition-duration) var(--r-transition-timing);
+}
+
+/* Content */
+.r-collapse-item__content {
+  padding: var(--r-spacing-md) var(--r-spacing-lg) var(--r-spacing-lg);
+  color: var(--r-color-text-regular);
+  font-size: var(--r-font-size-base);
+  line-height: 1.6;
+  background-color: var(--r-color-fill-light);
+}
+
+/* Disabled state */
+.r-collapse-item--disabled .r-collapse-item__header {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+  opacity: 0.6;
+}
+
+.r-collapse-item--disabled .r-collapse-item__header:hover {
+  background-color: var(--r-color-bg);
+}
+
+.r-collapse-item--disabled .r-collapse-item__arrow {
+  color: var(--r-color-text-disabled);
+}

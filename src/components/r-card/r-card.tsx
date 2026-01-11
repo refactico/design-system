@@ -1,77 +1,57 @@
-import { Component, Prop, h } from '@stencil/core';
-// Auto-initialize Ionic (lazy loads components on demand)
-import '../../utils/ionic-init';
-import { removeUndefinedProps, IonicColor, IonicMode } from '../../utils';
+import { Component, Prop, h, Element } from '@stencil/core';
+
+export type CardShadow = 'always' | 'hover' | 'never';
 
 @Component({
   tag: 'r-card',
   styleUrl: 'r-card.css',
-  shadow: false, // No shadow DOM to allow Ionic styles to work
+  shadow: false,
 })
 export class RCard {
-  /**
-   * The card color (Ionic color)
-   */
-  @Prop() color?: IonicColor;
+  @Element() el: HTMLElement;
 
-  /**
-   * The card mode (ios or md)
-   */
-  @Prop() mode?: IonicMode;
+  /** Title of the card */
+  @Prop() header: string;
 
-  /**
-   * If true, the card acts as a button and becomes clickable
-   */
-  @Prop() button: boolean = false;
+  /** Footer of the card */
+  @Prop() footer: string;
 
-  /**
-   * If true, the card is disabled
-   */
-  @Prop() disabled: boolean = false;
+  /** When to show card shadow */
+  @Prop() shadow: CardShadow = 'always';
 
-  /**
-   * The URL to navigate to when the card is clicked (only works if button is true)
-   */
-  @Prop() href?: string;
+  /** Custom class name of card header */
+  @Prop() headerClass: string = '';
 
-  /**
-   * The router direction (forward, back, root) for navigation
-   */
-  @Prop() routerDirection?: 'forward' | 'back' | 'root';
+  /** Custom class name of card body */
+  @Prop() bodyClass: string = '';
 
-  /**
-   * The download attribute for links
-   */
-  @Prop() download?: string;
+  /** Custom class name of card footer */
+  @Prop() footerClass: string = '';
 
-  /**
-   * The rel attribute for links
-   */
-  @Prop() rel?: string;
-
-  /**
-   * The target attribute for links
-   */
-  @Prop() target?: string;
+  private hasSlot(name: string): boolean {
+    return !!this.el.querySelector(`[slot="${name}"]`);
+  }
 
   render() {
-    const cardProps = removeUndefinedProps({
-      color: this.color,
-      mode: this.mode,
-      button: this.button,
-      disabled: this.disabled,
-      href: this.href,
-      routerDirection: this.routerDirection,
-      download: this.download,
-      rel: this.rel,
-      target: this.target,
-    });
+    const hasHeader = this.header || this.hasSlot('header');
+    const hasFooter = this.footer || this.hasSlot('footer');
 
     return (
-      <ion-card {...cardProps}>
-        <slot></slot>
-      </ion-card>
+      <div class={`r-card r-card--shadow-${this.shadow}`}>
+        {hasHeader && (
+          <div class={`r-card__header ${this.headerClass}`}>
+            <slot name="header">{this.header}</slot>
+          </div>
+        )}
+        <div class={`r-card__body ${this.bodyClass}`}>
+          <slot></slot>
+        </div>
+        {hasFooter && (
+          <div class={`r-card__footer ${this.footerClass}`}>
+            <slot name="footer">{this.footer}</slot>
+          </div>
+        )}
+      </div>
     );
   }
 }
-

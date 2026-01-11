@@ -1,44 +1,204 @@
-:host {
-  display: block;
+/* Alert - Professional Design */
+.r-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--r-spacing-md);
+  padding: var(--r-spacing-md) var(--r-spacing-lg);
+  border-radius: var(--r-radius-base);
+  background-color: var(--r-color-fill);
+  border: 1px solid var(--r-color-border);
+  position: relative;
+  overflow: hidden;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing);
+}
+
+/* Icon */
+.r-alert__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.r-alert__icon svg {
   width: 100%;
-
-  /* Component tokens (PRIVATE - do not override directly) */
-  /* These reference semantic tokens (--r-*) which CAN be customized */
-  --r-internal-alert-border-radius: var(--r-border-radius-base);
-  --r-internal-alert-font-size: var(--r-typography-font-size-base);
-  --r-internal-alert-background: var(--r-color-background);
-  --r-internal-alert-text-color: var(--r-color-text);
+  height: 100%;
 }
 
-/* Map component tokens to Ionic alert variables */
-r-alert ion-alert {
-  --border-radius: var(--r-internal-alert-border-radius);
-  --font-size: var(--r-internal-alert-font-size);
-  --background: var(--r-internal-alert-background);
-  --color: var(--r-internal-alert-text-color);
+/* Content */
+.r-alert__content {
+  flex: 1;
+  min-width: 0;
 }
 
-/* Ensure alert text is visible */
-r-alert ion-alert .alert-title,
-r-alert ion-alert .alert-sub-title,
-r-alert ion-alert .alert-message {
-  color: var(--ion-text-color, #000);
-  --color: var(--ion-text-color, #000);
+/* Title */
+.r-alert__title {
+  font-size: var(--r-font-size-base);
+  font-weight: var(--r-font-weight-semibold);
+  line-height: 1.5;
+  color: var(--r-color-text-primary);
+  margin: 0;
 }
 
-/* Ensure button text is visible */
-r-alert ion-alert .alert-button {
-  color: var(--ion-color-primary, #3880ff);
-  --color: var(--ion-color-primary, #3880ff);
+.r-alert__title + .r-alert__description {
+  margin-top: var(--r-spacing-xs);
 }
 
-r-alert ion-alert .alert-button.alert-button-role-cancel {
-  color: var(--ion-color-medium, #666);
-  --color: var(--ion-color-medium, #666);
+/* Description */
+.r-alert__description {
+  font-size: var(--r-font-size-small);
+  line-height: 1.6;
+  color: var(--r-color-text-secondary);
+  margin: 0;
 }
 
-r-alert ion-alert .alert-button.alert-button-role-destructive {
-  color: var(--ion-color-danger, #eb445a);
-  --color: var(--ion-color-danger, #eb445a);
+/* Close button */
+.r-alert__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: var(--r-color-text-placeholder);
+  border-radius: var(--r-radius-small);
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
 }
 
+.r-alert__close:hover {
+  color: var(--r-color-text-secondary);
+}
+
+.r-alert__close svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==================== TYPES ==================== */
+
+/* Success */
+.r-alert--success {
+  background-color: color-mix(in srgb, var(--r-color-success) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-success) 25%, var(--r-color-border));
+}
+
+.r-alert--success .r-alert__icon {
+  color: var(--r-color-success);
+}
+
+.r-alert--success .r-alert__title {
+  color: var(--r-color-success-dark);
+}
+
+/* Warning */
+.r-alert--warning {
+  background-color: color-mix(in srgb, var(--r-color-warning) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-warning) 25%, var(--r-color-border));
+}
+
+.r-alert--warning .r-alert__icon {
+  color: var(--r-color-warning);
+}
+
+.r-alert--warning .r-alert__title {
+  color: var(--r-color-warning-dark);
+}
+
+/* Error/Danger */
+.r-alert--error {
+  background-color: color-mix(in srgb, var(--r-color-danger) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-danger) 25%, var(--r-color-border));
+}
+
+.r-alert--error .r-alert__icon {
+  color: var(--r-color-danger);
+}
+
+.r-alert--error .r-alert__title {
+  color: var(--r-color-danger-dark);
+}
+
+/* Info */
+.r-alert--info {
+  background-color: color-mix(in srgb, var(--r-color-info) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-info) 25%, var(--r-color-border));
+}
+
+.r-alert--info .r-alert__icon {
+  color: var(--r-color-info);
+}
+
+.r-alert--info .r-alert__title {
+  color: var(--r-color-info-dark);
+}
+
+/* ==================== DARK EFFECT ==================== */
+.r-alert--dark {
+  color: var(--r-color-white);
+}
+
+.r-alert--dark .r-alert__title,
+.r-alert--dark .r-alert__description {
+  color: var(--r-color-white);
+}
+
+.r-alert--dark .r-alert__close {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.r-alert--dark .r-alert__close:hover {
+  color: var(--r-color-white);
+}
+
+.r-alert--dark.r-alert--success {
+  background-color: var(--r-color-success);
+  border-color: var(--r-color-success);
+}
+
+.r-alert--dark.r-alert--warning {
+  background-color: var(--r-color-warning);
+  border-color: var(--r-color-warning);
+}
+
+.r-alert--dark.r-alert--error {
+  background-color: var(--r-color-danger);
+  border-color: var(--r-color-danger);
+}
+
+.r-alert--dark.r-alert--info {
+  background-color: var(--r-color-info);
+  border-color: var(--r-color-info);
+}
+
+.r-alert--dark .r-alert__icon {
+  color: var(--r-color-white);
+}
+
+/* ==================== CENTER ==================== */
+.r-alert--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.r-alert--center .r-alert__content {
+  flex: none;
+}
+
+/* ==================== CLOSING ANIMATION ==================== */
+.r-alert--closing {
+  opacity: 0;
+}
+
+/* ==================== BIG ICON ==================== */
+.r-alert--big-icon .r-alert__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.r-alert--big-icon.r-alert--with-description .r-alert__icon {
+  width: 28px;
+  height: 28px;
+}

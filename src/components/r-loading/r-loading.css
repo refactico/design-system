@@ -1,0 +1,54 @@
+/* Loading - Professional Design */
+.r-loading {
+  position: relative;
+}
+
+.r-loading__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--r-spacing-md);
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-loading__mask--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.r-loading__mask--fullscreen {
+  position: fixed;
+  z-index: 2100;
+}
+
+/* Text */
+.r-loading__text {
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-primary);
+  font-weight: var(--r-font-weight-medium);
+}
+
+/* Background variants */
+.r-loading__mask--dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.r-loading__mask--dark .r-loading__text {
+  color: var(--r-color-white);
+}
+
+/* Lock body scroll when fullscreen */
+.r-loading-lock {
+  overflow: hidden !important;
+}

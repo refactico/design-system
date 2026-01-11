@@ -1,0 +1,16 @@
+/* Form container - Professional Design */
+.r-form {
+  width: 100%;
+}
+
+/* Inline form */
+.r-form--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--r-spacing-lg);
+  align-items: flex-start;
+}
+
+.r-form--inline .r-form-item {
+  margin-bottom: 0;
+}

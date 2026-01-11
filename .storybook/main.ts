@@ -1,16 +1,8 @@
-const config = {
-    stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-    addons: [
-      '@storybook/addon-links',
-      '@storybook/addon-docs',
-    ],
-    framework: {
-      name: '@stencil/storybook-plugin',
-    },
-    // Disable auto-generating docs for components without stories
-    docs: {
-      autodocs: 'tag',
-    },
-  };
-  
-  export default config;
+import type { StorybookConfig } from '@storybook/web-components-vite';
+
+const config: StorybookConfig = {
+  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: ['@chromatic-com/storybook', '@storybook/addon-a11y', '@storybook/addon-docs'],
+  framework: '@storybook/web-components-vite',
+};
+export default config;

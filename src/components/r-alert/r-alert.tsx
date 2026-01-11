@@ -1,142 +1,126 @@
-import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
-// Auto-initialize Ionic (lazy loads components on demand)
-import '../../utils/ionic-init';
-import { removeUndefinedProps, IonicColor } from '../../utils';
+import { Component, Prop, h, Event, EventEmitter, Element, State } from '@stencil/core';
+
+export type AlertType = 'success' | 'warning' | 'error' | 'info';
+export type AlertEffect = 'light' | 'dark';
 
 @Component({
   tag: 'r-alert',
   styleUrl: 'r-alert.css',
-  shadow: false, // No shadow DOM to allow Ionic styles to work
+  shadow: false,
 })
 export class RAlert {
-  /**
-   * If true, the alert is open
-   */
-  @Prop({ mutable: true }) isOpen: boolean = false;
+  @Element() el: HTMLElement;
 
-  /**
-   * The alert header text
-   */
-  @Prop() header?: string;
+  /** Alert type */
+  @Prop() type: AlertType = 'info';
 
-  /**
-   * The alert subheader text
-   */
-  @Prop() subHeader?: string;
+  /** Alert title */
+  @Prop() alertTitle: string;
 
-  /**
-   * The alert message text
-   */
-  @Prop() message?: string;
+  /** Alert description */
+  @Prop() description: string;
 
-  /**
-   * The alert color (Ionic color)
-   */
-  @Prop() color?: IonicColor;
+  /** Whether alert can be closed */
+  @Prop() closable: boolean = true;
 
-  /**
-   * If true, the alert can be dismissed by clicking the backdrop
-   */
-  @Prop() backdropDismiss: boolean = true;
+  /** Custom close text */
+  @Prop() closeText: string;
 
-  /**
-   * If true, the alert can be dismissed by pressing the escape key
-   */
-  @Prop() keyboardClose: boolean = true;
+  /** Whether to show icon */
+  @Prop() showIcon: boolean = true;
 
-  /**
-   * If true, the alert is translucent
-   */
-  @Prop() translucent: boolean = false;
+  /** Whether to center content */
+  @Prop() center: boolean = false;
 
-  /**
-   * If true, the alert is animated
-   */
-  @Prop() animated: boolean = true;
+  /** Alert effect/theme */
+  @Prop() effect: AlertEffect = 'light';
 
-  /**
-   * Alert buttons configuration
-   * Can be a string (single button text) or an array of button objects
-   * Example: "OK" or [{ text: "Cancel", role: "cancel" }, { text: "OK", role: "confirm" }]
-   */
-  @Prop() buttons?: string | Array<{ text: string; role?: string; handler?: () => void }>;
+  @State() visible: boolean = true;
+  @State() closing: boolean = false;
 
-  /**
-   * Emitted when the alert is dismissed
-   */
-  @Event() rDidDismiss: EventEmitter<CustomEvent>;
+  @Event({ bubbles: true, composed: true }) close: EventEmitter<void>;
 
-  /**
-   * Emitted when the alert is presented
-   */
-  @Event() rDidPresent: EventEmitter<CustomEvent>;
-
-  /**
-   * Emitted when the alert will dismiss
-   */
-  @Event() rWillDismiss: EventEmitter<CustomEvent>;
-
-  /**
-   * Emitted when the alert will present
-   */
-  @Event() rWillPresent: EventEmitter<CustomEvent>;
-
-  // For inline alerts, ion-alert handles isOpen prop automatically
-  // No need to manually call present() or dismiss()
-
-  private handleDidDismiss = (event: CustomEvent) => {
-    this.isOpen = false;
-    this.rDidDismiss.emit(event);
+  private handleClose = () => {
+    this.closing = true;
+    setTimeout(() => {
+      this.visible = false;
+      this.close.emit();
+    }, 200);
   };
 
-  private handleDidPresent = (event: CustomEvent) => {
-    this.rDidPresent.emit(event);
-  };
-
-  private handleWillDismiss = (event: CustomEvent) => {
-    this.rWillDismiss.emit(event);
-  };
-
-  private handleWillPresent = (event: CustomEvent) => {
-    this.rWillPresent.emit(event);
-  };
-
-  private normalizeButtons(): any[] {
-    if (!this.buttons) {
-      return [{ text: 'OK', role: 'confirm' }];
-    }
-
-    if (typeof this.buttons === 'string') {
-      return [{ text: this.buttons, role: 'confirm' }];
-    }
-
-    return this.buttons.map(btn => {
-      if (typeof btn === 'string') {
-        return { text: btn, role: 'confirm' };
-      }
-      return btn;
-    });
+  private renderIcon() {
+    const icons: Record<AlertType, any> = {
+      success: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      ),
+      warning: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      ),
+      error: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+      ),
+      info: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      ),
+    };
+    return icons[this.type];
   }
 
   render() {
-    const alertProps = removeUndefinedProps({
-      isOpen: this.isOpen,
-      header: this.header,
-      subHeader: this.subHeader,
-      message: this.message,
-      color: this.color,
-      backdropDismiss: this.backdropDismiss,
-      keyboardClose: this.keyboardClose,
-      translucent: this.translucent,
-      animated: this.animated,
-      buttons: this.normalizeButtons(),
-      onIonAlertDidDismiss: this.handleDidDismiss,
-      onIonAlertDidPresent: this.handleDidPresent,
-      onIonAlertWillDismiss: this.handleWillDismiss,
-      onIonAlertWillPresent: this.handleWillPresent,
-    });
+    if (!this.visible) return null;
 
-    return <ion-alert {...alertProps}></ion-alert>;
+    const hasDescription = !!this.description || !!this.el.querySelector('[slot="description"]');
+
+    return (
+      <div
+        class={{
+          'r-alert': true,
+          [`r-alert--${this.type}`]: true,
+          [`r-alert--${this.effect}`]: true,
+          'r-alert--center': this.center,
+          'r-alert--closing': this.closing,
+          'r-alert--with-description': hasDescription,
+          'r-alert--big-icon': hasDescription,
+        }}
+        role="alert"
+      >
+        {this.showIcon && <span class="r-alert__icon">{this.renderIcon()}</span>}
+
+        <div class="r-alert__content">
+          {this.alertTitle && <p class="r-alert__title">{this.alertTitle}</p>}
+          <slot name="title"></slot>
+
+          {this.description && <p class="r-alert__description">{this.description}</p>}
+          <slot name="description"></slot>
+          <slot></slot>
+        </div>
+
+        {this.closable && (
+          <span class="r-alert__close" onClick={this.handleClose}>
+            {this.closeText || (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            )}
+          </span>
+        )}
+      </div>
+    );
   }
 }
-

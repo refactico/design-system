@@ -1,0 +1,185 @@
+/* Radio - Professional Design */
+.r-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-spacing-sm);
+  cursor: pointer;
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-regular);
+  user-select: none;
+  margin-right: var(--r-spacing-lg);
+  position: relative;
+  white-space: nowrap;
+  outline: none;
+}
+
+.r-radio:last-child {
+  margin-right: 0;
+}
+
+/* Radio input wrapper */
+.r-radio__input {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  outline: none;
+}
+
+/* Hidden native input */
+.r-radio__original {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+}
+
+/* Custom radio circle */
+.r-radio__inner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--r-color-border-dark);
+  border-radius: 50%;
+  background-color: var(--r-color-bg);
+  position: relative;
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  box-sizing: border-box;
+}
+
+/* Inner dot */
+.r-radio__inner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--r-color-white);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform var(--r-transition-duration) var(--r-transition-timing);
+}
+
+/* Label text */
+.r-radio__label {
+  font-size: var(--r-font-size-base);
+  line-height: 1;
+  padding-left: var(--r-spacing-xs);
+}
+
+/* ==================== STATES ==================== */
+
+/* Hover */
+.r-radio:hover .r-radio__inner {
+  border-color: var(--r-color-primary);
+}
+
+/* Focus */
+.r-radio--focused .r-radio__inner {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
+}
+
+/* Checked */
+.r-radio--checked .r-radio__inner {
+  border-color: var(--r-color-primary);
+  background-color: var(--r-color-primary);
+}
+
+.r-radio--checked .r-radio__inner::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Disabled */
+.r-radio--disabled {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+}
+
+.r-radio--disabled .r-radio__inner {
+  border-color: var(--r-color-border);
+  background-color: var(--r-color-fill);
+  cursor: not-allowed;
+}
+
+.r-radio--disabled:hover .r-radio__inner {
+  border-color: var(--r-color-border);
+}
+
+.r-radio--disabled.r-radio--checked .r-radio__inner {
+  border-color: var(--r-color-border);
+  background-color: var(--r-color-fill-dark);
+}
+
+.r-radio--disabled.r-radio--checked .r-radio__inner::after {
+  background-color: var(--r-color-text-placeholder);
+}
+
+/* ==================== BORDER VARIANT ==================== */
+.r-radio--border {
+  padding: var(--r-spacing-sm) var(--r-spacing-lg);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  margin-right: var(--r-spacing-sm);
+  transition: border-color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-radio--border:hover {
+  border-color: var(--r-color-primary);
+}
+
+.r-radio--border.r-radio--checked {
+  border-color: var(--r-color-primary);
+  background-color: color-mix(in srgb, var(--r-color-primary) 5%, var(--r-color-bg));
+}
+
+.r-radio--border.r-radio--disabled {
+  border-color: var(--r-color-border);
+  background-color: var(--r-color-fill-light);
+}
+
+/* ==================== SIZES ==================== */
+
+/* Large */
+.r-radio--large {
+  font-size: var(--r-font-size-large);
+}
+
+.r-radio--large .r-radio__inner {
+  width: 18px;
+  height: 18px;
+}
+
+.r-radio--large .r-radio__inner::after {
+  width: 7px;
+  height: 7px;
+}
+
+.r-radio--large.r-radio--border {
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
+  border-radius: var(--r-radius-large);
+}
+
+/* Small */
+.r-radio--small {
+  font-size: var(--r-font-size-small);
+}
+
+.r-radio--small .r-radio__inner {
+  width: 14px;
+  height: 14px;
+}
+
+.r-radio--small .r-radio__inner::after {
+  width: 5px;
+  height: 5px;
+}
+
+.r-radio--small.r-radio--border {
+  padding: var(--r-spacing-xs) var(--r-spacing-sm);
+  border-radius: var(--r-radius-small);
+}

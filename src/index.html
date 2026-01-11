@@ -3,60 +3,243 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Refactico - Design System</title>
-    
-    <!-- Ionic CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@latest/css/ionic.bundle.css" />
-    
+    <title>Refactico Design System</title>
+    <script type="module" src="/build/refactico-ds.esm.js"></script>
+    <script nomodule src="/build/refactico-ds.js"></script>
+    <link rel="stylesheet" href="/build/theme/theme.css" />
     <style>
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        overflow-y: scroll !important;
-        overflow-x: hidden !important;
-        height: 100% !important;
-        position: relative !important;
-      }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-        overflow: hidden !important;
-        height: 100vh;
-        position: relative !important;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        padding: 2rem;
+        background: var(--r-color-bg-page);
+        color: var(--r-color-text-primary);
       }
-      /* Override Ionic's overflow settings */
-      ion-app {
-        overflow-y: visible !important;
-        height: auto !important;
-        position: relative !important;
+      .section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--r-color-bg);
+        border-radius: var(--r-radius-large);
+        border: 1px solid var(--r-color-border);
       }
-      /* Ensure scrollbar is visible */
-      ::-webkit-scrollbar {
-        width: 12px;
+      .section h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+        color: var(--r-color-text-primary);
       }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
       }
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 6px;
+      .row:last-child {
+        margin-bottom: 0;
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-      html {
-        scrollbar-width: thin;
-        scrollbar-color: #888 #f1f1f1;
+      .dark-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--r-color-fill);
+        border: 1px solid var(--r-color-border);
+        border-radius: var(--r-radius-base);
+        cursor: pointer;
+        font-size: 0.875rem;
       }
     </style>
-
-    <script type="module" src="/build/refactico.esm.js"></script>
-    <script nomodule src="/build/refactico.js"></script>
   </head>
   <body>
-    <app-shell></app-shell>
+    <button class="dark-toggle" onclick="document.documentElement.classList.toggle('dark')">
+      Toggle Dark Mode
+    </button>
+
+    <h1>Refactico Design System</h1>
+
+    <div class="section">
+      <h2>Basic Buttons</h2>
+      <div class="row">
+        <r-button>Default</r-button>
+        <r-button type="primary">Primary</r-button>
+        <r-button type="success">Success</r-button>
+        <r-button type="warning">Warning</r-button>
+        <r-button type="danger">Danger</r-button>
+        <r-button type="info">Info</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Plain Buttons</h2>
+      <div class="row">
+        <r-button plain>Default</r-button>
+        <r-button type="primary" plain>Primary</r-button>
+        <r-button type="success" plain>Success</r-button>
+        <r-button type="warning" plain>Warning</r-button>
+        <r-button type="danger" plain>Danger</r-button>
+        <r-button type="info" plain>Info</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Round Buttons</h2>
+      <div class="row">
+        <r-button round>Default</r-button>
+        <r-button type="primary" round>Primary</r-button>
+        <r-button type="success" round>Success</r-button>
+        <r-button type="warning" round>Warning</r-button>
+        <r-button type="danger" round>Danger</r-button>
+        <r-button type="info" round>Info</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Circle Buttons</h2>
+      <div class="row">
+        <r-button circle>+</r-button>
+        <r-button type="primary" circle>✓</r-button>
+        <r-button type="success" circle>★</r-button>
+        <r-button type="warning" circle>!</r-button>
+        <r-button type="danger" circle>✕</r-button>
+        <r-button type="info" circle>?</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Disabled Buttons</h2>
+      <div class="row">
+        <r-button disabled>Default</r-button>
+        <r-button type="primary" disabled>Primary</r-button>
+        <r-button type="success" disabled>Success</r-button>
+        <r-button type="warning" disabled>Warning</r-button>
+        <r-button type="danger" disabled>Danger</r-button>
+        <r-button type="info" disabled>Info</r-button>
+      </div>
+      <div class="row">
+        <r-button plain disabled>Plain</r-button>
+        <r-button type="primary" plain disabled>Primary Plain</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Text Buttons</h2>
+      <div class="row">
+        <r-button text>Default</r-button>
+        <r-button type="primary" text>Primary</r-button>
+        <r-button type="success" text>Success</r-button>
+        <r-button type="warning" text>Warning</r-button>
+        <r-button type="danger" text>Danger</r-button>
+        <r-button type="info" text>Info</r-button>
+      </div>
+      <div class="row">
+        <r-button text bg>With Background</r-button>
+        <r-button type="primary" text bg>Primary BG</r-button>
+      </div>
+      <div class="row">
+        <r-button text disabled>Disabled</r-button>
+        <r-button type="primary" text disabled>Primary Disabled</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Link Buttons</h2>
+      <div class="row">
+        <r-button link>Default</r-button>
+        <r-button type="primary" link>Primary</r-button>
+        <r-button type="success" link>Success</r-button>
+        <r-button type="warning" link>Warning</r-button>
+        <r-button type="danger" link>Danger</r-button>
+        <r-button type="info" link>Info</r-button>
+      </div>
+      <div class="row">
+        <r-button link disabled>Disabled</r-button>
+        <r-button type="primary" link disabled>Primary Disabled</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Loading Buttons</h2>
+      <div class="row">
+        <r-button loading>Loading</r-button>
+        <r-button type="primary" loading>Loading</r-button>
+        <r-button type="success" loading>Loading</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Button Sizes</h2>
+      <div class="row">
+        <r-button size="large">Large</r-button>
+        <r-button>Default</r-button>
+        <r-button size="small">Small</r-button>
+      </div>
+      <div class="row">
+        <r-button type="primary" size="large">Large</r-button>
+        <r-button type="primary">Default</r-button>
+        <r-button type="primary" size="small">Small</r-button>
+      </div>
+      <div class="row">
+        <r-button type="primary" round size="large">Large Round</r-button>
+        <r-button type="primary" round>Default Round</r-button>
+        <r-button type="primary" round size="small">Small Round</r-button>
+      </div>
+      <div class="row">
+        <r-button type="primary" circle size="large">+</r-button>
+        <r-button type="primary" circle>+</r-button>
+        <r-button type="primary" circle size="small">+</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Custom Color</h2>
+      <div class="row">
+        <r-button color="#8b5cf6">Purple</r-button>
+        <r-button color="#ec4899">Pink</r-button>
+        <r-button color="#06b6d4">Cyan</r-button>
+        <r-button color="#84cc16">Lime</r-button>
+      </div>
+      <div class="row">
+        <r-button color="#8b5cf6" plain>Purple Plain</r-button>
+        <r-button color="#ec4899" plain>Pink Plain</r-button>
+        <r-button color="#06b6d4" plain>Cyan Plain</r-button>
+        <r-button color="#84cc16" plain>Lime Plain</r-button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Button Group (Horizontal)</h2>
+      <div class="row">
+        <r-button-group>
+          <r-button type="primary">Previous</r-button>
+          <r-button type="primary">Next</r-button>
+        </r-button-group>
+      </div>
+      <div class="row">
+        <r-button-group>
+          <r-button>One</r-button>
+          <r-button>Two</r-button>
+          <r-button>Three</r-button>
+        </r-button-group>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Button Group (Vertical)</h2>
+      <div class="row">
+        <r-button-group direction="vertical">
+          <r-button type="primary">Top</r-button>
+          <r-button type="primary">Middle</r-button>
+          <r-button type="primary">Bottom</r-button>
+        </r-button-group>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Custom Tag</h2>
+      <div class="row">
+        <r-button tag="a">Link as Button</r-button>
+        <r-button tag="div" type="primary">Div as Button</r-button>
+      </div>
+    </div>
+
   </body>
 </html>

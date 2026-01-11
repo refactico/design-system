@@ -1,58 +1,252 @@
-:host {
+/* Input container - Professional Design */
+.r-input {
+  display: inline-flex;
+  width: 100%;
+  position: relative;
+  font-size: var(--r-font-size-base);
+  line-height: 1;
+}
+
+/* Input wrapper */
+.r-input__wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 var(--r-spacing-md);
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  box-sizing: border-box;
+}
+
+.r-input__wrapper:hover {
+  border-color: var(--r-color-border-dark);
+}
+
+.r-input__wrapper--focused {
+  border-color: var(--r-color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+}
+
+.r-input__wrapper--disabled {
+  background-color: var(--r-color-fill-light);
+  cursor: not-allowed;
+}
+
+.r-input__wrapper--disabled:hover {
+  border-color: var(--r-color-border);
+}
+
+/* Inner input */
+.r-input__inner {
+  flex: 1;
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--r-color-text-primary);
+  font-size: inherit;
+  font-family: inherit;
+  outline: none;
+}
+
+.r-input__inner::placeholder {
+  color: var(--r-color-text-placeholder);
+}
+
+.r-input__inner:disabled {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
+}
+
+/* Prefix & Suffix */
+.r-input__prefix,
+.r-input__suffix {
+  display: flex;
+  align-items: center;
+  gap: var(--r-spacing-xs);
+  color: var(--r-color-text-secondary);
+  flex-shrink: 0;
+}
+
+.r-input__prefix {
+  margin-right: var(--r-spacing-sm);
+}
+
+.r-input__suffix {
+  margin-left: var(--r-spacing-sm);
+}
+
+/* Clear & Password icons */
+.r-input__clear,
+.r-input__password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  color: var(--r-color-text-placeholder);
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-input__clear:hover,
+.r-input__password:hover {
+  color: var(--r-color-text-secondary);
+}
+
+.r-input__clear svg,
+.r-input__password svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Prepend & Append */
+.r-input__prepend,
+.r-input__append {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--r-spacing-md);
+  background-color: var(--r-color-fill);
+  border: 1px solid var(--r-color-border);
+  color: var(--r-color-text-regular);
+  white-space: nowrap;
+}
+
+.r-input__prepend {
+  border-right: none;
+  border-radius: var(--r-radius-base) 0 0 var(--r-radius-base);
+}
+
+.r-input__append {
+  border-left: none;
+  border-radius: 0 var(--r-radius-base) var(--r-radius-base) 0;
+}
+
+.r-input--prepend .r-input__wrapper {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.r-input--append .r-input__wrapper {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Word count */
+.r-input__count {
+  position: absolute;
+  right: var(--r-spacing-md);
+  bottom: -20px;
+  font-size: var(--r-font-size-small);
+  color: var(--r-color-text-placeholder);
+}
+
+/* Sizes */
+.r-input--small .r-input__wrapper {
+  padding: 0 var(--r-spacing-sm);
+}
+
+.r-input--small .r-input__inner {
+  height: 32px;
+  font-size: var(--r-font-size-small);
+}
+
+.r-input--small .r-input__prepend,
+.r-input--small .r-input__append {
+  padding: 0 var(--r-spacing-sm);
+  font-size: var(--r-font-size-small);
+}
+
+.r-input--large .r-input__wrapper {
+  padding: 0 var(--r-spacing-lg);
+}
+
+.r-input--large .r-input__inner {
+  height: 48px;
+  font-size: var(--r-font-size-large);
+}
+
+.r-input--large .r-input__prepend,
+.r-input--large .r-input__append {
+  padding: 0 var(--r-spacing-lg);
+  font-size: var(--r-font-size-large);
+}
+
+/* Disabled state */
+.r-input--disabled {
+  cursor: not-allowed;
+}
+
+/* ==================== TEXTAREA ==================== */
+
+.r-textarea {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  font-size: var(--r-font-size-base);
+}
+
+.r-textarea__wrapper {
+  display: block;
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  box-sizing: border-box;
+}
+
+.r-textarea__wrapper:hover {
+  border-color: var(--r-color-border-dark);
+}
+
+.r-textarea__wrapper--focused {
+  border-color: var(--r-color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--r-color-primary) 15%, transparent);
+}
+
+.r-textarea__wrapper--disabled {
+  background-color: var(--r-color-fill-light);
+  cursor: not-allowed;
+}
+
+.r-textarea__inner {
   display: block;
   width: 100%;
-
-  /* Component tokens (PRIVATE - do not override directly) */
-  /* These reference semantic tokens (--r-*) which CAN be customized */
-  --r-internal-input-padding-x: var(--r-spacing-4);
-  --r-internal-input-padding-y: var(--r-spacing-3);
-  --r-internal-input-border-radius: var(--r-border-radius-base);
-  --r-internal-input-font-size: var(--r-typography-font-size-base);
-  --r-internal-input-border-color: var(--r-border-color);
-  --r-internal-input-border-focus: var(--r-color-primary);
-}
-
-/* Map component tokens to Ionic input/item variables */
-r-input ion-item {
-  --padding-start: var(--r-internal-input-padding-x);
-  --padding-end: var(--r-internal-input-padding-x);
-  --padding-top: var(--r-internal-input-padding-y);
-  --padding-bottom: var(--r-internal-input-padding-y);
-  /* Make background transparent to inherit from parent */
-  --background: transparent;
-  --ion-item-background: transparent;
+  min-height: 80px;
+  padding: var(--r-spacing-md);
+  border: none;
   background: transparent;
+  color: var(--r-color-text-primary);
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 1.6;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
-r-input ion-label {
-  margin-bottom: var(--r-spacing-2, 8px);
+.r-textarea__inner::placeholder {
+  color: var(--r-color-text-placeholder);
 }
 
-r-input ion-input {
-  font-size: var(--r-internal-input-font-size);
-  margin-top: var(--r-spacing-2, 8px);
+.r-textarea__inner:disabled {
+  cursor: not-allowed;
+  color: var(--r-color-text-disabled);
 }
 
-/* Style password toggle icon inside input */
-r-input ion-input ion-button {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  margin: 0;
-  height: auto;
+.r-textarea__count {
+  position: absolute;
+  right: var(--r-spacing-md);
+  bottom: var(--r-spacing-sm);
+  font-size: var(--r-font-size-small);
+  color: var(--r-color-text-placeholder);
+  background-color: var(--r-color-bg);
+  padding: 0 var(--r-spacing-xs);
 }
 
-r-input ion-input ion-button ion-icon {
-  font-size: 20px;
-  color: var(--ion-color-medium, #666);
+.r-textarea--disabled {
+  cursor: not-allowed;
 }
-
-/* Focus state uses our border focus color */
-r-input ion-item.item-has-focus {
-  --border-color: var(--r-internal-input-border-focus);
-}
-
-/* Error state uses our error color */
-r-input ion-item.item-has-error {
-  --border-color: var(--r-color-danger);
-}
-

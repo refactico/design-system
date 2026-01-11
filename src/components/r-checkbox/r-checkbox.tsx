@@ -1,180 +1,111 @@
-import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
-// Auto-initialize Ionic (lazy loads components on demand)
-import '../../utils/ionic-init';
-import { removeUndefinedProps, IonicColor, IonicMode } from '../../utils';
-import { getItemLines } from '../../utils/form-field-props';
+import { Component, Prop, h, Event, EventEmitter, Element, State, Watch } from '@stencil/core';
+
+export type CheckboxSize = 'large' | 'default' | 'small';
 
 @Component({
   tag: 'r-checkbox',
   styleUrl: 'r-checkbox.css',
-  shadow: false, // No shadow DOM to allow Ionic styles to work
+  shadow: false,
 })
 export class RCheckbox {
-  /**
-   * If true, the checkbox is checked
-   */
+  @Element() el: HTMLElement;
+
+  /** The value of the checkbox (used in checkbox-group) */
+  @Prop() value: string | number | boolean;
+
+  /** The label text */
+  @Prop() label: string;
+
+  /** Whether the checkbox is checked */
   @Prop({ mutable: true }) checked: boolean = false;
 
-  /**
-   * If true, the checkbox is disabled
-   */
+  /** Whether the checkbox is in indeterminate state */
+  @Prop({ mutable: true }) indeterminate: boolean = false;
+
+  /** Whether the checkbox is disabled */
   @Prop() disabled: boolean = false;
 
-  /**
-   * The checkbox value
-   */
-  @Prop() value?: string;
+  /** Whether to add a border around the checkbox */
+  @Prop() border: boolean = false;
 
-  /**
-   * The checkbox name (for form submission)
-   */
-  @Prop() name?: string;
+  /** Size of the checkbox */
+  @Prop() size: CheckboxSize = 'default';
 
-  /**
-   * The checkbox color (Ionic color)
-   */
-  @Prop() color?: IonicColor;
+  /** Native name attribute */
+  @Prop({ attribute: 'name' }) inputName: string;
 
-  /**
-   * The checkbox mode (ios or md)
-   */
-  @Prop() mode?: IonicMode;
+  /** True value for v-model */
+  @Prop() trueValue: any = true;
 
-  /**
-   * If true, the checkbox is in an indeterminate state (useful for "select all" scenarios)
-   */
-  @Prop() indeterminate: boolean = false;
+  /** False value for v-model */
+  @Prop() falseValue: any = false;
 
-  /**
-   * The checkbox label
-   */
-  @Prop() label?: string;
+  @State() focused: boolean = false;
 
-  /**
-   * If true, the checkbox is required
-   */
-  @Prop() required: boolean = false;
+  @Event({ bubbles: true, composed: true }) change: EventEmitter<boolean>;
 
-  /**
-   * Label placement relative to the checkbox
-   */
-  @Prop() labelPlacement?: 'start' | 'end' | 'fixed' | 'stacked';
+  @Watch('checked')
+  handleCheckedChange(newValue: boolean) {
+    this.change.emit(newValue);
+  }
 
-  /**
-   * Justify content (start, end, space-between)
-   */
-  @Prop() justify?: 'start' | 'end' | 'space-between';
-
-  /**
-   * Checkbox alignment (start or center)
-   */
-  @Prop() alignment?: 'start' | 'center';
-
-  /**
-   * If true, the checkbox has error state
-   */
-  @Prop() error: boolean = false;
-
-  /**
-   * Error message to display
-   */
-  @Prop() errorText?: string;
-
-  /**
-   * Helper text to display
-   */
-  @Prop() helperText?: string;
-
-  /**
-   * If true, wraps checkbox in ion-item for form field styling
-   */
-  @Prop() formField: boolean = false;
-
-  /**
-   * The fill style (only applies when formField is true)
-   */
-  @Prop() fill?: 'outline' | 'solid' | 'clear' | 'default';
-
-  /**
-   * Emitted when the checkbox checked state changes
-   */
-  @Event() rChange: EventEmitter<CustomEvent>;
-
-  /**
-   * Emitted when the checkbox is focused
-   */
-  @Event() rFocus: EventEmitter<CustomEvent>;
-
-  /**
-   * Emitted when the checkbox is blurred
-   */
-  @Event() rBlur: EventEmitter<CustomEvent>;
-
-  private handleChange = (event: CustomEvent) => {
-    this.checked = event.detail.checked as boolean;
-    this.rChange.emit(event);
+  private handleClick = () => {
+    if (this.disabled) return;
+    this.indeterminate = false;
+    this.checked = !this.checked;
   };
 
-  private handleFocus = (event: CustomEvent) => {
-    this.rFocus.emit(event);
+  private handleFocus = () => {
+    this.focused = true;
   };
 
-  private handleBlur = (event: CustomEvent) => {
-    this.rBlur.emit(event);
+  private handleBlur = () => {
+    this.focused = false;
+  };
+
+  private handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      this.handleClick();
+    }
   };
 
   render() {
-    // Ensure checkbox has a color for checkmark visibility (default to primary if not specified)
-    const checkboxColor = this.color || 'primary';
-    
-    const checkboxProps = removeUndefinedProps({
-      checked: this.checked,
-      disabled: this.disabled,
-      value: this.value,
-      name: this.name,
-      color: checkboxColor,
-      mode: this.mode,
-      indeterminate: this.indeterminate,
-      labelPlacement: this.labelPlacement,
-      justify: this.justify,
-      alignment: this.alignment,
-      onIonChange: this.handleChange,
-      onIonFocus: this.handleFocus,
-      onIonBlur: this.handleBlur,
-    });
-
-    // If formField is true, wrap in ion-item for form field styling
-    if (this.formField) {
-      return (
-        <ion-item class={{ 'item-has-error': this.error }} lines={getItemLines(this.fill)}>
-          {this.label && (
-            <ion-label position={this.fill === 'outline' ? 'stacked' : 'floating'}>
-              {this.label}
-            </ion-label>
-          )}
-          <ion-checkbox {...checkboxProps}>
-            <slot></slot>
-          </ion-checkbox>
-          {this.error && this.errorText && (
-            <ion-note slot="error" color="danger">
-              {this.errorText}
-            </ion-note>
-          )}
-          {!this.error && this.helperText && (
-            <ion-note slot="helper">
-              {this.helperText}
-            </ion-note>
-          )}
-        </ion-item>
-      );
-    }
-
-    // Standalone checkbox (no ion-item wrapper)
     return (
-      <ion-checkbox {...checkboxProps}>
-        {this.label || <slot></slot>}
-      </ion-checkbox>
+      <label
+        class={{
+          'r-checkbox': true,
+          'r-checkbox--checked': this.checked,
+          'r-checkbox--indeterminate': this.indeterminate,
+          'r-checkbox--disabled': this.disabled,
+          'r-checkbox--border': this.border,
+          'r-checkbox--focused': this.focused,
+          [`r-checkbox--${this.size}`]: this.size !== 'default',
+        }}
+        onClick={this.handleClick}
+      >
+        <span class="r-checkbox__input">
+          <span class="r-checkbox__inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
+          <input
+            type="checkbox"
+            class="r-checkbox__original"
+            name={this.inputName}
+            value={String(this.value)}
+            checked={this.checked}
+            disabled={this.disabled}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onKeyDown={this.handleKeydown}
+          />
+        </span>
+        <span class="r-checkbox__label">
+          <slot>{this.label}</slot>
+        </span>
+      </label>
     );
   }
 }
-

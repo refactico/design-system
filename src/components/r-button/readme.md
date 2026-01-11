@@ -7,40 +7,91 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                     | Type                                                                                                            | Default     |
-| -------------- | --------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`        | `color`         | The button color (Ionic color)                  | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `undefined` |
-| `disabled`     | `disabled`      | If true, the button is disabled                 | `boolean`                                                                                                       | `false`     |
-| `expand`       | `expand`        | If true, the button takes full width            | `"block" \| "full"`                                                                                             | `undefined` |
-| `fill`         | `fill`          | Button fill style                               | `"clear" \| "default" \| "outline" \| "solid"`                                                                  | `undefined` |
-| `icon`         | `icon`          | Icon name (Ionic icon name)                     | `string`                                                                                                        | `undefined` |
-| `iconOnly`     | `icon-only`     | If true, shows only the icon (icon-only button) | `boolean`                                                                                                       | `false`     |
-| `iconPosition` | `icon-position` | Icon position                                   | `"end" \| "start"`                                                                                              | `undefined` |
-| `shape`        | `shape`         | Button shape                                    | `"round"`                                                                                                       | `undefined` |
-| `size`         | `size`          | The button size                                 | `"default" \| "large" \| "small"`                                                                               | `undefined` |
-| `type`         | `type`          | The button type (button, submit, reset)         | `"button" \| "reset" \| "submit"`                                                                               | `'button'`  |
+| Property          | Attribute           | Description                                                                                     | Type                                                                     | Default     |
+| ----------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
+| `accessibleName`  | `aria-label`        | Aria label for accessibility - renamed from ariaLabel to avoid collision with Element.ariaLabel | `string`                                                                 | `undefined` |
+| `autoInsertSpace` | `auto-insert-space` | Auto insert space between two Chinese characters                                                | `boolean`                                                                | `false`     |
+| `autofocus`       | `autofocus`         | Native button autofocus                                                                         | `boolean`                                                                | `false`     |
+| `bg`              | `bg`                | Text button with background on hover                                                            | `boolean`                                                                | `false`     |
+| `circle`          | `circle`            | Circle button (for icon-only)                                                                   | `boolean`                                                                | `false`     |
+| `color`           | `color`             | Custom button color                                                                             | `string`                                                                 | `undefined` |
+| `dark`            | `dark`              | Dark mode (auto-adjusts custom color)                                                           | `boolean`                                                                | `false`     |
+| `disabled`        | `disabled`          | Disabled state                                                                                  | `boolean`                                                                | `false`     |
+| `icon`            | `icon`              | Icon (renders before text)                                                                      | `string`                                                                 | `undefined` |
+| `link`            | `link`              | Link button style                                                                               | `boolean`                                                                | `false`     |
+| `loading`         | `loading`           | Loading state                                                                                   | `boolean`                                                                | `false`     |
+| `loadingIcon`     | `loading-icon`      | Custom loading icon (slot name or icon name)                                                    | `string`                                                                 | `undefined` |
+| `nativeType`      | `native-type`       | Native button type                                                                              | `"button" \| "reset" \| "submit"`                                        | `"button"`  |
+| `plain`           | `plain`             | Plain style (lighter background)                                                                | `boolean`                                                                | `false`     |
+| `round`           | `round`             | Round button                                                                                    | `boolean`                                                                | `false`     |
+| `size`            | `size`              | Button size                                                                                     | `"default" \| "large" \| "small"`                                        | `"default"` |
+| `tag`             | `tag`               | Custom HTML tag                                                                                 | `string`                                                                 | `"button"`  |
+| `text`            | `text`              | Text button (no background/border)                                                              | `boolean`                                                                | `false`     |
+| `type`            | `type`              | Button type (color theme)                                                                       | `"danger" \| "default" \| "info" \| "primary" \| "success" \| "warning"` | `"default"` |
 
 
 ## Events
 
-| Event    | Description                        | Type                      |
-| -------- | ---------------------------------- | ------------------------- |
-| `rClick` | Emitted when the button is clicked | `CustomEvent<MouseEvent>` |
+| Event     | Description | Type                      |
+| --------- | ----------- | ------------------------- |
+| `clicked` | Click event | `CustomEvent<MouseEvent>` |
+
+
+## Methods
+
+### `getDisabled() => Promise<boolean>`
+
+Expose disabled state
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+### `getRef() => Promise<HTMLElement>`
+
+Expose button element ref
+
+#### Returns
+
+Type: `Promise<HTMLElement>`
+
+
+
+### `getSize() => Promise<ButtonSize>`
+
+Expose size
+
+#### Returns
+
+Type: `Promise<ButtonSize>`
+
+
+
+### `getType() => Promise<ButtonType>`
+
+Expose type
+
+#### Returns
+
+Type: `Promise<ButtonType>`
+
+
 
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- ion-button
-- ion-icon
+ - [r-dropdown](../r-dropdown)
+ - [r-tabs](../r-tabs)
 
 ### Graph
 ```mermaid
 graph TD;
-  r-button --> ion-button
-  r-button --> ion-icon
-  ion-button --> ion-ripple-effect
+  r-dropdown --> r-button
+  r-tabs --> r-button
   style r-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

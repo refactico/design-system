@@ -1,109 +1,91 @@
-:host {
-  display: block;
-  width: 100%;
-
-  /* Component tokens (PRIVATE - do not override directly) */
-  /* These reference semantic tokens (--r-*) which CAN be customized */
-  --r-internal-dropdown-padding-x: var(--r-spacing-4);
-  --r-internal-dropdown-padding-y: var(--r-spacing-3);
-  --r-internal-dropdown-border-radius: var(--r-border-radius-base);
-  --r-internal-dropdown-font-size: var(--r-typography-font-size-base);
-  --r-internal-dropdown-border-color: var(--r-border-color);
-  --r-internal-dropdown-border-focus: var(--r-color-primary);
+/* Dropdown - Professional Design */
+.r-dropdown {
+  display: inline-block;
+  position: relative;
 }
 
-/* Map component tokens to Ionic select/item variables */
-r-dropdown ion-item {
-  --padding-start: var(--r-internal-dropdown-padding-x);
-  --padding-end: var(--r-internal-dropdown-padding-x);
-  --padding-top: var(--r-internal-dropdown-padding-y);
-  --padding-bottom: var(--r-internal-dropdown-padding-y);
-  /* Make background transparent to inherit from parent */
-  --background: transparent;
-  --ion-item-background: transparent;
-  background: transparent;
-}
-
-r-dropdown ion-label {
-  margin-bottom: var(--r-spacing-2, 8px);
-  /* Prevent label from being highlighted on focus or hover */
-  pointer-events: none;
-  user-select: none;
-  cursor: default;
-}
-
-/* Prevent all hover, focus, and active effects on label */
-r-dropdown ion-label:hover,
-r-dropdown ion-label:focus,
-r-dropdown ion-label:active,
-r-dropdown ion-label:focus-visible {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: inherit !important;
-  --color: inherit !important;
-  --background: transparent !important;
-  --background-color: transparent !important;
-  --ion-color-base: inherit !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* Prevent label from getting hover/focus styles when item is hovered/focused */
-r-dropdown ion-item:hover ion-label,
-r-dropdown ion-item.item-has-focus ion-label,
-r-dropdown ion-item:focus ion-label,
-r-dropdown ion-item:focus-within ion-label {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: inherit !important;
-  --color: inherit !important;
-  --background: transparent !important;
-  --background-color: transparent !important;
-  --ion-color-base: inherit !important;
-}
-
-r-dropdown ion-select {
-  font-size: var(--r-internal-dropdown-font-size);
-  margin-top: var(--r-spacing-2, 8px);
-  /* Ensure text color is not disabled/grayed out */
-  color: var(--ion-text-color, #000);
-  --color: var(--ion-text-color, #000);
-  /* Set placeholder color to be lighter */
-  --placeholder-color: var(--ion-color-medium, #666);
-  --placeholder-opacity: 1;
-  /* Prevent text selection on the select element */
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-/* Ensure select text is visible when not disabled */
-r-dropdown ion-select:not([disabled]) {
-  color: var(--ion-text-color, #000);
-  --color: var(--ion-text-color, #000);
-  opacity: 1;
-}
-
-/* When a value is selected, ensure the text is visible */
-r-dropdown ion-select:not([value=""]) {
-  color: var(--ion-text-color, #000);
-  --color: var(--ion-text-color, #000);
-}
-
-/* Ensure the entire select area is clickable, not just text */
-r-dropdown ion-select {
+.r-dropdown__trigger {
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
-  width: 100%;
 }
 
-/* Focus state uses our border focus color */
-r-dropdown ion-item.item-has-focus {
-  --border-color: var(--r-internal-dropdown-border-focus);
+/* Dropdown menu */
+.r-dropdown__menu {
+  position: absolute;
+  z-index: 2000;
+  min-width: 150px;
+  padding: var(--r-spacing-xs) 0;
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border-light);
+  border-radius: var(--r-radius-base);
+  box-shadow: var(--r-shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--r-transition-duration) var(--r-transition-timing), 
+              visibility var(--r-transition-duration) var(--r-transition-timing);
 }
 
-/* Error state uses our error color */
-r-dropdown ion-item.item-has-error {
-  --border-color: var(--r-color-danger);
+.r-dropdown__menu--visible {
+  opacity: 1;
+  visibility: visible;
 }
 
+/* ==================== PLACEMENTS ==================== */
+
+/* Bottom (default) */
+.r-dropdown__menu--bottom,
+.r-dropdown__menu--bottom-start,
+.r-dropdown__menu--bottom-end {
+  top: 100%;
+  margin-top: var(--r-spacing-xs);
+}
+
+.r-dropdown__menu--bottom {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.r-dropdown__menu--bottom-start {
+  left: 0;
+}
+
+.r-dropdown__menu--bottom-end {
+  right: 0;
+}
+
+/* Top */
+.r-dropdown__menu--top,
+.r-dropdown__menu--top-start,
+.r-dropdown__menu--top-end {
+  bottom: 100%;
+  margin-bottom: var(--r-spacing-xs);
+}
+
+.r-dropdown__menu--top {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.r-dropdown__menu--top-start {
+  left: 0;
+}
+
+.r-dropdown__menu--top-end {
+  right: 0;
+}
+
+/* ==================== DISABLED ==================== */
+.r-dropdown--disabled {
+  cursor: not-allowed;
+}
+
+.r-dropdown--disabled .r-dropdown__trigger {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ==================== SPLIT BUTTON ==================== */
+.r-dropdown--split .r-dropdown__menu {
+  min-width: 100%;
+}

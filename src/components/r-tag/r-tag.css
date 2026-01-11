@@ -1,0 +1,215 @@
+/* Tag - Professional Design */
+.r-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-spacing-xs);
+  padding: 0 var(--r-spacing-sm);
+  height: 24px;
+  font-size: var(--r-font-size-small);
+  font-weight: var(--r-font-weight-medium);
+  line-height: 1;
+  border-radius: var(--r-radius-small);
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-tag__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Close button */
+.r-tag__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-tag__close svg {
+  width: 10px;
+  height: 10px;
+}
+
+.r-tag__close:hover {
+  background-color: currentColor;
+}
+
+.r-tag__close:hover svg {
+  stroke: var(--r-color-white);
+}
+
+/* ==================== EFFECTS ==================== */
+
+/* Light (default) */
+.r-tag--light {
+  background-color: var(--r-color-fill);
+  border: 1px solid var(--r-color-border);
+  color: var(--r-color-text-regular);
+}
+
+/* Dark */
+.r-tag--dark {
+  background-color: var(--r-color-text-secondary);
+  border: 1px solid var(--r-color-text-secondary);
+  color: var(--r-color-white);
+}
+
+/* Plain */
+.r-tag--plain {
+  background-color: transparent;
+  border: 1px solid var(--r-color-border);
+  color: var(--r-color-text-regular);
+}
+
+/* ==================== TYPES ==================== */
+
+/* Primary */
+.r-tag--primary.r-tag--light {
+  background-color: color-mix(in srgb, var(--r-color-primary) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-primary) 30%, var(--r-color-border));
+  color: var(--r-color-primary);
+}
+
+.r-tag--primary.r-tag--dark {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+  color: var(--r-color-white);
+}
+
+.r-tag--primary.r-tag--plain {
+  border-color: var(--r-color-primary);
+  color: var(--r-color-primary);
+}
+
+/* Success */
+.r-tag--success.r-tag--light {
+  background-color: color-mix(in srgb, var(--r-color-success) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-success) 30%, var(--r-color-border));
+  color: var(--r-color-success);
+}
+
+.r-tag--success.r-tag--dark {
+  background-color: var(--r-color-success);
+  border-color: var(--r-color-success);
+  color: var(--r-color-white);
+}
+
+.r-tag--success.r-tag--plain {
+  border-color: var(--r-color-success);
+  color: var(--r-color-success);
+}
+
+/* Warning */
+.r-tag--warning.r-tag--light {
+  background-color: color-mix(in srgb, var(--r-color-warning) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-warning) 30%, var(--r-color-border));
+  color: var(--r-color-warning-dark);
+}
+
+.r-tag--warning.r-tag--dark {
+  background-color: var(--r-color-warning);
+  border-color: var(--r-color-warning);
+  color: var(--r-color-white);
+}
+
+.r-tag--warning.r-tag--plain {
+  border-color: var(--r-color-warning);
+  color: var(--r-color-warning-dark);
+}
+
+/* Danger */
+.r-tag--danger.r-tag--light {
+  background-color: color-mix(in srgb, var(--r-color-danger) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-danger) 30%, var(--r-color-border));
+  color: var(--r-color-danger);
+}
+
+.r-tag--danger.r-tag--dark {
+  background-color: var(--r-color-danger);
+  border-color: var(--r-color-danger);
+  color: var(--r-color-white);
+}
+
+.r-tag--danger.r-tag--plain {
+  border-color: var(--r-color-danger);
+  color: var(--r-color-danger);
+}
+
+/* Info */
+.r-tag--info.r-tag--light {
+  background-color: color-mix(in srgb, var(--r-color-info) 10%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-info) 30%, var(--r-color-border));
+  color: var(--r-color-info);
+}
+
+.r-tag--info.r-tag--dark {
+  background-color: var(--r-color-info);
+  border-color: var(--r-color-info);
+  color: var(--r-color-white);
+}
+
+.r-tag--info.r-tag--plain {
+  border-color: var(--r-color-info);
+  color: var(--r-color-info);
+}
+
+/* ==================== SIZES ==================== */
+
+/* Large */
+.r-tag--large {
+  height: 32px;
+  padding: 0 var(--r-spacing-md);
+  font-size: var(--r-font-size-base);
+  border-radius: var(--r-radius-base);
+}
+
+.r-tag--large .r-tag__close {
+  width: 16px;
+  height: 16px;
+}
+
+.r-tag--large .r-tag__close svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Small */
+.r-tag--small {
+  height: 20px;
+  padding: 0 var(--r-spacing-xs);
+  font-size: 11px;
+}
+
+.r-tag--small .r-tag__close {
+  width: 12px;
+  height: 12px;
+}
+
+.r-tag--small .r-tag__close svg {
+  width: 8px;
+  height: 8px;
+}
+
+/* ==================== ROUND ==================== */
+.r-tag--round {
+  border-radius: var(--r-radius-round);
+}
+
+/* ==================== CUSTOM COLOR ==================== */
+.r-tag--custom {
+  background-color: var(--r-tag-custom-color);
+  border-color: var(--r-tag-custom-color);
+  color: var(--r-color-white);
+}
+
+/* ==================== NO TRANSITION ==================== */
+.r-tag--no-transition {
+  transition: none;
+}

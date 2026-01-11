@@ -1,8 +1,12 @@
-import { Component, Prop, Event, EventEmitter, h, Element } from '@stencil/core';
-// Auto-initialize Ionic (lazy loads components on demand)
-import '../../utils/ionic-init';
-import { removeUndefinedProps, IonicColor, FillStyle, IonicMode } from '../../utils';
-import { getLabelPosition, getItemLines } from '../../utils/form-field-props';
+import { Component, Prop, h, Event, EventEmitter, Element, Watch, Listen, State } from '@stencil/core';
+
+export type RadioGroupSize = 'large' | 'default' | 'small';
+
+export interface RadioOption {
+  label: string;
+  value: string | number | boolean;
+  disabled?: boolean;
+}
 
 @Component({
   tag: 'r-radio-group',
@@ -10,211 +14,136 @@ import { getLabelPosition, getItemLines } from '../../utils/form-field-props';
   shadow: false,
 })
 export class RRadioGroup {
-  /**
-   * The selected value
-   */
-  @Prop({ mutable: true }) value?: string;
+  @Element() el: HTMLElement;
 
-  /**
-   * The radio group name (for form submission)
-   */
-  @Prop() name?: string;
+  /** Binding value */
+  @Prop({ mutable: true }) value: string | number | boolean;
 
-  /**
-   * The radio group label
-   */
-  @Prop() label?: string;
+  /** Size of radio buttons */
+  @Prop() size: RadioGroupSize = 'default';
 
-  /**
-   * If true, the radio group is disabled
-   */
+  /** Whether the nesting radios are disabled */
   @Prop() disabled: boolean = false;
 
-  /**
-   * If true, the radio group is required
-   */
-  @Prop() required: boolean = false;
+  /** Whether to trigger form validation */
+  @Prop() validateEvent: boolean = true;
 
-  /**
-   * The radio group color (Ionic color)
-   */
-  @Prop() color?: IonicColor;
+  /** Font color when button is active */
+  @Prop() textColor: string = '#ffffff';
 
-  /**
-   * The fill style
-   */
-  @Prop() fill?: FillStyle;
+  /** Border and background color when button is active */
+  @Prop() fill: string;
 
-  /**
-   * If true, the radio group has error state
-   */
-  @Prop() error: boolean = false;
+  /** Native name attribute */
+  @Prop({ attribute: 'name' }) inputName: string;
 
-  /**
-   * Error message to display
-   */
-  @Prop() errorText?: string;
+  /** Aria label */
+  @Prop() ariaLabel: string;
 
-  /**
-   * Helper text to display
-   */
-  @Prop() helperText?: string;
+  /** Options data for quick setup */
+  @Prop({ mutable: true }) options: RadioOption[] = [];
 
-  /**
-   * Radio options (array of { value: string, label: string })
-   */
-  @Prop() options?: string | Array<{ value: string; label: string }>;
+  /** Component type to render options ('radio' or 'button') */
+  @Prop() type: 'radio' | 'button' = 'radio';
 
-  /**
-   * If true, allows deselecting the selected option
-   */
-  @Prop() allowEmptySelection: boolean = false;
+  /** Vertical layout */
+  @Prop() vertical: boolean = false;
 
-  /**
-   * Controls the alignment of the radio and label on the cross axis
-   */
-  @Prop() alignment?: 'start' | 'center';
+  @State() internalValue: string | number | boolean;
 
-  /**
-   * Determines how the label and radio are packed within a line
-   */
-  @Prop() justify?: 'start' | 'end' | 'space-between';
+  @Event({ bubbles: true, composed: true }) change: EventEmitter<string | number | boolean>;
 
-  /**
-   * Specifies the label's position relative to the radio
-   */
-  @Prop() labelPlacement?: 'start' | 'end' | 'fixed' | 'stacked';
+  componentWillLoad() {
+    this.internalValue = this.value;
+  }
 
-  /**
-   * Chooses the platform styles to use
-   */
-  @Prop() mode?: IonicMode;
+  componentDidLoad() {
+    this.updateChildRadios();
+  }
 
-  @Element() el!: HTMLElement;
+  @Watch('value')
+  handleValueChange(newValue: string | number | boolean) {
+    this.internalValue = newValue;
+    this.updateChildRadios();
+  }
 
-  @Event() rChange: EventEmitter<CustomEvent>;
-  @Event() rFocus: EventEmitter<CustomEvent>;
-  @Event() rBlur: EventEmitter<CustomEvent>;
+  @Listen('change')
+  handleRadioChange(event: CustomEvent<string | number | boolean>) {
+    // Prevent the child event from bubbling further
+    event.stopPropagation();
+    
+    const newValue = event.detail;
+    if (newValue !== this.internalValue) {
+      this.internalValue = newValue;
+      this.value = newValue;
+      this.change.emit(newValue);
+      this.updateChildRadios();
+    }
+  }
 
-  private handleChange = (event: CustomEvent) => {
-    const selectedValue = event.detail.value;
-    this.value = selectedValue;
-    this.rChange.emit(event);
-  };
+  private updateChildRadios() {
+    // Update r-radio children
+    const radios = this.el.querySelectorAll('r-radio');
+    radios.forEach((radio: HTMLElement & { checked: boolean; disabled: boolean; size: string; inputName: string; value: any }) => {
+      radio.checked = radio.value === this.internalValue;
+      if (this.disabled) radio.disabled = true;
+      if (this.size !== 'default') radio.size = this.size;
+      if (this.inputName) radio.inputName = this.inputName;
+    });
 
-  private handleFocus = (event: CustomEvent) => {
-    this.rFocus.emit(event);
-  };
+    // Update r-radio-button children
+    const radioButtons = this.el.querySelectorAll('r-radio-button');
+    radioButtons.forEach((btn: HTMLElement & { checked: boolean; disabled: boolean; size: string; inputName: string; value: any }) => {
+      btn.checked = btn.value === this.internalValue;
+      if (this.disabled) btn.disabled = true;
+      if (this.size !== 'default') btn.size = this.size;
+      if (this.inputName) btn.inputName = this.inputName;
+    });
+  }
 
-  private handleBlur = (event: CustomEvent) => {
-    this.rBlur.emit(event);
-  };
+  private renderOptions() {
+    if (!this.options || this.options.length === 0) return null;
 
-  private parseOptions(): Array<{ value: string; label: string }> {
-    if (!this.options) {
-      return [];
+    if (this.type === 'button') {
+      return this.options.map((option) => (
+        <r-radio-button
+          value={option.value}
+          disabled={option.disabled || this.disabled}
+          checked={option.value === this.internalValue}
+          size={this.size}
+          inputName={this.inputName}
+        >
+          {option.label}
+        </r-radio-button>
+      ));
     }
 
-    if (typeof this.options === 'string') {
-      try {
-        const parsed = JSON.parse(this.options);
-        // If parsed is an array of strings, convert to {value, label} format
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          if (typeof parsed[0] === 'string') {
-            return (parsed as string[]).map(opt => ({ value: opt, label: opt }));
-          }
-          // If array of objects, ensure they have value and label
-          return (parsed as Array<{ value: string; label: string }>).map(opt => ({
-            value: opt.value || String(opt),
-            label: opt.label || opt.value || String(opt),
-          }));
-        }
-        return [];
-      } catch {
-        // If parsing fails, treat as comma-separated string
-        return this.options.split(',').map(opt => ({
-          value: opt.trim(),
-          label: opt.trim(),
-        }));
-      }
-    }
-
-    // If it's already an array
-    if (Array.isArray(this.options)) {
-      // If array of strings, convert to {value, label} format
-      if (this.options.length > 0 && typeof this.options[0] === 'string') {
-        return (this.options as unknown as string[]).map(opt => ({ value: opt, label: opt }));
-      }
-      // If array of objects, ensure they have value and label
-      return (this.options as Array<{ value: string; label: string }>).map(opt => ({
-        value: opt.value || String(opt),
-        label: opt.label || opt.value || String(opt),
-      }));
-    }
-
-    return [];
+    return this.options.map((option) => (
+      <r-radio
+        value={option.value}
+        disabled={option.disabled || this.disabled}
+        checked={option.value === this.internalValue}
+        size={this.size}
+        inputName={this.inputName}
+      >
+        {option.label}
+      </r-radio>
+    ));
   }
 
   render() {
-    const parsedOptions = this.parseOptions();
-    const hasError = this.error;
-    const radioColor = this.color || 'primary';
-
-    const radioGroupProps = removeUndefinedProps({
-      value: this.value,
-      disabled: this.disabled,
-      allowEmptySelection: this.allowEmptySelection,
-      onIonChange: this.handleChange,
-      onIonFocus: this.handleFocus,
-      onIonBlur: this.handleBlur,
-    });
-
     return (
-      <ion-item class={{ 'item-has-error': hasError }} lines={getItemLines(this.fill)}>
-        {this.label && (
-          <ion-label position={getLabelPosition(this.fill, 'floating')}>
-            {this.label}
-            {this.required && <span style={{ color: 'var(--r-color-danger)' }}> *</span>}
-          </ion-label>
-        )}
-        <ion-radio-group {...radioGroupProps}>
-          {parsedOptions.map((option, index) => {
-            const optionValue = option.value;
-            const optionLabel = option.label;
-            const radioId = `${this.name || 'radio'}-${index}`;
-
-            const radioProps = removeUndefinedProps({
-              value: optionValue,
-              color: radioColor,
-              disabled: this.disabled,
-              alignment: this.alignment,
-              justify: this.justify,
-              labelPlacement: this.labelPlacement,
-              mode: this.mode,
-            });
-
-            return (
-              <ion-item key={radioId} lines="none">
-                <ion-radio {...radioProps}>
-                  <ion-label>{optionLabel}</ion-label>
-                </ion-radio>
-              </ion-item>
-            );
-          })}
-          <slot></slot>
-        </ion-radio-group>
-        {hasError && this.errorText && (
-          <ion-note slot="error" color="danger">
-            {this.errorText}
-          </ion-note>
-        )}
-        {!hasError && this.helperText && (
-          <ion-note slot="helper">
-            {this.helperText}
-          </ion-note>
-        )}
-      </ion-item>
+      <div
+        class={{
+          'r-radio-group': true,
+          'r-radio-group--vertical': this.vertical,
+        }}
+        role="radiogroup"
+        aria-label={this.ariaLabel}
+      >
+        {this.renderOptions()}
+        <slot></slot>
+      </div>
     );
   }
 }
-

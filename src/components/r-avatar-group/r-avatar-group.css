@@ -1,0 +1,114 @@
+/* Avatar Group - Professional Design */
+.r-avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.r-avatar-group > r-avatar,
+.r-avatar-group > .r-avatar {
+  margin-left: -8px;
+  border: 2px solid var(--r-color-bg);
+}
+
+.r-avatar-group > r-avatar:first-child,
+.r-avatar-group > .r-avatar:first-child {
+  margin-left: 0;
+}
+
+/* Collapse avatar container */
+.r-avatar-group__collapse {
+  position: relative;
+  margin-left: -8px;
+}
+
+.r-avatar-group__collapse-avatar {
+  cursor: pointer;
+  background-color: var(--r-color-fill-dark);
+  color: var(--r-color-text-regular);
+  border: 2px solid var(--r-color-bg);
+  font-weight: var(--r-font-weight-semibold);
+}
+
+/* Tooltip */
+.r-avatar-group__tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
+  border-radius: var(--r-radius-base);
+  box-shadow: var(--r-shadow-base);
+  white-space: nowrap;
+}
+
+.r-avatar-group__tooltip--light {
+  background-color: var(--r-color-bg);
+  border: 1px solid var(--r-color-border-light);
+  color: var(--r-color-text-regular);
+}
+
+.r-avatar-group__tooltip--dark {
+  background-color: var(--r-color-text-primary);
+  color: var(--r-color-bg);
+}
+
+/* Tooltip placements */
+.r-avatar-group__tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+}
+
+.r-avatar-group__tooltip--top-start {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+}
+
+.r-avatar-group__tooltip--top-end {
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+}
+
+.r-avatar-group__tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+
+.r-avatar-group__tooltip--bottom-start {
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+}
+
+.r-avatar-group__tooltip--bottom-end {
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+}
+
+.r-avatar-group__tooltip--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+
+.r-avatar-group__tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Tooltip content */
+.r-avatar-group__tooltip-content {
+  display: flex;
+  gap: 4px;
+}
+
+.r-avatar-group__tooltip-content .r-avatar {
+  border: none;
+}

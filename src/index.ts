@@ -1,15 +1,11 @@
 /**
- * @fileoverview entry point for your component library
+ * @fileoverview Refactico Design System
  *
- * This is the entry point for your component library. Use this file to export utilities,
- * constants or data structure that accompany your components.
- *
- * DO NOT use this file to export your components. Instead, use the recommended approaches
- * to consume components of this package as outlined in the `README.md`.
+ * Entry point for the component library.
+ * Import theme.css in your root app to enable theming.
  */
 
-// Initialize Ionic components globally
-import './utils/ionic-init';
-
-export { format } from './utils/utils';
+// Export types for TypeScript consumers
+export type { ButtonType, ButtonSize, ButtonNativeType } from './components/r-button/r-button';
+export type { ButtonGroupDirection } from './components/r-button-group/r-button-group';
 export type * from './components.d.ts';

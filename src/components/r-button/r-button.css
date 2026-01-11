@@ -1,42 +1,525 @@
-:host {
-  display: inline-block;
+/* Base button styles - Professional Design */
+.r-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--r-spacing-sm);
+  padding: var(--r-spacing-md) var(--r-spacing-xl);
+  font-size: var(--r-font-size-base);
+  font-weight: var(--r-button-font-weight);
+  line-height: 1.25;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--r-color-border);
+  border-radius: var(--r-radius-base);
+  background-color: var(--r-color-bg);
+  color: var(--r-color-text-regular);
+  transition: all var(--r-transition-duration) var(--r-transition-timing);
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-/* Full width buttons need block display */
-:host([expand="full"]),
-:host([expand="block"]) {
-  display: block;
-  width: 100%;
+.r-button:hover {
+  border-color: var(--r-color-primary);
+  color: var(--r-color-primary);
+  background-color: color-mix(in srgb, var(--r-color-primary) 6%, var(--r-color-bg));
 }
 
-/* Ensure ion-button inside expands to full width */
-:host([expand="full"]) ion-button,
-:host([expand="block"]) ion-button {
-  width: 100%;
-  display: block;
+.r-button:active {
+  border-color: var(--r-color-primary-dark);
+  color: var(--r-color-primary-dark);
 }
 
-/* Let Ionic handle the default button styling */
-/* We only override specific properties using our tokens */
-r-button ion-button {
-  /* Use Ionic's default styling, but allow our theme tokens to work */
-  /* Colors come from Ionic bridge automatically */
+/* Focus ring */
+.r-button:focus-visible {
+  border-color: var(--r-color-primary);
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
 }
 
-/* Size variants - only adjust if size is specified */
-r-button[size="small"] ion-button {
-  --padding-start: var(--r-spacing-2);
-  --padding-end: var(--r-spacing-2);
-  --padding-top: var(--r-spacing-2);
-  --padding-bottom: var(--r-spacing-2);
-  font-size: var(--r-typography-font-size-sm);
+/* ==================== SIZES ==================== */
+.r-button--large {
+  padding: var(--r-spacing-lg) var(--r-spacing-2xl);
+  font-size: var(--r-font-size-large);
+  border-radius: var(--r-radius-large);
 }
 
-r-button[size="large"] ion-button {
-  --padding-start: var(--r-spacing-6);
-  --padding-end: var(--r-spacing-6);
-  --padding-top: var(--r-spacing-4);
-  --padding-bottom: var(--r-spacing-4);
-  font-size: var(--r-typography-font-size-lg);
+.r-button--small {
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
+  font-size: var(--r-font-size-small);
+  border-radius: var(--r-radius-small);
 }
 
+/* ==================== TYPES ==================== */
+
+/* Primary */
+.r-button--primary {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
+}
+
+.r-button--primary:hover {
+  background-color: var(--r-color-primary-light);
+  border-color: var(--r-color-primary-light);
+  color: var(--r-color-white);
+}
+
+.r-button--primary:active {
+  background-color: var(--r-color-primary-dark);
+  border-color: var(--r-color-primary-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--primary:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-primary);
+}
+
+/* Success */
+.r-button--success {
+  background-color: var(--r-color-success);
+  border-color: var(--r-color-success);
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
+}
+
+.r-button--success:hover {
+  background-color: var(--r-color-success-light);
+  border-color: var(--r-color-success-light);
+  color: var(--r-color-white);
+}
+
+.r-button--success:active {
+  background-color: var(--r-color-success-dark);
+  border-color: var(--r-color-success-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--success:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-success);
+}
+
+/* Warning */
+.r-button--warning {
+  background-color: var(--r-color-warning);
+  border-color: var(--r-color-warning);
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
+}
+
+.r-button--warning:hover {
+  background-color: var(--r-color-warning-light);
+  border-color: var(--r-color-warning-light);
+  color: var(--r-color-white);
+}
+
+.r-button--warning:active {
+  background-color: var(--r-color-warning-dark);
+  border-color: var(--r-color-warning-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--warning:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-warning);
+}
+
+/* Danger */
+.r-button--danger {
+  background-color: var(--r-color-danger);
+  border-color: var(--r-color-danger);
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
+}
+
+.r-button--danger:hover {
+  background-color: var(--r-color-danger-light);
+  border-color: var(--r-color-danger-light);
+  color: var(--r-color-white);
+}
+
+.r-button--danger:active {
+  background-color: var(--r-color-danger-dark);
+  border-color: var(--r-color-danger-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--danger:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-danger);
+}
+
+/* Info */
+.r-button--info {
+  background-color: var(--r-color-info);
+  border-color: var(--r-color-info);
+  color: var(--r-color-white);
+  box-shadow: var(--r-shadow-xs);
+}
+
+.r-button--info:hover {
+  background-color: var(--r-color-info-light);
+  border-color: var(--r-color-info-light);
+  color: var(--r-color-white);
+}
+
+.r-button--info:active {
+  background-color: var(--r-color-info-dark);
+  border-color: var(--r-color-info-dark);
+  color: var(--r-color-white);
+}
+
+.r-button--info:focus-visible {
+  box-shadow: 0 0 0 2px var(--r-color-bg), 0 0 0 4px var(--r-color-info);
+}
+
+/* ==================== PLAIN VARIANTS ==================== */
+.r-button--plain {
+  background-color: var(--r-color-bg);
+}
+
+.r-button--plain.r-button--primary {
+  background-color: color-mix(in srgb, var(--r-color-primary) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-primary) 30%, var(--r-color-border));
+  color: var(--r-color-primary);
+  box-shadow: none;
+}
+
+.r-button--plain.r-button--primary:hover {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+  color: var(--r-color-white);
+}
+
+.r-button--plain.r-button--success {
+  background-color: color-mix(in srgb, var(--r-color-success) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-success) 30%, var(--r-color-border));
+  color: var(--r-color-success);
+  box-shadow: none;
+}
+
+.r-button--plain.r-button--success:hover {
+  background-color: var(--r-color-success);
+  border-color: var(--r-color-success);
+  color: var(--r-color-white);
+}
+
+.r-button--plain.r-button--warning {
+  background-color: color-mix(in srgb, var(--r-color-warning) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-warning) 30%, var(--r-color-border));
+  color: var(--r-color-warning-dark);
+  box-shadow: none;
+}
+
+.r-button--plain.r-button--warning:hover {
+  background-color: var(--r-color-warning);
+  border-color: var(--r-color-warning);
+  color: var(--r-color-white);
+}
+
+.r-button--plain.r-button--danger {
+  background-color: color-mix(in srgb, var(--r-color-danger) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-danger) 30%, var(--r-color-border));
+  color: var(--r-color-danger);
+  box-shadow: none;
+}
+
+.r-button--plain.r-button--danger:hover {
+  background-color: var(--r-color-danger);
+  border-color: var(--r-color-danger);
+  color: var(--r-color-white);
+}
+
+.r-button--plain.r-button--info {
+  background-color: color-mix(in srgb, var(--r-color-info) 8%, var(--r-color-bg));
+  border-color: color-mix(in srgb, var(--r-color-info) 30%, var(--r-color-border));
+  color: var(--r-color-info);
+  box-shadow: none;
+}
+
+.r-button--plain.r-button--info:hover {
+  background-color: var(--r-color-info);
+  border-color: var(--r-color-info);
+  color: var(--r-color-white);
+}
+
+/* ==================== TEXT BUTTON ==================== */
+.r-button--text {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--r-color-text-primary);
+  padding-left: var(--r-spacing-md);
+  padding-right: var(--r-spacing-md);
+  box-shadow: none;
+}
+
+.r-button--text:hover {
+  background-color: var(--r-color-fill);
+  border-color: transparent;
+  color: var(--r-color-text-primary);
+}
+
+.r-button--text:active {
+  background-color: var(--r-color-fill-dark);
+}
+
+.r-button--text.r-button--primary {
+  color: var(--r-color-primary);
+}
+
+.r-button--text.r-button--primary:hover {
+  background-color: color-mix(in srgb, var(--r-color-primary) 10%, transparent);
+  color: var(--r-color-primary);
+}
+
+.r-button--text.r-button--success {
+  color: var(--r-color-success);
+}
+
+.r-button--text.r-button--success:hover {
+  background-color: color-mix(in srgb, var(--r-color-success) 10%, transparent);
+  color: var(--r-color-success);
+}
+
+.r-button--text.r-button--warning {
+  color: var(--r-color-warning-dark);
+}
+
+.r-button--text.r-button--warning:hover {
+  background-color: color-mix(in srgb, var(--r-color-warning) 10%, transparent);
+  color: var(--r-color-warning-dark);
+}
+
+.r-button--text.r-button--danger {
+  color: var(--r-color-danger);
+}
+
+.r-button--text.r-button--danger:hover {
+  background-color: color-mix(in srgb, var(--r-color-danger) 10%, transparent);
+  color: var(--r-color-danger);
+}
+
+.r-button--text.r-button--info {
+  color: var(--r-color-info);
+}
+
+.r-button--text.r-button--info:hover {
+  background-color: color-mix(in srgb, var(--r-color-info) 10%, transparent);
+  color: var(--r-color-info);
+}
+
+/* Text button with background */
+.r-button--text-bg {
+  background-color: var(--r-color-fill);
+}
+
+.r-button--text-bg:hover {
+  background-color: var(--r-color-fill-dark);
+}
+
+/* ==================== LINK BUTTON ==================== */
+.r-button--link {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--r-color-primary);
+  padding-left: var(--r-spacing-xs);
+  padding-right: var(--r-spacing-xs);
+  box-shadow: none;
+}
+
+.r-button--link:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--r-color-primary-light);
+  text-decoration: underline;
+}
+
+.r-button--link:active {
+  color: var(--r-color-primary-dark);
+}
+
+.r-button--link.r-button--success {
+  color: var(--r-color-success);
+}
+
+.r-button--link.r-button--success:hover {
+  color: var(--r-color-success-light);
+}
+
+.r-button--link.r-button--warning {
+  color: var(--r-color-warning-dark);
+}
+
+.r-button--link.r-button--warning:hover {
+  color: var(--r-color-warning);
+}
+
+.r-button--link.r-button--danger {
+  color: var(--r-color-danger);
+}
+
+.r-button--link.r-button--danger:hover {
+  color: var(--r-color-danger-light);
+}
+
+.r-button--link.r-button--info {
+  color: var(--r-color-info);
+}
+
+.r-button--link.r-button--info:hover {
+  color: var(--r-color-info-light);
+}
+
+/* ==================== ROUND & CIRCLE ==================== */
+.r-button--round {
+  border-radius: var(--r-radius-round);
+}
+
+.r-button--circle {
+  border-radius: 50%;
+  padding: var(--r-spacing-md);
+  width: 40px;
+  height: 40px;
+}
+
+.r-button--circle.r-button--large {
+  width: 48px;
+  height: 48px;
+  padding: var(--r-spacing-lg);
+}
+
+.r-button--circle.r-button--small {
+  width: 32px;
+  height: 32px;
+  padding: var(--r-spacing-sm);
+}
+
+/* ==================== DISABLED ==================== */
+.r-button--disabled,
+.r-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.r-button--disabled:hover,
+.r-button:disabled:hover {
+  background-color: var(--r-color-bg);
+  border-color: var(--r-color-border);
+  color: var(--r-color-text-disabled);
+}
+
+/* Disabled typed buttons */
+.r-button--disabled.r-button--primary,
+.r-button:disabled.r-button--primary {
+  background-color: var(--r-color-primary);
+  border-color: var(--r-color-primary);
+  color: var(--r-color-white);
+}
+
+.r-button--disabled.r-button--success,
+.r-button:disabled.r-button--success {
+  background-color: var(--r-color-success);
+  border-color: var(--r-color-success);
+  color: var(--r-color-white);
+}
+
+.r-button--disabled.r-button--warning,
+.r-button:disabled.r-button--warning {
+  background-color: var(--r-color-warning);
+  border-color: var(--r-color-warning);
+  color: var(--r-color-white);
+}
+
+.r-button--disabled.r-button--danger,
+.r-button:disabled.r-button--danger {
+  background-color: var(--r-color-danger);
+  border-color: var(--r-color-danger);
+  color: var(--r-color-white);
+}
+
+.r-button--disabled.r-button--info,
+.r-button:disabled.r-button--info {
+  background-color: var(--r-color-info);
+  border-color: var(--r-color-info);
+  color: var(--r-color-white);
+}
+
+/* Disabled text/link buttons */
+.r-button--disabled.r-button--text,
+.r-button--disabled.r-button--link {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* ==================== LOADING ==================== */
+.r-button--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.r-button__loading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r-button__loading-spinner {
+  width: 1em;
+  height: 1em;
+  animation: r-button-spin 1s linear infinite;
+}
+
+@keyframes r-button-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== ICON ==================== */
+.r-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.r-button__icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ==================== CONTENT ==================== */
+.r-button__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Auto insert space for Chinese characters */
+.r-button--has-space .r-button__content {
+  letter-spacing: 0.25em;
+  margin-right: -0.25em;
+}
+
+/* ==================== CUSTOM COLOR ==================== */
+.r-button--custom-color {
+  background-color: var(--r-button-custom-bg);
+  border-color: var(--r-button-custom-border);
+  color: var(--r-button-custom-text);
+}
+
+.r-button--custom-color:hover {
+  background-color: var(--r-button-custom-hover-bg);
+  border-color: var(--r-button-custom-hover-border);
+  color: var(--r-button-custom-hover-text);
+}
+
+.r-button--custom-color:active {
+  background-color: var(--r-button-custom-active-bg);
+}
+
+.r-button--custom-color.r-button--disabled,
+.r-button--custom-color:disabled {
+  background-color: var(--r-button-custom-disabled-bg, var(--r-button-custom-bg));
+  border-color: var(--r-button-custom-disabled-border, var(--r-button-custom-border));
+}

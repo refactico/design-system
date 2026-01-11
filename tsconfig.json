@@ -15,16 +15,12 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "jsxFragmentFactory": "h.Fragment",
-    "skipLibCheck": true
+    "jsxFragmentFactory": "h.Fragment"
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "node_modules",
-    "**/*.stories.ts",
-    "**/*.stories.tsx",
-    ".storybook"
+    "node_modules"
   ]
 }

@@ -1,0 +1,147 @@
+/* Table - Professional Design */
+.r-table {
+  width: 100%;
+  overflow: auto;
+  background-color: var(--r-color-bg);
+  border-radius: var(--r-radius-base);
+}
+
+.r-table__inner {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* Header */
+.r-table__header {
+  background-color: var(--r-color-fill-light);
+}
+
+.r-table__header th {
+  font-weight: var(--r-font-weight-semibold);
+  color: var(--r-color-text-primary);
+  border-bottom: 1px solid var(--r-color-border);
+}
+
+/* Body */
+.r-table__body tr {
+  transition: background-color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-table__body tr:hover {
+  background-color: var(--r-color-fill-light);
+}
+
+/* Cell */
+.r-table__cell {
+  padding: var(--r-spacing-md) var(--r-spacing-lg);
+  font-size: var(--r-font-size-base);
+  color: var(--r-color-text-regular);
+  border-bottom: 1px solid var(--r-color-border-light);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.r-table__cell-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--r-spacing-xs);
+}
+
+/* Alignment */
+.r-table__cell--left {
+  text-align: left;
+}
+
+.r-table__cell--center {
+  text-align: center;
+}
+
+.r-table__cell--right {
+  text-align: right;
+}
+
+/* Sortable */
+.r-table__cell--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.r-table__cell--sortable:hover {
+  background-color: var(--r-color-fill);
+}
+
+.r-table__sort {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: var(--r-spacing-xs);
+}
+
+.r-table__sort-icon {
+  width: 10px;
+  height: 10px;
+  color: var(--r-color-text-placeholder);
+  transition: color var(--r-transition-duration) var(--r-transition-timing);
+}
+
+.r-table__sort-icon--asc {
+  margin-bottom: -3px;
+}
+
+.r-table__sort-icon--desc {
+  margin-top: -3px;
+}
+
+.r-table__sort-icon--active {
+  color: var(--r-color-primary);
+}
+
+/* Current row */
+.r-table__row--current {
+  background-color: color-mix(in srgb, var(--r-color-primary) 8%, var(--r-color-bg)) !important;
+}
+
+/* Empty */
+.r-table__empty {
+  text-align: center;
+  padding: var(--r-spacing-xl) !important;
+  color: var(--r-color-text-secondary);
+}
+
+/* ==================== BORDER ==================== */
+.r-table--border {
+  border: 1px solid var(--r-color-border);
+}
+
+.r-table--border .r-table__cell {
+  border-right: 1px solid var(--r-color-border-light);
+}
+
+.r-table--border .r-table__cell:last-child {
+  border-right: none;
+}
+
+/* ==================== STRIPE ==================== */
+.r-table--stripe .r-table__body tr:nth-child(even) {
+  background-color: var(--r-color-fill-light);
+}
+
+.r-table--stripe .r-table__body tr:nth-child(even):hover {
+  background-color: var(--r-color-fill);
+}
+
+/* ==================== SIZES ==================== */
+
+/* Large */
+.r-table--large .r-table__cell {
+  padding: var(--r-spacing-lg) var(--r-spacing-xl);
+  font-size: var(--r-font-size-large);
+}
+
+/* Small */
+.r-table--small .r-table__cell {
+  padding: var(--r-spacing-sm) var(--r-spacing-md);
+  font-size: var(--r-font-size-small);
+}
